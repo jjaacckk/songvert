@@ -1,0 +1,52 @@
+   Compiling spotifyx v0.1.0 (/Users/jackwelch/Desktop/Developer/spotifyx)
+warning: unused import: `Context`
+ --> src/main.rs:1:14
+  |
+1 | use anyhow::{Context, Result};
+  |              ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unused import: `crate::track::Track`
+ --> src/apple_music.rs:1:5
+  |
+1 | use crate::track::Track;
+  |     ^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `std::collections::HashMap`
+ --> src/track.rs:2:5
+  |
+2 | use std::collections::HashMap;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `AppleMusic`, `Bandcamp`, `YouTube`
+  --> src/track.rs:94:25
+   |
+94 |         AlbumOnService, AppleMusic, ArtistOnService, Bandcamp, Services, Spotify, Track, YouTube,
+   |                         ^^^^^^^^^^                   ^^^^^^^^                            ^^^^^^^
+
+warning: unused variable: `isrc`
+ --> src/apple_music.rs:5:19
+  |
+5 | fn search_by_isrc(isrc: &str) {}
+  |                   ^^^^ help: if this is intentional, prefix it with an underscore: `_isrc`
+  |
+  = note: `#[warn(unused_variables)]` on by default
+
+warning: unused variable: `results`
+  --> src/apple_music.rs:16:13
+   |
+16 |         let results = search_by_isrc("GBAYK8000001");
+   |             ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_results`
+
+warning: function `grab_public_api_key` is never used
+ --> src/apple_music.rs:3:4
+  |
+3 | fn grab_public_api_key() {}
+  |    ^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` on by default
+
+warning: `spotifyx` (bin "spotifyx" test) generated 7 warnings (run `cargo fix --bin "spotifyx" --tests` to apply 4 suggestions)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.26s
+     Running unittests src/main.rs (target/debug/deps/spotifyx-149fc7172cdd9c58)

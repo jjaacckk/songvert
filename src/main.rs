@@ -2,6 +2,13 @@ use anyhow::{Context, Result};
 use clap::{ArgGroup, Parser};
 use std::path::PathBuf;
 
+mod apple_music;
+mod bandcamp;
+mod service;
+mod spotify;
+mod track;
+mod youtube;
+
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
 #[clap(group(
