@@ -22,3 +22,14 @@ impl Display for CreateError {
         write!(f, "error creating track(s)")
     }
 }
+
+#[derive(Debug)]
+pub struct SpotifyError;
+
+impl Error for SpotifyError {}
+
+impl Display for SpotifyError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "error accessing Spotify")
+    }
+}
