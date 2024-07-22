@@ -2,12 +2,23 @@ use std::error::Error;
 use std::fmt::{Debug, Display};
 
 #[derive(Debug)]
-struct MatchNotFoundError;
+pub struct MatchError;
 
-impl Error for MatchNotFoundError {}
+impl Error for MatchError {}
 
-impl Display for MatchNotFoundError {
+impl Display for MatchError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "")
+        write!(f, "error matching track(s)")
+    }
+}
+
+#[derive(Debug)]
+pub struct CreateError;
+
+impl Error for CreateError {}
+
+impl Display for CreateError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "error creating track(s)")
     }
 }

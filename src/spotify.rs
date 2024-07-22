@@ -3,6 +3,15 @@ use crate::track::Track;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 
+// #[derive(Serialize, Deserialize, Debug)]
+// pub struct RawTrack {}
+
+// #[derive(Serialize, Deserialize, Debug)]
+// pub struct RawPlaylist {}
+
+// #[derive(Serialize, Deserialize, Debug)]
+// pub struct RawAlbum {}
+
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Spotify {
     pub id: String,
@@ -25,16 +34,16 @@ impl Spotify {
     fn grab_public_api_session_info(client: &Client) -> SessionInfo {
         client.get()
     }
-}
 
-impl Service for Spotify {
     fn search_by_isrc(isrc: &str) -> serde_json::Value {
         let search_data: serde_json::Value;
         search_data
     }
 
     fn search_by_name(name: &str) -> serde_json::Value {}
+}
 
+impl Service for Spotify {
     fn get_raw_match(track: &Track) -> serde_json::Value {
         match track.isrc {
             Some(isrc) => data = Self::search_by_isrc(&isrc),
@@ -79,7 +88,7 @@ impl Service for Spotify {
         }
     }
 
-    fn create_track_by_id(id: &str) -> Track {
+    fn create_track_from_id(id: &str) -> Track {
         let track_data: serde_json::Value;
         Self::create_track_from_raw(track_data)
     }
