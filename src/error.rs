@@ -4,10 +4,14 @@
 
 use std::fmt::{Debug, Display};
 
+pub type Result<T> = std::result::Result<T, Error>;
+
 #[derive(Debug)]
 pub enum Error {
-    MatchError,
-    FindError,
+    TrackMatchError,
+    TrackFindError,
+    SessionGrabError,
+    RegexError(regex::Error),
     ParseError(serde_json::Error),
     RetrievalError(reqwest::Error),
     IoError(std::io::Error),
@@ -16,8 +20,10 @@ pub enum Error {
 impl Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Error::MatchError => write!(f, "unable to find match"),
-            Error::FindError => write!(f, "unable to find track(s) from given parameter(s)"),
+            Error::TrackMatchError => write!(f, "unable to find match"),
+            Error::TrackFindError => write!(f, "unable to find track(s) from given parameter(s)"),
+            Error::SessionGrabError => write!(f, "unable to grab session info"),
+            Error::RegexError(e) => write!(f, "{}", e),
             Error::ParseError(e) => write!(f, "{}", e),
             Error::RetrievalError(e) => write!(f, "{}", e),
             Error::IoError(e) => write!(f, "{}", e),
@@ -51,5 +57,11 @@ impl From<reqwest::Error> for Error {
 impl From<std::io::Error> for Error {
     fn from(err: std::io::Error) -> Self {
         Error::IoError(err)
+    }
+}
+
+impl From<regex::Error> for Error {
+    fn from(err: regex::Error) -> Self {
+        Error::RegexError(err)
     }
 }

@@ -1,4 +1,4 @@
-use crate::error::SpotifyError;
+use crate::error::{Error, Result};
 use crate::service::{AlbumOnService, ArtistOnService, Service};
 use regex::Regex;
 use reqwest::{Client, RequestBuilder, Response};
@@ -24,7 +24,6 @@ pub struct Spotify {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(deny_unknown_fields)]
 // #[serde(deny_unknown_fields, rename_all(deserialize = "snake_case"))]
 struct SessionInfo {
     #[serde(rename = "accessToken")]
@@ -38,29 +37,27 @@ struct SessionInfo {
 }
 
 impl Spotify {
-    async fn get_public_api_session_info(client: &Client) -> Result<SessionInfo, SpotifyError> {
+    async fn get_public_session_info(client: &Client) -> Result<SessionInfo> {
         let request: RequestBuilder = client.get("https://open.spotify.com");
-        let response: Response = match request.send().await {
-            Ok(r) => r,
-            Err(e) => panic!("{}", e),
-        };
+        let response: Response = request.send().await?;
 
         if response.status() != 200 {
-            panic!(
-                "{} status error when fetching session info",
-                response.status()
-            )
+            return Err(Error::SessionGrabError);
         }
 
-        let raw_html: String = response.text().await.unwrap();
+        let raw_html: String = response.text().await?;
 
-        let re = Regex::new(r#"(\{"accessToken":.*"})"#).unwrap();
-        let captures = re
-            .captures(&raw_html)
-            .expect("no access token found in HTML");
+        let re = Regex::new(r#"(\{"accessToken":.*"\})"#)?;
+        let captures = match re.captures(&raw_html) {
+            Some(c) => c,
+            None => return Err(Error::SessionGrabError),
+        };
 
-        let session_info: SessionInfo =
-            serde_json::from_str(captures.get(0).unwrap().as_str()).unwrap();
+        let capture: &str = match captures.get(0) {
+            Some(c) => c.as_str(),
+            None => return Err(Error::SessionGrabError),
+        };
+        let session_info: SessionInfo = serde_json::from_str(capture)?;
 
         Ok(session_info)
     }
@@ -144,8 +141,7 @@ mod tests {
             .user_agent("Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15")
             .build()
             .unwrap();
-        let session_info: SessionInfo =
-            Spotify::get_public_api_session_info(&client).await.unwrap();
+        let session_info: SessionInfo = Spotify::get_public_session_info(&client).await.unwrap();
         println!("{:?}", session_info);
     }
 }
