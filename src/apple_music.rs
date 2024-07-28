@@ -13,7 +13,6 @@ pub struct AppleMusic {
     pub genres: Vec<String>,
     pub audio_preivew: Option<String>,
 }
-
 impl AppleMusic {
     fn grab_public_api_key() -> String {
         String::from("test_key")
