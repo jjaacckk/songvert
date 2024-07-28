@@ -1,35 +1,55 @@
-use std::error::Error;
+// research:
+// - https://doc.rust-lang.org/rust-by-example/error/multiple_error_types/wrap_error.html
+// - https://fettblog.eu/rust-enums-wrapping-errors/
+
 use std::fmt::{Debug, Display};
 
 #[derive(Debug)]
-pub struct MatchError;
+pub enum Error {
+    MatchError,
+    FindError,
+    ParseError(serde_json::Error),
+    RetrievalError(reqwest::Error),
+    IoError(std::io::Error),
+}
 
-impl Error for MatchError {}
-
-impl Display for MatchError {
+impl Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "error matching track(s)")
+        match self {
+            Error::MatchError => write!(f, "unable to find match"),
+            Error::FindError => write!(f, "unable to find track(s) from given parameter(s)"),
+            Error::ParseError(e) => write!(f, "{}", e),
+            Error::RetrievalError(e) => write!(f, "{}", e),
+            Error::IoError(e) => write!(f, "{}", e),
+        }
     }
 }
 
-#[derive(Debug)]
-pub struct CreateError;
+impl std::error::Error for Error {
+    // fn source(&self) -> Option<&(dyn std::error:Error + 'static)> {
+    //     match *self {
+    //         Error::MatchError => None,
+    //         Error::ParseError(ref e) => Some(e),
+    //         Error::RetrievalError(ref e) => Some(e),
+    //         Error::IoError(ref e) => Some(e)
+    //     }
+    // }
+}
 
-impl Error for CreateError {}
-
-impl Display for CreateError {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "error creating track(s)")
+impl From<serde_json::Error> for Error {
+    fn from(err: serde_json::Error) -> Self {
+        Error::ParseError(err)
     }
 }
 
-#[derive(Debug)]
-pub struct SpotifyError;
+impl From<reqwest::Error> for Error {
+    fn from(err: reqwest::Error) -> Self {
+        Error::RetrievalError(err)
+    }
+}
 
-impl Error for SpotifyError {}
-
-impl Display for SpotifyError {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "error accessing Spotify")
+impl From<std::io::Error> for Error {
+    fn from(err: std::io::Error) -> Self {
+        Error::IoError(err)
     }
 }
