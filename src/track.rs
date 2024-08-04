@@ -19,6 +19,8 @@ pub struct Track {
     pub upc: Option<String>,
 }
 
+pub type Playlist = Vec<Track>;
+
 #[cfg(test)]
 mod tests {
 
