@@ -15,8 +15,6 @@ pub struct Track {
     pub duration_ms: u64,
     pub services: Services,
     pub isrc: Option<String>,
-    pub ean: Option<String>,
-    pub upc: Option<String>,
 }
 
 pub type Playlist = Vec<Track>;
@@ -26,7 +24,7 @@ mod tests {
 
     // use crate::apple_music::AppleMusic;
     // use crate::bandcamp::Bandcamp;
-    use crate::service::{AlbumOnService, ArtistOnService, Services};
+    use crate::service::{Album, Artist, Services};
     use crate::spotify::Spotify;
     use crate::track::Track;
     // use crate::youtube::YouTube;
@@ -35,8 +33,8 @@ mod tests {
     fn example_track_data_insertion() {
         let example_spotify_service: Spotify = Spotify {
             id: String::from("6K225HZ3V7F4ec7yi1o88C"),
-            artists: vec![ArtistOnService {id: String::from("0xiwsYZwhrizQGNaQtW942"), name: String::from("Tunabunny")}],
-            album: AlbumOnService { id: String::from("6WSL47W7Z5WwCCKzaFyLGd"), name: String::from("Genius Fatigue")},
+            artists: vec![Artist {id: String::from("0xiwsYZwhrizQGNaQtW942"), name: String::from("Tunabunny")}],
+            album: Album { id: String::from("6WSL47W7Z5WwCCKzaFyLGd"), name: String::from("Genius Fatigue"), ean: None, upc: None},
             url: String::from("https://open.spotify.com/track/6K225HZ3V7F4ec7yi1o88C"),
             image: Some(String::from("https://i.scdn.co/image/ab67616d0000b27336a71c545ed453f80433f6c8")),
             audio_preview: Some(String::from("https://p.scdn.co/mp3-preview/13a7bfeabbe56d852fb9f7b6291c7dc49bcde515?cid=f6a40776580943a7bc5173125a1e8832")),
@@ -62,8 +60,6 @@ mod tests {
             duration_ms: 138026,
             services: example_services,
             isrc: Some(String::from("USZUD1215001")),
-            ean: None,
-            upc: None,
         };
         println!(
             "{}",
