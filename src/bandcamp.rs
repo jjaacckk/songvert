@@ -1,4 +1,4 @@
-use crate::service::{AlbumOnService, ArtistOnService};
+use crate::service::{Album, Artist};
 // use crate::track::Track;
 use serde::{Deserialize, Serialize};
 
@@ -6,8 +6,8 @@ use serde::{Deserialize, Serialize};
 pub struct Bandcamp {
     pub id: String,
     pub url: String,
-    pub artists: Vec<ArtistOnService>,
-    pub album: AlbumOnService,
+    pub artists: Vec<Artist>,
+    pub album: Album,
     pub image: Option<String>,
     pub audio_file: Option<String>,
 }

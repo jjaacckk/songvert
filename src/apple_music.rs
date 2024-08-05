@@ -1,4 +1,4 @@
-use crate::service::{AlbumOnService, ArtistOnService};
+use crate::service::{Album, Artist};
 // use crate::track::Track;
 // use reqwest::Client;
 use serde::{Deserialize, Serialize};
@@ -6,8 +6,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Deserialize, Debug)]
 pub struct AppleMusic {
     pub id: String,
-    pub artists: Vec<ArtistOnService>,
-    pub album: AlbumOnService,
+    pub artists: Vec<Artist>,
+    pub album: Album,
     pub url: String,
     pub image: Option<String>,
     pub genres: Vec<String>,
