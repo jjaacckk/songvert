@@ -10,6 +10,7 @@ pub type Result<T> = std::result::Result<T, Error>;
 pub enum Error {
     MatchError,
     FindError,
+    CreateError, //KeyError??
     SessionGrabError,
     RegexError(regex::Error),
     ParseError(serde_json::Error),
@@ -22,6 +23,7 @@ impl Display for Error {
         match self {
             Error::MatchError => write!(f, "unable to find match"),
             Error::FindError => write!(f, "unable to find track(s) from given parameter(s)"),
+            Error::CreateError => write!(f, "unable to create track (probably key error)"),
             Error::SessionGrabError => write!(f, "unable to grab session info"),
             Error::RegexError(e) => write!(f, "{}", e),
             Error::ParseError(e) => write!(f, "{}", e),
