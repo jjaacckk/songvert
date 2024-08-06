@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Track {
-    pub title: String,
+    pub name: String,
     pub album: String,
     pub disk_number: u8,
     pub track_number: u8,
@@ -48,7 +48,7 @@ mod tests {
         };
 
         let example_track: Track = Track {
-            title: String::from("Duchess for Nothing"),
+            name: String::from("Duchess for Nothing"),
             album: String::from("Genius Fatigue"),
             disk_number: 1,
             track_number: 1,
