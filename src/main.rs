@@ -1,13 +1,20 @@
 // // use anyhow::{Context, Result};
 // use clap::{ArgGroup, Parser};
 // use std::path::PathBuf;
+//
 
-// mod apple_music;
-// mod bandcamp;
-// mod service;
-// mod spotify;
-// mod track;
-// mod youtube;
+mod apple_music;
+mod bandcamp;
+mod error;
+mod service;
+mod spotify;
+mod track;
+mod youtube;
+
+use crate::error::{Error, Result};
+use crate::service::{Album, Artist, Service, Services};
+use crate::spotify::{SessionInfo, Spotify};
+use crate::track::Track;
 
 // #[derive(Parser)]
 // #[command(version, about, long_about = None)]
@@ -59,5 +66,46 @@
 
 //     Ok(())
 // }
+#[tokio::main]
+async fn main() -> Result<()> {
+    std::env::set_var("RUST_BACKTRACE", "full");
 
-fn main() -> () {}
+    let client: reqwest::Client = reqwest::Client::builder()
+            .user_agent("Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15")
+            .build()
+            .unwrap();
+    let session_info: SessionInfo = Spotify::get_public_session_info(&client).await.unwrap();
+
+    println!("token: {}", &session_info.access_token);
+
+    let track: Track = match Spotify::create_track_from_id(
+        &client,
+        &session_info.access_token,
+        "6K225HZ3V7F4ec7yi1o88C",
+    )
+    .await
+    {
+        Ok(t) => t,
+        Err(e) => {
+            eprintln!("{}", e);
+            return Err(e);
+        }
+    };
+
+    println!(
+        "{}",
+        Spotify::search_by_isrc(&client, &session_info.access_token, "GBAYK8000001").await?
+    );
+
+    // let track: Track = Spotify::create_track_from_id(
+    //     &client,
+    //     &session_info.access_token,
+    //     "6K225HZ3V7F4ec7yi1o88C",
+    // )
+    // .await
+    // .unwrap();
+
+    println!("{:?}", track);
+
+    Ok(())
+}
