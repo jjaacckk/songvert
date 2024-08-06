@@ -78,7 +78,7 @@ async fn main() -> Result<()> {
 
     println!("token: {}", &session_info.access_token);
 
-    let track: Track = match Spotify::create_track_from_id(
+    let mut track: Track = match Spotify::create_track_from_id(
         &client,
         &session_info.access_token,
         "6K225HZ3V7F4ec7yi1o88C",
@@ -92,20 +92,14 @@ async fn main() -> Result<()> {
         }
     };
 
+    println!("{:?}", track);
+
+    track.isrc = None;
+
     println!(
         "{}",
-        Spotify::search_by_isrc(&client, &session_info.access_token, "GBAYK8000001").await?
+        Spotify::get_raw_track_match(&client, &session_info.access_token, &track).await?
     );
-
-    // let track: Track = Spotify::create_track_from_id(
-    //     &client,
-    //     &session_info.access_token,
-    //     "6K225HZ3V7F4ec7yi1o88C",
-    // )
-    // .await
-    // .unwrap();
-
-    println!("{:?}", track);
 
     Ok(())
 }
