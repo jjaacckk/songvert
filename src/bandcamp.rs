@@ -2,7 +2,7 @@ use crate::service::{Album, Artist};
 // use crate::track::Track;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Bandcamp {
     pub id: String,
     pub url: String,

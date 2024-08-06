@@ -3,7 +3,7 @@ use crate::service::{Album, Artist};
 // use reqwest::Client;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct AppleMusic {
     pub id: String,
     pub artists: Vec<Artist>,

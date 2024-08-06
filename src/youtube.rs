@@ -3,7 +3,7 @@
 // use reqwest::Client;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct YouTube {
     pub id: String,
     pub url: String,
