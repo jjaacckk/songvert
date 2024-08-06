@@ -98,7 +98,8 @@ async fn main() -> Result<()> {
 
     println!(
         "{}",
-        Spotify::get_raw_track_match(&client, &session_info.access_token, &track).await?
+        Spotify::get_raw_track_match_from_track(&client, &session_info.access_token, &track)
+            .await?
     );
 
     Ok(())

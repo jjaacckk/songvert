@@ -2,7 +2,7 @@ use std::str::FromStr;
 
 use crate::error::{Error, Result};
 use crate::service::{Album, Artist, Service, Services};
-use crate::track::Track;
+use crate::track::{Playlist, Track};
 use regex::Regex;
 use reqwest::{Client, RequestBuilder, Response};
 use serde::{Deserialize, Serialize};
@@ -64,8 +64,10 @@ impl Spotify {
 
         Ok(session_info)
     }
+}
 
-    pub async fn track_search(
+impl Service for Spotify {
+    async fn get_raw_track_match_from_search(
         client: &Client,
         auth_token: &str,
         query: &str,
@@ -94,17 +96,20 @@ impl Spotify {
 
         Ok(search_data["tracks"]["items"][0].to_owned())
     }
-}
-
-impl Service for Spotify {
-    async fn get_raw_track_match(
+    async fn get_raw_track_match_from_track(
         client: &Client,
         auth_token: &str,
         track: &Track,
     ) -> Result<serde_json::Value> {
         match &track.isrc {
             Some(isrc) => {
-                match Self::track_search(&client, &auth_token, &format!("isrc:{}", isrc)).await {
+                match Self::get_raw_track_match_from_search(
+                    &client,
+                    &auth_token,
+                    &format!("isrc:{}", isrc),
+                )
+                .await
+                {
                     Ok(raw_track) => return Ok(raw_track),
                     Err(..) => {}
                 }
@@ -113,7 +118,7 @@ impl Service for Spotify {
         }
         // no isrc or isrc search failed
 
-        Self::track_search(
+        Self::get_raw_track_match_from_search(
             &client,
             &auth_token,
             &format!(
@@ -125,12 +130,13 @@ impl Service for Spotify {
         .await
     }
 
-    async fn add_service_to_track(
+    async fn create_service_for_track(
         client: &Client,
         auth_token: &str,
         track: &mut Track,
     ) -> Result<()> {
-        let data: serde_json::Value = Self::get_raw_track_match(client, auth_token, track).await?;
+        let data: serde_json::Value =
+            Self::get_raw_track_match_from_track(client, auth_token, track).await?;
         let service: Spotify = Self::create_service_from_raw(&data).await?;
         track.services.spotify = Some(service);
         Ok(())
@@ -260,16 +266,16 @@ impl Service for Spotify {
         Ok(Self::create_track_from_raw(&track_data).await?)
     }
 
-    async fn create_tracks_from_playlist_raw(data: &serde_json::Value) -> Result<Vec<Track>> {
+    async fn create_playlist_from_raw(data: &serde_json::Value) -> Result<Playlist> {
         let new_tracks: Vec<Track> = Vec::new();
         Ok(new_tracks)
     }
 
-    async fn create_tracks_from_playlist_id(
+    async fn create_playlist_from_id(
         client: &Client,
         auth_token: &str,
         playlist_id: &str,
-    ) -> Result<Vec<Track>> {
+    ) -> Result<Playlist> {
         let request: RequestBuilder = client
             .get(format!(
                 "https://api.spotify.com/v1/playlists/{}",
@@ -281,7 +287,7 @@ impl Service for Spotify {
             return Err(Error::FindError);
         }
         let playlist_data: serde_json::Value = serde_json::Value::from(response.text().await?);
-        Ok(Self::create_tracks_from_playlist_raw(&playlist_data).await?)
+        Ok(Self::create_playlist_from_raw(&playlist_data).await?)
     }
 }
 
@@ -303,7 +309,7 @@ mod tests {
                 .unwrap();
         let session_info: SessionInfo = Spotify::get_public_session_info(&client).await.unwrap();
 
-        let search_result: serde_json::Value = Spotify::track_search(
+        let search_result: serde_json::Value = Spotify::get_raw_track_match_from_search(
             &client,
             &session_info.access_token,
             &format!("isrc:{}", good_isrc),
@@ -328,7 +334,7 @@ mod tests {
                 .unwrap();
         let session_info: SessionInfo = Spotify::get_public_session_info(&client).await.unwrap();
 
-        match Spotify::track_search(
+        match Spotify::get_raw_track_match_from_search(
             &client,
             &session_info.access_token,
             &format!("isrc:{}", bad_isrc),
@@ -370,10 +376,13 @@ mod tests {
                     .unwrap();
         let session_info: SessionInfo = Spotify::get_public_session_info(&client).await.unwrap();
 
-        let search_result: serde_json::Value =
-            Spotify::get_raw_track_match(&client, &session_info.access_token, &example_track)
-                .await
-                .unwrap();
+        let search_result: serde_json::Value = Spotify::get_raw_track_match_from_track(
+            &client,
+            &session_info.access_token,
+            &example_track,
+        )
+        .await
+        .unwrap();
 
         assert_eq!(search_result, serde_json::from_str::<serde_json::Value>(r#"{ "album": { "album_type": "album", "artists": [ { "external_urls": { "spotify": "https://open.spotify.com/artist/0xiwsYZwhrizQGNaQtW942" }, "href": "https://api.spotify.com/v1/artists/0xiwsYZwhrizQGNaQtW942", "id": "0xiwsYZwhrizQGNaQtW942", "name": "Tunabunny", "type": "artist", "uri": "spotify:artist:0xiwsYZwhrizQGNaQtW942" } ], "available_markets": [ "AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "MK", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET" ], "external_urls": { "spotify": "https://open.spotify.com/album/6WSL47W7Z5WwCCKzaFyLGd" }, "href": "https://api.spotify.com/v1/albums/6WSL47W7Z5WwCCKzaFyLGd", "id": "6WSL47W7Z5WwCCKzaFyLGd", "images": [ { "height": 640, "url": "https://i.scdn.co/image/ab67616d0000b27336a71c545ed453f80433f6c8", "width": 640 }, { "height": 300, "url": "https://i.scdn.co/image/ab67616d00001e0236a71c545ed453f80433f6c8", "width": 300 }, { "height": 64, "url": "https://i.scdn.co/image/ab67616d0000485136a71c545ed453f80433f6c8", "width": 64 } ], "name": "Genius Fatigue", "release_date": "2013", "release_date_precision": "year", "total_tracks": 10, "type": "album", "uri": "spotify:album:6WSL47W7Z5WwCCKzaFyLGd" }, "artists": [ { "external_urls": { "spotify": "https://open.spotify.com/artist/0xiwsYZwhrizQGNaQtW942" }, "href": "https://api.spotify.com/v1/artists/0xiwsYZwhrizQGNaQtW942", "id": "0xiwsYZwhrizQGNaQtW942", "name": "Tunabunny", "type": "artist", "uri": "spotify:artist:0xiwsYZwhrizQGNaQtW942" } ], "available_markets": [ "AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "MK", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET" ], "disc_number": 1, "duration_ms": 138026, "explicit": false, "external_ids": { "isrc": "USZUD1215001" }, "external_urls": { "spotify": "https://open.spotify.com/track/6K225HZ3V7F4ec7yi1o88C" }, "href": "https://api.spotify.com/v1/tracks/6K225HZ3V7F4ec7yi1o88C", "id": "6K225HZ3V7F4ec7yi1o88C", "is_local": false, "name": "Duchess for Nothing", "popularity": 0, "preview_url": "https://p.scdn.co/mp3-preview/13a7bfeabbe56d852fb9f7b6291c7dc49bcde515?cid=d8a5ed958d274c2e8ee717e6a4b0971d", "track_number": 1, "type": "track", "uri": "spotify:track:6K225HZ3V7F4ec7yi1o88C" }"#).unwrap());
     }
@@ -408,10 +417,13 @@ mod tests {
                     .unwrap();
         let session_info: SessionInfo = Spotify::get_public_session_info(&client).await.unwrap();
 
-        let search_result: serde_json::Value =
-            Spotify::get_raw_track_match(&client, &session_info.access_token, &example_track)
-                .await
-                .unwrap();
+        let search_result: serde_json::Value = Spotify::get_raw_track_match_from_track(
+            &client,
+            &session_info.access_token,
+            &example_track,
+        )
+        .await
+        .unwrap();
 
         assert_eq!(search_result, serde_json::from_str::<serde_json::Value>(r#"{ "album": { "album_type": "album", "artists": [ { "external_urls": { "spotify": "https://open.spotify.com/artist/0xiwsYZwhrizQGNaQtW942" }, "href": "https://api.spotify.com/v1/artists/0xiwsYZwhrizQGNaQtW942", "id": "0xiwsYZwhrizQGNaQtW942", "name": "Tunabunny", "type": "artist", "uri": "spotify:artist:0xiwsYZwhrizQGNaQtW942" } ], "available_markets": [ "AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "MK", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET" ], "external_urls": { "spotify": "https://open.spotify.com/album/6WSL47W7Z5WwCCKzaFyLGd" }, "href": "https://api.spotify.com/v1/albums/6WSL47W7Z5WwCCKzaFyLGd", "id": "6WSL47W7Z5WwCCKzaFyLGd", "images": [ { "height": 640, "url": "https://i.scdn.co/image/ab67616d0000b27336a71c545ed453f80433f6c8", "width": 640 }, { "height": 300, "url": "https://i.scdn.co/image/ab67616d00001e0236a71c545ed453f80433f6c8", "width": 300 }, { "height": 64, "url": "https://i.scdn.co/image/ab67616d0000485136a71c545ed453f80433f6c8", "width": 64 } ], "name": "Genius Fatigue", "release_date": "2013", "release_date_precision": "year", "total_tracks": 10, "type": "album", "uri": "spotify:album:6WSL47W7Z5WwCCKzaFyLGd" }, "artists": [ { "external_urls": { "spotify": "https://open.spotify.com/artist/0xiwsYZwhrizQGNaQtW942" }, "href": "https://api.spotify.com/v1/artists/0xiwsYZwhrizQGNaQtW942", "id": "0xiwsYZwhrizQGNaQtW942", "name": "Tunabunny", "type": "artist", "uri": "spotify:artist:0xiwsYZwhrizQGNaQtW942" } ], "available_markets": [ "AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "MK", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET" ], "disc_number": 1, "duration_ms": 138026, "explicit": false, "external_ids": { "isrc": "USZUD1215001" }, "external_urls": { "spotify": "https://open.spotify.com/track/6K225HZ3V7F4ec7yi1o88C" }, "href": "https://api.spotify.com/v1/tracks/6K225HZ3V7F4ec7yi1o88C", "id": "6K225HZ3V7F4ec7yi1o88C", "is_local": false, "name": "Duchess for Nothing", "popularity": 0, "preview_url": "https://p.scdn.co/mp3-preview/13a7bfeabbe56d852fb9f7b6291c7dc49bcde515?cid=d8a5ed958d274c2e8ee717e6a4b0971d", "track_number": 1, "type": "track", "uri": "spotify:track:6K225HZ3V7F4ec7yi1o88C" }"#).unwrap())
     }
