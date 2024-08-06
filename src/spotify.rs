@@ -142,7 +142,10 @@ impl Service for Spotify {
         Ok(())
     }
 
-    async fn create_service_from_raw(data: &serde_json::Value) -> Result<Spotify> {
+    async fn create_service_from_raw(data: &serde_json::Value) -> Result<Spotify>
+    where
+        Self: Sized,
+    {
         let mut artists: Vec<Artist> = Vec::new();
         for artist in data["artists"].as_array().ok_or(Error::CreateError)? {
             artists.push(Artist {
