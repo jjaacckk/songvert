@@ -11,6 +11,8 @@ mod spotify;
 mod track;
 mod youtube;
 
+use apple_music::AppleMusic;
+
 use crate::error::{Error, Result};
 use crate::service::{Album, Artist, Service, Services};
 use crate::spotify::{SessionInfo, Spotify};
@@ -78,7 +80,7 @@ async fn main() -> Result<()> {
 
     println!("token: {}", &session_info.access_token);
 
-    let mut track: Track = match Spotify::create_track_from_id(
+    let spotify_track: Track = match Spotify::create_track_from_id(
         &client,
         &session_info.access_token,
         "6K225HZ3V7F4ec7yi1o88C",
@@ -92,15 +94,21 @@ async fn main() -> Result<()> {
         }
     };
 
-    println!("{:?}", track);
+    println!("{:?}", spotify_track);
 
-    track.isrc = None;
-
-    println!(
-        "{}",
-        Spotify::get_raw_track_match_from_track(&client, &session_info.access_token, &track)
-            .await?
-    );
+    let apple_music_track: Track = match AppleMusic::create_track_from_id(
+        &client,
+        AppleMusic::PUBLIC_BEARER_TOKEN,
+        "575329663",
+    )
+    .await
+    {
+        Ok(t) => t,
+        Err(e) => {
+            eprintln!("{}", e);
+            return Err(e);
+        }
+    };
 
     Ok(())
 }

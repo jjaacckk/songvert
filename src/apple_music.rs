@@ -1,6 +1,7 @@
-use crate::service::{Album, Artist};
-// use crate::track::Track;
-// use reqwest::Client;
+use crate::error::{Error, Result};
+use crate::service::{Album, Artist, Service, Services};
+use crate::track::Track;
+use reqwest::{Client, RequestBuilder, Response};
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
@@ -13,9 +14,69 @@ pub struct AppleMusic {
     pub genres: Vec<String>,
     pub audio_preivew: Option<String>,
 }
+
 impl AppleMusic {
-    fn grab_public_api_key() -> String {
-        String::from("test_key")
+    pub const PUBLIC_BEARER_TOKEN: &str = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IldlYlBsYXlLaWQifQ.eyJpc3MiOiJBTVBXZWJQbGF5IiwiaWF0IjoxNzIxNzczNjI0LCJleHAiOjE3MjkwMzEyMjQsInJvb3RfaHR0cHNfb3JpZ2luIjpbImFwcGxlLmNvbSJdfQ.cMMhHLLazlxgiIbwBSSP1YuHCgqAVxiF7UQrwBc5xZepWt-vjqth_o4BidXFrmsEJvwzZKJ-GAMbqJpIeGcl7w";
+}
+
+impl Service for AppleMusic {
+    const API_BASE_URL: &'static str = "https://api.music.apple.com/v1";
+    // const API_BASE_URL: &'static str = "https://amp-api-edge.music.apple.com/v1";
+    const SITE_BASE_URL: &'static str = "https://music.apple.com";
+
+    async fn get_raw_track_match_from_search(
+        client: &Client,
+        auth_token: &str,
+        query: &str,
+    ) -> Result<serde_json::Value> {
+        todo!()
+    }
+
+    async fn get_raw_track_match_from_track(
+        client: &Client,
+        auth_token: &str,
+        track: &Track,
+    ) -> Result<serde_json::Value> {
+        todo!()
+    }
+
+    async fn create_service_for_track(
+        client: &Client,
+        auth_token: &str,
+        track: &mut Track,
+    ) -> Result<()> {
+        todo!()
+    }
+
+    async fn create_service_from_raw(data: &serde_json::Value) -> Result<Self>
+    where
+        Self: Sized,
+    {
+        todo!()
+    }
+
+    async fn create_track_from_id(
+        client: &Client,
+        auth_token: &str,
+        track_id: &str,
+    ) -> Result<Track> {
+        todo!()
+    }
+
+    async fn create_track_from_raw(data: &serde_json::Value) -> Result<Track> {
+        todo!()
+    }
+
+    async fn create_playlist_from_id(
+        client: &Client,
+        auth_token: &str,
+        playlist_id: &str,
+    ) -> Result<crate::track::Playlist> {
+        todo!()
+    }
+
+    async fn create_playlist_from_raw(data: &serde_json::Value) -> Result<crate::track::Playlist> {
+        todo!()
     }
 }
 
