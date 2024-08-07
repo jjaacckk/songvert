@@ -41,7 +41,7 @@ pub struct SessionInfo {
 
 impl Spotify {
     pub async fn get_public_session_info(client: &Client) -> Result<SessionInfo> {
-        let request: RequestBuilder = client.get("https://open.spotify.com");
+        let request: RequestBuilder = client.get(Spotify::SITE_BASE_URL);
         let response: Response = request.send().await?;
 
         if response.status() != 200 {
@@ -67,6 +67,9 @@ impl Spotify {
 }
 
 impl Service for Spotify {
+    const API_BASE_URL: &'static str = "https://api.spotify.com/v1";
+    const SITE_BASE_URL: &'static str = "https://open.spotify.com";
+
     async fn get_raw_track_match_from_search(
         client: &Client,
         auth_token: &str,
@@ -74,7 +77,8 @@ impl Service for Spotify {
     ) -> Result<serde_json::Value> {
         let request: RequestBuilder = client
             .get(format!(
-                "https://api.spotify.com/v1/search?type=track&q={}",
+                "{}/search?type=track&q={}",
+                Self::API_BASE_URL,
                 query
             ))
             .header("Authorization", format!("Bearer {}", auth_token));
@@ -137,7 +141,7 @@ impl Service for Spotify {
     ) -> Result<()> {
         let data: serde_json::Value =
             Self::get_raw_track_match_from_track(client, auth_token, track).await?;
-        let service: Spotify = Self::create_service_from_raw(&data).await?;
+        let service: Self = Self::create_service_from_raw(&data).await?;
         track.services.spotify = Some(service);
         Ok(())
     }
@@ -258,7 +262,7 @@ impl Service for Spotify {
         track_id: &str,
     ) -> Result<Track> {
         let request: RequestBuilder = client
-            .get(format!("https://api.spotify.com/v1/tracks/{}", track_id))
+            .get(format!("{}/tracks/{}", Spotify::API_BASE_URL, track_id))
             .header("Authorization", format!("Bearer {}", auth_token));
         let response: Response = request.send().await?;
         if response.status() != 200 {
@@ -281,7 +285,8 @@ impl Service for Spotify {
     ) -> Result<Playlist> {
         let request: RequestBuilder = client
             .get(format!(
-                "https://api.spotify.com/v1/playlists/{}",
+                "{}/playlists/{}",
+                Spotify::API_BASE_URL,
                 playlist_id
             ))
             .header("Authorizaiton", format!("Bearer {}", auth_token));

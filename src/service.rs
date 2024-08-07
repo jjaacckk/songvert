@@ -15,7 +15,9 @@ pub struct Services {
     pub bandcamp: Option<Bandcamp>,
 }
 
-pub trait Service {
+pub trait Service: 'static {
+    const API_BASE_URL: &'static str;
+    const SITE_BASE_URL: &'static str;
     async fn get_raw_track_match_from_search(
         client: &Client,
         auth_token: &str,
