@@ -3,3 +3,4 @@
 ## MACOS
 .DS_Store
 .vscode
+.env
