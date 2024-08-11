@@ -41,39 +41,6 @@ impl Service for AppleMusic {
         Ok(data)
     }
 
-    // async fn get_raw_track_match_from_search(
-    //     client: &Client,
-    //     auth_token: &str,
-    //     query: &str,
-    // ) -> Result<serde_json::Value> {
-    //     let request: RequestBuilder = client
-    //         .get(format!(
-    //             "{}/catalog/us/search?term={}&type=songs",
-    //             AppleMusic::API_BASE_URL,
-    //             query
-    //         ))
-    //         .header("Authorization", format!("Bearer {}", auth_token))
-    //         .header("Origin", AppleMusic::SITE_BASE_URL);
-    //     let response: Response = request.send().await?;
-    //     if response.status() != 200 {
-    //         // eprintln!("{}", response.text().await?);
-    //         return Err(Error::FindError);
-    //     }
-
-    //     let search_data: serde_json::Value = serde_json::from_str(&response.text().await?)?;
-
-    //     if search_data["meta"]["results"]["order"]
-    //         .as_array()
-    //         .ok_or(Error::FindError)?
-    //         .len()
-    //         == 0
-    //     {
-    //         return Err(Error::FindError);
-    //     }
-
-    //     Ok(search_data["results"]["songs"]["data"][0].to_owned())
-    // }
-
     async fn get_raw_track_match_from_track(
         client: &Client,
         auth_token: &str,

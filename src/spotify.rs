@@ -83,28 +83,6 @@ impl Service for Spotify {
         Ok(data)
     }
 
-    // async fn get_raw_track_match_from_search(
-    //     client: &Client,
-    //     auth_token: &str,
-    //     query: &str,
-    // ) -> Result<serde_json::Value> {
-    //     let search_data: serde_json::Value = Self::get_raw(
-    //         client,
-    //         auth_token,
-    //         &format!("search?type=track&q={}", query),
-    //     )
-    //     .await?;
-
-    //     if search_data["tracks"]["total"]
-    //         .as_u64()
-    //         .ok_or(Error::FindError)?
-    //         == 0
-    //     {
-    //         return Err(Error::FindError);
-    //     }
-
-    //     Ok(search_data["tracks"]["items"][0].to_owned())
-    // }
     async fn get_raw_track_match_from_track(
         client: &Client,
         auth_token: &str,
