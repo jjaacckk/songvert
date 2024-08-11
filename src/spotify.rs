@@ -110,7 +110,10 @@ impl Service for Spotify {
             &auth_token,
             &format!(
                 "search?type=track&q=track:{}%20artist:{}%20album:{}%20year:{}",
-                &track.name, &track.artists[0], &track.album, &track.release_year
+                &track.name,
+                &track.artists.join("+"),
+                &track.album,
+                &track.release_year
             )
             .replace(" ", "+"),
         )
