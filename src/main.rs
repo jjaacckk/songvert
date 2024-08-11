@@ -94,7 +94,7 @@ async fn main() -> Result<()> {
         }
     };
 
-    println!("{:?}", spotify_track);
+    // println!("{:?}", spotify_track);
 
     let apple_music_track: Track = match AppleMusic::create_track_from_id(
         &client,
@@ -109,6 +109,18 @@ async fn main() -> Result<()> {
             return Err(e);
         }
     };
+
+    // println!("{:?}", apple_music_track);
+
+    println!(
+        "Apple Music\t\t|\t\tSpotify\n{}\t\t|\t\t{}\n{}\t\t|\t\t{}\n{}\t\t|\t\t{}",
+        apple_music_track.name,
+        spotify_track.name,
+        apple_music_track.artists.join(", "),
+        spotify_track.artists.join(", "),
+        apple_music_track.album,
+        spotify_track.album
+    );
 
     Ok(())
 }

@@ -1,5 +1,3 @@
-use std::str::FromStr;
-
 use crate::error::{Error, Result};
 use crate::service::{Album, Artist, Service, Services};
 use crate::track::{Playlist, Track};
@@ -70,36 +68,43 @@ impl Service for Spotify {
     const API_BASE_URL: &'static str = "https://api.spotify.com/v1";
     const SITE_BASE_URL: &'static str = "https://open.spotify.com";
 
-    async fn get_raw_track_match_from_search(
-        client: &Client,
-        auth_token: &str,
-        query: &str,
-    ) -> Result<serde_json::Value> {
+    async fn get_raw(client: &Client, auth_token: &str, path: &str) -> Result<serde_json::Value> {
         let request: RequestBuilder = client
-            .get(format!(
-                "{}/search?type=track&q={}",
-                Self::API_BASE_URL,
-                query
-            ))
+            .get(format!("{}/{}", Self::API_BASE_URL, path))
             .header("Authorization", format!("Bearer {}", auth_token));
         let response: Response = request.send().await?;
         if response.status() != 200 {
-            // eprintln!("{}", response.text().await?);
+            eprintln!("{:?}", response);
             return Err(Error::FindError);
         }
 
-        let search_data: serde_json::Value = serde_json::from_str(&response.text().await?)?;
+        let data: serde_json::Value = serde_json::from_str(&response.text().await?)?;
 
-        if search_data["tracks"]["total"]
-            .as_u64()
-            .ok_or(Error::FindError)?
-            == 0
-        {
-            return Err(Error::FindError);
-        }
-
-        Ok(search_data["tracks"]["items"][0].to_owned())
+        Ok(data)
     }
+
+    // async fn get_raw_track_match_from_search(
+    //     client: &Client,
+    //     auth_token: &str,
+    //     query: &str,
+    // ) -> Result<serde_json::Value> {
+    //     let search_data: serde_json::Value = Self::get_raw(
+    //         client,
+    //         auth_token,
+    //         &format!("search?type=track&q={}", query),
+    //     )
+    //     .await?;
+
+    //     if search_data["tracks"]["total"]
+    //         .as_u64()
+    //         .ok_or(Error::FindError)?
+    //         == 0
+    //     {
+    //         return Err(Error::FindError);
+    //     }
+
+    //     Ok(search_data["tracks"]["items"][0].to_owned())
+    // }
     async fn get_raw_track_match_from_track(
         client: &Client,
         auth_token: &str,
@@ -107,31 +112,32 @@ impl Service for Spotify {
     ) -> Result<serde_json::Value> {
         match &track.isrc {
             Some(isrc) => {
-                match Self::get_raw_track_match_from_search(
+                match Self::get_raw(
                     &client,
                     &auth_token,
-                    &format!("isrc:{}", isrc),
+                    &format!("search?type=track&q=isrc:{}", isrc),
                 )
                 .await
                 {
-                    Ok(raw_track) => return Ok(raw_track),
-                    Err(..) => {}
+                    Ok(raw_track) => return Ok(raw_track["tracks"]["items"][0].to_owned()),
+                    Err(..) => (),
                 }
             }
-            None => {}
+            None => (),
         }
         // no isrc or isrc search failed
 
-        Self::get_raw_track_match_from_search(
+        Ok(Self::get_raw(
             &client,
             &auth_token,
             &format!(
-                "track:{}%20artist:{}%20album:{}%20year:{}",
+                "search?type=track&q=track:{}%20artist:{}%20album:{}%20year:{}",
                 &track.name, &track.artists[0], &track.album, &track.release_year
             )
             .replace(" ", "+"),
         )
-        .await
+        .await?["tracks"]["items"][0]
+            .to_owned())
     }
 
     async fn create_service_for_track(
@@ -261,15 +267,8 @@ impl Service for Spotify {
         auth_token: &str,
         track_id: &str,
     ) -> Result<Track> {
-        let request: RequestBuilder = client
-            .get(format!("{}/tracks/{}", Spotify::API_BASE_URL, track_id))
-            .header("Authorization", format!("Bearer {}", auth_token));
-        let response: Response = request.send().await?;
-        if response.status() != 200 {
-            // eprintln!("{}", response.text().await?);
-            return Err(Error::FindError);
-        }
-        let track_data: serde_json::Value = serde_json::from_str(&response.text().await?)?;
+        let track_data: serde_json::Value =
+            Self::get_raw(client, auth_token, &format!("tracks/{}", track_id)).await?;
         Ok(Self::create_track_from_raw(&track_data).await?)
     }
 
@@ -283,18 +282,10 @@ impl Service for Spotify {
         auth_token: &str,
         playlist_id: &str,
     ) -> Result<Playlist> {
-        let request: RequestBuilder = client
-            .get(format!(
-                "{}/playlists/{}",
-                Spotify::API_BASE_URL,
-                playlist_id
-            ))
-            .header("Authorizaiton", format!("Bearer {}", auth_token));
-        let response: Response = request.send().await?;
-        if response.status() != 200 {
-            return Err(Error::FindError);
-        }
-        let playlist_data: serde_json::Value = serde_json::Value::from(response.text().await?);
+        let playlist_data: serde_json::Value =
+            Self::get_raw(client, auth_token, &format!("playlists/{}", playlist_id))
+                .await?
+                .to_owned();
         Ok(Self::create_playlist_from_raw(&playlist_data).await?)
     }
 }
@@ -317,13 +308,14 @@ mod tests {
                 .unwrap();
         let session_info: SessionInfo = Spotify::get_public_session_info(&client).await.unwrap();
 
-        let search_result: serde_json::Value = Spotify::get_raw_track_match_from_search(
+        let search_result: serde_json::Value = Spotify::get_raw(
             &client,
             &session_info.access_token,
-            &format!("isrc:{}", good_isrc),
+            &format!("search?type=track&q=isrc:{}", good_isrc),
         )
         .await
-        .unwrap();
+        .unwrap()["tracks"]["items"][0]
+            .to_owned();
 
         assert_eq!(
             search_result,
@@ -342,15 +334,17 @@ mod tests {
                 .unwrap();
         let session_info: SessionInfo = Spotify::get_public_session_info(&client).await.unwrap();
 
-        match Spotify::get_raw_track_match_from_search(
+        if Spotify::get_raw(
             &client,
             &session_info.access_token,
-            &format!("isrc:{}", bad_isrc),
+            &format!("search?type=track&q=isrc:{}", bad_isrc),
         )
         .await
+        .unwrap()["tracks"]["items"][0]
+            .is_null()
+            == false
         {
-            Ok(..) => panic!(),
-            Err(..) => {}
+            panic!()
         }
     }
 

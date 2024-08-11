@@ -1,6 +1,6 @@
 use crate::apple_music::AppleMusic;
 use crate::bandcamp::Bandcamp;
-use crate::error::{Error, Result};
+use crate::error::Result;
 use crate::spotify::Spotify;
 use crate::track::{Playlist, Track};
 use crate::youtube::YouTube;
@@ -15,14 +15,10 @@ pub struct Services {
     pub bandcamp: Option<Bandcamp>,
 }
 
-pub trait Service: 'static {
+pub trait Service {
     const API_BASE_URL: &'static str;
     const SITE_BASE_URL: &'static str;
-    async fn get_raw_track_match_from_search(
-        client: &Client,
-        auth_token: &str,
-        query: &str,
-    ) -> Result<serde_json::Value>;
+    async fn get_raw(client: &Client, auth_token: &str, path: &str) -> Result<serde_json::Value>;
     async fn get_raw_track_match_from_track(
         client: &Client,
         auth_token: &str,
