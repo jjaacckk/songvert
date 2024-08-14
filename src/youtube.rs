@@ -36,7 +36,7 @@ impl Service for YouTube {
 
     async fn get_raw_track_match_from_track(
         client: &Client,
-        auth_token: &Option<&str>,
+        auth: &Option<&str>,
         track: &Track,
     ) -> Result<serde_json::Value> {
         todo!()
@@ -44,7 +44,7 @@ impl Service for YouTube {
 
     async fn create_service_for_track(
         client: &Client,
-        auth_token: &Option<&str>,
+        auth: &Option<&str>,
         track: &mut Track,
     ) -> Result<()> {
         todo!()
@@ -59,7 +59,7 @@ impl Service for YouTube {
 
     async fn create_track_from_id(
         client: &Client,
-        auth_token: &Option<&str>,
+        auth: &Option<&str>,
         track_id: &str,
     ) -> Result<Track> {
         todo!()
@@ -71,7 +71,7 @@ impl Service for YouTube {
 
     async fn create_playlist_from_id(
         client: &Client,
-        auth_token: &Option<&str>,
+        auth: &Option<&str>,
         playlist_id: &str,
     ) -> Result<crate::track::Playlist> {
         todo!()

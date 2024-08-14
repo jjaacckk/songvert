@@ -65,11 +65,11 @@ impl Spotify {
 
     pub async fn get(
         client: &Client,
-        auth_token: &Option<&str>,
+        auth: &Option<&str>,
         path: &str,
     ) -> Result<serde_json::Value> {
         let session_info: SessionInfo;
-        let bearer_token: &str = match auth_token {
+        let bearer_token: &str = match auth {
             Some(t) => t,
             None => {
                 session_info = Self::get_public_session_info(&client).await?;
@@ -98,18 +98,12 @@ impl Service for Spotify {
 
     async fn get_raw_track_match_from_track(
         client: &Client,
-        auth_token: &Option<&str>,
+        auth: &Option<&str>,
         track: &Track,
     ) -> Result<serde_json::Value> {
         match &track.isrc {
             Some(isrc) => {
-                match Self::get(
-                    client,
-                    auth_token,
-                    &format!("search?type=track&q=isrc:{}", isrc),
-                )
-                .await
-                {
+                match Self::get(client, auth, &format!("search?type=track&q=isrc:{}", isrc)).await {
                     Ok(raw_track) => return Ok(raw_track["tracks"]["items"][0].to_owned()),
                     Err(..) => (),
                 }
@@ -120,7 +114,7 @@ impl Service for Spotify {
 
         Ok(Self::get(
             client,
-            auth_token,
+            auth,
             &format!(
                 "search?type=track&q=track:{}%20artist:{}%20album:{}%20year:{}",
                 &track.name,
@@ -136,11 +130,11 @@ impl Service for Spotify {
 
     async fn create_service_for_track(
         client: &Client,
-        auth_token: &Option<&str>,
+        auth: &Option<&str>,
         track: &mut Track,
     ) -> Result<()> {
         let data: serde_json::Value =
-            Self::get_raw_track_match_from_track(client, auth_token, track).await?;
+            Self::get_raw_track_match_from_track(client, auth, track).await?;
         let service: Self = Self::create_service_from_raw(&data).await?;
         track.services.spotify = Some(service);
         Ok(())
@@ -258,11 +252,11 @@ impl Service for Spotify {
 
     async fn create_track_from_id(
         client: &Client,
-        auth_token: &Option<&str>,
+        auth: &Option<&str>,
         track_id: &str,
     ) -> Result<Track> {
         let track_data: serde_json::Value =
-            Self::get(client, auth_token, &format!("tracks/{}", track_id)).await?;
+            Self::get(client, auth, &format!("tracks/{}", track_id)).await?;
         Ok(Self::create_track_from_raw(&track_data).await?)
     }
 
@@ -273,11 +267,11 @@ impl Service for Spotify {
 
     async fn create_playlist_from_id(
         client: &Client,
-        auth_token: &Option<&str>,
+        auth: &Option<&str>,
         playlist_id: &str,
     ) -> Result<Playlist> {
         let playlist_data: serde_json::Value =
-            Self::get(client, auth_token, &format!("playlists/{}", playlist_id))
+            Self::get(client, auth, &format!("playlists/{}", playlist_id))
                 .await?
                 .to_owned();
         Ok(Self::create_playlist_from_raw(&playlist_data).await?)

@@ -21,10 +21,10 @@ impl AppleMusic {
 
     pub async fn get(
         client: &Client,
-        auth_token: &Option<&str>,
+        auth: &Option<&str>,
         path: &str,
     ) -> Result<serde_json::Value> {
-        let bearer_token: &str = match auth_token {
+        let bearer_token: &str = match auth {
             Some(t) => t,
             None => &Self::PUBLIC_BEARER_TOKEN,
         };
@@ -52,13 +52,13 @@ impl Service for AppleMusic {
 
     async fn get_raw_track_match_from_track(
         client: &Client,
-        auth_token: &Option<&str>,
+        auth: &Option<&str>,
         track: &Track,
     ) -> Result<serde_json::Value> {
         match &track.isrc {
             Some(isrc) => match Self::get(
                 client,
-                auth_token,
+                auth,
                 &format!(
                     "catalog/us/songs?filter[isrc]={}&include=albums,artists",
                     isrc
@@ -109,7 +109,7 @@ impl Service for AppleMusic {
 
         let lackluster_search_result: serde_json::Value = Self::get(
             &client,
-            &auth_token,
+            &auth,
             &format!(
                 "catalog/us/search?types=songs&term=track:{}%20artist:{}%20album:{}%20year:{}",
                 &track.name,
@@ -123,7 +123,7 @@ impl Service for AppleMusic {
 
         match Self::get(
             &client,
-            &auth_token,
+            &auth,
             &format!(
                 "catalog/us/songs/{}?include=artists,albums",
                 lackluster_search_result["results"]["songs"]["data"][0]["id"]
@@ -140,11 +140,11 @@ impl Service for AppleMusic {
 
     async fn create_service_for_track(
         client: &Client,
-        auth_token: &Option<&str>,
+        auth: &Option<&str>,
         track: &mut Track,
     ) -> Result<()> {
         let data: serde_json::Value =
-            Self::get_raw_track_match_from_track(client, auth_token, track).await?;
+            Self::get_raw_track_match_from_track(client, auth, track).await?;
         let service: Self = Self::create_service_from_raw(&data).await?;
         track.services.apple_music = Some(service);
         Ok(())
@@ -304,12 +304,12 @@ impl Service for AppleMusic {
 
     async fn create_track_from_id(
         client: &Client,
-        auth_token: &Option<&str>,
+        auth: &Option<&str>,
         track_id: &str,
     ) -> Result<Track> {
         let track_data: serde_json::Value = Self::get(
             client,
-            auth_token,
+            auth,
             &format!("catalog/us/songs/{}?include=artists,albums", track_id),
         )
         .await?;
@@ -322,7 +322,7 @@ impl Service for AppleMusic {
 
     async fn create_playlist_from_id(
         client: &Client,
-        auth_token: &Option<&str>,
+        auth: &Option<&str>,
         playlist_id: &str,
     ) -> Result<crate::track::Playlist> {
         todo!()
