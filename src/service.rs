@@ -18,15 +18,14 @@ pub struct Services {
 pub trait Service {
     const API_BASE_URL: &'static str;
     const SITE_BASE_URL: &'static str;
-    async fn get_raw(client: &Client, auth_token: &str, path: &str) -> Result<serde_json::Value>;
     async fn get_raw_track_match_from_track(
         client: &Client,
-        auth_token: &str,
+        auth_token: &Option<&str>,
         track: &Track,
     ) -> Result<serde_json::Value>;
     async fn create_service_for_track(
         client: &Client,
-        auth_token: &str,
+        auth_token: &Option<&str>,
         track: &mut Track,
     ) -> Result<()>;
     async fn create_service_from_raw(data: &serde_json::Value) -> Result<Self>
@@ -34,13 +33,13 @@ pub trait Service {
         Self: Sized;
     async fn create_track_from_id(
         client: &Client,
-        auth_token: &str,
+        auth_token: &Option<&str>,
         track_id: &str,
     ) -> Result<Track>;
     async fn create_track_from_raw(data: &serde_json::Value) -> Result<Track>;
     async fn create_playlist_from_id(
         client: &Client,
-        auth_token: &str,
+        auth_token: &Option<&str>,
         playlist_id: &str,
     ) -> Result<Playlist>;
     async fn create_playlist_from_raw(data: &serde_json::Value) -> Result<Playlist>;

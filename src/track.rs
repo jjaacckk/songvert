@@ -75,7 +75,7 @@ mod tests {
             example_track,
             Spotify::create_track_from_id(
                 &client,
-                &session_info.access_token,
+                &Some(&session_info.access_token),
                 "6K225HZ3V7F4ec7yi1o88C"
             )
             .await

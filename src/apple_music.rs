@@ -18,18 +18,21 @@ pub struct AppleMusic {
 
 impl AppleMusic {
     pub const PUBLIC_BEARER_TOKEN: &'static str = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IldlYlBsYXlLaWQifQ.eyJpc3MiOiJBTVBXZWJQbGF5IiwiaWF0IjoxNzIxNzczNjI0LCJleHAiOjE3MjkwMzEyMjQsInJvb3RfaHR0cHNfb3JpZ2luIjpbImFwcGxlLmNvbSJdfQ.cMMhHLLazlxgiIbwBSSP1YuHCgqAVxiF7UQrwBc5xZepWt-vjqth_o4BidXFrmsEJvwzZKJ-GAMbqJpIeGcl7w";
-}
 
-impl Service for AppleMusic {
-    const API_BASE_URL: &'static str = "https://api.music.apple.com/v1";
-    // const API_BASE_URL: &'static str = "https://amp-api-edge.music.apple.com/v1";
-    const SITE_BASE_URL: &'static str = "https://music.apple.com";
+    pub async fn get(
+        client: &Client,
+        auth_token: &Option<&str>,
+        path: &str,
+    ) -> Result<serde_json::Value> {
+        let bearer_token: &str = match auth_token {
+            Some(t) => t,
+            None => &Self::PUBLIC_BEARER_TOKEN,
+        };
 
-    async fn get_raw(client: &Client, auth_token: &str, path: &str) -> Result<serde_json::Value> {
         let request: RequestBuilder = client
             .get(format!("{}/{}", Self::API_BASE_URL, path))
-            .header("Authorization", format!("Bearer {}", auth_token))
-            .header("Origin", AppleMusic::SITE_BASE_URL);
+            .header("Authorization", format!("Bearer {}", bearer_token))
+            .header("Origin", Self::SITE_BASE_URL);
         let response: Response = request.send().await?;
         if response.status() != 200 {
             eprintln!("{}", response.text().await?);
@@ -40,16 +43,22 @@ impl Service for AppleMusic {
 
         Ok(data)
     }
+}
+
+impl Service for AppleMusic {
+    const API_BASE_URL: &'static str = "https://api.music.apple.com/v1";
+    // const API_BASE_URL: &'static str = "https://amp-api-edge.music.apple.com/v1";
+    const SITE_BASE_URL: &'static str = "https://music.apple.com";
 
     async fn get_raw_track_match_from_track(
         client: &Client,
-        auth_token: &str,
+        auth_token: &Option<&str>,
         track: &Track,
     ) -> Result<serde_json::Value> {
         match &track.isrc {
-            Some(isrc) => match Self::get_raw(
-                &client,
-                &auth_token,
+            Some(isrc) => match Self::get(
+                client,
+                auth_token,
                 &format!(
                     "catalog/us/songs?filter[isrc]={}&include=albums,artists",
                     isrc
@@ -98,7 +107,7 @@ impl Service for AppleMusic {
         // no isrc or isrc search failed
         eprintln!("isrc search failed....fallback....");
 
-        let lackluster_search_result: serde_json::Value = Self::get_raw(
+        let lackluster_search_result: serde_json::Value = Self::get(
             &client,
             &auth_token,
             &format!(
@@ -112,7 +121,7 @@ impl Service for AppleMusic {
         )
         .await?;
 
-        match Self::get_raw(
+        match Self::get(
             &client,
             &auth_token,
             &format!(
@@ -131,7 +140,7 @@ impl Service for AppleMusic {
 
     async fn create_service_for_track(
         client: &Client,
-        auth_token: &str,
+        auth_token: &Option<&str>,
         track: &mut Track,
     ) -> Result<()> {
         let data: serde_json::Value =
@@ -282,7 +291,7 @@ impl Service for AppleMusic {
                 .ok_or(Error::CreateError)?,
             services: Services {
                 spotify: None,
-                apple_music: Some(AppleMusic::create_service_from_raw(data).await?),
+                apple_music: Some(Self::create_service_from_raw(data).await?),
                 youtube: None,
                 bandcamp: None,
             },
@@ -295,10 +304,10 @@ impl Service for AppleMusic {
 
     async fn create_track_from_id(
         client: &Client,
-        auth_token: &str,
+        auth_token: &Option<&str>,
         track_id: &str,
     ) -> Result<Track> {
-        let track_data: serde_json::Value = Self::get_raw(
+        let track_data: serde_json::Value = Self::get(
             client,
             auth_token,
             &format!("catalog/us/songs/{}?include=artists,albums", track_id),
@@ -313,7 +322,7 @@ impl Service for AppleMusic {
 
     async fn create_playlist_from_id(
         client: &Client,
-        auth_token: &str,
+        auth_token: &Option<&str>,
         playlist_id: &str,
     ) -> Result<crate::track::Playlist> {
         todo!()
@@ -335,9 +344,9 @@ mod tests {
             .build()
             .unwrap();
 
-        let search_result: serde_json::Value = AppleMusic::get_raw(
+        let search_result: serde_json::Value = AppleMusic::get(
             &client,
-            &AppleMusic::PUBLIC_BEARER_TOKEN,
+            &Some(&AppleMusic::PUBLIC_BEARER_TOKEN),
             &format!(
                 "catalog/us/songs?filter[isrc]={}&include=albums,artists",
                 good_isrc
@@ -363,9 +372,9 @@ mod tests {
             .build()
             .unwrap();
 
-        if AppleMusic::get_raw(
+        if AppleMusic::get(
             &client,
-            &AppleMusic::PUBLIC_BEARER_TOKEN,
+            &Some(&AppleMusic::PUBLIC_BEARER_TOKEN),
             &format!(
                 "catalog/us/songs?filter[isrc]={}&include=albums,artists",
                 bad_isrc
@@ -411,7 +420,7 @@ mod tests {
 
         let search_result: serde_json::Value = AppleMusic::get_raw_track_match_from_track(
             &client,
-            &AppleMusic::PUBLIC_BEARER_TOKEN,
+            &Some(&AppleMusic::PUBLIC_BEARER_TOKEN),
             &example_track,
         )
         .await
@@ -451,7 +460,7 @@ mod tests {
 
         let search_result: serde_json::Value = AppleMusic::get_raw_track_match_from_track(
             &client,
-            &AppleMusic::PUBLIC_BEARER_TOKEN,
+            &Some(&AppleMusic::PUBLIC_BEARER_TOKEN),
             &example_track,
         )
         .await

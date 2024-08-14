@@ -76,29 +76,29 @@ async fn main() -> Result<()> {
             .user_agent("Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15")
             .build()
             .unwrap();
-    let session_info: SessionInfo = Spotify::get_public_session_info(&client).await.unwrap();
+    // let session_info: SessionInfo = Spotify::get_public_session_info(&client).await.unwrap();
 
-    println!("token: {}", &session_info.access_token);
+    // println!("token: {}", &session_info.access_token);
 
-    let spotify_track: Track = match Spotify::create_track_from_id(
-        &client,
-        &session_info.access_token,
-        "6K225HZ3V7F4ec7yi1o88C",
-    )
-    .await
-    {
-        Ok(t) => t,
-        Err(e) => {
-            eprintln!("{}", e);
-            return Err(e);
-        }
-    };
+    // let spotify_track: Track = match Spotify::create_track_from_id(
+    //     &client,
+    //     &session_info.access_token,
+    //     "6K225HZ3V7F4ec7yi1o88C",
+    // )
+    // .await
+    // {
+    //     Ok(t) => t,
+    //     Err(e) => {
+    //         eprintln!("{}", e);
+    //         return Err(e);
+    //     }
+    // };
 
-    // println!("{:?}", spotify_track);
+    // // println!("{:?}", spotify_track);
 
     let apple_music_track: Track = match AppleMusic::create_track_from_id(
         &client,
-        AppleMusic::PUBLIC_BEARER_TOKEN,
+        &Some(AppleMusic::PUBLIC_BEARER_TOKEN),
         "575329663",
     )
     .await
@@ -110,17 +110,54 @@ async fn main() -> Result<()> {
         }
     };
 
-    // println!("{:?}", apple_music_track);
+    // // println!("{:?}", apple_music_track);
 
-    println!(
-        "Apple Music\t\t|\t\tSpotify\n{}\t\t|\t\t{}\n{}\t\t|\t\t{}\n{}\t\t|\t\t{}",
-        apple_music_track.name,
-        spotify_track.name,
-        apple_music_track.artists.join(", "),
-        spotify_track.artists.join(", "),
-        apple_music_track.album,
-        spotify_track.album
-    );
+    // println!(
+    //     "Apple Music\t\t|\t\tSpotify\n{}\t\t|\t\t{}\n{}\t\t|\t\t{}\n{}\t\t|\t\t{}",
+    //     apple_music_track.name,
+    //     spotify_track.name,
+    //     apple_music_track.artists.join(", "),
+    //     spotify_track.artists.join(", "),
+    //     apple_music_track.album,
+    //     spotify_track.album
+    // );
+
+    // let track = AppleMusic::get_raw(
+    //     &client,
+    //     AppleMusic::PUBLIC_BEARER_TOKEN,
+    //     "catalog/us/songs?filter[isrc]=USZUD1215001&include=albums,artists",
+    // )
+    // .await
+    // .unwrap();
+
+    match AppleMusic::get_raw_track_match_from_track(
+        &client,
+        &Some(AppleMusic::PUBLIC_BEARER_TOKEN),
+        &apple_music_track,
+    )
+    .await
+    {
+        Ok(t) => {
+            // println!("name: {}", t["attributes"]["name"]);
+            println!("{}", t);
+        }
+        Err(e) => {
+            eprintln!("{}", e);
+            return Err(e);
+        }
+    };
+
+    // let search_result: serde_json::Value = AppleMusic::get_raw(
+    //     &client,
+    //     &AppleMusic::PUBLIC_BEARER_TOKEN,
+    //     &format!(
+    //         "catalog/us/songs?filter[isrc]={}&include=albums,artists",
+    //         "USZUD1215001"
+    //     ),
+    // )
+    // .await
+    // .unwrap()["data"][0]
+    //     .to_owned();
 
     Ok(())
 }
