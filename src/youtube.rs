@@ -1,5 +1,5 @@
 use crate::error::{Error, Result};
-use crate::service::{Album, Artist, Service, Services};
+use crate::service::{Album, Artist, Services};
 use crate::track::Track;
 use reqwest::{Client, RequestBuilder, Response};
 use serde::{Deserialize, Serialize};
@@ -13,6 +13,9 @@ pub struct YouTube {
 }
 
 impl YouTube {
+    const API_BASE_URL: &'static str = "https://www.youtube.com/youtubei/v1";
+    const SITE_BASE_URL: &'static str = "https://www.youtube.com";
+
     pub async fn post(client: &Client, path: &str, body: &str) -> Result<serde_json::Value> {
         let request: RequestBuilder = client
             .post(format!("{}/{}", Self::API_BASE_URL, path))
@@ -28,56 +31,47 @@ impl YouTube {
 
         Ok(data)
     }
-}
 
-impl Service for YouTube {
-    const API_BASE_URL: &'static str = "https://www.youtube.com/youtubei/v1";
-    const SITE_BASE_URL: &'static str = "https://www.youtube.com";
-
-    async fn get_raw_track_match_from_track(
+    pub async fn get_raw_track_match_from_track(
         client: &Client,
-        auth: &Option<&str>,
         track: &Track,
     ) -> Result<serde_json::Value> {
         todo!()
     }
 
-    async fn create_service_for_track(
-        client: &Client,
-        auth: &Option<&str>,
-        track: &mut Track,
-    ) -> Result<()> {
+    pub async fn create_service_for_track(client: &Client, track: &mut Track) -> Result<()> {
         todo!()
     }
 
-    async fn create_service_from_raw(data: &serde_json::Value) -> Result<Self>
+    pub async fn create_track_from_id(client: &Client, track_id: &str) -> Result<Track> {
+        todo!()
+    }
+
+    pub async fn create_playlist_from_id(
+        client: &Client,
+        playlist_id: &str,
+    ) -> Result<crate::track::Playlist> {
+        todo!()
+    }
+
+    pub async fn download(&self, audio_only: bool) -> Result<()> {
+        Ok(())
+    }
+
+    pub async fn create_service_from_raw(data: &serde_json::Value) -> Result<Self>
     where
         Self: Sized,
     {
         todo!()
     }
 
-    async fn create_track_from_id(
-        client: &Client,
-        auth: &Option<&str>,
-        track_id: &str,
-    ) -> Result<Track> {
+    pub async fn create_track_from_raw(data: &serde_json::Value) -> Result<Track> {
         todo!()
     }
 
-    async fn create_track_from_raw(data: &serde_json::Value) -> Result<Track> {
-        todo!()
-    }
-
-    async fn create_playlist_from_id(
-        client: &Client,
-        auth: &Option<&str>,
-        playlist_id: &str,
+    pub async fn create_playlist_from_raw(
+        data: &Vec<serde_json::Value>,
     ) -> Result<crate::track::Playlist> {
-        todo!()
-    }
-
-    async fn create_playlist_from_raw(data: &serde_json::Value) -> Result<crate::track::Playlist> {
         todo!()
     }
 }

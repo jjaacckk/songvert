@@ -14,7 +14,7 @@ mod youtube;
 use apple_music::AppleMusic;
 
 use crate::error::{Error, Result};
-use crate::service::{Album, Artist, Service, Services};
+use crate::service::{Album, Artist, Services};
 use crate::spotify::{SessionInfo, Spotify};
 use crate::track::Track;
 
@@ -76,30 +76,14 @@ async fn main() -> Result<()> {
             .user_agent("Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15")
             .build()
             .unwrap();
-    // let session_info: SessionInfo = Spotify::get_public_session_info(&client).await.unwrap();
+    let session_info: SessionInfo = Spotify::get_public_session_info(&client).await.unwrap();
 
-    // println!("token: {}", &session_info.access_token);
+    println!("token: {}", &session_info.access_token);
 
-    // let spotify_track: Track = match Spotify::create_track_from_id(
-    //     &client,
-    //     &session_info.access_token,
-    //     "6K225HZ3V7F4ec7yi1o88C",
-    // )
-    // .await
-    // {
-    //     Ok(t) => t,
-    //     Err(e) => {
-    //         eprintln!("{}", e);
-    //         return Err(e);
-    //     }
-    // };
-
-    // // println!("{:?}", spotify_track);
-
-    let apple_music_track: Track = match AppleMusic::create_track_from_id(
+    let spotify_track: Track = match Spotify::create_track_from_id(
         &client,
-        &Some(AppleMusic::PUBLIC_BEARER_TOKEN),
-        "575329663",
+        &session_info.access_token,
+        "6K225HZ3V7F4ec7yi1o88C",
     )
     .await
     {
@@ -109,6 +93,22 @@ async fn main() -> Result<()> {
             return Err(e);
         }
     };
+
+    println!("{:?}", spotify_track);
+
+    // let apple_music_track: Track = match AppleMusic::create_track_from_id(
+    //     &client,
+    //     AppleMusic::PUBLIC_BEARER_TOKEN,
+    //     "575329663",
+    // )
+    // .await
+    // {
+    //     Ok(t) => t,
+    //     Err(e) => {
+    //         eprintln!("{}", e);
+    //         return Err(e);
+    //     }
+    // };
 
     // // println!("{:?}", apple_music_track);
 
@@ -130,22 +130,22 @@ async fn main() -> Result<()> {
     // .await
     // .unwrap();
 
-    match AppleMusic::get_raw_track_match_from_track(
-        &client,
-        &Some(AppleMusic::PUBLIC_BEARER_TOKEN),
-        &apple_music_track,
-    )
-    .await
-    {
-        Ok(t) => {
-            // println!("name: {}", t["attributes"]["name"]);
-            println!("{}", t);
-        }
-        Err(e) => {
-            eprintln!("{}", e);
-            return Err(e);
-        }
-    };
+    // match AppleMusic::get_raw_track_match_from_track(
+    //     &client,
+    //     AppleMusic::PUBLIC_BEARER_TOKEN,
+    //     &apple_music_track,
+    // )
+    // .await
+    // {
+    //     Ok(t) => {
+    //         // println!("name: {}", t["attributes"]["name"]);
+    //         println!("{}", t);
+    //     }
+    //     Err(e) => {
+    //         eprintln!("{}", e);
+    //         return Err(e);
+    //     }
+    // };
 
     // let search_result: serde_json::Value = AppleMusic::get_raw(
     //     &client,
@@ -158,6 +158,16 @@ async fn main() -> Result<()> {
     // .await
     // .unwrap()["data"][0]
     //     .to_owned();
+    //
+
+    // let example_spotify_service: Spotify = Spotify {
+    //     id: String::from("6K225HZ3V7F4ec7yi1o88C"),
+    //     artists: vec![Artist {id: String::from("0xiwsYZwhrizQGNaQtW942"), name: String::from("Tunabunny")}],
+    //     album: Album { id: String::from("6WSL47W7Z5WwCCKzaFyLGd"), name: String::from("Genius Fatigue"), total_tracks: 10, ean: None, upc: None},
+    //     url: String::from("https://open.spotify.com/track/6K225HZ3V7F4ec7yi1o88C"),
+    //     image: Some(String::from("https://i.scdn.co/image/ab67616d0000b27336a71c545ed453f80433f6c8")),
+    //     audio_preview: Some(String::from("https://p.scdn.co/mp3-preview/13a7bfeabbe56d852fb9f7b6291c7dc49bcde515?cid=d8a5ed958d274c2e8ee717e6a4b0971d")),
+    // };
 
     Ok(())
 }

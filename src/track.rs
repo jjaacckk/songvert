@@ -1,22 +1,40 @@
-use crate::service::Services;
+use crate::apple_music::AppleMusic;
+use crate::error::{Error, Result};
+use crate::service::{Album, Artist, Services};
+use crate::spotify::Spotify;
+use crate::youtube::YouTube;
+use reqwest::Client;
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Track {
     pub name: String,
     pub album: String,
-    pub disk_number: u8,
-    pub track_number: u8,
+    pub disk_number: usize,
+    pub track_number: usize,
     pub artists: Vec<String>,
-    pub release_year: u16,
-    pub release_month: Option<u8>,
-    pub release_day: Option<u8>,
+    pub release_year: usize,
+    pub release_month: Option<usize>,
+    pub release_day: Option<usize>,
     pub is_explicit: bool,
-    pub duration_ms: u64,
+    pub duration_ms: usize,
     pub services: Services,
     pub isrc: Option<String>,
 }
 
+impl Track {
+    pub async fn add_spotify(&mut self, auth: &str, client: &Client) -> Result<()> {
+        Spotify::create_service_for_track(client, auth, self).await
+    }
+    pub async fn add_apple_music(&mut self, auth: &str, client: &Client) -> Result<()> {
+        AppleMusic::create_service_for_track(client, auth, self).await
+    }
+    pub async fn add_youtube(&mut self, client: &Client) -> Result<()> {
+        YouTube::create_service_for_track(client, self).await
+    }
+}
+
+// pub type Playlist = [Track];
 pub type Playlist = Vec<Track>;
 
 #[cfg(test)]
@@ -24,7 +42,7 @@ mod tests {
 
     // use crate::apple_music::AppleMusic;
     // use crate::bandcamp::Bandcamp;
-    use crate::service::{Album, Artist, Service, Services};
+    use crate::service::{Album, Artist, Services};
     use crate::spotify::{SessionInfo, Spotify};
     use crate::track::Track;
     // use crate::youtube::YouTube;
@@ -75,7 +93,7 @@ mod tests {
             example_track,
             Spotify::create_track_from_id(
                 &client,
-                &Some(&session_info.access_token),
+                &session_info.access_token,
                 "6K225HZ3V7F4ec7yi1o88C"
             )
             .await
