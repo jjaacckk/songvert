@@ -3,6 +3,7 @@ use crate::service::{Album, Artist, Services};
 use crate::track::{Playlist, Track};
 use reqwest::{Client, RequestBuilder, Response};
 use serde::{Deserialize, Serialize};
+use serde_json::Value;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct AppleMusic {
@@ -14,6 +15,188 @@ pub struct AppleMusic {
     pub image: Option<String>,
     pub genres: Vec<String>,
     pub audio_preview: Option<String>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawPlaylist {
+    pub id: String,
+    pub r#type: String,
+    pub href: String,
+    pub attributes: Option<RawPlaylistAttributes>,
+    pub relationships: Option<RawPlaylistRelationships>,
+    pub views: Option<Value>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawPlaylistAttributes {
+    pub artwork: RawArtwork,
+    pub curator_name: String,
+    pub description: Option<Value>,
+    pub is_chart: bool,
+    pub last_modified_date: Option<String>,
+    pub name: String,
+    pub playlist_type: String,
+    pub play_params: Option<Value>,
+    pub url: String,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawPlaylistRelationships {
+    pub curator: Option<Value>,
+    pub library: Option<Value>,
+    pub tracks: Option<RawTracks>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawTracks {
+    pub data: Vec<RawTracks>,
+    pub href: Option<String>,
+    pub next: Option<String>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawTrack {
+    pub id: String,
+    pub r#type: String,
+    pub href: String,
+    pub attributes: Option<RawTrackAttributes>,
+    pub relationships: Option<RawTrackRelationships>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawTrackRelationships {
+    pub albums: Option<RawAlbums>,
+    pub artists: Option<RawArtists>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawAlbums {
+    pub data: Vec<RawAlbum>,
+    pub href: Option<String>,
+    pub next: Option<String>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawAlbum {
+    pub id: String,
+    pub href: String,
+    pub r#type: String,
+    pub attributes: Option<RawAlbumAttributes>,
+    pub relationships: Option<Value>,
+    pub views: Option<Value>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawAlbumAttributes {
+    pub artist_name: String,
+    pub artwork: RawArtwork,
+    pub content_rating: Option<String>,
+    pub copyright: Option<String>,
+    pub editorial_notes: Option<Value>,
+    pub genre_names: Vec<String>,
+    pub is_compilation: bool,
+    pub is_complete: bool,
+    pub is_mastered_for_itunes: bool,
+    pub is_single: bool,
+    pub name: String,
+    pub play_params: Option<Value>,
+    pub record_label: Option<String>,
+    pub release_date: Option<String>,
+    pub track_count: usize,
+    pub upc: Option<String>,
+    pub url: String,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawArtists {
+    pub data: Vec<RawArtist>,
+    pub href: Option<String>,
+    pub next: Option<String>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawArtist {
+    pub id: String,
+    pub href: String,
+    pub r#type: String,
+    pub attributes: Option<RawArtistAttributes>,
+    pub relationships: Option<RawArtistRelationships>,
+    pub views: Option<Value>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawArtistAttributes {
+    pub artwork: Option<RawArtwork>,
+    pub editorial_notes: Option<Value>,
+    pub genre_names: Vec<String>,
+    pub name: String,
+    pub url: String,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawArtistRelationships {
+    pub albums: Option<RawAlbums>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawTrackAttributes {
+    pub album_name: String,
+    pub artist_name: String,
+    pub artwork: RawArtwork,
+    pub attribution: Option<String>,
+    pub composer_name: Option<String>,
+    pub content_rating: Option<String>,
+    pub disc_number: Option<usize>,
+    pub duration_in_millis: usize,
+    pub genre_names: Vec<String>,
+    pub has_lyrics: bool,
+    pub is_apple_digital_master: bool,
+    pub isrc: Option<String>,
+    pub name: String,
+    pub play_params: Option<Value>,
+    pub previews: Vec<RawTrackAttributesPreview>,
+    pub release_date: Option<String>,
+    pub track_number: Option<usize>,
+    pub url: String,
+    pub work_name: Option<String>,
+    pub movement_count: Option<String>,
+    pub movement_name: Option<String>,
+    pub movement_number: Option<String>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawTrackAttributesPreview {
+    pub url: String,
+    pub artwork: Option<RawArtwork>,
+    pub hls_url: Option<String>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawArtwork {
+    pub bg_color: Option<String>,
+    pub height: usize,
+    pub width: usize,
+    pub text_color1: Option<String>,
+    pub text_color2: Option<String>,
+    pub text_color3: Option<String>,
+    pub text_color4: Option<String>,
+    pub url: String,
 }
 
 impl AppleMusic {
@@ -42,7 +225,7 @@ impl AppleMusic {
         client: &Client,
         auth: &str,
         track: &Track,
-    ) -> Result<serde_json::Value> {
+    ) -> Result<RawTrack> {
         match &track.isrc {
             Some(isrc) => match Self::get(
                 client,
@@ -54,39 +237,27 @@ impl AppleMusic {
             )
             .await
             {
-                Ok(raw_data) => {
-                    // eprintln!("{}", raw_data);
+                Ok(mut raw_data) => {
+                    // let raw_tracks: Vec<RawTrack> =
+                    //     serde_json::from_value(raw_data["data"].take())?;
+                    //
+                    // if raw_tracks.len() > 1 {
+                    //     // check album name
+                    //     for i in 0..raw_tracks.len() {
+                    //         if raw_tracks[i]
+                    //             .attributes
+                    //             .as_ref()
+                    //             .ok_or(Error::MatchError)?
+                    //             .album_name
+                    //             == track.album
+                    //         {
+                    //             return Ok(raw_tracks.get(i));
+                    //         }
+                    //     }
+                    // }
 
-                    let raw_tracks: &Vec<serde_json::Value> =
-                        raw_data["data"].as_array().ok_or(Error::MatchError)?;
-
-                    // eprintln!("array length: {}", raw_tracks.len());
-
-                    if raw_tracks.len() == 1 {
-                        return Ok(raw_data["data"][0].to_owned());
-                    } else if raw_tracks.len() > 1 {
-                        // check album name
-                        for raw_track in raw_tracks {
-                            // println!(
-                            //     "{}\n{}",
-                            //     raw_track["attributes"]["albumName"]
-                            //         .as_str()
-                            //         .ok_or(Error::MatchError)?,
-                            //     track.album
-                            // );
-
-                            if raw_track["attributes"]["albumName"]
-                                .as_str()
-                                .ok_or(Error::MatchError)?
-                                == track.album
-                            {
-                                return Ok(raw_track.to_owned());
-                            }
-                        }
-
-                        // fallback: can't find track with same album name
-                        return Ok(raw_data["data"][0].to_owned());
-                    }
+                    // only one result or album name can't be found
+                    return Ok(serde_json::from_value(raw_data["data"][0].take())?);
                 }
                 Err(..) => (),
             },
@@ -96,8 +267,8 @@ impl AppleMusic {
         eprintln!("isrc search failed....fallback....");
 
         let lackluster_search_result: serde_json::Value = Self::get(
-            &client,
-            &auth,
+            client,
+            auth,
             &format!(
                 "catalog/us/search?types=songs&term=track:{}%20artist:{}%20album:{}%20year:{}",
                 &track.name,
@@ -110,8 +281,8 @@ impl AppleMusic {
         .await?;
 
         match Self::get(
-            &client,
-            &auth,
+            client,
+            auth,
             &format!(
                 "catalog/us/songs/{}?include=artists,albums",
                 lackluster_search_result["results"]["songs"]["data"][0]["id"]
@@ -121,7 +292,7 @@ impl AppleMusic {
         )
         .await
         {
-            Ok(raw_track) => Ok(raw_track["data"][0].to_owned()),
+            Ok(raw_track) => Ok(serde_json::from_value(raw_track["data"][0].to_owned())?),
             Err(e) => Err(e),
         }
     }
@@ -131,8 +302,7 @@ impl AppleMusic {
         auth: &str,
         track: &mut Track,
     ) -> Result<()> {
-        let data: serde_json::Value =
-            Self::get_raw_track_match_from_track(client, auth, track).await?;
+        let data: RawTrack = Self::get_raw_track_match_from_track(client, auth, track).await?;
         let service: Self = Self::create_service_from_raw(&data).await?;
         track.services.apple_music = Some(service);
         Ok(())
@@ -143,13 +313,19 @@ impl AppleMusic {
         auth: &str,
         track_id: &str,
     ) -> Result<Track> {
-        let track_data: serde_json::Value = Self::get(
+        match Self::get(
             client,
             auth,
             &format!("catalog/us/songs/{}?include=artists,albums", track_id),
         )
-        .await?;
-        Ok(Self::create_track_from_raw(&track_data["data"][0]).await?)
+        .await
+        {
+            Ok(track_data) => Ok(Self::create_track_from_raw(&serde_json::from_value(
+                track_data["data"][0].to_owned(),
+            )?)
+            .await?),
+            Err(e) => Err(e),
+        }
     }
 
     pub async fn create_playlist_from_id(
@@ -160,119 +336,101 @@ impl AppleMusic {
         todo!()
     }
 
-    pub async fn create_service_from_raw(data: &serde_json::Value) -> Result<Self>
-    where
-        Self: Sized,
-    {
+    pub async fn create_service_from_raw(raw_track: &RawTrack) -> Result<Self> {
+        let relationships: &RawTrackRelationships =
+            raw_track.relationships.as_ref().ok_or(Error::CreateError)?;
+        let albums: &RawAlbums = relationships.albums.as_ref().ok_or(Error::CreateError)?;
+        let first_album_attributes: &RawAlbumAttributes = albums.data[0]
+            .attributes
+            .as_ref()
+            .ok_or(Error::CreateError)?;
+        let attributes: &RawTrackAttributes =
+            raw_track.attributes.as_ref().ok_or(Error::CreateError)?;
+
         let mut artists: Vec<Artist> = Vec::new();
-        for artist in data["relationships"]["artists"]["data"]
-            .as_array()
+        for artist in &relationships
+            .artists
+            .as_ref()
             .ok_or(Error::CreateError)?
+            .data
         {
             artists.push(Artist {
-                id: artist["id"].as_str().ok_or(Error::CreateError)?.to_owned(),
-                name: artist["attributes"]["name"]
-                    .as_str()
+                id: artist.id.to_owned(),
+                name: artist
+                    .attributes
+                    .as_ref()
                     .ok_or(Error::CreateError)?
+                    .name
                     .to_owned(),
             })
         }
 
-        let mut genres: Vec<String> = Vec::new();
-        for genre in data["attributes"]["genreNames"]
-            .as_array()
-            .ok_or(Error::CreateError)?
-        {
-            genres.push(genre.as_str().ok_or(Error::CreateError)?.to_owned())
-        }
-
         Ok(AppleMusic {
-            id: data["id"].as_str().ok_or(Error::CreateError)?.to_owned(),
+            id: raw_track.id.to_owned(),
             artists,
             album: Album {
-                id: data["relationships"]["albums"]["data"][0]["id"]
-                    .as_str()
-                    .ok_or(Error::CreateError)?
-                    .to_owned(),
-                name: data["relationships"]["albums"]["data"][0]["attributes"]["name"]
-                    .as_str()
-                    .ok_or(Error::CreateError)?
-                    .to_owned(),
-                total_tracks: data["relationships"]["albums"]["data"][0]["attributes"]
-                    ["trackCount"]
-                    .as_u64()
-                    .ok_or(Error::CreateError)?
-                    .try_into()
-                    .or(Err(Error::CreateError))?,
-                ean: match data["relationships"]["albums"]["data"][0]["attributes"]["ean"].as_str()
-                {
-                    Some(upc) => Some(upc.to_owned()),
-                    None => None,
-                },
-                upc: match data["relationships"]["albums"]["data"][0]["attributes"]["upc"].as_str()
-                {
-                    Some(upc) => Some(upc.to_owned()),
-                    None => None,
-                },
+                id: albums.data[0].id.to_owned(),
+                name: first_album_attributes.name.to_owned(),
+                total_tracks: first_album_attributes.track_count,
+                ean: None,
+                upc: first_album_attributes.upc.to_owned(),
             },
-            url: data["attributes"]["url"]
-                .as_str()
-                .ok_or(Error::CreateError)?
-                .to_owned(),
-            image: match data["attributes"]["artwork"]["url"].as_str() {
-                Some(url) => Some(url.to_owned()),
-                None => None,
+            url: attributes.url.to_owned(),
+            image: Some(attributes.artwork.url.to_owned()),
+            audio_preview: {
+                if attributes.previews.len() > 0 {
+                    Some(attributes.previews[0].url.to_owned())
+                } else {
+                    None
+                }
             },
-            audio_preview: match data["attributes"]["previews"][0]["url"].as_str() {
-                Some(url) => Some(url.to_owned()),
-                None => None,
-            },
-            genres,
-            composer: match data["attributes"]["composerName"].as_str() {
+            genres: attributes.genre_names.to_owned(),
+            composer: match &attributes.composer_name {
                 Some(composer) => Some(composer.to_owned()),
                 None => None,
             },
         })
     }
 
-    pub async fn create_track_from_raw(data: &serde_json::Value) -> Result<Track> {
+    pub async fn create_track_from_raw(raw_track: &RawTrack) -> Result<Track> {
+        let relationships: &RawTrackRelationships =
+            raw_track.relationships.as_ref().ok_or(Error::CreateError)?;
+        let albums: &RawAlbums = relationships.albums.as_ref().ok_or(Error::CreateError)?;
+        let first_album_attributes: &RawAlbumAttributes = albums.data[0]
+            .attributes
+            .as_ref()
+            .ok_or(Error::CreateError)?;
+        let attributes: &RawTrackAttributes =
+            raw_track.attributes.as_ref().ok_or(Error::CreateError)?;
+
         let mut artists: Vec<String> = Vec::new();
-        for artist in data["relationships"]["artists"]["data"]
-            .as_array()
+        for artist in &relationships
+            .artists
+            .as_ref()
             .ok_or(Error::CreateError)?
+            .data
         {
             artists.push(
-                artist["attributes"]["name"]
-                    .as_str()
+                artist
+                    .attributes
+                    .as_ref()
                     .ok_or(Error::CreateError)?
+                    .name
                     .to_owned(),
             )
         }
 
-        let mut release_date: std::str::Split<&str> = data["attributes"]["releaseDate"]
-            .as_str()
+        let mut release_date: std::str::Split<&str> = attributes
+            .release_date
+            .as_ref()
             .ok_or(Error::CreateError)?
             .split("-");
 
         Ok(Track {
-            name: data["attributes"]["name"]
-                .as_str()
-                .ok_or(Error::CreateError)?
-                .to_owned(),
-            album: data["attributes"]["albumName"]
-                .as_str()
-                .ok_or(Error::CreateError)?
-                .to_owned(),
-            disk_number: data["attributes"]["discNumber"]
-                .as_u64()
-                .ok_or(Error::CreateError)?
-                .try_into()
-                .or(Err(Error::CreateError))?,
-            track_number: data["attributes"]["trackNumber"]
-                .as_u64()
-                .ok_or(Error::CreateError)?
-                .try_into()
-                .or(Err(Error::CreateError))?,
+            name: attributes.name.to_owned(),
+            album: attributes.album_name.to_owned(),
+            disk_number: attributes.disc_number.ok_or(Error::CreateError)?,
+            track_number: attributes.track_number.ok_or(Error::CreateError)?,
             artists,
             release_year: match release_date.next() {
                 Some(year) => year.parse().or(Err(Error::CreateError))?,
@@ -286,7 +444,7 @@ impl AppleMusic {
                 Some(day) => Some(day.parse().or(Err(Error::CreateError))?),
                 None => None,
             },
-            is_explicit: match data["attributes"]["contentRating"].as_str() {
+            is_explicit: match &attributes.content_rating {
                 Some(content_rating) => {
                     if content_rating == "explicit" {
                         true
@@ -296,22 +454,21 @@ impl AppleMusic {
                 }
                 None => false,
             },
-            // duration_ms: data["attributes"]["durationInMillis"],
-            duration_ms: 0,
+            duration_ms: attributes.duration_in_millis,
             services: Services {
                 spotify: None,
-                apple_music: Some(Self::create_service_from_raw(data).await?),
+                apple_music: Some(Self::create_service_from_raw(raw_track).await?),
                 youtube: None,
                 bandcamp: None,
             },
-            isrc: match data["attributes"]["isrc"].as_str() {
+            isrc: match &attributes.isrc {
                 Some(isrc) => Some(isrc.to_owned()),
                 None => None,
             },
         })
     }
 
-    pub async fn create_playlist_from_raw(data: &Vec<serde_json::Value>) -> Result<Playlist> {
+    pub async fn create_playlist_from_raw(raw_tracks: &Vec<RawTrack>) -> Result<Playlist> {
         todo!()
     }
 }
@@ -319,7 +476,7 @@ impl AppleMusic {
 #[cfg(test)]
 mod tests {
     use crate::{
-        apple_music::AppleMusic,
+        apple_music::{AppleMusic, RawTrack},
         service::Services,
         track::{Playlist, Track},
     };
@@ -405,7 +562,7 @@ mod tests {
                 .build()
                 .unwrap();
 
-        let search_result: serde_json::Value = AppleMusic::get_raw_track_match_from_track(
+        let search_result: RawTrack = AppleMusic::get_raw_track_match_from_track(
             &client,
             &AppleMusic::PUBLIC_BEARER_TOKEN,
             &example_track,
@@ -413,7 +570,7 @@ mod tests {
         .await
         .unwrap();
 
-        assert_eq!(search_result, serde_json::from_str::<serde_json::Value>(r#"{"attributes":{"albumName":"Genius Fatigue","artistName":"TunaBunny","artwork":{"bgColor":"f1f0ee","height":1400,"textColor1":"000a13","textColor2":"000c11","textColor3":"30383e","textColor4":"30393d","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/v4/ec/33/ed/ec33ed1a-0cf5-1478-41eb-51ce063f92d6/Cover.jpg/{w}x{h}bb.jpg","width":1400},"discNumber":1,"durationInMillis":138027,"genreNames":["Alternative","Music","Rock","Pop","Pop/Rock","Indie Rock","College Rock"],"hasLyrics":false,"isAppleDigitalMaster":false,"isrc":"USZUD1215001","name":"Duchess for Nothing","playParams":{"id":"575329663","kind":"song"},"previews":[{"url":"https://audio-ssl.itunes.apple.com/itunes-assets/Music7/v4/20/62/e5/2062e57f-b30c-f22f-d926-0e224de8cee0/mzaf_8064208449823682309.plus.aac.p.m4a"}],"releaseDate":"2013-01-15","trackNumber":1,"url":"https://music.apple.com/us/album/duchess-for-nothing/575329457?i=575329663"},"href":"/v1/catalog/us/songs/575329663","id":"575329663","relationships":{"albums":{"data":[{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"f1f0ee","height":1400,"textColor1":"000a13","textColor2":"000c11","textColor3":"30383e","textColor4":"30393d","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/v4/ec/33/ed/ec33ed1a-0cf5-1478-41eb-51ce063f92d6/Cover.jpg/{w}x{h}bb.jpg","width":1400},"copyright":"℗ 2012 HHBTM","genreNames":["Alternative","Music","Rock","College Rock","Pop","Pop/Rock","Indie Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Genius Fatigue","playParams":{"id":"575329457","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2013-01-15","trackCount":10,"upc":"795103607620","url":"https://music.apple.com/us/album/genius-fatigue/575329457"},"href":"/v1/catalog/us/albums/575329457","id":"575329457","type":"albums"}],"href":"/v1/catalog/us/songs/575329663/albums"},"artists":{"data":[{"attributes":{"artwork":{"bgColor":"bc0068","height":620,"textColor1":"ffffff","textColor2":"f5e7ef","textColor3":"f1cbe0","textColor4":"eab9d4","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/93/a3/fe/mzi.nmmldnsd.jpg/{w}x{h}ac.jpg","width":620},"genreNames":["Alternative"],"name":"TunaBunny","url":"https://music.apple.com/us/artist/tunabunny/333943109"},"href":"/v1/catalog/us/artists/333943109","id":"333943109","relationships":{"albums":{"data":[{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"ee993f","height":1500,"textColor1":"0a0907","textColor2":"191712","textColor3":"372612","textColor4":"43311b","url":"https://is1-ssl.mzstatic.com/image/thumb/Music111/v4/3e/ef/e8/3eefe81a-c8fb-70db-a7ea-a54bebdcfa46/191018833985.jpg/{w}x{h}bb.jpg","width":1500},"copyright":"℗ 2017 HHBTM Records","genreNames":["Rock","Music","Alternative","College Rock","Electronic","Pop","Pop/Rock","Indie Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Pcp Presents Alice in Wonderland Jr.","playParams":{"id":"1205767123","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2017-06-09","trackCount":28,"upc":"191018833985","url":"https://music.apple.com/us/album/pcp-presents-alice-in-wonderland-jr/1205767123"},"href":"/v1/catalog/us/albums/1205767123","id":"1205767123","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"bc0068","height":620,"textColor1":"ffffff","textColor2":"f5e7ef","textColor3":"f1cbe0","textColor4":"eab9d4","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/93/a3/fe/mzi.nmmldnsd.jpg/{w}x{h}bb.jpg","width":620},"contentRating":"clean","copyright":"℗ 2011 HHBTM","genreNames":["Indie Rock","Music","Alternative","College Rock","Rock","Pop","Pop/Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Minima Moralia","playParams":{"id":"464244644","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2011-09-27","trackCount":12,"upc":"847108031723","url":"https://music.apple.com/us/album/minima-moralia/464244644"},"href":"/v1/catalog/us/albums/464244644","id":"464244644","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"f1f0ee","height":1400,"textColor1":"000a13","textColor2":"000c11","textColor3":"30383e","textColor4":"30393d","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/v4/ec/33/ed/ec33ed1a-0cf5-1478-41eb-51ce063f92d6/Cover.jpg/{w}x{h}bb.jpg","width":1400},"copyright":"℗ 2012 HHBTM","genreNames":["Alternative","Music","Rock","College Rock","Pop","Pop/Rock","Indie Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Genius Fatigue","playParams":{"id":"575329457","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2013-01-15","trackCount":10,"upc":"795103607620","url":"https://music.apple.com/us/album/genius-fatigue/575329457"},"href":"/v1/catalog/us/albums/575329457","id":"575329457","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"ffffff","height":620,"textColor1":"000000","textColor2":"161616","textColor3":"333333","textColor4":"454545","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/70/10/bf/mzi.tkuuzput.jpg/{w}x{h}bb.jpg","width":620},"copyright":"℗ 2010 Happy Happy Birthday to Me Records","genreNames":["Indie Rock","Music","Alternative","College Rock","Pop","Pop/Rock","Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Tunabunny","playParams":{"id":"377527201","kind":"album"},"recordLabel":"Happy Happy Birthday to Me Records","releaseDate":"2010-07-20","trackCount":15,"upc":"844185050173","url":"https://music.apple.com/us/album/tunabunny/377527201"},"href":"/v1/catalog/us/albums/377527201","id":"377527201","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"f48a21","height":1500,"textColor1":"090404","textColor2":"400c0c","textColor3":"381f0a","textColor4":"642510","url":"https://is1-ssl.mzstatic.com/image/thumb/Music4/v4/03/a7/e1/03a7e1fd-e31e-1a1a-1ca5-a6845953886c/888608550956.jpg/{w}x{h}bb.jpg","width":1500},"copyright":"℗ 2014 HHBTM Records","genreNames":["Alternative","Music","Electronic","Pop","Pop/Rock","Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Kingdom Technology","playParams":{"id":"818880961","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2014-03-11","trackCount":14,"upc":"888608550956","url":"https://music.apple.com/us/album/kingdom-technology/818880961"},"href":"/v1/catalog/us/albums/818880961","id":"818880961","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"c7c2bc","height":620,"textColor1":"000f30","textColor2":"111b33","textColor3":"28334c","textColor4":"353c4f","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/62/72/0f/mzi.etiucsro.jpg/{w}x{h}bb.jpg","width":620},"copyright":"℗ 2009 Happy Happy Birthday to Me Records","genreNames":["Alternative","Music"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":true,"name":"Outerspace Is the Center of the Earth - Single","playParams":{"id":"333943019","kind":"album"},"recordLabel":"Happy Happy Birthday to Me Records","releaseDate":"2009-09-15","trackCount":1,"upc":"844185068789","url":"https://music.apple.com/us/album/outerspace-is-the-center-of-the-earth-single/333943019"},"href":"/v1/catalog/us/albums/333943019","id":"333943019","type":"albums"}],"href":"/v1/catalog/us/artists/333943109/albums"}},"type":"artists"}],"href":"/v1/catalog/us/songs/575329663/artists"}},"type":"songs"}"#).unwrap());
+        assert_eq!(search_result, serde_json::from_str::<RawTrack>(r#"{"attributes":{"albumName":"Genius Fatigue","artistName":"TunaBunny","artwork":{"bgColor":"f1f0ee","height":1400,"textColor1":"000a13","textColor2":"000c11","textColor3":"30383e","textColor4":"30393d","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/v4/ec/33/ed/ec33ed1a-0cf5-1478-41eb-51ce063f92d6/Cover.jpg/{w}x{h}bb.jpg","width":1400},"discNumber":1,"durationInMillis":138027,"genreNames":["Alternative","Music","Rock","Pop","Pop/Rock","Indie Rock","College Rock"],"hasLyrics":false,"isAppleDigitalMaster":false,"isrc":"USZUD1215001","name":"Duchess for Nothing","playParams":{"id":"575329663","kind":"song"},"previews":[{"url":"https://audio-ssl.itunes.apple.com/itunes-assets/Music7/v4/20/62/e5/2062e57f-b30c-f22f-d926-0e224de8cee0/mzaf_8064208449823682309.plus.aac.p.m4a"}],"releaseDate":"2013-01-15","trackNumber":1,"url":"https://music.apple.com/us/album/duchess-for-nothing/575329457?i=575329663"},"href":"/v1/catalog/us/songs/575329663","id":"575329663","relationships":{"albums":{"data":[{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"f1f0ee","height":1400,"textColor1":"000a13","textColor2":"000c11","textColor3":"30383e","textColor4":"30393d","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/v4/ec/33/ed/ec33ed1a-0cf5-1478-41eb-51ce063f92d6/Cover.jpg/{w}x{h}bb.jpg","width":1400},"copyright":"℗ 2012 HHBTM","genreNames":["Alternative","Music","Rock","College Rock","Pop","Pop/Rock","Indie Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Genius Fatigue","playParams":{"id":"575329457","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2013-01-15","trackCount":10,"upc":"795103607620","url":"https://music.apple.com/us/album/genius-fatigue/575329457"},"href":"/v1/catalog/us/albums/575329457","id":"575329457","type":"albums"}],"href":"/v1/catalog/us/songs/575329663/albums"},"artists":{"data":[{"attributes":{"artwork":{"bgColor":"bc0068","height":620,"textColor1":"ffffff","textColor2":"f5e7ef","textColor3":"f1cbe0","textColor4":"eab9d4","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/93/a3/fe/mzi.nmmldnsd.jpg/{w}x{h}ac.jpg","width":620},"genreNames":["Alternative"],"name":"TunaBunny","url":"https://music.apple.com/us/artist/tunabunny/333943109"},"href":"/v1/catalog/us/artists/333943109","id":"333943109","relationships":{"albums":{"data":[{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"ee993f","height":1500,"textColor1":"0a0907","textColor2":"191712","textColor3":"372612","textColor4":"43311b","url":"https://is1-ssl.mzstatic.com/image/thumb/Music111/v4/3e/ef/e8/3eefe81a-c8fb-70db-a7ea-a54bebdcfa46/191018833985.jpg/{w}x{h}bb.jpg","width":1500},"copyright":"℗ 2017 HHBTM Records","genreNames":["Rock","Music","Alternative","College Rock","Electronic","Pop","Pop/Rock","Indie Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Pcp Presents Alice in Wonderland Jr.","playParams":{"id":"1205767123","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2017-06-09","trackCount":28,"upc":"191018833985","url":"https://music.apple.com/us/album/pcp-presents-alice-in-wonderland-jr/1205767123"},"href":"/v1/catalog/us/albums/1205767123","id":"1205767123","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"bc0068","height":620,"textColor1":"ffffff","textColor2":"f5e7ef","textColor3":"f1cbe0","textColor4":"eab9d4","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/93/a3/fe/mzi.nmmldnsd.jpg/{w}x{h}bb.jpg","width":620},"contentRating":"clean","copyright":"℗ 2011 HHBTM","genreNames":["Indie Rock","Music","Alternative","College Rock","Rock","Pop","Pop/Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Minima Moralia","playParams":{"id":"464244644","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2011-09-27","trackCount":12,"upc":"847108031723","url":"https://music.apple.com/us/album/minima-moralia/464244644"},"href":"/v1/catalog/us/albums/464244644","id":"464244644","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"f1f0ee","height":1400,"textColor1":"000a13","textColor2":"000c11","textColor3":"30383e","textColor4":"30393d","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/v4/ec/33/ed/ec33ed1a-0cf5-1478-41eb-51ce063f92d6/Cover.jpg/{w}x{h}bb.jpg","width":1400},"copyright":"℗ 2012 HHBTM","genreNames":["Alternative","Music","Rock","College Rock","Pop","Pop/Rock","Indie Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Genius Fatigue","playParams":{"id":"575329457","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2013-01-15","trackCount":10,"upc":"795103607620","url":"https://music.apple.com/us/album/genius-fatigue/575329457"},"href":"/v1/catalog/us/albums/575329457","id":"575329457","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"ffffff","height":620,"textColor1":"000000","textColor2":"161616","textColor3":"333333","textColor4":"454545","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/70/10/bf/mzi.tkuuzput.jpg/{w}x{h}bb.jpg","width":620},"copyright":"℗ 2010 Happy Happy Birthday to Me Records","genreNames":["Indie Rock","Music","Alternative","College Rock","Pop","Pop/Rock","Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Tunabunny","playParams":{"id":"377527201","kind":"album"},"recordLabel":"Happy Happy Birthday to Me Records","releaseDate":"2010-07-20","trackCount":15,"upc":"844185050173","url":"https://music.apple.com/us/album/tunabunny/377527201"},"href":"/v1/catalog/us/albums/377527201","id":"377527201","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"f48a21","height":1500,"textColor1":"090404","textColor2":"400c0c","textColor3":"381f0a","textColor4":"642510","url":"https://is1-ssl.mzstatic.com/image/thumb/Music4/v4/03/a7/e1/03a7e1fd-e31e-1a1a-1ca5-a6845953886c/888608550956.jpg/{w}x{h}bb.jpg","width":1500},"copyright":"℗ 2014 HHBTM Records","genreNames":["Alternative","Music","Electronic","Pop","Pop/Rock","Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Kingdom Technology","playParams":{"id":"818880961","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2014-03-11","trackCount":14,"upc":"888608550956","url":"https://music.apple.com/us/album/kingdom-technology/818880961"},"href":"/v1/catalog/us/albums/818880961","id":"818880961","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"c7c2bc","height":620,"textColor1":"000f30","textColor2":"111b33","textColor3":"28334c","textColor4":"353c4f","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/62/72/0f/mzi.etiucsro.jpg/{w}x{h}bb.jpg","width":620},"copyright":"℗ 2009 Happy Happy Birthday to Me Records","genreNames":["Alternative","Music"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":true,"name":"Outerspace Is the Center of the Earth - Single","playParams":{"id":"333943019","kind":"album"},"recordLabel":"Happy Happy Birthday to Me Records","releaseDate":"2009-09-15","trackCount":1,"upc":"844185068789","url":"https://music.apple.com/us/album/outerspace-is-the-center-of-the-earth-single/333943019"},"href":"/v1/catalog/us/albums/333943019","id":"333943019","type":"albums"}],"href":"/v1/catalog/us/artists/333943109/albums"}},"type":"artists"}],"href":"/v1/catalog/us/songs/575329663/artists"}},"type":"songs"}"#).unwrap());
     }
 
     #[tokio::test]
@@ -445,7 +602,7 @@ mod tests {
                 .build()
                 .unwrap();
 
-        let search_result: serde_json::Value = AppleMusic::get_raw_track_match_from_track(
+        let search_result: RawTrack = AppleMusic::get_raw_track_match_from_track(
             &client,
             &AppleMusic::PUBLIC_BEARER_TOKEN,
             &example_track,
@@ -453,6 +610,6 @@ mod tests {
         .await
         .unwrap();
 
-        assert_eq!(search_result, serde_json::from_str::<serde_json::Value>(r#"{"attributes":{"albumName":"Genius Fatigue","artistName":"TunaBunny","artwork":{"bgColor":"f1f0ee","height":1400,"textColor1":"000a13","textColor2":"000c11","textColor3":"30383e","textColor4":"30393d","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/v4/ec/33/ed/ec33ed1a-0cf5-1478-41eb-51ce063f92d6/Cover.jpg/{w}x{h}bb.jpg","width":1400},"discNumber":1,"durationInMillis":138027,"genreNames":["Alternative","Music","Rock","Pop","Pop/Rock","Indie Rock","College Rock"],"hasLyrics":false,"isAppleDigitalMaster":false,"isrc":"USZUD1215001","name":"Duchess for Nothing","playParams":{"id":"575329663","kind":"song"},"previews":[{"url":"https://audio-ssl.itunes.apple.com/itunes-assets/Music7/v4/20/62/e5/2062e57f-b30c-f22f-d926-0e224de8cee0/mzaf_8064208449823682309.plus.aac.p.m4a"}],"releaseDate":"2013-01-15","trackNumber":1,"url":"https://music.apple.com/us/album/duchess-for-nothing/575329457?i=575329663"},"href":"/v1/catalog/us/songs/575329663","id":"575329663","relationships":{"albums":{"data":[{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"f1f0ee","height":1400,"textColor1":"000a13","textColor2":"000c11","textColor3":"30383e","textColor4":"30393d","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/v4/ec/33/ed/ec33ed1a-0cf5-1478-41eb-51ce063f92d6/Cover.jpg/{w}x{h}bb.jpg","width":1400},"copyright":"℗ 2012 HHBTM","genreNames":["Alternative","Music","Rock","College Rock","Pop","Pop/Rock","Indie Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Genius Fatigue","playParams":{"id":"575329457","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2013-01-15","trackCount":10,"upc":"795103607620","url":"https://music.apple.com/us/album/genius-fatigue/575329457"},"href":"/v1/catalog/us/albums/575329457","id":"575329457","type":"albums"}],"href":"/v1/catalog/us/songs/575329663/albums"},"artists":{"data":[{"attributes":{"artwork":{"bgColor":"bc0068","height":620,"textColor1":"ffffff","textColor2":"f5e7ef","textColor3":"f1cbe0","textColor4":"eab9d4","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/93/a3/fe/mzi.nmmldnsd.jpg/{w}x{h}ac.jpg","width":620},"genreNames":["Alternative"],"name":"TunaBunny","url":"https://music.apple.com/us/artist/tunabunny/333943109"},"href":"/v1/catalog/us/artists/333943109","id":"333943109","relationships":{"albums":{"data":[{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"ee993f","height":1500,"textColor1":"0a0907","textColor2":"191712","textColor3":"372612","textColor4":"43311b","url":"https://is1-ssl.mzstatic.com/image/thumb/Music111/v4/3e/ef/e8/3eefe81a-c8fb-70db-a7ea-a54bebdcfa46/191018833985.jpg/{w}x{h}bb.jpg","width":1500},"copyright":"℗ 2017 HHBTM Records","genreNames":["Rock","Music","Alternative","College Rock","Electronic","Pop","Pop/Rock","Indie Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Pcp Presents Alice in Wonderland Jr.","playParams":{"id":"1205767123","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2017-06-09","trackCount":28,"upc":"191018833985","url":"https://music.apple.com/us/album/pcp-presents-alice-in-wonderland-jr/1205767123"},"href":"/v1/catalog/us/albums/1205767123","id":"1205767123","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"bc0068","height":620,"textColor1":"ffffff","textColor2":"f5e7ef","textColor3":"f1cbe0","textColor4":"eab9d4","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/93/a3/fe/mzi.nmmldnsd.jpg/{w}x{h}bb.jpg","width":620},"contentRating":"clean","copyright":"℗ 2011 HHBTM","genreNames":["Indie Rock","Music","Alternative","College Rock","Rock","Pop","Pop/Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Minima Moralia","playParams":{"id":"464244644","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2011-09-27","trackCount":12,"upc":"847108031723","url":"https://music.apple.com/us/album/minima-moralia/464244644"},"href":"/v1/catalog/us/albums/464244644","id":"464244644","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"f1f0ee","height":1400,"textColor1":"000a13","textColor2":"000c11","textColor3":"30383e","textColor4":"30393d","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/v4/ec/33/ed/ec33ed1a-0cf5-1478-41eb-51ce063f92d6/Cover.jpg/{w}x{h}bb.jpg","width":1400},"copyright":"℗ 2012 HHBTM","genreNames":["Alternative","Music","Rock","College Rock","Pop","Pop/Rock","Indie Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Genius Fatigue","playParams":{"id":"575329457","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2013-01-15","trackCount":10,"upc":"795103607620","url":"https://music.apple.com/us/album/genius-fatigue/575329457"},"href":"/v1/catalog/us/albums/575329457","id":"575329457","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"ffffff","height":620,"textColor1":"000000","textColor2":"161616","textColor3":"333333","textColor4":"454545","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/70/10/bf/mzi.tkuuzput.jpg/{w}x{h}bb.jpg","width":620},"copyright":"℗ 2010 Happy Happy Birthday to Me Records","genreNames":["Indie Rock","Music","Alternative","College Rock","Pop","Pop/Rock","Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Tunabunny","playParams":{"id":"377527201","kind":"album"},"recordLabel":"Happy Happy Birthday to Me Records","releaseDate":"2010-07-20","trackCount":15,"upc":"844185050173","url":"https://music.apple.com/us/album/tunabunny/377527201"},"href":"/v1/catalog/us/albums/377527201","id":"377527201","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"f48a21","height":1500,"textColor1":"090404","textColor2":"400c0c","textColor3":"381f0a","textColor4":"642510","url":"https://is1-ssl.mzstatic.com/image/thumb/Music4/v4/03/a7/e1/03a7e1fd-e31e-1a1a-1ca5-a6845953886c/888608550956.jpg/{w}x{h}bb.jpg","width":1500},"copyright":"℗ 2014 HHBTM Records","genreNames":["Alternative","Music","Electronic","Pop","Pop/Rock","Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Kingdom Technology","playParams":{"id":"818880961","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2014-03-11","trackCount":14,"upc":"888608550956","url":"https://music.apple.com/us/album/kingdom-technology/818880961"},"href":"/v1/catalog/us/albums/818880961","id":"818880961","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"c7c2bc","height":620,"textColor1":"000f30","textColor2":"111b33","textColor3":"28334c","textColor4":"353c4f","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/62/72/0f/mzi.etiucsro.jpg/{w}x{h}bb.jpg","width":620},"copyright":"℗ 2009 Happy Happy Birthday to Me Records","genreNames":["Alternative","Music"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":true,"name":"Outerspace Is the Center of the Earth - Single","playParams":{"id":"333943019","kind":"album"},"recordLabel":"Happy Happy Birthday to Me Records","releaseDate":"2009-09-15","trackCount":1,"upc":"844185068789","url":"https://music.apple.com/us/album/outerspace-is-the-center-of-the-earth-single/333943019"},"href":"/v1/catalog/us/albums/333943019","id":"333943019","type":"albums"}],"href":"/v1/catalog/us/artists/333943109/albums"}},"type":"artists"}],"href":"/v1/catalog/us/songs/575329663/artists"}},"type":"songs"}"#).unwrap())
+        assert_eq!(search_result, serde_json::from_str::<RawTrack>(r#"{"attributes":{"albumName":"Genius Fatigue","artistName":"TunaBunny","artwork":{"bgColor":"f1f0ee","height":1400,"textColor1":"000a13","textColor2":"000c11","textColor3":"30383e","textColor4":"30393d","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/v4/ec/33/ed/ec33ed1a-0cf5-1478-41eb-51ce063f92d6/Cover.jpg/{w}x{h}bb.jpg","width":1400},"discNumber":1,"durationInMillis":138027,"genreNames":["Alternative","Music","Rock","Pop","Pop/Rock","Indie Rock","College Rock"],"hasLyrics":false,"isAppleDigitalMaster":false,"isrc":"USZUD1215001","name":"Duchess for Nothing","playParams":{"id":"575329663","kind":"song"},"previews":[{"url":"https://audio-ssl.itunes.apple.com/itunes-assets/Music7/v4/20/62/e5/2062e57f-b30c-f22f-d926-0e224de8cee0/mzaf_8064208449823682309.plus.aac.p.m4a"}],"releaseDate":"2013-01-15","trackNumber":1,"url":"https://music.apple.com/us/album/duchess-for-nothing/575329457?i=575329663"},"href":"/v1/catalog/us/songs/575329663","id":"575329663","relationships":{"albums":{"data":[{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"f1f0ee","height":1400,"textColor1":"000a13","textColor2":"000c11","textColor3":"30383e","textColor4":"30393d","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/v4/ec/33/ed/ec33ed1a-0cf5-1478-41eb-51ce063f92d6/Cover.jpg/{w}x{h}bb.jpg","width":1400},"copyright":"℗ 2012 HHBTM","genreNames":["Alternative","Music","Rock","College Rock","Pop","Pop/Rock","Indie Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Genius Fatigue","playParams":{"id":"575329457","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2013-01-15","trackCount":10,"upc":"795103607620","url":"https://music.apple.com/us/album/genius-fatigue/575329457"},"href":"/v1/catalog/us/albums/575329457","id":"575329457","type":"albums"}],"href":"/v1/catalog/us/songs/575329663/albums"},"artists":{"data":[{"attributes":{"artwork":{"bgColor":"bc0068","height":620,"textColor1":"ffffff","textColor2":"f5e7ef","textColor3":"f1cbe0","textColor4":"eab9d4","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/93/a3/fe/mzi.nmmldnsd.jpg/{w}x{h}ac.jpg","width":620},"genreNames":["Alternative"],"name":"TunaBunny","url":"https://music.apple.com/us/artist/tunabunny/333943109"},"href":"/v1/catalog/us/artists/333943109","id":"333943109","relationships":{"albums":{"data":[{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"ee993f","height":1500,"textColor1":"0a0907","textColor2":"191712","textColor3":"372612","textColor4":"43311b","url":"https://is1-ssl.mzstatic.com/image/thumb/Music111/v4/3e/ef/e8/3eefe81a-c8fb-70db-a7ea-a54bebdcfa46/191018833985.jpg/{w}x{h}bb.jpg","width":1500},"copyright":"℗ 2017 HHBTM Records","genreNames":["Rock","Music","Alternative","College Rock","Electronic","Pop","Pop/Rock","Indie Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Pcp Presents Alice in Wonderland Jr.","playParams":{"id":"1205767123","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2017-06-09","trackCount":28,"upc":"191018833985","url":"https://music.apple.com/us/album/pcp-presents-alice-in-wonderland-jr/1205767123"},"href":"/v1/catalog/us/albums/1205767123","id":"1205767123","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"bc0068","height":620,"textColor1":"ffffff","textColor2":"f5e7ef","textColor3":"f1cbe0","textColor4":"eab9d4","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/93/a3/fe/mzi.nmmldnsd.jpg/{w}x{h}bb.jpg","width":620},"contentRating":"clean","copyright":"℗ 2011 HHBTM","genreNames":["Indie Rock","Music","Alternative","College Rock","Rock","Pop","Pop/Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Minima Moralia","playParams":{"id":"464244644","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2011-09-27","trackCount":12,"upc":"847108031723","url":"https://music.apple.com/us/album/minima-moralia/464244644"},"href":"/v1/catalog/us/albums/464244644","id":"464244644","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"f1f0ee","height":1400,"textColor1":"000a13","textColor2":"000c11","textColor3":"30383e","textColor4":"30393d","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/v4/ec/33/ed/ec33ed1a-0cf5-1478-41eb-51ce063f92d6/Cover.jpg/{w}x{h}bb.jpg","width":1400},"copyright":"℗ 2012 HHBTM","genreNames":["Alternative","Music","Rock","College Rock","Pop","Pop/Rock","Indie Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Genius Fatigue","playParams":{"id":"575329457","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2013-01-15","trackCount":10,"upc":"795103607620","url":"https://music.apple.com/us/album/genius-fatigue/575329457"},"href":"/v1/catalog/us/albums/575329457","id":"575329457","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"ffffff","height":620,"textColor1":"000000","textColor2":"161616","textColor3":"333333","textColor4":"454545","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/70/10/bf/mzi.tkuuzput.jpg/{w}x{h}bb.jpg","width":620},"copyright":"℗ 2010 Happy Happy Birthday to Me Records","genreNames":["Indie Rock","Music","Alternative","College Rock","Pop","Pop/Rock","Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Tunabunny","playParams":{"id":"377527201","kind":"album"},"recordLabel":"Happy Happy Birthday to Me Records","releaseDate":"2010-07-20","trackCount":15,"upc":"844185050173","url":"https://music.apple.com/us/album/tunabunny/377527201"},"href":"/v1/catalog/us/albums/377527201","id":"377527201","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"f48a21","height":1500,"textColor1":"090404","textColor2":"400c0c","textColor3":"381f0a","textColor4":"642510","url":"https://is1-ssl.mzstatic.com/image/thumb/Music4/v4/03/a7/e1/03a7e1fd-e31e-1a1a-1ca5-a6845953886c/888608550956.jpg/{w}x{h}bb.jpg","width":1500},"copyright":"℗ 2014 HHBTM Records","genreNames":["Alternative","Music","Electronic","Pop","Pop/Rock","Rock"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":false,"name":"Kingdom Technology","playParams":{"id":"818880961","kind":"album"},"recordLabel":"HHBTM","releaseDate":"2014-03-11","trackCount":14,"upc":"888608550956","url":"https://music.apple.com/us/album/kingdom-technology/818880961"},"href":"/v1/catalog/us/albums/818880961","id":"818880961","type":"albums"},{"attributes":{"artistName":"TunaBunny","artwork":{"bgColor":"c7c2bc","height":620,"textColor1":"000f30","textColor2":"111b33","textColor3":"28334c","textColor4":"353c4f","url":"https://is1-ssl.mzstatic.com/image/thumb/Music/62/72/0f/mzi.etiucsro.jpg/{w}x{h}bb.jpg","width":620},"copyright":"℗ 2009 Happy Happy Birthday to Me Records","genreNames":["Alternative","Music"],"isCompilation":false,"isComplete":true,"isMasteredForItunes":false,"isSingle":true,"name":"Outerspace Is the Center of the Earth - Single","playParams":{"id":"333943019","kind":"album"},"recordLabel":"Happy Happy Birthday to Me Records","releaseDate":"2009-09-15","trackCount":1,"upc":"844185068789","url":"https://music.apple.com/us/album/outerspace-is-the-center-of-the-earth-single/333943019"},"href":"/v1/catalog/us/albums/333943019","id":"333943019","type":"albums"}],"href":"/v1/catalog/us/artists/333943109/albums"}},"type":"artists"}],"href":"/v1/catalog/us/songs/575329663/artists"}},"type":"songs"}"#).unwrap())
     }
 }

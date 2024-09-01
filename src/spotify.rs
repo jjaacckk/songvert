@@ -6,7 +6,7 @@ use reqwest::{Client, RequestBuilder, Response};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Deserialize, Serialize, Debug, PartialEq)]
 pub struct Spotify {
     pub id: String,
     pub artists: Vec<Artist>,
@@ -121,15 +121,11 @@ pub struct RawExternalUrls {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-// #[serde(deny_unknown_fields, rename_all(deserialize = "snake_case"))]
+#[serde(rename_all(deserialize = "camelCase"))]
 pub struct SessionInfo {
-    #[serde(rename = "accessToken")]
     pub access_token: String,
-    #[serde(rename = "accessTokenExpirationTimestampMs")]
     pub access_token_expiration_timestamp_ms: usize,
-    #[serde(rename = "isAnonymous")]
     pub is_anonymous: bool,
-    #[serde(rename = "clientId")]
     pub client_id: String,
 }
 
@@ -140,25 +136,22 @@ impl Spotify {
     pub async fn get_public_session_info(client: &Client) -> Result<SessionInfo> {
         let request: RequestBuilder = client.get(Self::SITE_BASE_URL);
         let response: Response = request.send().await?;
-
         if response.status() != 200 {
             eprintln!("{}", response.text().await?);
             return Err(Error::SessionGrabError);
         }
-
         let raw_html: String = response.text().await?;
-
         let re = Regex::new(r#"(\{"accessToken":.*"\})"#)?;
-        let captures: regex::Captures = match re.captures(&raw_html) {
-            Some(c) => c,
+
+        let raw_session_info: regex::Match = match re.captures(&raw_html) {
+            Some(captures) => match captures.get(1) {
+                Some(m) => m,
+                None => return Err(Error::SessionGrabError),
+            },
             None => return Err(Error::SessionGrabError),
         };
 
-        let capture: &str = match captures.get(0) {
-            Some(c) => c.as_str(),
-            None => return Err(Error::SessionGrabError),
-        };
-        let session_info: SessionInfo = serde_json::from_str(capture)?;
+        let session_info: SessionInfo = serde_json::from_str(raw_session_info.as_str())?;
 
         Ok(session_info)
     }
@@ -172,10 +165,7 @@ impl Spotify {
             eprintln!("{}", response.text().await?);
             return Err(Error::FindError);
         }
-
         let data: Value = serde_json::from_str(&response.text().await?)?;
-
-        // println!("{}", data);
 
         Ok(data)
     }
@@ -194,10 +184,10 @@ impl Spotify {
                 )
                 .await
                 {
-                    Ok(raw_result) => {
+                    Ok(mut raw_result) => {
                         return Ok(serde_json::from_value(
-                            raw_result["tracks"]["items"][0].to_owned(),
-                        )?)
+                            raw_result["tracks"]["items"][0].take(),
+                        )?);
                     }
                     Err(..) => (),
                 }
@@ -206,21 +196,21 @@ impl Spotify {
         }
         // no isrc or isrc search failed
 
-        Ok(serde_json::from_value(
+        Ok(serde_json::from_value::<RawTrack>(
             Self::get(
                 client,
                 auth,
                 &format!(
                     "search?type=track&q=track:{}%20artist:{}%20album:{}%20year:{}",
-                    &track.name,
-                    &track.artists.join("+"),
-                    &track.album,
-                    &track.release_year
+                    track.name,
+                    track.artists.join("+"),
+                    track.album,
+                    track.release_year
                 )
                 .replace(" ", "+"),
             )
             .await?["tracks"]["items"][0]
-                .to_owned(),
+                .take(),
         )?)
     }
 
@@ -243,7 +233,8 @@ impl Spotify {
         let track_data: RawTrack = serde_json::from_value(
             Self::get(client, auth, &format!("tracks/{}", track_id)).await?,
         )?;
-        Ok(Self::create_track_from_raw(&track_data).await?)
+
+        Self::create_track_from_raw(&track_data).await
     }
 
     pub async fn create_playlist_from_id(
@@ -266,10 +257,10 @@ impl Spotify {
             panic!();
         }
 
-        Ok(Self::create_playlist_from_raw(&tracks_raw).await?)
+        Self::create_playlist_from_raw(&tracks_raw).await
     }
 
-    async fn create_service_from_raw(raw_track: &RawTrack) -> Result<Spotify> {
+    pub async fn create_service_from_raw(raw_track: &RawTrack) -> Result<Self> {
         let mut artists: Vec<Artist> = Vec::new();
         for artist in &raw_track.artists {
             artists.push(Artist {
@@ -296,17 +287,14 @@ impl Spotify {
                     None
                 }
             },
-            audio_preview: match &raw_track.preview_url {
-                Some(url) => Some(url.to_owned()),
-                None => None,
-            },
+            audio_preview: raw_track.preview_url.to_owned(),
         })
     }
 
-    async fn create_track_from_raw(raw_track: &RawTrack) -> Result<Track> {
+    pub async fn create_track_from_raw(raw_track: &RawTrack) -> Result<Track> {
         let mut artists: Vec<String> = Vec::new();
         for artist in &raw_track.artists {
-            artists.push(artist.name.to_owned())
+            artists.push(artist.name.to_owned());
         }
 
         let mut release_date: std::str::Split<&str> = raw_track.album.release_date.split("-");
@@ -337,14 +325,11 @@ impl Spotify {
                 youtube: None,
                 bandcamp: None,
             },
-            isrc: match &raw_track.external_ids.isrc {
-                Some(isrc) => Some(isrc.to_owned()),
-                None => None,
-            },
+            isrc: raw_track.external_ids.isrc.to_owned(),
         })
     }
 
-    async fn create_playlist_from_raw(raw_tracks: &Vec<RawTrack>) -> Result<Playlist> {
+    pub async fn create_playlist_from_raw(raw_tracks: &Vec<RawTrack>) -> Result<Playlist> {
         let mut new_tracks_futures = Vec::new();
         for raw_track in raw_tracks {
             new_tracks_futures.push(Self::create_track_from_raw(&raw_track));
@@ -425,18 +410,18 @@ mod tests {
         };
 
         let example_track: Track = Track {
-            name: String::from("Duchess for Nothing"),
-            album: String::from("Genius Fatigue"),
+            name: "Duchess for Nothing".to_owned(),
+            album: "Genius Fatigue".to_owned(),
             disk_number: 1,
             track_number: 1,
-            artists: vec![String::from("Tunabunny")],
+            artists: vec!["Tunabunny".to_owned()],
             release_year: 2013,
             release_month: None,
             release_day: None,
             is_explicit: false,
             duration_ms: 138026,
             services: example_services,
-            isrc: Some(String::from("USZUD1215001")),
+            isrc: Some("USZUD1215001".to_owned()),
         };
 
         let client: reqwest::Client = reqwest::Client::builder()
@@ -466,11 +451,11 @@ mod tests {
         };
 
         let example_track: Track = Track {
-            name: String::from("Duchess for Nothing"),
-            album: String::from("Genius Fatigue"),
+            name: "Duchess for Nothing".to_owned(),
+            album: "Genius Fatigue".to_owned(),
             disk_number: 1,
             track_number: 1,
-            artists: vec![String::from("Tunabunny")],
+            artists: vec!["Tunabunny".to_owned()],
             release_year: 2013,
             release_month: None,
             release_day: None,

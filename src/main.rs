@@ -12,6 +12,7 @@ mod track;
 mod youtube;
 
 use apple_music::AppleMusic;
+use serde::Serialize;
 
 use crate::error::{Error, Result};
 use crate::service::{Album, Artist, Services};
@@ -80,21 +81,54 @@ async fn main() -> Result<()> {
 
     println!("token: {}", &session_info.access_token);
 
-    let spotify_track: Track = match Spotify::create_track_from_id(
-        &client,
-        &session_info.access_token,
-        "6K225HZ3V7F4ec7yi1o88C",
-    )
-    .await
-    {
-        Ok(t) => t,
-        Err(e) => {
-            eprintln!("{}", e);
-            return Err(e);
-        }
+    println!("\n----------\nStart");
+
+    let example_services: Services = Services {
+        spotify: None,
+        apple_music: None,
+        youtube: None,
+        bandcamp: None,
     };
 
-    println!("{:?}", spotify_track);
+    let mut example_track: Track = Track {
+        name: "Duchess for Nothing".to_owned(),
+        album: "Genius Fatigue".to_owned(),
+        disk_number: 1,
+        track_number: 1,
+        artists: Vec::from(["Tunabunny".to_owned()]),
+        release_year: 2013,
+        release_month: None,
+        release_day: None,
+        is_explicit: false,
+        duration_ms: 138026,
+        services: example_services,
+        isrc: Some("USZUD1215001".to_owned()),
+    };
+
+    example_track
+        .add_spotify(&session_info.access_token, &client)
+        .await?;
+    example_track
+        .add_apple_music(AppleMusic::PUBLIC_BEARER_TOKEN, &client)
+        .await?;
+
+    println!("{}", serde_json::to_string_pretty(&example_track)?);
+
+    // let spotify_track: Track = match Spotify::create_track_from_id(
+    //     &client,
+    //     &session_info.access_token,
+    //     "6K225HZ3V7F4ec7yi1o88C",
+    // )
+    // .await
+    // {
+    //     Ok(t) => t,
+    //     Err(e) => {
+    //         eprintln!("{}", e);
+    //         return Err(e);
+    //     }
+    // };
+
+    // println!("{:?}", spotify_track);
 
     // let apple_music_track: Track = match AppleMusic::create_track_from_id(
     //     &client,

@@ -6,7 +6,7 @@ use crate::youtube::YouTube;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[derive(Deserialize, Serialize, Debug, PartialEq)]
 pub struct Track {
     pub name: String,
     pub album: String,
@@ -50,12 +50,12 @@ mod tests {
     #[tokio::test]
     async fn example_track_data_insertion() {
         let example_spotify_service: Spotify = Spotify {
-            id: String::from("6K225HZ3V7F4ec7yi1o88C"),
-            artists: vec![Artist {id: String::from("0xiwsYZwhrizQGNaQtW942"), name: String::from("Tunabunny")}],
-            album: Album { id: String::from("6WSL47W7Z5WwCCKzaFyLGd"), name: String::from("Genius Fatigue"), total_tracks: 10, ean: None, upc: None},
-            url: String::from("https://open.spotify.com/track/6K225HZ3V7F4ec7yi1o88C"),
-            image: Some(String::from("https://i.scdn.co/image/ab67616d0000b27336a71c545ed453f80433f6c8")),
-            audio_preview: Some(String::from("https://p.scdn.co/mp3-preview/13a7bfeabbe56d852fb9f7b6291c7dc49bcde515?cid=d8a5ed958d274c2e8ee717e6a4b0971d")),
+            id: "6K225HZ3V7F4ec7yi1o88C".to_owned(),
+            artists: vec![Artist {id: "0xiwsYZwhrizQGNaQtW942".to_owned(), name: "Tunabunny".to_owned()}],
+            album: Album { id: "6WSL47W7Z5WwCCKzaFyLGd".to_owned(), name: "Genius Fatigue".to_owned(), total_tracks: 10, ean: None, upc: None},
+            url: "https://open.spotify.com/track/6K225HZ3V7F4ec7yi1o88C".to_owned(),
+            image: Some("https://i.scdn.co/image/ab67616d0000b27336a71c545ed453f80433f6c8".to_owned()),
+            audio_preview: Some("https://p.scdn.co/mp3-preview/13a7bfeabbe56d852fb9f7b6291c7dc49bcde515?cid=d8a5ed958d274c2e8ee717e6a4b0971d".to_owned()),
         };
 
         let example_services: Services = Services {
@@ -66,18 +66,18 @@ mod tests {
         };
 
         let example_track: Track = Track {
-            name: String::from("Duchess for Nothing"),
-            album: String::from("Genius Fatigue"),
+            name: "Duchess for Nothing".to_owned(),
+            album: "Genius Fatigue".to_owned(),
             disk_number: 1,
             track_number: 1,
-            artists: vec![String::from("Tunabunny")],
+            artists: Vec::from(["Tunabunny".to_owned()]),
             release_year: 2013,
             release_month: None,
             release_day: None,
             is_explicit: false,
             duration_ms: 138026,
             services: example_services,
-            isrc: Some(String::from("USZUD1215001")),
+            isrc: Some("USZUD1215001".to_owned()),
         };
         // println!(
         //     "{}",
