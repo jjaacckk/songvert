@@ -9,6 +9,7 @@ use serde_json::Value;
 #[derive(Deserialize, Serialize, Debug, PartialEq)]
 pub struct Spotify {
     pub id: String,
+    pub name: String,
     pub artists: Vec<Artist>,
     pub album: Album,
     pub url: String,
@@ -135,11 +136,12 @@ impl Spotify {
 
     pub async fn get_public_session_info(client: &Client) -> Result<SessionInfo> {
         let request: RequestBuilder = client.get(Self::SITE_BASE_URL);
-        let response: Response = request.send().await?;
-        if response.status() != 200 {
-            eprintln!("{}", response.text().await?);
-            return Err(Error::SessionGrabError);
-        }
+        let mut response: Response = request.send().await?;
+        response = response.error_for_status()?;
+        // if response.status() != 200 {
+        //     eprintln!("{}", response.text().await?);
+        //     return Err(Error::SessionGrabError);
+        // }
         let raw_html: String = response.text().await?;
         let re = Regex::new(r#"(\{"accessToken":.*"\})"#)?;
 
@@ -160,17 +162,18 @@ impl Spotify {
         let request: RequestBuilder = client
             .get(format!("{}/{}", Self::API_BASE_URL, path))
             .header("Authorization", format!("Bearer {}", auth));
-        let response: Response = request.send().await?;
-        if response.status() != 200 {
-            eprintln!("{}", response.text().await?);
-            return Err(Error::FindError);
-        }
+        let mut response: Response = request.send().await?;
+        response = response.error_for_status()?;
+        // if response.status() != 200 {
+        //     eprintln!("{}", response.text().await?);
+        //     return Err(Error::FindError);
+        // }
         let data: Value = serde_json::from_str(&response.text().await?)?;
 
         Ok(data)
     }
 
-    async fn get_raw_track_match_from_track(
+    pub async fn get_raw_track_match_from_track(
         client: &Client,
         auth: &str,
         track: &Track,
@@ -185,9 +188,19 @@ impl Spotify {
                 .await
                 {
                     Ok(mut raw_result) => {
-                        return Ok(serde_json::from_value(
-                            raw_result["tracks"]["items"][0].take(),
-                        )?);
+                        if raw_result["tracks"]["items"]
+                            .as_array()
+                            .ok_or(Error::MatchError)?
+                            .len()
+                            > 0
+                        {
+                            return Ok(serde_json::from_value(
+                                raw_result["tracks"]["items"]
+                                    .get_mut(0)
+                                    .ok_or(Error::CreateError)?
+                                    .take(),
+                            )?);
+                        }
                     }
                     Err(..) => (),
                 }
@@ -209,7 +222,9 @@ impl Spotify {
                 )
                 .replace(" ", "+"),
             )
-            .await?["tracks"]["items"][0]
+            .await?["tracks"]["items"]
+                .get_mut(0)
+                .ok_or(Error::CreateError)?
                 .take(),
         )?)
     }
@@ -246,7 +261,9 @@ impl Spotify {
             Self::get(client, auth, &format!("playlists/{}", playlist_id)).await?,
         )?;
 
-        let mut tracks_raw: Vec<RawTrack> = Vec::new();
+        let mut tracks_raw: Vec<RawTrack> = Vec::with_capacity(playlist_data.tracks.total);
+
+        // println!("tracks: {}", playlist_data.tracks.total);
 
         if playlist_data.tracks.next == None {
             for track in playlist_data.tracks.items {
@@ -271,18 +288,27 @@ impl Spotify {
 
         Ok(Spotify {
             id: raw_track.id.to_owned(),
+            name: raw_track.name.to_owned(),
             artists,
             album: Album {
                 id: raw_track.album.id.to_owned(),
                 name: raw_track.album.name.to_owned(),
-                total_tracks: raw_track.album.total_tracks,
+                total_tracks: Some(raw_track.album.total_tracks),
                 ean: None,
                 upc: None,
             },
             url: raw_track.external_urls.spotify.to_owned(),
             image: {
                 if raw_track.album.images.len() > 0 {
-                    Some(raw_track.album.images[0].url.to_owned())
+                    Some(
+                        raw_track
+                            .album
+                            .images
+                            .get(0)
+                            .ok_or(Error::CreateError)?
+                            .url
+                            .to_owned(),
+                    )
                 } else {
                     None
                 }

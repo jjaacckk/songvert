@@ -8,6 +8,7 @@ use serde_json::Value;
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct AppleMusic {
     pub id: String,
+    pub name: String,
     pub artists: Vec<Artist>,
     pub composer: Option<String>,
     pub album: Album,
@@ -203,22 +204,32 @@ impl AppleMusic {
     pub const API_BASE_URL: &'static str = "https://api.music.apple.com/v1";
     pub const SITE_BASE_URL: &'static str = "https://music.apple.com";
 
-    pub const PUBLIC_BEARER_TOKEN: &'static str = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IldlYlBsYXlLaWQifQ.eyJpc3MiOiJBTVBXZWJQbGF5IiwiaWF0IjoxNzIxNzczNjI0LCJleHAiOjE3MjkwMzEyMjQsInJvb3RfaHR0cHNfb3JpZ2luIjpbImFwcGxlLmNvbSJdfQ.cMMhHLLazlxgiIbwBSSP1YuHCgqAVxiF7UQrwBc5xZepWt-vjqth_o4BidXFrmsEJvwzZKJ-GAMbqJpIeGcl7w";
+    pub const PUBLIC_BEARER_TOKEN: &'static str = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IldlYlBsYXlLaWQifQ.eyJpc3MiOiJBTVBXZWJQbGF5IiwiaWF0IjoxNzI0MDk1NzA5LCJleHAiOjE3MzEzNTMzMDksInJvb3RfaHR0cHNfb3JpZ2luIjpbImFwcGxlLmNvbSJdfQ.upq7QFkHN3etQVMycsuIlNYz8ElqqZeNCZ2OJUTHie2IbRiExsZJejLdQgv0JysNSu-w63IcOW6GCVbImMV3Zw";
 
     pub async fn get(client: &Client, auth: &str, path: &str) -> Result<serde_json::Value> {
         let request: RequestBuilder = client
             .get(format!("{}/{}", Self::API_BASE_URL, path))
             .header("Authorization", format!("Bearer {}", auth))
             .header("Origin", Self::SITE_BASE_URL);
-        let response: Response = request.send().await?;
-        if response.status() != 200 {
-            eprintln!("{}", response.text().await?);
-            return Err(Error::FindError);
-        }
+        let mut response: Response = request.send().await?;
+        response = response.error_for_status()?;
+        // if response.status() != 200 {
+        //     eprintln!("{}", response.text().await?);
+        //     return Err(Error::FindError);
+        // }
 
         let data: serde_json::Value = serde_json::from_str(&response.text().await?)?;
 
         Ok(data)
+    }
+
+    pub async fn get_raw_track_matches_from_tracks(
+        client: &Client,
+        auth: &str,
+        tracks: &Vec<Track>,
+    ) -> Result<Vec<RawTracks>> {
+        let isrcs: Vec<Option<&str>> = Vec::new();
+        todo!()
     }
 
     pub async fn get_raw_track_match_from_track(
@@ -257,7 +268,13 @@ impl AppleMusic {
                     // }
 
                     // only one result or album name can't be found
-                    return Ok(serde_json::from_value(raw_data["data"][0].take())?);
+                    match raw_data["data"].get_mut(0) {
+                        Some(first_data) => match serde_json::from_value(first_data.take()) {
+                            Ok(raw_track) => return Ok(raw_track),
+                            Err(..) => (),
+                        },
+                        None => (),
+                    }
                 }
                 Err(..) => (),
             },
@@ -270,13 +287,14 @@ impl AppleMusic {
             client,
             auth,
             &format!(
-                "catalog/us/search?types=songs&term=track:{}%20artist:{}%20album:{}%20year:{}",
+                "catalog/us/search?types=songs&term=song:{}%20artist:{}%20album:{}%20year:{}",
                 &track.name,
                 &track.artists.join("+"),
                 &track.album,
                 &track.release_year
             )
-            .replace(" ", "+"),
+            .replace(" ", "+")
+            .replace(&['\'', ','], ""),
         )
         .await?;
 
@@ -285,14 +303,21 @@ impl AppleMusic {
             auth,
             &format!(
                 "catalog/us/songs/{}?include=artists,albums",
-                lackluster_search_result["results"]["songs"]["data"][0]["id"]
+                lackluster_search_result["results"]["songs"]["data"]
+                    .get(0)
+                    .ok_or(Error::MatchError)?["id"]
                     .as_str()
                     .ok_or(Error::MatchError)?
             ),
         )
         .await
         {
-            Ok(raw_track) => Ok(serde_json::from_value(raw_track["data"][0].to_owned())?),
+            Ok(mut raw_track) => Ok(serde_json::from_value(
+                raw_track["data"]
+                    .get_mut(0)
+                    .ok_or(Error::MatchError)?
+                    .take(),
+            )?),
             Err(e) => Err(e),
         }
     }
@@ -320,8 +345,11 @@ impl AppleMusic {
         )
         .await
         {
-            Ok(track_data) => Ok(Self::create_track_from_raw(&serde_json::from_value(
-                track_data["data"][0].to_owned(),
+            Ok(mut track_data) => Ok(Self::create_track_from_raw(&serde_json::from_value(
+                track_data["data"]
+                    .get_mut(0)
+                    .ok_or(Error::CreateError)?
+                    .take(),
             )?)
             .await?),
             Err(e) => Err(e),
@@ -340,7 +368,10 @@ impl AppleMusic {
         let relationships: &RawTrackRelationships =
             raw_track.relationships.as_ref().ok_or(Error::CreateError)?;
         let albums: &RawAlbums = relationships.albums.as_ref().ok_or(Error::CreateError)?;
-        let first_album_attributes: &RawAlbumAttributes = albums.data[0]
+        let first_album_attributes: &RawAlbumAttributes = albums
+            .data
+            .get(0)
+            .ok_or(Error::CreateError)?
             .attributes
             .as_ref()
             .ok_or(Error::CreateError)?;
@@ -367,11 +398,17 @@ impl AppleMusic {
 
         Ok(AppleMusic {
             id: raw_track.id.to_owned(),
+            name: raw_track
+                .attributes
+                .as_ref()
+                .ok_or(Error::CreateError)?
+                .name
+                .to_owned(),
             artists,
             album: Album {
-                id: albums.data[0].id.to_owned(),
+                id: albums.data.get(0).ok_or(Error::CreateError)?.id.to_owned(),
                 name: first_album_attributes.name.to_owned(),
-                total_tracks: first_album_attributes.track_count,
+                total_tracks: Some(first_album_attributes.track_count),
                 ean: None,
                 upc: first_album_attributes.upc.to_owned(),
             },
@@ -379,7 +416,14 @@ impl AppleMusic {
             image: Some(attributes.artwork.url.to_owned()),
             audio_preview: {
                 if attributes.previews.len() > 0 {
-                    Some(attributes.previews[0].url.to_owned())
+                    Some(
+                        attributes
+                            .previews
+                            .get(0)
+                            .ok_or(Error::CreateError)?
+                            .url
+                            .to_owned(),
+                    )
                 } else {
                     None
                 }
@@ -396,7 +440,10 @@ impl AppleMusic {
         let relationships: &RawTrackRelationships =
             raw_track.relationships.as_ref().ok_or(Error::CreateError)?;
         let albums: &RawAlbums = relationships.albums.as_ref().ok_or(Error::CreateError)?;
-        let first_album_attributes: &RawAlbumAttributes = albums.data[0]
+        let first_album_attributes: &RawAlbumAttributes = albums
+            .data
+            .get(0)
+            .ok_or(Error::CreateError)?
             .attributes
             .as_ref()
             .ok_or(Error::CreateError)?;
