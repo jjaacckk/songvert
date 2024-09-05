@@ -25,17 +25,17 @@ pub struct Track {
 impl Track {
     pub async fn add_spotify(&mut self, auth: &str, client: &Client) -> Result<()> {
         Spotify::create_service_for_track(client, auth, self).await?;
-        // println!("spotify done.");
+        println!("sp done for {} by {}", self.name, self.artists[0]);
         Ok(())
     }
     pub async fn add_apple_music(&mut self, auth: &str, client: &Client) -> Result<()> {
         AppleMusic::create_service_for_track(client, auth, self).await?;
-        // println!("apple music done.");
+        println!("am done for {} by {}", self.name, self.artists[0]);
         Ok(())
     }
     pub async fn add_youtube(&mut self, client: &Client) -> Result<()> {
         YouTube::create_service_for_track(client, self).await?;
-        // println!("youtube done.");
+        println!("yt done for {} by {}", self.name, self.artists[0]);
         Ok(())
     }
 }

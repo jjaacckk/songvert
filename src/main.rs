@@ -16,7 +16,10 @@ use error::{Error, Result};
 use reqwest::Client;
 use service::{Album, Artist, Services};
 use spotify::{SessionInfo, Spotify};
-use std::io::Write;
+use std::{
+    io::Write,
+    sync::{Arc, Mutex},
+};
 use track::Track;
 use youtube::{Payload, YouTube};
 
@@ -79,16 +82,17 @@ async fn convert_spotify_playlist(
     let mut tracks: Vec<Track> =
         Spotify::create_playlist_from_id(client, spotify_auth, spotify_playlist_id).await?;
 
-    let mut count = 0;
+    let num_tracks = tracks.len();
 
-    // let mut apple_music_track_futures = Vec::with_capacity(tracks.len());
+    let mut apple_music_service_futures = Vec::with_capacity(num_tracks);
     for track in &mut tracks {
-        // apple_music_track_futures
-        //     .push(track.add_apple_music(AppleMusic::PUBLIC_BEARER_TOKEN, client));
-        match track
-            .add_apple_music(AppleMusic::PUBLIC_BEARER_TOKEN, client)
-            .await
-        {
+        apple_music_service_futures
+            .push(track.add_apple_music(AppleMusic::PUBLIC_BEARER_TOKEN, client));
+    }
+    let results = futures::future::join_all(apple_music_service_futures).await;
+    let mut count = 0;
+    for result in results {
+        match result {
             Ok(..) => (),
             Err(e) => {
                 println!(
@@ -100,26 +104,15 @@ async fn convert_spotify_playlist(
         };
         count += 1;
     }
-    // for future in apple_music_track_futures {
-    //     match future.await {
-    //         Ok(..) => (),
-    //         Err(e) => {
-    //             println!(
-    //                 "Skipping adding Apple Music to track {} due to error:\n{}",
-    //                 count + 1,
-    //                 e
-    //             )
-    //         }
-    //     };
-    //     count += 1;
-    // }
 
-    // count = 0;
-
-    // let mut youtube_track_futures = Vec::with_capacity(tracks.len());
+    let mut youtube_service_futures = Vec::with_capacity(num_tracks);
     for track in &mut tracks {
-        // youtube_track_futures.push(track.add_youtube(client));
-        match track.add_youtube(client).await {
+        youtube_service_futures.push(track.add_youtube(client));
+    }
+    let results = futures::future::join_all(youtube_service_futures).await;
+    count = 0;
+    for result in results {
+        match result {
             Ok(..) => (),
             Err(e) => {
                 println!(
@@ -127,21 +120,9 @@ async fn convert_spotify_playlist(
                     count, e
                 )
             }
-        }
+        };
         count += 1;
     }
-    // for future in youtube_track_futures {
-    //     match future.await {
-    //         Ok(..) => (),
-    //         Err(e) => {
-    //             println!(
-    //                 "Skipping adding YouTube to track {} due to error:\n{}",
-    //                 count, e
-    //             )
-    //         }
-    //     }
-    //     count += 1;
-    // }
 
     Ok(tracks)
 }
