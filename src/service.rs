@@ -44,7 +44,7 @@ pub struct Artist {
 pub struct Album {
     pub id: String,
     pub name: String,
-    pub total_tracks: usize,
+    pub total_tracks: Option<usize>,
     pub ean: Option<String>,
     pub upc: Option<String>,
 }
