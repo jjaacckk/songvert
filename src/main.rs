@@ -16,6 +16,7 @@ use error::{Error, Result};
 use reqwest::Client;
 use service::{Album, Artist, Services};
 use spotify::{SessionInfo, Spotify};
+use std::io::Write;
 use track::Track;
 use youtube::{Payload, YouTube};
 
@@ -81,10 +82,24 @@ async fn convert_spotify_playlist(
     let mut count = 0;
 
     // let mut apple_music_track_futures = Vec::with_capacity(tracks.len());
-    // for track in &mut tracks {
-    //     apple_music_track_futures
-    //         .push(track.add_apple_music(AppleMusic::PUBLIC_BEARER_TOKEN, client));
-    // }
+    for track in &mut tracks {
+        // apple_music_track_futures
+        //     .push(track.add_apple_music(AppleMusic::PUBLIC_BEARER_TOKEN, client));
+        match track
+            .add_apple_music(AppleMusic::PUBLIC_BEARER_TOKEN, client)
+            .await
+        {
+            Ok(..) => (),
+            Err(e) => {
+                println!(
+                    "Skipping adding Apple Music to track {} due to error:\n{}",
+                    count + 1,
+                    e
+                )
+            }
+        };
+        count += 1;
+    }
     // for future in apple_music_track_futures {
     //     match future.await {
     //         Ok(..) => (),
@@ -142,45 +157,45 @@ async fn main() -> Result<()> {
 
     println!("spotify token:\n{}", &session_info.access_token);
 
-    // println!("\n----------\nStart:");
+    println!("\n----------\nStart:");
 
-    // let playlist_id: &str = "0iR3Srlz854Uw0Ci4gd4HL"; //sept 01 2024
-    // let tracks = convert_spotify_playlist(&client, &session_info.access_token, playlist_id).await?;
+    let playlist_id: &str = "0iR3Srlz854Uw0Ci4gd4HL"; //sept 01 2024
+    let tracks = convert_spotify_playlist(&client, &session_info.access_token, playlist_id).await?;
 
-    // println!("{} tracks:", tracks.len());
-    // let mut count = 0;
-    // for track in &tracks {
-    //     match track.services.youtube {
-    //     Some(..) => (),
-    //     None => {count+=1;
-    //         println!(
-    //         "\t* no YT"
-    //         )},
-    //     }
+    println!("\n{} tracks:", tracks.len());
+    let mut count = 0;
+    for track in &tracks {
+        println!("{} - {}", &track.name, &track.artists[0]);
+        match track.services.youtube {
+            Some(..) => (),
+            None => {
+                count += 1;
+                println!("\t* no YT")
+            }
+        }
+    }
 
-    //     println!("{} - {}", &track.name, &track.artists[0]);
-    // }
+    println!("\n{} tracks without youtube links", count);
 
-    // println!("{} tracks without youtube links", count);
+    let mut file = std::fs::File::create("./test.json")?;
+    file.write_all(serde_json::to_string_pretty(&tracks)?.as_bytes())?;
 
-    // let mut file = std::fs::File::create("./test.json")?;
-    // file.write_all(serde_json::to_string_pretty(&tracks)?.as_bytes())?;
+    println!("\n----------\nDone.");
 
-    // println!("\n----------\nDone.");
+    // let mut track = Spotify::create_track_from_id(
+    //     &client,
+    //     &session_info.access_token,
+    //     // "1LQGkjjLocIkLqMARHKnUp",
+    //     // "0nBBObbcOLO5Ik6ciPfRaR"
+    //     // "1rJ19XvEgTpqwfOUdtJiSg"
+    //     "5NJy7R4gPPu0UWAaKj2NWs"
+    // )
+    // .await?;
 
-    let mut track = Spotify::create_track_from_id(
-        &client,
-        &session_info.access_token,
-        // "1LQGkjjLocIkLqMARHKnUp",
-        // "0nBBObbcOLO5Ik6ciPfRaR"
-        "1rJ19XvEgTpqwfOUdtJiSg"
-    )
-    .await?;
-
-    match track.add_youtube(&client).await {
-        Ok(..) => println!("{}", serde_json::to_string_pretty(&track)?),
-        Err(e) => println!("{}", e),
-    };
+    // match track.add_youtube(&client).await {
+    //     Ok(..) => println!("{}", serde_json::to_string_pretty(&track)?),
+    //     Err(e) => println!("{}", e),
+    // };
 
     // let example_services: Services = Services {
     //     spotify: None,
