@@ -12,7 +12,7 @@ pub struct YouTube {
     pub name: String,
     pub url: String,
     pub artists: Vec<Artist>,
-    pub album: Album,
+    pub album: Option<Album>,
     pub duration_raw: String,
     pub music_video: Option<String>,
     pub thumbnails: Vec<String>,
@@ -197,20 +197,22 @@ impl YouTube {
     }
 
     pub async fn get_raw_track_match_from_track(client: &Client, track: &Track) -> Result<Value> {
-        Ok(Self::get_raw_results_from_search(
-            client,
-            &format!(
-                "{}, {}, {}, {}",
-                track.name,
-                track.artists.get(0).ok_or(Error::MatchError)?,
-                track.release_year,
-                track.album,
-            ),
+        let query: String = format!(
+            "{}, {}, {}, {}",
+            track.name,
+            track.artists.get(0).ok_or(Error::MatchError)?,
+            track.release_year,
+            track.album,
+        );
+
+        Ok(
+            Self::get_raw_results_from_search(client, &query).await?["contents"]
+                ["tabbedSearchResultsRenderer"]["tabs"]
+                .get_mut(0)
+                .ok_or(Error::MatchError)?["tabRenderer"]["content"]["sectionListRenderer"]
+                ["contents"]
+                .take(),
         )
-        .await?["contents"]["tabbedSearchResultsRenderer"]["tabs"]
-            .get_mut(0)
-            .ok_or(Error::MatchError)?["tabRenderer"]["content"]["sectionListRenderer"]["contents"]
-            .take())
     }
 
     pub async fn create_service_for_track(client: &Client, track: &mut Track) -> Result<()> {
@@ -221,9 +223,6 @@ impl YouTube {
     }
 
     pub async fn create_service_from_raw(data: &Value, track: &Track) -> Result<Self> {
-        let mut file = std::fs::File::create("./test.json")?;
-        file.write_all(serde_json::to_string_pretty(&data)?.as_bytes())?;
-
         let contents: &Vec<Value> = data.as_array().ok_or(Error::CreateError)?;
 
         let mut top_result: Option<RawMusicCardShelfRenderer> = None;
@@ -289,21 +288,32 @@ impl YouTube {
         let mut track_match_in_top_result: bool = false;
 
         if top_result_type == "Song" {
-            if top_result.title.runs.get(0).ok_or(Error::CreateError)?.text == track.name
+            if top_result
+                .title
+                .runs
+                .get(0)
+                .ok_or(Error::CreateError)?
+                .text
+                .to_lowercase()
+                == track.name.to_lowercase()
                 && top_result
                     .subtitle
                     .runs
                     .get(2)
                     .ok_or(Error::CreateError)?
                     .text
-                    == *track.artists.get(0).ok_or(Error::CreateError)?
+                    .to_lowercase()
+                    == *track
+                        .artists
+                        .get(0)
+                        .ok_or(Error::CreateError)?
+                        .to_lowercase()
             {
                 track_match_in_top_result = true;
             }
         }
 
         let id: &str;
-        let music_video: &str;
         let mut thumbnails: Vec<String> = Vec::new();
 
         if track_match_in_top_result == true {
@@ -329,31 +339,39 @@ impl YouTube {
                 thumbnails.push(thumbnail.url.to_owned())
             }
 
-            let artist_id: &str = &top_result
+            let artist_id: Option<String> = match &top_result
                 .subtitle
                 .runs
                 .get(2)
                 .ok_or(Error::CreateError)?
                 .navigation_endpoint
-                .as_ref()
-                .ok_or(Error::CreateError)?
-                .browse_endpoint
-                .as_ref()
-                .ok_or(Error::CreateError)?
-                .browse_id;
+            {
+                Some(nav) => Some(
+                    nav.browse_endpoint
+                        .as_ref()
+                        .ok_or(Error::CreateError)?
+                        .browse_id
+                        .to_owned(),
+                ),
+                None => None,
+            };
 
-            let album_id: &str = &top_result
+            let album_id: Option<String> = match &top_result
                 .subtitle
                 .runs
                 .get(4)
                 .ok_or(Error::CreateError)?
                 .navigation_endpoint
-                .as_ref()
-                .ok_or(Error::CreateError)?
-                .browse_endpoint
-                .as_ref()
-                .ok_or(Error::CreateError)?
-                .browse_id;
+            {
+                Some(nav) => Some(
+                    nav.browse_endpoint
+                        .as_ref()
+                        .ok_or(Error::CreateError)?
+                        .browse_id
+                        .to_owned(),
+                ),
+                None => None,
+            };
 
             return Ok(Self {
                 id: id.to_owned(),
@@ -365,31 +383,37 @@ impl YouTube {
                     .ok_or(Error::CreateError)?
                     .text
                     .to_owned(),
-                artists: vec![Artist {
-                    id: artist_id.to_owned(),
-                    name: top_result
-                        .subtitle
-                        .runs
-                        .get(2)
-                        .ok_or(Error::CreateError)?
-                        .text
-                        .to_owned(),
+                artists: match artist_id {
+                    Some(a_id) => vec![Artist {
+                        id: a_id.to_owned(),
+                        name: top_result
+                            .subtitle
+                            .runs
+                            .get(2)
+                            .ok_or(Error::CreateError)?
+                            .text
+                            .to_owned(),
 
-                    url: format!("https://music.youtube.com/browse/{}", artist_id),
-                }],
-                album: Album {
-                    id: album_id.to_owned(),
-                    name: top_result
-                        .subtitle
-                        .runs
-                        .get(4)
-                        .ok_or(Error::CreateError)?
-                        .text
-                        .to_owned(),
-                    url: format!("https://music.youtube.com/browse/{}", album_id),
-                    total_tracks: None,
-                    ean: None,
-                    upc: None,
+                        url: format!("https://music.youtube.com/browse/{}", a_id),
+                    }],
+                    None => vec![],
+                },
+                album: match album_id {
+                    Some(a_id) => Some(Album {
+                        id: a_id.to_owned(),
+                        name: top_result
+                            .subtitle
+                            .runs
+                            .get(4)
+                            .ok_or(Error::CreateError)?
+                            .text
+                            .to_owned(),
+                        url: format!("https://music.youtube.com/browse/{}", a_id),
+                        total_tracks: None,
+                        ean: None,
+                        upc: None,
+                    }),
+                    None => None,
                 },
                 duration_raw: top_result
                     .subtitle
@@ -403,7 +427,6 @@ impl YouTube {
             });
         } else {
             let songs: RawMusicShelfRenderer = songs.ok_or(Error::CreateError)?;
-
             for song in songs.contents {
                 let first_flex_run: &Vec<RawRun> = &song
                     .music_responsive_list_item_renderer
@@ -423,9 +446,22 @@ impl YouTube {
                     .text
                     .runs;
 
-                if first_flex_run.get(0).ok_or(Error::CreateError)?.text == track.name
-                    && second_flex_run.get(0).ok_or(Error::CreateError)?.text
-                        == *track.artists.get(0).ok_or(Error::CreateError)?
+                if first_flex_run
+                    .get(0)
+                    .ok_or(Error::CreateError)?
+                    .text
+                    .to_lowercase()
+                    == track.name.to_lowercase()
+                    && second_flex_run
+                        .get(0)
+                        .ok_or(Error::CreateError)?
+                        .text
+                        .to_lowercase()
+                        == *track
+                            .artists
+                            .get(0)
+                            .ok_or(Error::CreateError)?
+                            .to_lowercase()
                 {
                     id = &first_flex_run
                         .get(0)
@@ -447,27 +483,35 @@ impl YouTube {
                         thumbnails.push(thumbnail.url.to_owned())
                     }
 
-                    let artist_id: &str = &second_flex_run
+                    let artist_id: Option<String> = match &second_flex_run
                         .get(0)
                         .ok_or(Error::CreateError)?
                         .navigation_endpoint
-                        .as_ref()
-                        .ok_or(Error::CreateError)?
-                        .browse_endpoint
-                        .as_ref()
-                        .ok_or(Error::CreateError)?
-                        .browse_id;
+                    {
+                        Some(nav) => Some(
+                            nav.browse_endpoint
+                                .as_ref()
+                                .ok_or(Error::CreateError)?
+                                .browse_id
+                                .to_owned(),
+                        ),
+                        None => None,
+                    };
 
-                    let album_id: &str = &second_flex_run
+                    let album_id: Option<String> = match &second_flex_run
                         .get(2)
                         .ok_or(Error::CreateError)?
                         .navigation_endpoint
-                        .as_ref()
-                        .ok_or(Error::CreateError)?
-                        .browse_endpoint
-                        .as_ref()
-                        .ok_or(Error::CreateError)?
-                        .browse_id;
+                    {
+                        Some(nav) => Some(
+                            nav.browse_endpoint
+                                .as_ref()
+                                .ok_or(Error::CreateError)?
+                                .browse_id
+                                .to_owned(),
+                        ),
+                        None => None,
+                    };
 
                     return Ok(Self {
                         id: id.to_owned(),
@@ -477,26 +521,32 @@ impl YouTube {
                             .text
                             .to_owned(),
                         url: format!("https://www.youtube.com/watch?v={}", id),
-                        artists: vec![Artist {
-                            id: artist_id.to_owned(),
-                            url: format!("https://music.youtube.com/browse/{}", artist_id),
-                            name: second_flex_run
-                                .get(0)
-                                .ok_or(Error::CreateError)?
-                                .text
-                                .to_owned(),
-                        }],
-                        album: Album {
-                            id: album_id.to_owned(),
-                            name: second_flex_run
-                                .get(2)
-                                .ok_or(Error::CreateError)?
-                                .text
-                                .to_owned(),
-                            url: format!("https://music.youtube.com/browse/{}", album_id),
-                            total_tracks: None,
-                            ean: None,
-                            upc: None,
+                        artists: match artist_id {
+                            Some(a_id) => vec![Artist {
+                                id: a_id.to_owned(),
+                                url: format!("https://music.youtube.com/browse/{}", a_id),
+                                name: second_flex_run
+                                    .get(0)
+                                    .ok_or(Error::CreateError)?
+                                    .text
+                                    .to_owned(),
+                            }],
+                            None => vec![],
+                        },
+                        album: match album_id {
+                            Some(a_id) => Some(Album {
+                                id: a_id.to_owned(),
+                                name: second_flex_run
+                                    .get(2)
+                                    .ok_or(Error::CreateError)?
+                                    .text
+                                    .to_owned(),
+                                url: format!("https://music.youtube.com/browse/{}", a_id),
+                                total_tracks: None,
+                                ean: None,
+                                upc: None,
+                            }),
+                            None => None,
                         },
                         duration_raw: second_flex_run
                             .get(4)
