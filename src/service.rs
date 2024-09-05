@@ -38,12 +38,14 @@ pub struct Services {
 pub struct Artist {
     pub id: String,
     pub name: String,
+    pub url: String,
 }
 
 #[derive(Deserialize, Serialize, Debug, PartialEq)]
 pub struct Album {
     pub id: String,
     pub name: String,
+    pub url: String,
     pub total_tracks: Option<usize>,
     pub ean: Option<String>,
     pub upc: Option<String>,

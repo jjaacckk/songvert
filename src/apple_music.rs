@@ -385,29 +385,22 @@ impl AppleMusic {
             .ok_or(Error::CreateError)?
             .data
         {
+            let artist_attributes = artist.attributes.as_ref().ok_or(Error::CreateError)?;
             artists.push(Artist {
                 id: artist.id.to_owned(),
-                name: artist
-                    .attributes
-                    .as_ref()
-                    .ok_or(Error::CreateError)?
-                    .name
-                    .to_owned(),
+                name: artist_attributes.name.to_owned(),
+                url: artist_attributes.url.to_owned(),
             })
         }
 
         Ok(AppleMusic {
             id: raw_track.id.to_owned(),
-            name: raw_track
-                .attributes
-                .as_ref()
-                .ok_or(Error::CreateError)?
-                .name
-                .to_owned(),
+            name: attributes.name.to_owned(),
             artists,
             album: Album {
                 id: albums.data.get(0).ok_or(Error::CreateError)?.id.to_owned(),
                 name: first_album_attributes.name.to_owned(),
+                url: first_album_attributes.url.to_owned(),
                 total_tracks: Some(first_album_attributes.track_count),
                 ean: None,
                 upc: first_album_attributes.upc.to_owned(),
