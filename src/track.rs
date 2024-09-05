@@ -18,19 +18,25 @@ pub struct Track {
     pub release_day: Option<usize>,
     pub is_explicit: bool,
     pub duration_ms: usize,
-    pub services: Services,
     pub isrc: Option<String>,
+    pub services: Services,
 }
 
 impl Track {
     pub async fn add_spotify(&mut self, auth: &str, client: &Client) -> Result<()> {
-        Spotify::create_service_for_track(client, auth, self).await
+        Spotify::create_service_for_track(client, auth, self).await?;
+        // println!("spotify done.");
+        Ok(())
     }
     pub async fn add_apple_music(&mut self, auth: &str, client: &Client) -> Result<()> {
-        AppleMusic::create_service_for_track(client, auth, self).await
+        AppleMusic::create_service_for_track(client, auth, self).await?;
+        // println!("apple music done.");
+        Ok(())
     }
     pub async fn add_youtube(&mut self, client: &Client) -> Result<()> {
-        YouTube::create_service_for_track(client, self).await
+        YouTube::create_service_for_track(client, self).await?;
+        // println!("youtube done.");
+        Ok(())
     }
 }
 
