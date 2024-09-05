@@ -6,6 +6,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Bandcamp {
     pub id: String,
+    pub name: String,
     pub url: String,
     pub artists: Vec<Artist>,
     pub album: Album,
