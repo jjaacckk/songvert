@@ -213,10 +213,6 @@ impl AppleMusic {
             .header("Origin", Self::SITE_BASE_URL);
         let mut response: Response = request.send().await?;
         response = response.error_for_status()?;
-        // if response.status() != 200 {
-        //     eprintln!("{}", response.text().await?);
-        //     return Err(Error::FindError);
-        // }
 
         let data: serde_json::Value = serde_json::from_str(&response.text().await?)?;
 

@@ -166,18 +166,12 @@ impl YouTube {
     pub async fn post<'a>(client: &Client, path: &str, body: &Payload<'a>) -> Result<Value> {
         let raw_payload: String = serde_json::to_string(&body)?;
 
-        // println!("raw_payload: {}", &raw_payload);
-
         let request: RequestBuilder = client
             .post(format!("{}/{}", Self::API_BASE_URL, path))
             .body(raw_payload);
 
         let mut response: Response = request.send().await?;
         response = response.error_for_status()?;
-        // if response.status() != 200 {
-        //     eprintln!("{}", response.text().await?);
-        //     return Err(Error::FindError);
-        // }
 
         let data: serde_json::Value = serde_json::from_str(&response.text().await?)?;
 
@@ -203,27 +197,9 @@ impl YouTube {
     }
 
     pub async fn get_raw_track_match_from_track(client: &Client, track: &Track) -> Result<Value> {
-        println!(
-            "{}",
-            &format!(
-                "{}, {}, {}, {}",
-                track.name,
-                track.artists.get(0).ok_or(Error::MatchError)?,
-                track.release_year,
-                track.album,
-            )
-        );
-
         Ok(Self::get_raw_results_from_search(
             client,
             &format!(
-                // "song:{} artist:{} {} {}", // 9 without links
-                // "{} {} {} {}", // 11 without links
-                // "song:{} {} {} {}", // 10 without links
-                // "song:{} artist:{} album:{} year:{}", // 9 without links
-                // "song:{} artist:{} album:{} {}", // 12 without links
-                // "song:{} artist:{} {} {}",
-                // "song:{} artist:{} release:{} {}", // 8 without links
                 "{}, {}, {}, {}",
                 track.name,
                 track.artists.get(0).ok_or(Error::MatchError)?,
@@ -446,11 +422,6 @@ impl YouTube {
                     .music_responsive_list_item_flex_column_renderer
                     .text
                     .runs;
-
-                println!(
-                    first_flex_run.get(0).ok_or(Error::CreateError)?.text,
-                    second_flex_run.get(0).ok_or(Error::CreateError)?.text
-                );
 
                 if first_flex_run.get(0).ok_or(Error::CreateError)?.text == track.name
                     && second_flex_run.get(0).ok_or(Error::CreateError)?.text

@@ -138,10 +138,7 @@ impl Spotify {
         let request: RequestBuilder = client.get(Self::SITE_BASE_URL);
         let mut response: Response = request.send().await?;
         response = response.error_for_status()?;
-        // if response.status() != 200 {
-        //     eprintln!("{}", response.text().await?);
-        //     return Err(Error::SessionGrabError);
-        // }
+
         let raw_html: String = response.text().await?;
         let re = Regex::new(r#"(\{"accessToken":.*"\})"#)?;
 
@@ -164,10 +161,7 @@ impl Spotify {
             .header("Authorization", format!("Bearer {}", auth));
         let mut response: Response = request.send().await?;
         response = response.error_for_status()?;
-        // if response.status() != 200 {
-        //     eprintln!("{}", response.text().await?);
-        //     return Err(Error::FindError);
-        // }
+
         let data: Value = serde_json::from_str(&response.text().await?)?;
 
         Ok(data)
@@ -263,15 +257,15 @@ impl Spotify {
 
         let mut tracks_raw: Vec<RawTrack> = Vec::with_capacity(playlist_data.tracks.total);
 
-        // println!("tracks: {}", playlist_data.tracks.total);
-
         if playlist_data.tracks.next == None {
             for track in playlist_data.tracks.items {
                 tracks_raw.push(track.track)
             }
         } else {
-            eprintln!("more than 100 items in playlist.");
-            panic!();
+            eprintln!(
+                "There are more than 100 items in playlist, and I haven't implemented pagination"
+            );
+            return Err(Error::CreateError);
         }
 
         Self::create_playlist_from_raw(&tracks_raw).await
