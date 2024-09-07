@@ -10,9 +10,10 @@ use serde_json::Value;
 pub struct Spotify {
     pub id: String,
     pub name: String,
+    pub url: String,
     pub artists: Vec<Artist>,
     pub album: Album,
-    pub url: String,
+    pub duration_ms: usize,
     pub image: Option<String>,
     pub audio_preview: Option<String>,
 }
@@ -284,6 +285,7 @@ impl Spotify {
         Ok(Spotify {
             id: raw_track.id.to_owned(),
             name: raw_track.name.to_owned(),
+            url: raw_track.external_urls.spotify.to_owned(),
             artists,
             album: Album {
                 id: raw_track.album.id.to_owned(),
@@ -293,7 +295,7 @@ impl Spotify {
                 ean: None,
                 upc: None,
             },
-            url: raw_track.external_urls.spotify.to_owned(),
+            duration_ms: raw_track.duration_ms,
             image: {
                 if raw_track.album.images.len() > 0 {
                     Some(
@@ -356,10 +358,14 @@ impl Spotify {
         for raw_track in raw_tracks {
             new_tracks_futures.push(Self::create_track_from_raw(&raw_track));
         }
+
+        let new_tracks_results = futures::future::join_all(new_tracks_futures).await;
+
         let mut new_tracks: Playlist = Vec::new();
-        for track_future in new_tracks_futures {
-            new_tracks.push(track_future.await?)
+        for track_result in new_tracks_results {
+            new_tracks.push(track_result?);
         }
+
         Ok(new_tracks)
     }
 }
