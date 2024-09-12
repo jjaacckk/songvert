@@ -12,6 +12,7 @@ mod track;
 mod youtube;
 
 use apple_music::AppleMusic;
+use bandcamp::Bandcamp;
 use error::{Error, Result};
 use reqwest::Client;
 use service::{Album, Artist, Services};
@@ -124,6 +125,25 @@ async fn convert_spotify_playlist(
         count += 1;
     }
 
+    let mut bandcamp_service_futures = Vec::with_capacity(num_tracks);
+    for track in &mut tracks {
+        bandcamp_service_futures.push(track.add_bandcamp(client));
+    }
+    let results = futures::future::join_all(bandcamp_service_futures).await;
+    count = 0;
+    for result in results {
+        match result {
+            Ok(..) => (),
+            Err(e) => {
+                println!(
+                    "Skipping adding Bandcamp to track {} due to error:\n{}",
+                    count, e
+                )
+            }
+        };
+        count += 1;
+    }
+
     Ok(tracks)
 }
 
@@ -134,172 +154,72 @@ async fn main() -> Result<()> {
     let client: Client = reqwest::Client::builder()
             .user_agent("Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15")
             .build()?;
-    let session_info: SessionInfo = Spotify::get_public_session_info(&client).await?;
+    // let session_info: SessionInfo = Spotify::get_public_session_info(&client).await?;
 
-    println!("spotify token:\n{}", &session_info.access_token);
+    // println!("spotify token:\n{}", &session_info.access_token);
 
-    println!("\n----------\nStart:");
+    // println!("\n----------\nStart:");
 
-    let playlist_id: &str = "0iR3Srlz854Uw0Ci4gd4HL"; //sept 01 2024
-    let tracks = convert_spotify_playlist(&client, &session_info.access_token, playlist_id).await?;
-
-    println!("\n{} tracks:", tracks.len());
-    let mut count = 0;
-    for track in &tracks {
-        println!("{} - {}", &track.name, &track.artists[0]);
-        match track.services.youtube {
-            Some(..) => (),
-            None => {
-                count += 1;
-                println!("\t* no YT")
-            }
-        }
-    }
-
-    println!("\n{} tracks without youtube links", count);
-
-    let mut file = std::fs::File::create("./test.json")?;
-    file.write_all(serde_json::to_string_pretty(&tracks)?.as_bytes())?;
-
-    println!("\n----------\nDone.");
-
-    // let mut track = Spotify::create_track_from_id(
-    //     &client,
-    //     &session_info.access_token,
-    //     // "1LQGkjjLocIkLqMARHKnUp",
-    //     // "0nBBObbcOLO5Ik6ciPfRaR"
-    //     // "1rJ19XvEgTpqwfOUdtJiSg"
-    //     "5NJy7R4gPPu0UWAaKj2NWs"
-    // )
-    // .await?;
-
-    // match track.add_youtube(&client).await {
-    //     Ok(..) => println!("{}", serde_json::to_string_pretty(&track)?),
-    //     Err(e) => println!("{}", e),
-    // };
-
-    // let example_services: Services = Services {
-    //     spotify: None,
-    //     apple_music: None,
-    //     youtube: None,
-    //     bandcamp: None,
-    // };
-
-    // let mut example_track: Track = Track {
-    //     name: "Duchess for Nothing".to_owned(),
-    //     album: "Genius Fatigue".to_owned(),
-    //     disk_number: 1,
-    //     track_number: 1,
-    //     artists: Vec::from(["Tunabunny".to_owned()]),
-    //     release_year: 2013,
-    //     release_month: None,
-    //     release_day: None,
-    //     is_explicit: false,
-    //     duration_ms: 138026,
-    //     services: example_services,
-    //     isrc: Some("USZUD1215001".to_owned()),
-    // };
-
-    // example_track
-    //     .add_spotify(&session_info.access_token, &client)
-    //     .await?;
-    // example_track
-    //     .add_apple_music(AppleMusic::PUBLIC_BEARER_TOKEN, &client)
-    //     .await?;
-    // example_track.add_youtube(&client).await?;
-
-    // ------------------------------------
-
-    // println!("{}", serde_json::to_string_pretty(&example_track)?);
-
-    // let spotify_track: Track = match Spotify::create_track_from_id(
-    //     &client,
-    //     &session_info.access_token,
-    //     "6K225HZ3V7F4ec7yi1o88C",
-    // )
-    // .await
-    // {
-    //     Ok(t) => t,
-    //     Err(e) => {
-    //         eprintln!("{}", e);
-    //         return Err(e);
+    // // let playlist_id: &str = "0iR3Srlz854Uw0Ci4gd4HL"; // 68: sept 01 2024
+    // let playlist_id = "0L4V9lrwrSP88sxIxz2eJT"; // 69: sep 08 2024
+    // let tracks = convert_spotify_playlist(&client, &session_info.access_token, playlist_id).await?;
+    // let mut youtube_miss_count = 0;
+    // let mut apple_music_miss_count = 0;
+    // let mut bandcamp_miss_count = 0;
+    // println!("\n{} tracks:", tracks.len());
+    // let mut count = 0;
+    // for track in &tracks {
+    //     println!("{}: {} - {}", count, &track.name, &track.artists[0]);
+    //     match track.services.youtube {
+    //         Some(..) => (),
+    //         None => {
+    //             println!("\t* no YouTube");
+    //             youtube_miss_count += 1;
+    //         }
     //     }
-    // };
-
-    // println!("{:?}", spotify_track);
-
-    // let apple_music_track: Track = match AppleMusic::create_track_from_id(
-    //     &client,
-    //     AppleMusic::PUBLIC_BEARER_TOKEN,
-    //     "575329663",
-    // )
-    // .await
-    // {
-    //     Ok(t) => t,
-    //     Err(e) => {
-    //         eprintln!("{}", e);
-    //         return Err(e);
+    //     match track.services.apple_music {
+    //         Some(..) => (),
+    //         None => {
+    //             println!("\t* no Apple Music");
+    //             apple_music_miss_count += 1;
+    //         }
     //     }
-    // };
-
-    // // println!("{:?}", apple_music_track);
-
+    //     match track.services.bandcamp {
+    //         Some(..) => (),
+    //         None => {
+    //             println!("\t* no Bandcamp");
+    //             bandcamp_miss_count += 1;
+    //         }
+    //     }
+    //     count += 1;
+    // }
+    // println!("");
+    // println!("{} tracks without YouTube links", youtube_miss_count);
     // println!(
-    //     "Apple Music\t\t|\t\tSpotify\n{}\t\t|\t\t{}\n{}\t\t|\t\t{}\n{}\t\t|\t\t{}",
-    //     apple_music_track.name,
-    //     spotify_track.name,
-    //     apple_music_track.artists.join(", "),
-    //     spotify_track.artists.join(", "),
-    //     apple_music_track.album,
-    //     spotify_track.album
+    //     "{} tracks without Apple Music links",
+    //     apple_music_miss_count
     // );
+    // println!("{} tracks without Bandcamp links", bandcamp_miss_count);
 
-    // let track = AppleMusic::get_raw(
-    //     &client,
-    //     AppleMusic::PUBLIC_BEARER_TOKEN,
-    //     "catalog/us/songs?filter[isrc]=USZUD1215001&include=albums,artists",
-    // )
-    // .await
-    // .unwrap();
+    // let mut file = std::fs::File::create("./test.json")?;
+    // file.write_all(serde_json::to_string_pretty(&tracks)?.as_bytes())?;
 
-    // match AppleMusic::get_raw_track_match_from_track(
-    //     &client,
-    //     AppleMusic::PUBLIC_BEARER_TOKEN,
-    //     &apple_music_track,
-    // )
-    // .await
-    // {
-    //     Ok(t) => {
-    //         // println!("name: {}", t["attributes"]["name"]);
-    //         println!("{}", t);
-    //     }
-    //     Err(e) => {
-    //         eprintln!("{}", e);
-    //         return Err(e);
-    //     }
-    // };
+    // println!("\n----------\nDone.");
 
-    // let search_result: serde_json::Value = AppleMusic::get_raw(
-    //     &client,
-    //     &AppleMusic::PUBLIC_BEARER_TOKEN,
-    //     &format!(
-    //         "catalog/us/songs?filter[isrc]={}&include=albums,artists",
-    //         "USZUD1215001"
-    //     ),
-    // )
-    // .await
-    // .unwrap()["data"][0]
-    //     .to_owned();
-    //
+    let mut tracks: Vec<Track> = serde_json::from_str(&std::fs::read_to_string("./test.json")?)?;
+    let track: &mut Track = &mut tracks[0];
 
-    // let example_spotify_service: Spotify = Spotify {
-    //     id: String::from("6K225HZ3V7F4ec7yi1o88C"),
-    //     artists: vec![Artist {id: String::from("0xiwsYZwhrizQGNaQtW942"), name: String::from("Tunabunny")}],
-    //     album: Album { id: String::from("6WSL47W7Z5WwCCKzaFyLGd"), name: String::from("Genius Fatigue"), total_tracks: 10, ean: None, upc: None},
-    //     url: String::from("https://open.spotify.com/track/6K225HZ3V7F4ec7yi1o88C"),
-    //     image: Some(String::from("https://i.scdn.co/image/ab67616d0000b27336a71c545ed453f80433f6c8")),
-    //     audio_preview: Some(String::from("https://p.scdn.co/mp3-preview/13a7bfeabbe56d852fb9f7b6291c7dc49bcde515?cid=d8a5ed958d274c2e8ee717e6a4b0971d")),
-    // };
+    match track
+        .services
+        .bandcamp
+        .as_ref()
+        .ok_or(Error::DownloadError)?
+        .download(&client, &track.name, "./test_downloads")
+        .await
+    {
+        Ok(..) => println!("done."),
+        Err(e) => println!("{}", e),
+    }
 
     Ok(())
 }
