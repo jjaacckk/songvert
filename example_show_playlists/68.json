@@ -1,0 +1,2704 @@
+[
+  {
+    "name": "Xena!",
+    "album": "A Guide to the Health Issues Affecting Rescue Hens",
+    "disk_number": 1,
+    "track_number": 12,
+    "artists": [
+      "The Exbats"
+    ],
+    "release_year": 2016,
+    "release_month": 10,
+    "release_day": 7,
+    "is_explicit": false,
+    "duration_ms": 203773,
+    "isrc": "USA2B1617301",
+    "services": {
+      "spotify": {
+        "id": "0n0OzYGXFIeQ4FhuhsUAFW",
+        "name": "Xena!",
+        "url": "https://open.spotify.com/track/0n0OzYGXFIeQ4FhuhsUAFW",
+        "artists": [
+          {
+            "id": "7gDtEXhShKhmqrdh2lpSsD",
+            "name": "The Exbats",
+            "url": "spotify:artist:7gDtEXhShKhmqrdh2lpSsD"
+          }
+        ],
+        "album": {
+          "id": "3KyndLNC3dWOUWILhC6Sa5",
+          "name": "A Guide to the Health Issues Affecting Rescue Hens",
+          "url": "spotify:album:3KyndLNC3dWOUWILhC6Sa5",
+          "total_tracks": 12,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 203773,
+        "image": "https://i.scdn.co/image/ab67616d0000b27353d7dcfe614c4be4ebe3937d",
+        "audio_preview": "https://p.scdn.co/mp3-preview/fbd3b2da8c5bc6263dffc86c4542af67132d94f3?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1527608592",
+        "name": "Xena!",
+        "url": "https://music.apple.com/us/album/xena/1527607950?i=1527608592",
+        "artists": [
+          {
+            "id": "1167115154",
+            "name": "The Exbats",
+            "url": "https://music.apple.com/us/artist/the-exbats/1167115154"
+          }
+        ],
+        "composer": "Kenny McLain",
+        "album": {
+          "id": "1527607950",
+          "name": "A Guide to the Health Issues Affecting Rescue Hens",
+          "url": "https://music.apple.com/us/album/a-guide-to-the-health-issues-affecting-rescue-hens/1527607950",
+          "total_tracks": 12,
+          "ean": null,
+          "upc": "195542306649"
+        },
+        "duration_ms": 203773,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/f6/e6/32/f6e63251-e079-e6d9-0fb5-6242db44d1f5/artwork.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Rock",
+          "Music",
+          "Alternative",
+          "Punk"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview114/v4/29/25/4d/29254d77-dcb1-6361-33f4-6bd53826aca7/mzaf_11376709959791274560.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "tQvLEbkHDgY",
+        "name": "Xena!",
+        "url": "https://www.youtube.com/watch?v=tQvLEbkHDgY",
+        "artists": [
+          {
+            "id": "UCAl0qkR7Zzp7az0OaAhk0EQ",
+            "name": "The Exbats",
+            "url": "https://music.youtube.com/browse/UCAl0qkR7Zzp7az0OaAhk0EQ"
+          }
+        ],
+        "album": {
+          "id": "MPREb_4a8IDipWDch",
+          "name": "A Guide to the Health Issues Affecting Rescue Hens",
+          "url": "https://music.youtube.com/browse/MPREb_4a8IDipWDch",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "3:24",
+        "duration_ms": 204000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/VjOhRijpDxAjua53RWm-BISrE7m1kaxBhHTndtF9i6TzzurBUoDEEzcs67crIjcdWkt9lfNfQ5T4m9tC=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/VjOhRijpDxAjua53RWm-BISrE7m1kaxBhHTndtF9i6TzzurBUoDEEzcs67crIjcdWkt9lfNfQ5T4m9tC=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Who's Afraid of the Big Bad Wolf?",
+    "album": "3 Songs + 3 Songs",
+    "disk_number": 1,
+    "track_number": 1,
+    "artists": [
+      "Acorn Bcorn"
+    ],
+    "release_year": 2011,
+    "release_month": 6,
+    "release_day": 18,
+    "is_explicit": false,
+    "duration_ms": 168133,
+    "isrc": "ushm81219604",
+    "services": {
+      "spotify": {
+        "id": "0nBBObbcOLO5Ik6ciPfRaR",
+        "name": "Who's Afraid of the Big Bad Wolf?",
+        "url": "https://open.spotify.com/track/0nBBObbcOLO5Ik6ciPfRaR",
+        "artists": [
+          {
+            "id": "6M0RGWrjXkgoQ043PmJvBM",
+            "name": "Acorn Bcorn",
+            "url": "spotify:artist:6M0RGWrjXkgoQ043PmJvBM"
+          }
+        ],
+        "album": {
+          "id": "6JZA9c52w3oLrpLWlvRXty",
+          "name": "3 Songs + 3 Songs",
+          "url": "spotify:album:6JZA9c52w3oLrpLWlvRXty",
+          "total_tracks": 6,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 168133,
+        "image": "https://i.scdn.co/image/ab67616d0000b273e888949f9c824a88757d0b0f",
+        "audio_preview": "https://p.scdn.co/mp3-preview/0d0cf70164133104485d85e0721f31b9e973c132?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "563990344",
+        "name": "Who's Afraid of the Big Bad Wolf?",
+        "url": "https://music.apple.com/us/album/whos-afraid-of-the-big-bad-wolf/563990339?i=563990344",
+        "artists": [
+          {
+            "id": "563990341",
+            "name": "Acorn Bcorn",
+            "url": "https://music.apple.com/us/artist/acorn-bcorn/563990341"
+          }
+        ],
+        "composer": "Acorn Bcorn",
+        "album": {
+          "id": "563990339",
+          "name": "3 Songs + 3 Songs - EP",
+          "url": "https://music.apple.com/us/album/3-songs-3-songs-ep/563990339",
+          "total_tracks": 6,
+          "ean": null,
+          "upc": "700261804682"
+        },
+        "duration_ms": 168133,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/a3/ec/ec/a3ececa2-ffab-a896-d963-74b71410f375/700261804682.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Rock",
+          "Music"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/Music/22/ee/b5/mzi.wpvtcdmy.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "enmTSRb6cfA",
+        "name": "Who's Afraid of the Big Bad Wolf?",
+        "url": "https://www.youtube.com/watch?v=enmTSRb6cfA",
+        "artists": [
+          {
+            "id": "UCDSFQF_paB27RlPpWqQuvCw",
+            "name": "Acorn Bcorn",
+            "url": "https://music.youtube.com/browse/UCDSFQF_paB27RlPpWqQuvCw"
+          }
+        ],
+        "album": {
+          "id": "MPREb_TjbM2w4Wfwp",
+          "name": "3 Songs + 3 Songs",
+          "url": "https://music.youtube.com/browse/MPREb_TjbM2w4Wfwp",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "2:49",
+        "duration_ms": 169000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/fCqs-nyD6Fdv8VHVCK3ckDEY8UXu0ipGjrMyGJHEZ4NjTz9E_suBtVcHxYR0W2-UGxDNMQshc9I026Bd9Q=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/fCqs-nyD6Fdv8VHVCK3ckDEY8UXu0ipGjrMyGJHEZ4NjTz9E_suBtVcHxYR0W2-UGxDNMQshc9I026Bd9Q=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "It’s Been a While",
+    "album": "…But It’s a Dry Heat",
+    "disk_number": 1,
+    "track_number": 3,
+    "artists": [
+      "Desert Mambas"
+    ],
+    "release_year": 2023,
+    "release_month": 6,
+    "release_day": 29,
+    "is_explicit": false,
+    "duration_ms": 119192,
+    "isrc": "USKRS2301303",
+    "services": {
+      "spotify": {
+        "id": "7kxuAENGfeEq65z9zEtVEk",
+        "name": "It’s Been a While",
+        "url": "https://open.spotify.com/track/7kxuAENGfeEq65z9zEtVEk",
+        "artists": [
+          {
+            "id": "2Xcu6O14xGAF8WS2xJT2oX",
+            "name": "Desert Mambas",
+            "url": "spotify:artist:2Xcu6O14xGAF8WS2xJT2oX"
+          }
+        ],
+        "album": {
+          "id": "4dK8B1JbcmiDDATA57GwSW",
+          "name": "…But It’s a Dry Heat",
+          "url": "spotify:album:4dK8B1JbcmiDDATA57GwSW",
+          "total_tracks": 4,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 119192,
+        "image": "https://i.scdn.co/image/ab67616d0000b2736bcb1eb6d537f91fdc86c339",
+        "audio_preview": "https://p.scdn.co/mp3-preview/ba1d1b45692d2ea03f53e39efb6be125b38d94ce?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1687127228",
+        "name": "It’s Been a While",
+        "url": "https://music.apple.com/us/album/its-been-a-while/1687126974?i=1687127228",
+        "artists": [
+          {
+            "id": "1583276023",
+            "name": "Desert Mambas",
+            "url": "https://music.apple.com/us/artist/desert-mambas/1583276023"
+          }
+        ],
+        "composer": "Bailey Moses & Eddie Ponce",
+        "album": {
+          "id": "1687126974",
+          "name": "…But It’s a Dry Heat - EP",
+          "url": "https://music.apple.com/us/album/but-its-a-dry-heat-ep/1687126974",
+          "total_tracks": 4,
+          "ean": null,
+          "upc": "759656001304"
+        },
+        "duration_ms": 119193,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/c6/bd/39/c6bd390a-3e26-1b25-1398-c8c7cd875993/2755.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Alternative",
+          "Music",
+          "Country"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/a6/3e/be/a63ebe38-5051-89db-10cc-9916c6fbc57e/mzaf_17006810075729963909.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "lb1hldS9alo",
+        "name": "It’s Been a While",
+        "url": "https://www.youtube.com/watch?v=lb1hldS9alo",
+        "artists": [
+          {
+            "id": "UCwW1zmK33lVsDrJwgsWXbgw",
+            "name": "Desert Mambas",
+            "url": "https://music.youtube.com/browse/UCwW1zmK33lVsDrJwgsWXbgw"
+          }
+        ],
+        "album": {
+          "id": "MPREb_sJO8ic3X1se",
+          "name": "…But It’s a Dry Heat",
+          "url": "https://music.youtube.com/browse/MPREb_sJO8ic3X1se",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "2:00",
+        "duration_ms": 120000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/6ehsRnzYYcXqYAxNipzbCkAIXdSvnCk5fW-rIsp7KqwJaDdwh8CC5ym0c8jRK5iAUeXfcmDhvmenz6epJw=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/6ehsRnzYYcXqYAxNipzbCkAIXdSvnCk5fW-rIsp7KqwJaDdwh8CC5ym0c8jRK5iAUeXfcmDhvmenz6epJw=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Pinch Myself",
+    "album": "Got Lucky",
+    "disk_number": 1,
+    "track_number": 6,
+    "artists": [
+      "Lucy and the Rats"
+    ],
+    "release_year": 2020,
+    "release_month": 7,
+    "release_day": 3,
+    "is_explicit": false,
+    "duration_ms": 147796,
+    "isrc": "GBXCJ2000927",
+    "services": {
+      "spotify": {
+        "id": "2p3gaxvBHVKfv1UyrMKCcZ",
+        "name": "Pinch Myself",
+        "url": "https://open.spotify.com/track/2p3gaxvBHVKfv1UyrMKCcZ",
+        "artists": [
+          {
+            "id": "2ASxyxLrm7WqaSjxx9iE9u",
+            "name": "Lucy and the Rats",
+            "url": "spotify:artist:2ASxyxLrm7WqaSjxx9iE9u"
+          }
+        ],
+        "album": {
+          "id": "0nE4IpbA7HZt3CGVek3RX8",
+          "name": "Got Lucky",
+          "url": "spotify:album:0nE4IpbA7HZt3CGVek3RX8",
+          "total_tracks": 12,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 147796,
+        "image": "https://i.scdn.co/image/ab67616d0000b273bef679ab13f609f861b95f2b",
+        "audio_preview": "https://p.scdn.co/mp3-preview/ca0aee0ab2e42d747e0e20c95a6f6f5a16fdbe14?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1522486167",
+        "name": "Pinch Myself",
+        "url": "https://music.apple.com/us/album/pinch-myself/1522486160?i=1522486167",
+        "artists": [
+          {
+            "id": "1120245116",
+            "name": "Lucy and the Rats",
+            "url": "https://music.apple.com/us/artist/lucy-and-the-rats/1120245116"
+          }
+        ],
+        "composer": "Lucy and the Rats",
+        "album": {
+          "id": "1522486160",
+          "name": "Got Lucky",
+          "url": "https://music.apple.com/us/album/got-lucky/1522486160",
+          "total_tracks": 12,
+          "ean": null,
+          "upc": "5056321619518"
+        },
+        "duration_ms": 147797,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/90/54/49/905449e4-e97f-3d12-6c94-fdd04d8f5d94/5056321619518.png/{w}x{h}bb.jpg",
+        "genres": [
+          "Rock",
+          "Music",
+          "Alternative"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview114/v4/fe/75/df/fe75dfc4-fa24-d698-2b07-06ad9542af1b/mzaf_10868971544057141479.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "PZ1pbgT-7PQ",
+        "name": "Pinch Myself",
+        "url": "https://www.youtube.com/watch?v=PZ1pbgT-7PQ",
+        "artists": [
+          {
+            "id": "UCTR28KEPayZaCc4b56cDqfA",
+            "name": "Lucy and the Rats",
+            "url": "https://music.youtube.com/browse/UCTR28KEPayZaCc4b56cDqfA"
+          }
+        ],
+        "album": {
+          "id": "MPREb_f7DPuIQTWRX",
+          "name": "Got Lucky",
+          "url": "https://music.youtube.com/browse/MPREb_f7DPuIQTWRX",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "2:28",
+        "duration_ms": 148000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/pWrTEcJIErCZ-NwmAyvEOE2oMGxEiC6qkU4JLxnVgt0TkpqxQIeUKYHPdGpO9fMd7Jo99PybICycoT7y=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/pWrTEcJIErCZ-NwmAyvEOE2oMGxEiC6qkU4JLxnVgt0TkpqxQIeUKYHPdGpO9fMd7Jo99PybICycoT7y=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "a great escape",
+    "album": "a great escape",
+    "disk_number": 1,
+    "track_number": 1,
+    "artists": [
+      "POM"
+    ],
+    "release_year": 2024,
+    "release_month": 6,
+    "release_day": 11,
+    "is_explicit": false,
+    "duration_ms": 190893,
+    "isrc": "NL4FN2400001",
+    "services": {
+      "spotify": {
+        "id": "6FzaEGFfG3mVPPQCKBLkFU",
+        "name": "a great escape",
+        "url": "https://open.spotify.com/track/6FzaEGFfG3mVPPQCKBLkFU",
+        "artists": [
+          {
+            "id": "7zgtAvNKkyrcJG2Ad1M1Kv",
+            "name": "POM",
+            "url": "spotify:artist:7zgtAvNKkyrcJG2Ad1M1Kv"
+          }
+        ],
+        "album": {
+          "id": "4qg53329LKLOYckoAyer2D",
+          "name": "a great escape",
+          "url": "spotify:album:4qg53329LKLOYckoAyer2D",
+          "total_tracks": 1,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 190893,
+        "image": "https://i.scdn.co/image/ab67616d0000b2736b8707ab77f17ab93d0fd803",
+        "audio_preview": "https://p.scdn.co/mp3-preview/898082794c4f45dc51ce6349da43b71be1f04f2e?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1746344123",
+        "name": "a great escape",
+        "url": "https://music.apple.com/us/album/a-great-escape/1746343877?i=1746344123",
+        "artists": [
+          {
+            "id": "1462986187",
+            "name": "POM",
+            "url": "https://music.apple.com/us/artist/pom/1462986187"
+          }
+        ],
+        "composer": "Joy Kunst, Luc Siegers, Liza Van As, Justin Dwarswaard & Michael Joshua Yonata",
+        "album": {
+          "id": "1746343877",
+          "name": "a great escape - Single",
+          "url": "https://music.apple.com/us/album/a-great-escape-single/1746343877",
+          "total_tracks": 1,
+          "ean": null,
+          "upc": "3617388142153"
+        },
+        "duration_ms": 190893,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/88/a2/01/88a201a2-114b-6d91-6b2c-010339dfc2ea/cover.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Indie Rock",
+          "Music",
+          "Alternative"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/6f/a6/53/6fa653f0-cabc-92b3-a9f1-c0cb410d2317/mzaf_2237583729730105584.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "1Qm6kzZkpks",
+        "name": "a great escape",
+        "url": "https://www.youtube.com/watch?v=1Qm6kzZkpks",
+        "artists": [
+          {
+            "id": "UCETNjKDOohQNaTVpr4oPxew",
+            "name": "POM",
+            "url": "https://music.youtube.com/browse/UCETNjKDOohQNaTVpr4oPxew"
+          }
+        ],
+        "album": {
+          "id": "MPREb_TvWl85vNSkz",
+          "name": "a great escape",
+          "url": "https://music.youtube.com/browse/MPREb_TvWl85vNSkz",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "3:11",
+        "duration_ms": 191000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/lrIM9g5RF5nQEV5sXAk36PWCBoNPFUU3b-VwrZwNzrsBReuwaNIp9Q2ifmy-xKGsflIKGu6bB9qLAOsUlg=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/lrIM9g5RF5nQEV5sXAk36PWCBoNPFUU3b-VwrZwNzrsBReuwaNIp9Q2ifmy-xKGsflIKGu6bB9qLAOsUlg=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "That's Pretty Good (For A Girl)",
+    "album": "That's Pretty Good (For A Girl)",
+    "disk_number": 1,
+    "track_number": 1,
+    "artists": [
+      "Slowlight"
+    ],
+    "release_year": 2024,
+    "release_month": 7,
+    "release_day": 12,
+    "is_explicit": false,
+    "duration_ms": 179500,
+    "isrc": "GBMJG2419665",
+    "services": {
+      "spotify": {
+        "id": "6FIrZ0hY0mSQXQJcoCdpUt",
+        "name": "That's Pretty Good (For A Girl)",
+        "url": "https://open.spotify.com/track/6FIrZ0hY0mSQXQJcoCdpUt",
+        "artists": [
+          {
+            "id": "1cj3JzHJpV2sL6HRZptXuu",
+            "name": "Slowlight",
+            "url": "spotify:artist:1cj3JzHJpV2sL6HRZptXuu"
+          }
+        ],
+        "album": {
+          "id": "5LuPPxUg85pMFhz37XuwZ0",
+          "name": "That's Pretty Good (For A Girl)",
+          "url": "spotify:album:5LuPPxUg85pMFhz37XuwZ0",
+          "total_tracks": 1,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 179500,
+        "image": "https://i.scdn.co/image/ab67616d0000b273611990bf7da801cae3e3f9f2",
+        "audio_preview": "https://p.scdn.co/mp3-preview/ddad011b17c7059645559f9f3b4d9b20cd63a33d?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1757438115",
+        "name": "That's Pretty Good (For a Girl)",
+        "url": "https://music.apple.com/us/album/thats-pretty-good-for-a-girl/1757438114?i=1757438115",
+        "artists": [
+          {
+            "id": "968403470",
+            "name": "Slowlight",
+            "url": "https://music.apple.com/us/artist/slowlight/968403470"
+          }
+        ],
+        "composer": "Beth Black, Colin O'Hara, Joy Ward & Steven Hill",
+        "album": {
+          "id": "1757438114",
+          "name": "That's Pretty Good (For a Girl) - Single",
+          "url": "https://music.apple.com/us/album/thats-pretty-good-for-a-girl-single/1757438114",
+          "total_tracks": 1,
+          "ean": null,
+          "upc": "5056777750568"
+        },
+        "duration_ms": 179500,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/54/d9/f1/54d9f145-baca-8815-8cea-2ec81fcdcbf0/145974.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Alternative",
+          "Music"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/45/37/90/4537908d-aec8-d4ff-cbd4-28dbf2a5edbf/mzaf_4681715568121966968.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "6KPYrk-8XJ8",
+        "name": "That's Pretty Good (For A Girl)",
+        "url": "https://www.youtube.com/watch?v=6KPYrk-8XJ8",
+        "artists": [
+          {
+            "id": "UCOxQiOaZ8LsiSMbs51OPhxQ",
+            "name": "Slowlight",
+            "url": "https://music.youtube.com/browse/UCOxQiOaZ8LsiSMbs51OPhxQ"
+          }
+        ],
+        "album": {
+          "id": "MPREb_F3cEIriCiXa",
+          "name": "That's Pretty Good (For A Girl)",
+          "url": "https://music.youtube.com/browse/MPREb_F3cEIriCiXa",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "3:00",
+        "duration_ms": 180000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/mBJcEZv4mXl4pi5JBLuSOxXEl_2U9aEuAFGmU5sA3BO1ApFFAW4bwD0Xwj6yd_MZBhJIM87tmDqkIwOQ=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/mBJcEZv4mXl4pi5JBLuSOxXEl_2U9aEuAFGmU5sA3BO1ApFFAW4bwD0Xwj6yd_MZBhJIM87tmDqkIwOQ=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Buy My Product",
+    "album": "Everyone's Crushed",
+    "disk_number": 1,
+    "track_number": 9,
+    "artists": [
+      "Water From Your Eyes"
+    ],
+    "release_year": 2023,
+    "release_month": 5,
+    "release_day": 26,
+    "is_explicit": false,
+    "duration_ms": 174595,
+    "isrc": "USMTD2200529",
+    "services": {
+      "spotify": {
+        "id": "4sLti16iYoXH4l8egkD6KM",
+        "name": "Buy My Product",
+        "url": "https://open.spotify.com/track/4sLti16iYoXH4l8egkD6KM",
+        "artists": [
+          {
+            "id": "6hYlNLoZJg74dVhA8FHIc0",
+            "name": "Water From Your Eyes",
+            "url": "spotify:artist:6hYlNLoZJg74dVhA8FHIc0"
+          }
+        ],
+        "album": {
+          "id": "0IzgQa9rNXzaEdj0bmHvpr",
+          "name": "Everyone's Crushed",
+          "url": "spotify:album:0IzgQa9rNXzaEdj0bmHvpr",
+          "total_tracks": 9,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 174595,
+        "image": "https://i.scdn.co/image/ab67616d0000b2733456a000dc303a94002cae6b",
+        "audio_preview": "https://p.scdn.co/mp3-preview/8398c681350631d52094fd7891814d4d593ccc06?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1668141660",
+        "name": "Buy My Product",
+        "url": "https://music.apple.com/us/album/buy-my-product/1668140840?i=1668141660",
+        "artists": [
+          {
+            "id": "1211796145",
+            "name": "Water From Your Eyes",
+            "url": "https://music.apple.com/us/artist/water-from-your-eyes/1211796145"
+          }
+        ],
+        "composer": "Nate Amos",
+        "album": {
+          "id": "1668140840",
+          "name": "Everyone's Crushed",
+          "url": "https://music.apple.com/us/album/everyones-crushed/1668140840",
+          "total_tracks": 9,
+          "ean": null,
+          "upc": "191401193078"
+        },
+        "duration_ms": 174595,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/a7/83/9c/a7839c70-3789-d434-9584-1adf6f06c6d4/191401193078.png/{w}x{h}bb.jpg",
+        "genres": [
+          "Alternative",
+          "Music"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/5b/18/ea/5b18ea9f-b3d3-41c8-8be8-bbad7f4457eb/mzaf_16307539989491913002.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "TqCLosZYLiI",
+        "name": "Buy My Product",
+        "url": "https://www.youtube.com/watch?v=TqCLosZYLiI",
+        "artists": [
+          {
+            "id": "UC9yo4DvvuuKzKG46Z2QKRjA",
+            "name": "Water From Your Eyes",
+            "url": "https://music.youtube.com/browse/UC9yo4DvvuuKzKG46Z2QKRjA"
+          }
+        ],
+        "album": {
+          "id": "MPREb_sQSFfsd5gwB",
+          "name": "Everyone's Crushed",
+          "url": "https://music.youtube.com/browse/MPREb_sQSFfsd5gwB",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "2:55",
+        "duration_ms": 175000,
+        "music_video": null,
+        "thumbnails": [
+          "https://i.ytimg.com/vi/yMoGLjzAVEo/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3kvUO1_mjQVNp-nYl4po7M3Jz8_oA"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Chewing Gum",
+    "album": "Chewing Gum",
+    "disk_number": 1,
+    "track_number": 1,
+    "artists": [
+      "Amyl and The Sniffers"
+    ],
+    "release_year": 2024,
+    "release_month": 8,
+    "release_day": 21,
+    "is_explicit": false,
+    "duration_ms": 200240,
+    "isrc": "GBCVZ2400184",
+    "services": {
+      "spotify": {
+        "id": "1rJ19XvEgTpqwfOUdtJiSg",
+        "name": "Chewing Gum",
+        "url": "https://open.spotify.com/track/1rJ19XvEgTpqwfOUdtJiSg",
+        "artists": [
+          {
+            "id": "3NqV2DJoAWsjl787bWaHW7",
+            "name": "Amyl and The Sniffers",
+            "url": "spotify:artist:3NqV2DJoAWsjl787bWaHW7"
+          }
+        ],
+        "album": {
+          "id": "3iTZBjVml1b3KzqzGa1Chg",
+          "name": "Chewing Gum",
+          "url": "spotify:album:3iTZBjVml1b3KzqzGa1Chg",
+          "total_tracks": 1,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 200240,
+        "image": "https://i.scdn.co/image/ab67616d0000b273f3676a6b426736e9045ebb73",
+        "audio_preview": null
+      },
+      "apple_music": {
+        "id": "1762949952",
+        "name": "Chewing Gum",
+        "url": "https://music.apple.com/us/album/chewing-gum/1762949950?i=1762949952",
+        "artists": [
+          {
+            "id": "1215764503",
+            "name": "Amyl and The Sniffers",
+            "url": "https://music.apple.com/us/artist/amyl-and-the-sniffers/1215764503"
+          }
+        ],
+        "composer": "Amy Taylor & Declan Mehrtens",
+        "album": {
+          "id": "1762949950",
+          "name": "Cartoon Darkness",
+          "url": "https://music.apple.com/us/album/cartoon-darkness/1762949950",
+          "total_tracks": 13,
+          "ean": null,
+          "upc": "00602475081982"
+        },
+        "duration_ms": 200240,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f3/3a/df/f33adfb3-8000-7c39-25a1-ca56a02f453b/24UMGIM87380.rgb.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Alternative",
+          "Music"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/88/ee/2c/88ee2cd2-a146-e0b9-8a07-f9f996c1d505/mzaf_3659245514851233577.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "cJrU6fG2-G4",
+        "name": "Chewing Gum",
+        "url": "https://www.youtube.com/watch?v=cJrU6fG2-G4",
+        "artists": [
+          {
+            "id": "UCErTnCDIYujpRgVV_rq29Ug",
+            "name": "Amyl and The Sniffers",
+            "url": "https://music.youtube.com/browse/UCErTnCDIYujpRgVV_rq29Ug"
+          }
+        ],
+        "album": {
+          "id": "MPREb_gfWN7bVcVgi",
+          "name": "Chewing Gum",
+          "url": "https://music.youtube.com/browse/MPREb_gfWN7bVcVgi",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "3:21",
+        "duration_ms": 201000,
+        "music_video": null,
+        "thumbnails": [
+          "https://i.ytimg.com/vi/DxOMGj8P2hY/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nwjxA0VrtpyGYJVvIBcyKOAmU-2A"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Overstimulation",
+    "album": "Create a Place",
+    "disk_number": 1,
+    "track_number": 3,
+    "artists": [
+      "Mr. Wrong"
+    ],
+    "release_year": 2020,
+    "release_month": 1,
+    "release_day": 11,
+    "is_explicit": false,
+    "duration_ms": 160678,
+    "isrc": "ushm82076586",
+    "services": {
+      "spotify": {
+        "id": "0PE0xrBSXglZyF4JDznH84",
+        "name": "Overstimulation",
+        "url": "https://open.spotify.com/track/0PE0xrBSXglZyF4JDznH84",
+        "artists": [
+          {
+            "id": "53quyDp9IfPlafRtHpKkrs",
+            "name": "Mr. Wrong",
+            "url": "spotify:artist:53quyDp9IfPlafRtHpKkrs"
+          }
+        ],
+        "album": {
+          "id": "7mASEyudrVLCFb0jBgKAn5",
+          "name": "Create a Place",
+          "url": "spotify:album:7mASEyudrVLCFb0jBgKAn5",
+          "total_tracks": 9,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 160678,
+        "image": "https://i.scdn.co/image/ab67616d0000b273e64364217a6d6fb278a4d6b7",
+        "audio_preview": "https://p.scdn.co/mp3-preview/fa2e50f76d7f85293266c606863a4f3d9251366e?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1523241476",
+        "name": "Overstimulation",
+        "url": "https://music.apple.com/us/album/overstimulation/1523241471?i=1523241476",
+        "artists": [
+          {
+            "id": "1523241391",
+            "name": "Mr. Wrong",
+            "url": "https://music.apple.com/us/artist/mr-wrong/1523241391"
+          }
+        ],
+        "composer": "Lindsey E. Moffett, Ursula Koelling & Leona Kindermann",
+        "album": {
+          "id": "1523241471",
+          "name": "Create a Place",
+          "url": "https://music.apple.com/us/album/create-a-place/1523241471",
+          "total_tracks": 9,
+          "ean": null,
+          "upc": "191061225379"
+        },
+        "duration_ms": 160679,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/f5/25/c9/f525c961-3db3-110d-5bf0-808260fa27bf/191061225379.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Metal",
+          "Music",
+          "Rock"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview124/v4/2c/d8/aa/2cd8aaac-9302-a1a0-f9a9-158feb2527c3/mzaf_14869610346688885681.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "YscQHb-G_Cg",
+        "name": "Overstimulation",
+        "url": "https://www.youtube.com/watch?v=YscQHb-G_Cg",
+        "artists": [
+          {
+            "id": "UCUmIEPi0uD1B_FceYNFjDxQ",
+            "name": "Mr. Wrong",
+            "url": "https://music.youtube.com/browse/UCUmIEPi0uD1B_FceYNFjDxQ"
+          }
+        ],
+        "album": {
+          "id": "MPREb_qTHOacCgp25",
+          "name": "Create a Place",
+          "url": "https://music.youtube.com/browse/MPREb_qTHOacCgp25",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "2:41",
+        "duration_ms": 161000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/YuFx_K6ceBgGHvZzV6ffQ-D4B9qF2TVFRXa7pWVhVy0k_N8rQsZfjfkQEi4n3X_zaN0moCIZGxKTlAOF=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/YuFx_K6ceBgGHvZzV6ffQ-D4B9qF2TVFRXa7pWVhVy0k_N8rQsZfjfkQEi4n3X_zaN0moCIZGxKTlAOF=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Party At Sea",
+    "album": "Party At Sea",
+    "disk_number": 1,
+    "track_number": 1,
+    "artists": [
+      "Go Betty Go"
+    ],
+    "release_year": 2024,
+    "release_month": 8,
+    "release_day": 21,
+    "is_explicit": false,
+    "duration_ms": 201541,
+    "isrc": "QZTAT2446515",
+    "services": {
+      "spotify": {
+        "id": "7N23MtQwmhRdFN9A83BTNK",
+        "name": "Party At Sea",
+        "url": "https://open.spotify.com/track/7N23MtQwmhRdFN9A83BTNK",
+        "artists": [
+          {
+            "id": "7ou4oSEDh1AWwIUmlIz5WD",
+            "name": "Go Betty Go",
+            "url": "spotify:artist:7ou4oSEDh1AWwIUmlIz5WD"
+          }
+        ],
+        "album": {
+          "id": "4zcp0Xle80U2D6y3sQbt32",
+          "name": "Party At Sea",
+          "url": "spotify:album:4zcp0Xle80U2D6y3sQbt32",
+          "total_tracks": 1,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 201541,
+        "image": "https://i.scdn.co/image/ab67616d0000b273a9b09b8b49aa05e1b60f8528",
+        "audio_preview": "https://p.scdn.co/mp3-preview/08fb7cecc73f76930cf8000efb97fd997f737e21?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1757776523",
+        "name": "Party At Sea",
+        "url": "https://music.apple.com/us/album/party-at-sea/1757776522?i=1757776523",
+        "artists": [
+          {
+            "id": "33997392",
+            "name": "Go Betty Go",
+            "url": "https://music.apple.com/us/artist/go-betty-go/33997392"
+          }
+        ],
+        "composer": "Go Betty Go",
+        "album": {
+          "id": "1757776522",
+          "name": "Party At Sea - Single",
+          "url": "https://music.apple.com/us/album/party-at-sea-single/1757776522",
+          "total_tracks": 1,
+          "ean": null,
+          "upc": "198668597120"
+        },
+        "duration_ms": 201541,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/cf/61/72/cf61720e-21d8-e364-5bef-98716b457870/artwork.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Punk",
+          "Music",
+          "Alternative"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b3/3e/7d/b33e7d61-10d4-9ec9-3fcf-a6e2d8f6986a/mzaf_9286358949440544502.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "mq3TZeWQc6E",
+        "name": "Party At Sea",
+        "url": "https://www.youtube.com/watch?v=mq3TZeWQc6E",
+        "artists": [
+          {
+            "id": "UCjffdrKghS78f98PyAZGlpw",
+            "name": "Go Betty Go",
+            "url": "https://music.youtube.com/browse/UCjffdrKghS78f98PyAZGlpw"
+          }
+        ],
+        "album": {
+          "id": "MPREb_EkHMNKqLR4a",
+          "name": "Party At Sea",
+          "url": "https://music.youtube.com/browse/MPREb_EkHMNKqLR4a",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "3:22",
+        "duration_ms": 202000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/S1KAeVGHIYJO96qWYrowS2bUSh4cSI_kqf_qQDTCeWjMwvWxKqeL3DcHUkHfgCtTFAUP5Jnsn6mWYMk=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/S1KAeVGHIYJO96qWYrowS2bUSh4cSI_kqf_qQDTCeWjMwvWxKqeL3DcHUkHfgCtTFAUP5Jnsn6mWYMk=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Womanhood",
+    "album": "New Fixation",
+    "disk_number": 1,
+    "track_number": 1,
+    "artists": [
+      "Crush Fund"
+    ],
+    "release_year": 2024,
+    "release_month": 4,
+    "release_day": 4,
+    "is_explicit": false,
+    "duration_ms": 142000,
+    "isrc": "QZDA72401183",
+    "services": {
+      "spotify": {
+        "id": "1LQGkjjLocIkLqMARHKnUp",
+        "name": "Womanhood",
+        "url": "https://open.spotify.com/track/1LQGkjjLocIkLqMARHKnUp",
+        "artists": [
+          {
+            "id": "3w9CdfFCriJo5j2wHBZBBE",
+            "name": "Crush Fund",
+            "url": "spotify:artist:3w9CdfFCriJo5j2wHBZBBE"
+          }
+        ],
+        "album": {
+          "id": "79fNab9JKnLTNvf086X9pz",
+          "name": "New Fixation",
+          "url": "spotify:album:79fNab9JKnLTNvf086X9pz",
+          "total_tracks": 5,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 142000,
+        "image": "https://i.scdn.co/image/ab67616d0000b27385668818f296c2121b33f135",
+        "audio_preview": "https://p.scdn.co/mp3-preview/61c0effac9500f69395db69678df9e1e5cfc2a07?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1730678905",
+        "name": "Womanhood",
+        "url": "https://music.apple.com/us/album/womanhood/1730678904?i=1730678905",
+        "artists": [
+          {
+            "id": "1654097692",
+            "name": "Crush Fund",
+            "url": "https://music.apple.com/us/artist/crush-fund/1654097692"
+          }
+        ],
+        "composer": "Nora Knox, Wendy Kya & July Brown",
+        "album": {
+          "id": "1730678904",
+          "name": "New Fixation - EP",
+          "url": "https://music.apple.com/us/album/new-fixation-ep/1730678904",
+          "total_tracks": 5,
+          "ean": null,
+          "upc": "198082427171"
+        },
+        "duration_ms": 142000,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/eb/ed/3d/ebed3d5e-62c6-1088-b0c9-59da0d45bc5c/artwork.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Punk",
+          "Music",
+          "Alternative",
+          "Rock"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/d2/b6/e5/d2b6e560-f3fe-7c39-b542-eba5c3344abf/mzaf_294762476679112955.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "OVcQbE3A5rI",
+        "name": "Womanhood",
+        "url": "https://www.youtube.com/watch?v=OVcQbE3A5rI",
+        "artists": [
+          {
+            "id": "UCVE-7vEFNYDc4_N_mN78QLA",
+            "name": "Crush Fund",
+            "url": "https://music.youtube.com/browse/UCVE-7vEFNYDc4_N_mN78QLA"
+          }
+        ],
+        "album": {
+          "id": "MPREb_A3Qb0JN9qg6",
+          "name": "New Fixation",
+          "url": "https://music.youtube.com/browse/MPREb_A3Qb0JN9qg6",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "2:22",
+        "duration_ms": 142000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/K6IxYD-3UuvpNoM6wW-Sjit-Fkq74NQu0SH9UM2wPxLNXPDkxj9yQf8KyxxZxlQXEsbvi6H_H7I2j9eD=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/K6IxYD-3UuvpNoM6wW-Sjit-Fkq74NQu0SH9UM2wPxLNXPDkxj9yQf8KyxxZxlQXEsbvi6H_H7I2j9eD=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "The Flood",
+    "album": "Earthly Delights",
+    "disk_number": 1,
+    "track_number": 1,
+    "artists": [
+      "Zilched"
+    ],
+    "release_year": 2023,
+    "release_month": 8,
+    "release_day": 11,
+    "is_explicit": false,
+    "duration_ms": 228125,
+    "isrc": "GBWUL2257308",
+    "services": {
+      "spotify": {
+        "id": "331pkMj2dsvhabNjwRjjxl",
+        "name": "The Flood",
+        "url": "https://open.spotify.com/track/331pkMj2dsvhabNjwRjjxl",
+        "artists": [
+          {
+            "id": "4DpFgV376KUg5IYQkLq3d2",
+            "name": "Zilched",
+            "url": "spotify:artist:4DpFgV376KUg5IYQkLq3d2"
+          }
+        ],
+        "album": {
+          "id": "4wEKkIQu0YKN55ylxLFWai",
+          "name": "Earthly Delights",
+          "url": "spotify:album:4wEKkIQu0YKN55ylxLFWai",
+          "total_tracks": 10,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 228125,
+        "image": "https://i.scdn.co/image/ab67616d0000b273b44562bfde6485a3e4428ab8",
+        "audio_preview": "https://p.scdn.co/mp3-preview/904c4da381e12d351a278777c46e64c4839c1ea0?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1686658712",
+        "name": "The Flood",
+        "url": "https://music.apple.com/us/album/the-flood/1686658711?i=1686658712",
+        "artists": [
+          {
+            "id": "1437460470",
+            "name": "Zilched",
+            "url": "https://music.apple.com/us/artist/zilched/1437460470"
+          }
+        ],
+        "composer": "Chloë Drallos",
+        "album": {
+          "id": "1686658711",
+          "name": "The Flood - Single",
+          "url": "https://music.apple.com/us/album/the-flood-single/1686658711",
+          "total_tracks": 1,
+          "ean": null,
+          "upc": "197368944869"
+        },
+        "duration_ms": 228125,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/79/8e/f8/798ef88c-1798-9659-5d74-f83bacb63797/197368944869_cover.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Alternative",
+          "Music"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/f4/dd/a1/f4dda14a-92aa-6bc4-5f99-595f8b25bf24/mzaf_1032963759939855895.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "qAx33ku2Yi8",
+        "name": "The Flood",
+        "url": "https://www.youtube.com/watch?v=qAx33ku2Yi8",
+        "artists": [
+          {
+            "id": "UChkN33aVvdQCz4XRYzQulWQ",
+            "name": "Zilched",
+            "url": "https://music.youtube.com/browse/UChkN33aVvdQCz4XRYzQulWQ"
+          }
+        ],
+        "album": {
+          "id": "MPREb_f2eAx4xn5wM",
+          "name": "The Flood",
+          "url": "https://music.youtube.com/browse/MPREb_f2eAx4xn5wM",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "3:49",
+        "duration_ms": 229000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/iSjNyf0fu4AhAmpEuXwAQ41GDNo_sZqf7qvyiM0ljBOl4XSUmjM5x6hrIi0MVMvCKvZjDaFeUXxM5VnC=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/iSjNyf0fu4AhAmpEuXwAQ41GDNo_sZqf7qvyiM0ljBOl4XSUmjM5x6hrIi0MVMvCKvZjDaFeUXxM5VnC=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Waste of Spacey",
+    "album": "Debt Jubilee",
+    "disk_number": 1,
+    "track_number": 11,
+    "artists": [
+      "Divorcer"
+    ],
+    "release_year": 2019,
+    "release_month": 3,
+    "release_day": 20,
+    "is_explicit": false,
+    "duration_ms": 208023,
+    "isrc": "QZDA41932606",
+    "services": {
+      "spotify": {
+        "id": "0RndMBGeCpbuWBETS84F6p",
+        "name": "Waste of Spacey",
+        "url": "https://open.spotify.com/track/0RndMBGeCpbuWBETS84F6p",
+        "artists": [
+          {
+            "id": "1BgStTnScZGzXnOVqnOKPa",
+            "name": "Divorcer",
+            "url": "spotify:artist:1BgStTnScZGzXnOVqnOKPa"
+          }
+        ],
+        "album": {
+          "id": "59M3IiqxDE5lNeeKdLc5gy",
+          "name": "Debt Jubilee",
+          "url": "spotify:album:59M3IiqxDE5lNeeKdLc5gy",
+          "total_tracks": 13,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 208023,
+        "image": "https://i.scdn.co/image/ab67616d0000b2737b983c911b811da9ae80156a",
+        "audio_preview": "https://p.scdn.co/mp3-preview/01b17cee1038834ccf220b0bcfb2adc13eadbc01?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1457424719",
+        "name": "Waste of Spacey",
+        "url": "https://music.apple.com/us/album/waste-of-spacey/1457424646?i=1457424719",
+        "artists": [
+          {
+            "id": "1450474567",
+            "name": "DIVORCER",
+            "url": "https://music.apple.com/us/artist/divorcer/1450474567"
+          }
+        ],
+        "composer": "Sally Toast",
+        "album": {
+          "id": "1457424646",
+          "name": "Debt Jubilee",
+          "url": "https://music.apple.com/us/album/debt-jubilee/1457424646",
+          "total_tracks": 13,
+          "ean": null,
+          "upc": "194271515384"
+        },
+        "duration_ms": 208024,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/1d/5d/ef/1d5defc3-7876-f6e1-8482-1a486e9357b5/artwork.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Pop",
+          "Music",
+          "Alternative"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview113/v4/ff/56/85/ff5685ad-7ba7-da0f-c62e-9a84a6c5b670/mzaf_687167232400203067.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "3ReEKjWpABQ",
+        "name": "Waste of Spacey",
+        "url": "https://www.youtube.com/watch?v=3ReEKjWpABQ",
+        "artists": [
+          {
+            "id": "UCXhMCM1eu1F_8Gfi-3QQ80w",
+            "name": "Divorcer",
+            "url": "https://music.youtube.com/browse/UCXhMCM1eu1F_8Gfi-3QQ80w"
+          }
+        ],
+        "album": {
+          "id": "MPREb_jgb1JAxNMvw",
+          "name": "Debt Jubilee",
+          "url": "https://music.youtube.com/browse/MPREb_jgb1JAxNMvw",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "3:29",
+        "duration_ms": 209000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/ppp1cFf5U2DGPXlneyuepi5W9Ys-2TZ_2y92gksVBEpIxeac7ilACROxvIJ_PIHbPHY3bQaDSO3m9WwrdQ=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/ppp1cFf5U2DGPXlneyuepi5W9Ys-2TZ_2y92gksVBEpIxeac7ilACROxvIJ_PIHbPHY3bQaDSO3m9WwrdQ=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Identity Clinic",
+    "album": "Shapeshifter",
+    "disk_number": 1,
+    "track_number": 2,
+    "artists": [
+      "Bitch Hunt"
+    ],
+    "release_year": 2021,
+    "release_month": 5,
+    "release_day": 28,
+    "is_explicit": false,
+    "duration_ms": 152054,
+    "isrc": "SEYOK2119265",
+    "services": {
+      "spotify": {
+        "id": "3oRoHwbvkoYgs1sGunD6Rt",
+        "name": "Identity Clinic",
+        "url": "https://open.spotify.com/track/3oRoHwbvkoYgs1sGunD6Rt",
+        "artists": [
+          {
+            "id": "1pRVOuiW4YsZD1vlVPIgbU",
+            "name": "Bitch Hunt",
+            "url": "spotify:artist:1pRVOuiW4YsZD1vlVPIgbU"
+          }
+        ],
+        "album": {
+          "id": "6ODxUhoNzjwVc9cnGcxlav",
+          "name": "Shapeshifter",
+          "url": "spotify:album:6ODxUhoNzjwVc9cnGcxlav",
+          "total_tracks": 4,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 152054,
+        "image": "https://i.scdn.co/image/ab67616d0000b27302df35fda2256cc644aa93ae",
+        "audio_preview": "https://p.scdn.co/mp3-preview/e9fea41a4da5d9c0e69cbfcf52863f96fe7cc51e?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1566173048",
+        "name": "Identity Clinic",
+        "url": "https://music.apple.com/us/album/identity-clinic/1566173046?i=1566173048",
+        "artists": [
+          {
+            "id": "1501659055",
+            "name": "Bitch Hunt",
+            "url": "https://music.apple.com/us/artist/bitch-hunt/1501659055"
+          }
+        ],
+        "composer": "Sean Bride, Wren Erin Jones, Sophia Ho-Chee & Rosalind Simsek",
+        "album": {
+          "id": "1566173046",
+          "name": "Shapeshifter - EP",
+          "url": "https://music.apple.com/us/album/shapeshifter-ep/1566173046",
+          "total_tracks": 4,
+          "ean": null,
+          "upc": "7321170297544"
+        },
+        "duration_ms": 152055,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/30/69/da/3069da08-13c4-a9f0-9273-4dbbc3dc398a/7321170297544.png/{w}x{h}bb.jpg",
+        "genres": [
+          "Alternative",
+          "Music"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/71/fd/1b/71fd1bbe-3a28-d7e5-d8a9-9b92693ea377/mzaf_17044309370615565731.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "xjAsNXeKyRY",
+        "name": "Identity Clinic",
+        "url": "https://www.youtube.com/watch?v=xjAsNXeKyRY",
+        "artists": [
+          {
+            "id": "UCPogPXrUu5I_XuOgdKBdrYQ",
+            "name": "Bitch Hunt",
+            "url": "https://music.youtube.com/browse/UCPogPXrUu5I_XuOgdKBdrYQ"
+          }
+        ],
+        "album": {
+          "id": "MPREb_cx81HthfvFv",
+          "name": "Shapeshifter",
+          "url": "https://music.youtube.com/browse/MPREb_cx81HthfvFv",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "2:33",
+        "duration_ms": 153000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/tuIyq69SMBt1L4kC2A20oNarO9C_wtiiGlIwQmxdmTMkXKoEhTXuvtAiDTEnYbRFqga5TSKLfRGXyN1H=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/tuIyq69SMBt1L4kC2A20oNarO9C_wtiiGlIwQmxdmTMkXKoEhTXuvtAiDTEnYbRFqga5TSKLfRGXyN1H=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Knife Fight",
+    "album": "Bruiser",
+    "disk_number": 1,
+    "track_number": 1,
+    "artists": [
+      "Trophy Wife"
+    ],
+    "release_year": 2021,
+    "release_month": 7,
+    "release_day": 30,
+    "is_explicit": false,
+    "duration_ms": 189750,
+    "isrc": "QZK6M2135235",
+    "services": {
+      "spotify": {
+        "id": "0CtYOlCySlrwvkH1J7WKFQ",
+        "name": "Knife Fight",
+        "url": "https://open.spotify.com/track/0CtYOlCySlrwvkH1J7WKFQ",
+        "artists": [
+          {
+            "id": "7HcbQJiChdkCTU40v2tsvc",
+            "name": "Trophy Wife",
+            "url": "spotify:artist:7HcbQJiChdkCTU40v2tsvc"
+          }
+        ],
+        "album": {
+          "id": "03TV79aBxHhKPBqGSEEI8M",
+          "name": "Bruiser",
+          "url": "spotify:album:03TV79aBxHhKPBqGSEEI8M",
+          "total_tracks": 4,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 189750,
+        "image": "https://i.scdn.co/image/ab67616d0000b27386477841f9e5fece9fe8037d",
+        "audio_preview": "https://p.scdn.co/mp3-preview/96b8fc952d54e637c9ff5487de8833a59675fea5?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1762501645",
+        "name": "Knife Fight",
+        "url": "https://music.apple.com/us/album/knife-fight/1762501644?i=1762501645",
+        "artists": [
+          {
+            "id": "1455649275",
+            "name": "Trophy Wife",
+            "url": "https://music.apple.com/us/artist/trophy-wife/1455649275"
+          }
+        ],
+        "composer": "Trophy Wife",
+        "album": {
+          "id": "1762501644",
+          "name": "Bruiser - EP",
+          "url": "https://music.apple.com/us/album/bruiser-ep/1762501644",
+          "total_tracks": 4,
+          "ean": null,
+          "upc": "196322510263"
+        },
+        "duration_ms": 189750,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/34/78/14/347814a2-0ec6-a236-6f49-51be1d8234a1/8528.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Rock",
+          "Music",
+          "Alternative",
+          "Indie Rock"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d2/86/4e/d2864e61-e0db-137c-db7a-7c41a8d0f61b/mzaf_30055025686478842.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "-lZRu8jRFGM",
+        "name": "Knife Fight",
+        "url": "https://www.youtube.com/watch?v=-lZRu8jRFGM",
+        "artists": [
+          {
+            "id": "UCDrDONaLmTjnAniPipYP8OQ",
+            "name": "Trophy Wife",
+            "url": "https://music.youtube.com/browse/UCDrDONaLmTjnAniPipYP8OQ"
+          }
+        ],
+        "album": {
+          "id": "MPREb_mYz6rJi5kNZ",
+          "name": "Bruiser",
+          "url": "https://music.youtube.com/browse/MPREb_mYz6rJi5kNZ",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "3:10",
+        "duration_ms": 190000,
+        "music_video": null,
+        "thumbnails": [
+          "https://i.ytimg.com/vi/CYU3Pp8Qop0/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3kH0lx7ONsDvLnQsQ-S352RznurZw"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Free Like Fire",
+    "album": "The Ape-Ettes",
+    "disk_number": 1,
+    "track_number": 4,
+    "artists": [
+      "The Ape-Ettes"
+    ],
+    "release_year": 2017,
+    "release_month": 6,
+    "release_day": 1,
+    "is_explicit": false,
+    "duration_ms": 214282,
+    "isrc": "QZFZ31987111",
+    "services": {
+      "spotify": {
+        "id": "3h6mzZNWHlmSGWQFHmBT7J",
+        "name": "Free Like Fire",
+        "url": "https://open.spotify.com/track/3h6mzZNWHlmSGWQFHmBT7J",
+        "artists": [
+          {
+            "id": "3oTl7wKPimIq8tIAuDeRaQ",
+            "name": "The Ape-Ettes",
+            "url": "spotify:artist:3oTl7wKPimIq8tIAuDeRaQ"
+          }
+        ],
+        "album": {
+          "id": "5C259T9F1sVmKYgaeWWFnv",
+          "name": "The Ape-Ettes",
+          "url": "spotify:album:5C259T9F1sVmKYgaeWWFnv",
+          "total_tracks": 7,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 214282,
+        "image": "https://i.scdn.co/image/ab67616d0000b2730577a22d910fc124cae673a9",
+        "audio_preview": "https://p.scdn.co/mp3-preview/a8361adb0b3694b09e0a8b9f07a72a173926fb0f?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1474139910",
+        "name": "Free Like Fire",
+        "url": "https://music.apple.com/us/album/free-like-fire/1474139692?i=1474139910",
+        "artists": [
+          {
+            "id": "1473886166",
+            "name": "The Ape-Ettes",
+            "url": "https://music.apple.com/us/artist/the-ape-ettes/1473886166"
+          }
+        ],
+        "composer": "Julie Katherine Houle",
+        "album": {
+          "id": "1474139692",
+          "name": "The Ape-Ettes",
+          "url": "https://music.apple.com/us/album/the-ape-ettes/1474139692",
+          "total_tracks": 7,
+          "ean": null,
+          "upc": "194616738270"
+        },
+        "duration_ms": 214282,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/3b/64/4a/3b644aed-8d64-7aaf-7c9c-1bd4dfb07670/artwork.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Rock",
+          "Music"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/f1/e2/45/f1e245f6-9165-3f8c-f798-f8d5dd77c2cd/mzaf_14902533054409286783.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "UcYjF1AkvS0",
+        "name": "Free Like Fire",
+        "url": "https://www.youtube.com/watch?v=UcYjF1AkvS0",
+        "artists": [
+          {
+            "id": "UC52viNYYf9qJvbKCW1UZx8w",
+            "name": "The Ape-Ettes",
+            "url": "https://music.youtube.com/browse/UC52viNYYf9qJvbKCW1UZx8w"
+          }
+        ],
+        "album": {
+          "id": "MPREb_SB1hRqwe7VK",
+          "name": "The Ape-Ettes",
+          "url": "https://music.youtube.com/browse/MPREb_SB1hRqwe7VK",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "3:35",
+        "duration_ms": 215000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/6gVMdvCkeN53bm7Tle-ZHgOlA9v_ymkdBS6G8-laavLB-X-5lcBdtHy2m_BFhvzko6ir3luJC-YH4RMd_w=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/6gVMdvCkeN53bm7Tle-ZHgOlA9v_ymkdBS6G8-laavLB-X-5lcBdtHy2m_BFhvzko6ir3luJC-YH4RMd_w=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Thistle",
+    "album": "In Poor Taste",
+    "disk_number": 1,
+    "track_number": 3,
+    "artists": [
+      "Grazia"
+    ],
+    "release_year": 2024,
+    "release_month": 2,
+    "release_day": 2,
+    "is_explicit": false,
+    "duration_ms": 133626,
+    "isrc": "USA2Z2301675",
+    "services": {
+      "spotify": {
+        "id": "58WbTdjvHUqIoEHgDdBUZ1",
+        "name": "Thistle",
+        "url": "https://open.spotify.com/track/58WbTdjvHUqIoEHgDdBUZ1",
+        "artists": [
+          {
+            "id": "4tcHXoy77cX7v2yHLkG1Xd",
+            "name": "Grazia",
+            "url": "spotify:artist:4tcHXoy77cX7v2yHLkG1Xd"
+          }
+        ],
+        "album": {
+          "id": "0oMT4DHBmYID7DiUEYxYFH",
+          "name": "In Poor Taste",
+          "url": "spotify:album:0oMT4DHBmYID7DiUEYxYFH",
+          "total_tracks": 4,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 133626,
+        "image": "https://i.scdn.co/image/ab67616d0000b2739eee226d7d1fd092f78f06ad",
+        "audio_preview": "https://p.scdn.co/mp3-preview/a447ed723b6a44ad45ee5d3653b1695cf01b5883?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1719112292",
+        "name": "Thistle",
+        "url": "https://music.apple.com/us/album/thistle/1719112289?i=1719112292",
+        "artists": [
+          {
+            "id": "1719113517",
+            "name": "Grazia",
+            "url": "https://music.apple.com/us/artist/grazia/1719113517"
+          }
+        ],
+        "composer": null,
+        "album": {
+          "id": "1719112289",
+          "name": "In Poor Taste - EP",
+          "url": "https://music.apple.com/us/album/in-poor-taste-ep/1719112289",
+          "total_tracks": 4,
+          "ean": null,
+          "upc": "795154145744"
+        },
+        "duration_ms": 133627,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/84/67/38/84673825-1bc2-bb42-29d6-595ccaf031ba/795154145744.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Punk",
+          "Music",
+          "Alternative"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/3d/09/62/3d0962e6-ba20-65c0-fe30-5925839608dd/mzaf_13624863257556391044.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "lEMXf9j8dyI",
+        "name": "Thistle",
+        "url": "https://www.youtube.com/watch?v=lEMXf9j8dyI",
+        "artists": [
+          {
+            "id": "UCignSW9X4LpHaiSGvA_e54A",
+            "name": "Grazia",
+            "url": "https://music.youtube.com/browse/UCignSW9X4LpHaiSGvA_e54A"
+          }
+        ],
+        "album": {
+          "id": "MPREb_s2dVTOcRuKw",
+          "name": "In Poor Taste",
+          "url": "https://music.youtube.com/browse/MPREb_s2dVTOcRuKw",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "2:14",
+        "duration_ms": 134000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/XJVCM_43JGzmAeYhBv04br-nCkBsNYmyO6SP6Q-iJqo9bZuojNGbOuDSpgdp8ORvkWjo01JsKKsLzIbhbg=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/XJVCM_43JGzmAeYhBv04br-nCkBsNYmyO6SP6Q-iJqo9bZuojNGbOuDSpgdp8ORvkWjo01JsKKsLzIbhbg=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Forsythia",
+    "album": "Lawn Girl",
+    "disk_number": 1,
+    "track_number": 1,
+    "artists": [
+      "Mandy"
+    ],
+    "release_year": 2024,
+    "release_month": 4,
+    "release_day": 26,
+    "is_explicit": false,
+    "duration_ms": 227960,
+    "isrc": "USA2B2400661",
+    "services": {
+      "spotify": {
+        "id": "3sXAtP2a8FTsgI6AgiZ1dY",
+        "name": "Forsythia",
+        "url": "https://open.spotify.com/track/3sXAtP2a8FTsgI6AgiZ1dY",
+        "artists": [
+          {
+            "id": "1AQ1mXYDvS1dwO5EZjY5LH",
+            "name": "Mandy",
+            "url": "spotify:artist:1AQ1mXYDvS1dwO5EZjY5LH"
+          }
+        ],
+        "album": {
+          "id": "2yYHUEeLBSFpev3Gs3k5Jm",
+          "name": "Lawn Girl",
+          "url": "spotify:album:2yYHUEeLBSFpev3Gs3k5Jm",
+          "total_tracks": 9,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 227960,
+        "image": "https://i.scdn.co/image/ab67616d0000b27396815831f149a173049d2531",
+        "audio_preview": "https://p.scdn.co/mp3-preview/d7c478cc875e6550f5fc11d1022ea192bdf45f05?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1730797405",
+        "name": "Forsythia",
+        "url": "https://music.apple.com/us/album/forsythia/1730797404?i=1730797405",
+        "artists": [
+          {
+            "id": "1735391800",
+            "name": "Mandy",
+            "url": "https://music.apple.com/us/artist/mandy/1735391800"
+          }
+        ],
+        "composer": "Miranda Winters",
+        "album": {
+          "id": "1730797404",
+          "name": "Lawn Girl",
+          "url": "https://music.apple.com/us/album/lawn-girl/1730797404",
+          "total_tracks": 9,
+          "ean": null,
+          "upc": "634457173217"
+        },
+        "duration_ms": 227960,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/16/4b/67/164b675b-ee41-15f9-26d0-7d23c3309e0f/101840.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Rock",
+          "Music",
+          "Alternative"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/cf/08/1e/cf081ec0-b544-5800-c111-38f7de0c1bd5/mzaf_17711735651211737477.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "EjDyHS7nqKU",
+        "name": "Forsythia",
+        "url": "https://www.youtube.com/watch?v=EjDyHS7nqKU",
+        "artists": [
+          {
+            "id": "UCw7LgNSmUfDyEDWz6QFu_JA",
+            "name": "Mandy",
+            "url": "https://music.youtube.com/browse/UCw7LgNSmUfDyEDWz6QFu_JA"
+          }
+        ],
+        "album": {
+          "id": "MPREb_4yeBf6nh6Cx",
+          "name": "Forsythia",
+          "url": "https://music.youtube.com/browse/MPREb_4yeBf6nh6Cx",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "3:48",
+        "duration_ms": 228000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/_OyKFNWtnFNmxWhOijQU1_CSPWsycP1YdFQ-kae3FEPg7ZXFVvCV4VR3QGqFGnQ2l_b4zqCs-viiFDI=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/_OyKFNWtnFNmxWhOijQU1_CSPWsycP1YdFQ-kae3FEPg7ZXFVvCV4VR3QGqFGnQ2l_b4zqCs-viiFDI=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "I Don't Bleed",
+    "album": "What's Your Excuse",
+    "disk_number": 1,
+    "track_number": 10,
+    "artists": [
+      "The Applicators"
+    ],
+    "release_year": 2002,
+    "release_month": 1,
+    "release_day": 1,
+    "is_explicit": false,
+    "duration_ms": 186733,
+    "isrc": "TCACF1538375",
+    "services": {
+      "spotify": {
+        "id": "50irc5K7nX3R7cNoPHUiBI",
+        "name": "I Don't Bleed",
+        "url": "https://open.spotify.com/track/50irc5K7nX3R7cNoPHUiBI",
+        "artists": [
+          {
+            "id": "7brh4zTjp68e4gS2tMBVbU",
+            "name": "The Applicators",
+            "url": "spotify:artist:7brh4zTjp68e4gS2tMBVbU"
+          }
+        ],
+        "album": {
+          "id": "775Z3HvFkzjUGKOOnyKjiq",
+          "name": "What's Your Excuse",
+          "url": "spotify:album:775Z3HvFkzjUGKOOnyKjiq",
+          "total_tracks": 12,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 186733,
+        "image": "https://i.scdn.co/image/ab67616d0000b273fcf5000a70cecc2dbe7ad0ec",
+        "audio_preview": "https://p.scdn.co/mp3-preview/9a88bf8ecfdcd0cc164c762136ba68e4e7853157?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "988423322",
+        "name": "I Don't Bleed",
+        "url": "https://music.apple.com/us/album/i-dont-bleed/988422494?i=988423322",
+        "artists": [
+          {
+            "id": "65694955",
+            "name": "The Applicators",
+            "url": "https://music.apple.com/us/artist/the-applicators/65694955"
+          }
+        ],
+        "composer": null,
+        "album": {
+          "id": "988422494",
+          "name": "What's Your Excuse",
+          "url": "https://music.apple.com/us/album/whats-your-excuse/988422494",
+          "total_tracks": 12,
+          "ean": null,
+          "upc": "859714671316"
+        },
+        "duration_ms": 186733,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music7/v4/4a/b5/b5/4ab5b5f1-4210-054f-6010-86157f67ceff/859714671316_cover.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Alternative",
+          "Music",
+          "Punk",
+          "Rock"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/Music69/v4/45/33/7f/45337fe3-46e4-8405-7420-a0045ed5ea4e/mzaf_6392209888960491219.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "BZEH6kS47dI",
+        "name": "I Don't Bleed",
+        "url": "https://www.youtube.com/watch?v=BZEH6kS47dI",
+        "artists": [
+          {
+            "id": "UC19h_tyVuO1rGWwOSstK1uA",
+            "name": "The Applicators",
+            "url": "https://music.youtube.com/browse/UC19h_tyVuO1rGWwOSstK1uA"
+          }
+        ],
+        "album": {
+          "id": "MPREb_RDmqwNg0QMj",
+          "name": "What's Your Excuse",
+          "url": "https://music.youtube.com/browse/MPREb_RDmqwNg0QMj",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "3:07",
+        "duration_ms": 187000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/_tVaphr94rmUPdGQyb12GJyjRPE0rvnKapevJ2wIlQ9CiQcgG8iI2GFoGJT8zVSzcM9ofhhTY5RgwWDiKw=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/_tVaphr94rmUPdGQyb12GJyjRPE0rvnKapevJ2wIlQ9CiQcgG8iI2GFoGJT8zVSzcM9ofhhTY5RgwWDiKw=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Skirts & Scars",
+    "album": "Bitches & Stitches",
+    "disk_number": 1,
+    "track_number": 6,
+    "artists": [
+      "Amazombies"
+    ],
+    "release_year": 2003,
+    "release_month": 4,
+    "release_day": 8,
+    "is_explicit": false,
+    "duration_ms": 160160,
+    "isrc": "USA560545097",
+    "services": {
+      "spotify": {
+        "id": "34ip1j12lgqOPhazYrdgcO",
+        "name": "Skirts & Scars",
+        "url": "https://open.spotify.com/track/34ip1j12lgqOPhazYrdgcO",
+        "artists": [
+          {
+            "id": "0R1GQi6JiVI7OC9ZX3hUan",
+            "name": "Amazombies",
+            "url": "spotify:artist:0R1GQi6JiVI7OC9ZX3hUan"
+          }
+        ],
+        "album": {
+          "id": "0dk3YcKRofjCHdVHNW8LnP",
+          "name": "Bitches & Stitches",
+          "url": "spotify:album:0dk3YcKRofjCHdVHNW8LnP",
+          "total_tracks": 12,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 160160,
+        "image": "https://i.scdn.co/image/ab67616d0000b2734e240be518ab1651e87ed333",
+        "audio_preview": "https://p.scdn.co/mp3-preview/7578f90c3b7e452575f9d01e1ee4c38868c24139?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1690576609",
+        "name": "Skirts & Scars",
+        "url": "https://music.apple.com/us/album/skirts-scars/1690576149?i=1690576609",
+        "artists": [
+          {
+            "id": "73363593",
+            "name": "Amazombies",
+            "url": "https://music.apple.com/us/artist/amazombies/73363593"
+          }
+        ],
+        "composer": "Kimberly Kelly, Margaret Noriko Kaji & Joshua Kramer",
+        "album": {
+          "id": "1690576149",
+          "name": "Bitches & Stitches",
+          "url": "https://music.apple.com/us/album/bitches-stitches/1690576149",
+          "total_tracks": 12,
+          "ean": null,
+          "upc": "669910903902"
+        },
+        "duration_ms": 160160,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/de/15/82/de1582b1-9a91-2e77-8a2f-019dcfaf436b/669910903902_cover.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Rock",
+          "Music"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/f2/5f/f7/f25ff7ea-de81-2aff-c574-e7b9a047f417/mzaf_15119451828328451927.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "nGBoAB5yQDk",
+        "name": "Skirts & Scars",
+        "url": "https://www.youtube.com/watch?v=nGBoAB5yQDk",
+        "artists": [
+          {
+            "id": "UCqJSwPMAqdtC9SO8NgoriWg",
+            "name": "amazombies",
+            "url": "https://music.youtube.com/browse/UCqJSwPMAqdtC9SO8NgoriWg"
+          }
+        ],
+        "album": {
+          "id": "MPREb_sPU1TQkMl2O",
+          "name": "Bitches & Stitches",
+          "url": "https://music.youtube.com/browse/MPREb_sPU1TQkMl2O",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "2:41",
+        "duration_ms": 161000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/w8UECTMhZsGxfO5hbZJHhmEmUQI1C9NTcLDLvfc7g9iyJyRCWoYMZij20cs2ThIIxc1oZZNfKXyLv-M_=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/w8UECTMhZsGxfO5hbZJHhmEmUQI1C9NTcLDLvfc7g9iyJyRCWoYMZij20cs2ThIIxc1oZZNfKXyLv-M_=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Tears of a Martian",
+    "album": "Bloody Thumbs",
+    "disk_number": 1,
+    "track_number": 1,
+    "artists": [
+      "Tears of a Martian"
+    ],
+    "release_year": 2022,
+    "release_month": 4,
+    "release_day": 1,
+    "is_explicit": false,
+    "duration_ms": 227426,
+    "isrc": "TCAGA2282433",
+    "services": {
+      "spotify": {
+        "id": "5NJy7R4gPPu0UWAaKj2NWs",
+        "name": "Tears of a Martian",
+        "url": "https://open.spotify.com/track/5NJy7R4gPPu0UWAaKj2NWs",
+        "artists": [
+          {
+            "id": "0B4UaMGFpZUG744uylB2SZ",
+            "name": "Tears of a Martian",
+            "url": "spotify:artist:0B4UaMGFpZUG744uylB2SZ"
+          }
+        ],
+        "album": {
+          "id": "3v8pHpbIuVO1fLtngzzutp",
+          "name": "Bloody Thumbs",
+          "url": "spotify:album:3v8pHpbIuVO1fLtngzzutp",
+          "total_tracks": 3,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 227426,
+        "image": "https://i.scdn.co/image/ab67616d0000b27378ed8c05b930f3d05ca06c3c",
+        "audio_preview": "https://p.scdn.co/mp3-preview/9de9642923d309ff82d9624120d80af8c50ed215?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1608382323",
+        "name": "Tears of a Martian",
+        "url": "https://music.apple.com/us/album/tears-of-a-martian/1608382319?i=1608382323",
+        "artists": [
+          {
+            "id": "1450445210",
+            "name": "Tears of a Martian",
+            "url": "https://music.apple.com/us/artist/tears-of-a-martian/1450445210"
+          }
+        ],
+        "composer": "Arianna Bardoni, Justin Reed & Todd Watts",
+        "album": {
+          "id": "1608382319",
+          "name": "Bloody Thumbs - Single",
+          "url": "https://music.apple.com/us/album/bloody-thumbs-single/1608382319",
+          "total_tracks": 3,
+          "ean": null,
+          "upc": "859753553499"
+        },
+        "duration_ms": 227426,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/1d/f0/d6/1df0d655-29ba-4354-9934-5ef0ee930ffc/859753553499_cover.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Pop",
+          "Music",
+          "Rock"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/15/b3/79/15b379b8-ff1b-cfbe-881c-fbcdda39dad5/mzaf_4891263991905042350.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "Xar2JCvAbUM",
+        "name": "Tears of a Martian",
+        "url": "https://www.youtube.com/watch?v=Xar2JCvAbUM",
+        "artists": [],
+        "album": {
+          "id": "MPREb_OJMokw1Wpb2",
+          "name": "Bloody Thumbs",
+          "url": "https://music.youtube.com/browse/MPREb_OJMokw1Wpb2",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "3:48",
+        "duration_ms": 228000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/Je-vFTt9S9CO-sY-3BgYe0xEmrFj7M5cnh-TY2X3PJjoSpdhG_ie7OIZr-rPDkRn6ctiHAuB_wGvV3g=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/Je-vFTt9S9CO-sY-3BgYe0xEmrFj7M5cnh-TY2X3PJjoSpdhG_ie7OIZr-rPDkRn6ctiHAuB_wGvV3g=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "My Static",
+    "album": "Put Out Or Get Out",
+    "disk_number": 1,
+    "track_number": 4,
+    "artists": [
+      "Fabulous Disaster"
+    ],
+    "release_year": 2001,
+    "release_month": null,
+    "release_day": null,
+    "is_explicit": false,
+    "duration_ms": 142466,
+    "isrc": "USFW40540304",
+    "services": {
+      "spotify": {
+        "id": "5kfyoyARd6xl0rX0bZKMag",
+        "name": "My Static",
+        "url": "https://open.spotify.com/track/5kfyoyARd6xl0rX0bZKMag",
+        "artists": [
+          {
+            "id": "2oHH8mpFwIiOr2oZPilcH5",
+            "name": "Fabulous Disaster",
+            "url": "spotify:artist:2oHH8mpFwIiOr2oZPilcH5"
+          }
+        ],
+        "album": {
+          "id": "2jYG2O2qAO4hfc91v76LHl",
+          "name": "Put Out Or Get Out",
+          "url": "spotify:album:2jYG2O2qAO4hfc91v76LHl",
+          "total_tracks": 14,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 142466,
+        "image": "https://i.scdn.co/image/ab67616d0000b2737c8d4787a2bbd791ed30d7f3",
+        "audio_preview": "https://p.scdn.co/mp3-preview/68815e58abc85901d3118a72d542a984b92384a6?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "298929316",
+        "name": "My Static",
+        "url": "https://music.apple.com/us/album/my-static/298929310?i=298929316",
+        "artists": [
+          {
+            "id": "72881905",
+            "name": "Fabulous Disaster",
+            "url": "https://music.apple.com/us/artist/fabulous-disaster/72881905"
+          }
+        ],
+        "composer": null,
+        "album": {
+          "id": "298929310",
+          "name": "Put Out or Get Out",
+          "url": "https://music.apple.com/us/album/put-out-or-get-out/298929310",
+          "total_tracks": 13,
+          "ean": null,
+          "upc": "751097040324"
+        },
+        "duration_ms": 142467,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music/07/69/ae/mzi.bsqlsllb.tif/{w}x{h}bb.jpg",
+        "genres": [
+          "Alternative",
+          "Music",
+          "Punk",
+          "Rock"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/b4/04/63/b4046369-5e40-f6a5-621b-d6d24308892a/mzaf_4037378031030421426.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "bEPKKqYp2B0",
+        "name": "My Static",
+        "url": "https://www.youtube.com/watch?v=bEPKKqYp2B0",
+        "artists": [
+          {
+            "id": "UC2Fy_4gBd4O15psuPBEzRuA",
+            "name": "Fabulous Disaster",
+            "url": "https://music.youtube.com/browse/UC2Fy_4gBd4O15psuPBEzRuA"
+          }
+        ],
+        "album": {
+          "id": "MPREb_SAZnOUCOSiF",
+          "name": "Put Out Or Get Out",
+          "url": "https://music.youtube.com/browse/MPREb_SAZnOUCOSiF",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "2:23",
+        "duration_ms": 143000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/NOZ2bStM8S7wjaWNI8pVIdxOJ31ZW58PUSW_HIIxYYs-OwFLPQ2Za6I9-0a7N2MqbCzpThhW5yuOk6wJ=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/NOZ2bStM8S7wjaWNI8pVIdxOJ31ZW58PUSW_HIIxYYs-OwFLPQ2Za6I9-0a7N2MqbCzpThhW5yuOk6wJ=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Misfire",
+    "album": "Maybe I'll See You Next Year",
+    "disk_number": 1,
+    "track_number": 4,
+    "artists": [
+      "Riot Course"
+    ],
+    "release_year": 2021,
+    "release_month": 2,
+    "release_day": 6,
+    "is_explicit": false,
+    "duration_ms": 226216,
+    "isrc": "QZFYZ2179807",
+    "services": {
+      "spotify": {
+        "id": "4vrts0nsR2dcIbPUkXzcFj",
+        "name": "Misfire",
+        "url": "https://open.spotify.com/track/4vrts0nsR2dcIbPUkXzcFj",
+        "artists": [
+          {
+            "id": "01Mg4oXAkTjkzYYiLspAeW",
+            "name": "Riot Course",
+            "url": "spotify:artist:01Mg4oXAkTjkzYYiLspAeW"
+          }
+        ],
+        "album": {
+          "id": "1mZmtWTQOJFGGCeGau78fp",
+          "name": "Maybe I'll See You Next Year",
+          "url": "spotify:album:1mZmtWTQOJFGGCeGau78fp",
+          "total_tracks": 5,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 226216,
+        "image": "https://i.scdn.co/image/ab67616d0000b27378091d1ce4dc7b57a7ba647e",
+        "audio_preview": "https://p.scdn.co/mp3-preview/d7957c35ca293b8ec870d08d15e0322ab0d00a18?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1549689428",
+        "name": "Misfire",
+        "url": "https://music.apple.com/us/album/misfire/1549689123?i=1549689428",
+        "artists": [
+          {
+            "id": "1544802961",
+            "name": "Riot Course",
+            "url": "https://music.apple.com/us/artist/riot-course/1544802961"
+          }
+        ],
+        "composer": "Katherine G Emrich",
+        "album": {
+          "id": "1549689123",
+          "name": "Maybe I'll See You Next Year - EP",
+          "url": "https://music.apple.com/us/album/maybe-ill-see-you-next-year-ep/1549689123",
+          "total_tracks": 5,
+          "ean": null,
+          "upc": "195938992081"
+        },
+        "duration_ms": 226216,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/ea/6c/23/ea6c2394-b613-361c-c3bb-5555b924f711/artwork.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Rock",
+          "Music",
+          "Alternative"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview114/v4/d4/78/31/d478310a-c2b7-0034-fe59-65f7f8eb0ac2/mzaf_1441425585441395895.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "ZqRig8by1Vk",
+        "name": "Misfire",
+        "url": "https://www.youtube.com/watch?v=ZqRig8by1Vk",
+        "artists": [
+          {
+            "id": "UCozqROz15DW7ugnWSSkadew",
+            "name": "Riot Course",
+            "url": "https://music.youtube.com/browse/UCozqROz15DW7ugnWSSkadew"
+          }
+        ],
+        "album": {
+          "id": "MPREb_JewBR4kHssI",
+          "name": "Maybe I'll See You Next Year",
+          "url": "https://music.youtube.com/browse/MPREb_JewBR4kHssI",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "3:47",
+        "duration_ms": 227000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/NUKA1vDQe9tgVJHpuvPzaXWrjuWbeywt5xNxbDNNdndyBwF2K_Axbt3VXmGcyLopAF2GNVbrDq8Stko=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/NUKA1vDQe9tgVJHpuvPzaXWrjuWbeywt5xNxbDNNdndyBwF2K_Axbt3VXmGcyLopAF2GNVbrDq8Stko=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Divine",
+    "album": "Minerves",
+    "disk_number": 1,
+    "track_number": 4,
+    "artists": [
+      "Minerves"
+    ],
+    "release_year": 2023,
+    "release_month": 9,
+    "release_day": 1,
+    "is_explicit": false,
+    "duration_ms": 219375,
+    "isrc": "DES012300023",
+    "services": {
+      "spotify": {
+        "id": "6HJxYbYFoyC5cxySZZ2f12",
+        "name": "Divine",
+        "url": "https://open.spotify.com/track/6HJxYbYFoyC5cxySZZ2f12",
+        "artists": [
+          {
+            "id": "6V2tGu7pCe3I4tKrcO4b5y",
+            "name": "Minerves",
+            "url": "spotify:artist:6V2tGu7pCe3I4tKrcO4b5y"
+          }
+        ],
+        "album": {
+          "id": "6aEAaIb7mjT5wOEp0GyPpZ",
+          "name": "Minerves",
+          "url": "spotify:album:6aEAaIb7mjT5wOEp0GyPpZ",
+          "total_tracks": 12,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 219375,
+        "image": "https://i.scdn.co/image/ab67616d0000b27354aa2ec8b3bd15ae0d5c0bdc",
+        "audio_preview": "https://p.scdn.co/mp3-preview/1b2809eeb2dd7a41775aed3f5baf3b40bf7a454e?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1702012919",
+        "name": "Divine",
+        "url": "https://music.apple.com/us/album/divine/1702012719?i=1702012919",
+        "artists": [
+          {
+            "id": "1702012724",
+            "name": "Minerves",
+            "url": "https://music.apple.com/us/artist/minerves/1702012724"
+          }
+        ],
+        "composer": "Vincent Piferrer",
+        "album": {
+          "id": "1702012719",
+          "name": "Minerves",
+          "url": "https://music.apple.com/us/album/minerves/1702012719",
+          "total_tracks": 12,
+          "ean": null,
+          "upc": "4015698422252"
+        },
+        "duration_ms": 219375,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/8c/d7/33/8cd73390-cfe8-0ae3-90cc-671cbd3dfe55/4015698422252.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Rock",
+          "Music"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/a8/cf/3c/a8cf3c66-187f-bb4b-f53f-5bcabc02ce1c/mzaf_11671255568997633599.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "MaEf6TzU5kY",
+        "name": "Divine",
+        "url": "https://www.youtube.com/watch?v=MaEf6TzU5kY",
+        "artists": [
+          {
+            "id": "UCz9GwkQ3jn1Sylo16SOobjw",
+            "name": "Minerves",
+            "url": "https://music.youtube.com/browse/UCz9GwkQ3jn1Sylo16SOobjw"
+          }
+        ],
+        "album": {
+          "id": "MPREb_VPxWd2leTGf",
+          "name": "Minerves",
+          "url": "https://music.youtube.com/browse/MPREb_VPxWd2leTGf",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "3:40",
+        "duration_ms": 220000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/63vtP2ANzPCAnwuxawV-nIva4XUAOapbrqJpfHwY8U8Wb7-wSzTSNyQvI4IlgfU_V48lgfwczDZ-HW5b=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/63vtP2ANzPCAnwuxawV-nIva4XUAOapbrqJpfHwY8U8Wb7-wSzTSNyQvI4IlgfU_V48lgfwczDZ-HW5b=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Love Don't Let Me Go",
+    "album": "Love Don’t Let Me Go",
+    "disk_number": 1,
+    "track_number": 1,
+    "artists": [
+      "Angelina Jordan"
+    ],
+    "release_year": 2023,
+    "release_month": 5,
+    "release_day": 5,
+    "is_explicit": false,
+    "duration_ms": 177793,
+    "isrc": "USUM72306272",
+    "services": {
+      "spotify": {
+        "id": "6uZOUCeRMf1XzwRoXj4MgN",
+        "name": "Love Don't Let Me Go",
+        "url": "https://open.spotify.com/track/6uZOUCeRMf1XzwRoXj4MgN",
+        "artists": [
+          {
+            "id": "0iQDOaYEA5i9RAF0Z73iXb",
+            "name": "Angelina Jordan",
+            "url": "spotify:artist:0iQDOaYEA5i9RAF0Z73iXb"
+          }
+        ],
+        "album": {
+          "id": "3LF2CQu0h1evpecokm9MHN",
+          "name": "Love Don’t Let Me Go",
+          "url": "spotify:album:3LF2CQu0h1evpecokm9MHN",
+          "total_tracks": 1,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 177793,
+        "image": "https://i.scdn.co/image/ab67616d0000b273c5bcea978393e7899ed3090a",
+        "audio_preview": null
+      },
+      "apple_music": {
+        "id": "1709727470",
+        "name": "Love Don't Let Me Go",
+        "url": "https://music.apple.com/us/album/love-dont-let-me-go/1709727466?i=1709727470",
+        "artists": [
+          {
+            "id": "949905441",
+            "name": "Angelina Jordan",
+            "url": "https://music.apple.com/us/artist/angelina-jordan/949905441"
+          }
+        ],
+        "composer": "Angelina Jordan, Karl Ivert & Kian Sang",
+        "album": {
+          "id": "1709727466",
+          "name": "Fall Vibes",
+          "url": "https://music.apple.com/us/album/fall-vibes/1709727466",
+          "total_tracks": 56,
+          "ean": null,
+          "upc": "00602458667462"
+        },
+        "duration_ms": 177794,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/f1/8b/5b/f18b5b3d-6b0f-912a-1584-bb1420bff7f1/23UM1IM16609.rgb.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Pop",
+          "Music"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/14/11/e9/1411e978-b617-6315-8983-75041b16eeb5/mzaf_15456201995224311843.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "-wKoZlapqgg",
+        "name": "Love Don't Let Me Go",
+        "url": "https://www.youtube.com/watch?v=-wKoZlapqgg",
+        "artists": [
+          {
+            "id": "UCfPbbEdPwa5gtvUUjNKeFvg",
+            "name": "Angelina Jordan",
+            "url": "https://music.youtube.com/browse/UCfPbbEdPwa5gtvUUjNKeFvg"
+          }
+        ],
+        "album": {
+          "id": "MPREb_dz6L4VJs6It",
+          "name": "Love Don’t Let Me Go",
+          "url": "https://music.youtube.com/browse/MPREb_dz6L4VJs6It",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "2:58",
+        "duration_ms": 178000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/nsamo0wtiTGUEmdrhVCB3YT6Ae8R6rVt999gv1YyZqBnL4Tbg23dzb_oJyyfTz-QDwJDsGww1M35_9RS=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/nsamo0wtiTGUEmdrhVCB3YT6Ae8R6rVt999gv1YyZqBnL4Tbg23dzb_oJyyfTz-QDwJDsGww1M35_9RS=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "One Hit Woman",
+    "album": "One Hit Woman",
+    "disk_number": 1,
+    "track_number": 3,
+    "artists": [
+      "Egg Drop Soup"
+    ],
+    "release_year": 2024,
+    "release_month": 5,
+    "release_day": 17,
+    "is_explicit": false,
+    "duration_ms": 238560,
+    "isrc": "USDY42404095",
+    "services": {
+      "spotify": {
+        "id": "2VWjoczm6GsswwhDIaLEIk",
+        "name": "One Hit Woman",
+        "url": "https://open.spotify.com/track/2VWjoczm6GsswwhDIaLEIk",
+        "artists": [
+          {
+            "id": "7pzH64zegJsbv79XgCYXr0",
+            "name": "Egg Drop Soup",
+            "url": "spotify:artist:7pzH64zegJsbv79XgCYXr0"
+          }
+        ],
+        "album": {
+          "id": "5gYjeKnUVZbMAaQ6AGbYTF",
+          "name": "One Hit Woman",
+          "url": "spotify:album:5gYjeKnUVZbMAaQ6AGbYTF",
+          "total_tracks": 7,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 238560,
+        "image": "https://i.scdn.co/image/ab67616d0000b273c18ab87460e36199f5317064",
+        "audio_preview": "https://p.scdn.co/mp3-preview/0be9d699f255f138b9260b35e06d45431e15b069?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1736450267",
+        "name": "One Hit Woman",
+        "url": "https://music.apple.com/us/album/one-hit-woman/1736450024?i=1736450267",
+        "artists": [
+          {
+            "id": "1435614390",
+            "name": "Egg Drop Soup",
+            "url": "https://music.apple.com/us/artist/egg-drop-soup/1435614390"
+          }
+        ],
+        "composer": "Samantha Kate Westervelt, Bailey Chapman & Olivia Lee Saperstein",
+        "album": {
+          "id": "1736450024",
+          "name": "One Hit Woman",
+          "url": "https://music.apple.com/us/album/one-hit-woman/1736450024",
+          "total_tracks": 7,
+          "ean": null,
+          "upc": "198500469622"
+        },
+        "duration_ms": 238560,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/06/9f/05/069f05ee-b647-f1d7-d914-a513b90c98f1/198500469622.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Rock",
+          "Music",
+          "Pop"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/3f/35/b2/3f35b250-a1c2-8d5e-d9a8-cd8e405889af/mzaf_11516589388786205170.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "ba8QLhmyLHY",
+        "name": "One Hit Woman",
+        "url": "https://www.youtube.com/watch?v=ba8QLhmyLHY",
+        "artists": [
+          {
+            "id": "UCCI8Oh5uCkwwRitrtv5BEVA",
+            "name": "Egg Drop Soup",
+            "url": "https://music.youtube.com/browse/UCCI8Oh5uCkwwRitrtv5BEVA"
+          }
+        ],
+        "album": {
+          "id": "MPREb_vvAMF9ZKsxR",
+          "name": "One Hit Woman",
+          "url": "https://music.youtube.com/browse/MPREb_vvAMF9ZKsxR",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "3:59",
+        "duration_ms": 239000,
+        "music_video": null,
+        "thumbnails": [
+          "https://i.ytimg.com/vi/ePSWqarl-zI/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3kqVBiRuZ7vfIQrqAvPicI__3Gc7Q"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "Trust In Me",
+    "album": "Hit Record",
+    "disk_number": 1,
+    "track_number": 1,
+    "artists": [
+      "Private Lives"
+    ],
+    "release_year": 2023,
+    "release_month": 7,
+    "release_day": 14,
+    "is_explicit": false,
+    "duration_ms": 169706,
+    "isrc": "USA2Z2300859",
+    "services": {
+      "spotify": {
+        "id": "7CQnJUQFGJuhFwQfCfNOAt",
+        "name": "Trust In Me",
+        "url": "https://open.spotify.com/track/7CQnJUQFGJuhFwQfCfNOAt",
+        "artists": [
+          {
+            "id": "5xTe9EXn26oVIqWbRM5ias",
+            "name": "Private Lives",
+            "url": "spotify:artist:5xTe9EXn26oVIqWbRM5ias"
+          }
+        ],
+        "album": {
+          "id": "32Dn7yBn1AhtV7gmxw5E37",
+          "name": "Hit Record",
+          "url": "spotify:album:32Dn7yBn1AhtV7gmxw5E37",
+          "total_tracks": 10,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 169706,
+        "image": "https://i.scdn.co/image/ab67616d0000b273b5fb2655993f4cad47ee8093",
+        "audio_preview": "https://p.scdn.co/mp3-preview/4858d27dc4d4ffc89a29a4fbdf9408fa1ed95026?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1688236444",
+        "name": "Trust In Me",
+        "url": "https://music.apple.com/us/album/trust-in-me/1688236443?i=1688236444",
+        "artists": [
+          {
+            "id": "1643229004",
+            "name": "Private Lives",
+            "url": "https://music.apple.com/us/artist/private-lives/1643229004"
+          }
+        ],
+        "composer": null,
+        "album": {
+          "id": "1688236443",
+          "name": "Hit Record",
+          "url": "https://music.apple.com/us/album/hit-record/1688236443",
+          "total_tracks": 10,
+          "ean": null,
+          "upc": "795154141869"
+        },
+        "duration_ms": 169707,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/e3/ef/9d/e3ef9d98-b60e-b351-eea0-cec7caf96a55/795154141869.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Punk",
+          "Music",
+          "Alternative"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/a6/48/18/a6481849-ac9b-33e5-e582-4ae3c87e5e86/mzaf_2480286716746057596.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "9EtxCENHCPw",
+        "name": "Trust In Me",
+        "url": "https://www.youtube.com/watch?v=9EtxCENHCPw",
+        "artists": [
+          {
+            "id": "UCpZ7Z1sYtjK5hkshVjusuvA",
+            "name": "Private Lives",
+            "url": "https://music.youtube.com/browse/UCpZ7Z1sYtjK5hkshVjusuvA"
+          }
+        ],
+        "album": {
+          "id": "MPREb_cHwJ5cqhHtx",
+          "name": "Trust In Me",
+          "url": "https://music.youtube.com/browse/MPREb_cHwJ5cqhHtx",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "2:50",
+        "duration_ms": 170000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/WdOm13KgMvggIqXi2gjlq98C7ysKjqVdnWMP6ZJFCGX3K3Ak7kgKbPcXaLGF4MRZroferXKO8BP8goRF=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/WdOm13KgMvggIqXi2gjlq98C7ysKjqVdnWMP6ZJFCGX3K3Ak7kgKbPcXaLGF4MRZroferXKO8BP8goRF=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  },
+  {
+    "name": "I'm the Only One",
+    "album": "Among Us All",
+    "disk_number": 1,
+    "track_number": 1,
+    "artists": [
+      "Laura Palmer's Death Parade"
+    ],
+    "release_year": 2018,
+    "release_month": 1,
+    "release_day": 14,
+    "is_explicit": false,
+    "duration_ms": 292525,
+    "isrc": "uscgh1812456",
+    "services": {
+      "spotify": {
+        "id": "1Im6dDvyqBC1e1NqA6xbNj",
+        "name": "I'm the Only One",
+        "url": "https://open.spotify.com/track/1Im6dDvyqBC1e1NqA6xbNj",
+        "artists": [
+          {
+            "id": "6NKXLk6cmHrqRiJpptoUm6",
+            "name": "Laura Palmer's Death Parade",
+            "url": "spotify:artist:6NKXLk6cmHrqRiJpptoUm6"
+          }
+        ],
+        "album": {
+          "id": "17gwAf5xGkFQhALjfxHqFU",
+          "name": "Among Us All",
+          "url": "spotify:album:17gwAf5xGkFQhALjfxHqFU",
+          "total_tracks": 7,
+          "ean": null,
+          "upc": null
+        },
+        "duration_ms": 292525,
+        "image": "https://i.scdn.co/image/ab67616d0000b27328a320f60e2a552dfa06fa7a",
+        "audio_preview": "https://p.scdn.co/mp3-preview/e3d4934b0f83f65815027d33da8f03fe37178c57?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+      },
+      "apple_music": {
+        "id": "1336748269",
+        "name": "I'm the Only One",
+        "url": "https://music.apple.com/us/album/im-the-only-one/1336748265?i=1336748269",
+        "artists": [
+          {
+            "id": "1110500519",
+            "name": "Laura Palmer's Death Parade",
+            "url": "https://music.apple.com/us/artist/laura-palmers-death-parade/1110500519"
+          }
+        ],
+        "composer": "Laura Marie Hopkins",
+        "album": {
+          "id": "1336748265",
+          "name": "Among Us All",
+          "url": "https://music.apple.com/us/album/among-us-all/1336748265",
+          "total_tracks": 7,
+          "ean": null,
+          "upc": "191924759690"
+        },
+        "duration_ms": 292525,
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/a0/d8/dc/a0d8dca9-94ad-3f1c-6bf9-1cbf5de74a60/191924759690.jpg/{w}x{h}bb.jpg",
+        "genres": [
+          "Alternative Folk",
+          "Music",
+          "Singer/Songwriter",
+          "Easy Listening"
+        ],
+        "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/30/3e/0d/303e0d48-9f25-9abf-141d-83b6104dd7eb/mzaf_5547515753676583693.plus.aac.p.m4a"
+      },
+      "youtube": {
+        "id": "j8Wo7T4YNww",
+        "name": "I'm the Only One",
+        "url": "https://www.youtube.com/watch?v=j8Wo7T4YNww",
+        "artists": [
+          {
+            "id": "UCOEAVXjJ-YVijrSb762lkMQ",
+            "name": "Laura Palmer's Death Parade",
+            "url": "https://music.youtube.com/browse/UCOEAVXjJ-YVijrSb762lkMQ"
+          }
+        ],
+        "album": {
+          "id": "MPREb_GxcxxaQlCdK",
+          "name": "Among Us All",
+          "url": "https://music.youtube.com/browse/MPREb_GxcxxaQlCdK",
+          "total_tracks": null,
+          "ean": null,
+          "upc": null
+        },
+        "duration_raw": "4:53",
+        "duration_ms": 293000,
+        "music_video": null,
+        "thumbnails": [
+          "https://lh3.googleusercontent.com/GXx43qoPrapmegciRgdDP6C3D_xk96JGhIG5ocs0kTxSZ5xwP7z6DdFTcfwkYKP6KjodWrryGI3kg8U-Fw=w60-h60-l90-rj",
+          "https://lh3.googleusercontent.com/GXx43qoPrapmegciRgdDP6C3D_xk96JGhIG5ocs0kTxSZ5xwP7z6DdFTcfwkYKP6KjodWrryGI3kg8U-Fw=w120-h120-l90-rj"
+        ]
+      },
+      "bandcamp": null
+    }
+  }
+]
