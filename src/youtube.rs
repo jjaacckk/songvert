@@ -1,3 +1,8 @@
+// TO TEST
+// - Mines of Io - Shannon & The Clams
+// - Lady Sun - Skinshape
+// -
+
 use crate::error::{Error, Result};
 use crate::service::{Album, Artist};
 use crate::track::Track;
@@ -14,8 +19,75 @@ pub struct YouTube {
     pub artists: Vec<Artist>,
     pub album: Option<Album>,
     pub duration_raw: String,
+    pub duration_ms: usize,
     pub music_video: Option<String>,
     pub thumbnails: Vec<String>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawStreamingData {
+    pub expires_in_seconds: String,
+    pub formats: Vec<RawFormat>,
+    pub adaptive_formats: Vec<RawAdaptiveFormat>,
+    pub server_abr_streaming_url: String,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawFormat {
+    pub itag: i32,
+    pub mime_type: String,
+    pub bitrate: i32,
+    pub width: i32,
+    pub height: i32,
+    pub last_modified: String,
+    pub quality: String,
+    pub fps: i32,
+    pub quality_label: String,
+    pub projection_type: String,
+    pub audio_quality: String,
+    pub approx_duration_ms: String,
+    pub audio_sample_rate: String,
+    pub audio_channels: i32,
+    pub signature_cipher: String,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawAdaptiveFormat {
+    pub itag: i32,
+    pub mime_type: String,
+    pub bitrate: i32,
+    pub width: i32,
+    pub height: i32,
+    pub init_range: RawRange,
+    pub index_range: RawRange,
+    pub last_modified: String,
+    pub content_length: String,
+    pub quality: String,
+    pub fps: i32,
+    pub quality_label: String,
+    pub projection_type: String,
+    pub average_bitrate: i32,
+    pub approx_duration_ms: String,
+    pub signature_cipher: String,
+    pub color_info: Option<ColorInfo>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct RawRange {
+    pub start: String,
+    pub end: String,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq)]
+#[serde(rename_all(deserialize = "camelCase"))]
+pub struct ColorInfo {
+    pub primaries: String,
+    pub transfer_characteristics: String,
+    pub matrix_coefficients: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
@@ -152,8 +224,8 @@ pub struct PayloadContextClient<'a> {
 }
 
 impl YouTube {
-    const API_BASE_URL: &'static str = "https://music.youtube.com/youtubei/v1";
-    const SITE_BASE_URL: &'static str = "https://music.youtube.com";
+    const API_BASE_URL: &'static str = "https://www.youtube.com/youtubei/v1";
+    const SITE_BASE_URL: &'static str = "https://www.youtube.com";
     const DEFAULT_MUSIC_PAYLOAD_CONTEXT: PayloadContext<'static> = PayloadContext {
         client: PayloadContextClient {
             hl: "en",
@@ -179,6 +251,8 @@ impl YouTube {
     }
 
     pub async fn get_raw_results_from_search(client: &Client, query: &str) -> Result<Value> {
+        // println!("{}", query);
+
         let payload: Payload = Payload {
             context: Self::DEFAULT_MUSIC_PAYLOAD_CONTEXT,
             video_id: None,
@@ -196,11 +270,46 @@ impl YouTube {
         Self::post(client, "next", &payload).await
     }
 
+    pub async fn get_raw_track_streaming_data_from_id(
+        client: &Client,
+        id: &str,
+    ) -> Result<RawStreamingData> {
+        let request: RequestBuilder = client.get(format!("{}/watch?v={}", Self::SITE_BASE_URL, id));
+
+        let mut response: Response = request.send().await?;
+        response = response.error_for_status()?;
+
+        let raw_html: String = response.text().await?;
+
+        let re = regex::Regex::new(r#"var ytInitialPlayerResponse = (.*);"#)?;
+
+        // println!("{}", &raw_html);
+
+        let raw_initial_data: regex::Match = match re.captures(&raw_html) {
+            Some(captures) => match captures.get(1) {
+                Some(m) => m,
+                None => return Err(Error::FindError),
+            },
+            None => return Err(Error::FindError),
+        };
+
+        // println!("{}", &raw_initial_data.as_str());
+        // let mut file = std::fs::File::create("./test.js")?;
+        // file.write_all(&raw_initial_data.as_str().as_bytes())?;
+
+        let mut initial_data: Value = serde_json::from_str(raw_initial_data.as_str())?;
+
+        let streaming_data: RawStreamingData =
+            serde_json::from_value(initial_data["streamingData"].take())?;
+
+        Ok(streaming_data)
+    }
+
     pub async fn get_raw_track_match_from_track(client: &Client, track: &Track) -> Result<Value> {
         let query: String = format!(
             "{}, {}, {}, {}",
             track.name,
-            track.artists.get(0).ok_or(Error::MatchError)?,
+            track.artists.get(0).ok_or(Error::MalformedTrackError)?,
             track.release_year,
             track.album,
         );
@@ -251,7 +360,7 @@ impl YouTube {
                             None => (),
                         }
                     }
-                    Err(e) => (),
+                    Err(..) => (),
                 }
             }
 
@@ -288,26 +397,29 @@ impl YouTube {
         let mut track_match_in_top_result: bool = false;
 
         if top_result_type == "Song" {
-            if top_result
-                .title
-                .runs
-                .get(0)
-                .ok_or(Error::CreateError)?
-                .text
-                .to_lowercase()
-                == track.name.to_lowercase()
-                && top_result
+            if track.compare_similarity(
+                &top_result.title.runs.get(0).ok_or(Error::CreateError)?.text,
+                &top_result
                     .subtitle
                     .runs
                     .get(2)
                     .ok_or(Error::CreateError)?
-                    .text
-                    .to_lowercase()
-                    == *track
-                        .artists
-                        .get(0)
+                    .text,
+                &top_result
+                    .subtitle
+                    .runs
+                    .get(4)
+                    .ok_or(Error::CreateError)?
+                    .text,
+                raw_duration_to_miliseconds(
+                    &top_result
+                        .subtitle
+                        .runs
+                        .get(6)
                         .ok_or(Error::CreateError)?
-                        .to_lowercase()
+                        .text,
+                )?,
+            ) >= 3
             {
                 track_match_in_top_result = true;
             }
@@ -373,6 +485,13 @@ impl YouTube {
                 None => None,
             };
 
+            let duration_raw: &str = &top_result
+                .subtitle
+                .runs
+                .get(6)
+                .ok_or(Error::CreateError)?
+                .text;
+
             return Ok(Self {
                 id: id.to_owned(),
                 url: format!("https://www.youtube.com/watch?v={}", id),
@@ -415,13 +534,8 @@ impl YouTube {
                     }),
                     None => None,
                 },
-                duration_raw: top_result
-                    .subtitle
-                    .runs
-                    .get(6)
-                    .ok_or(Error::CreateError)?
-                    .text
-                    .to_owned(),
+                duration_raw: duration_raw.to_owned(),
+                duration_ms: raw_duration_to_miliseconds(duration_raw)?,
                 music_video: None,
                 thumbnails,
             });
@@ -446,22 +560,14 @@ impl YouTube {
                     .text
                     .runs;
 
-                if first_flex_run
-                    .get(0)
-                    .ok_or(Error::CreateError)?
-                    .text
-                    .to_lowercase()
-                    == track.name.to_lowercase()
-                    && second_flex_run
-                        .get(0)
-                        .ok_or(Error::CreateError)?
-                        .text
-                        .to_lowercase()
-                        == *track
-                            .artists
-                            .get(0)
-                            .ok_or(Error::CreateError)?
-                            .to_lowercase()
+                if track.compare_similarity(
+                    &first_flex_run.get(0).ok_or(Error::CreateError)?.text,
+                    &second_flex_run.get(0).ok_or(Error::CreateError)?.text,
+                    &second_flex_run.get(2).ok_or(Error::CreateError)?.text,
+                    raw_duration_to_miliseconds(
+                        &second_flex_run.get(4).ok_or(Error::CreateError)?.text,
+                    )?,
+                ) >= 3
                 {
                     id = &first_flex_run
                         .get(0)
@@ -513,6 +619,9 @@ impl YouTube {
                         None => None,
                     };
 
+                    let duration_raw: &str =
+                        &second_flex_run.get(4).ok_or(Error::CreateError)?.text;
+
                     return Ok(Self {
                         id: id.to_owned(),
                         name: first_flex_run
@@ -548,11 +657,8 @@ impl YouTube {
                             }),
                             None => None,
                         },
-                        duration_raw: second_flex_run
-                            .get(4)
-                            .ok_or(Error::CreateError)?
-                            .text
-                            .to_owned(),
+                        duration_raw: duration_raw.to_owned(),
+                        duration_ms: raw_duration_to_miliseconds(duration_raw)?,
                         music_video: None,
                         thumbnails,
                     });
@@ -564,5 +670,373 @@ impl YouTube {
         // let videos: RawMusicShelfRenderer = videos.ok_or(Error::CreateError)?;
 
         Err(Error::CreateError)
+    }
+
+    // pub async fn create_service_from_raw_no_checks(data: &Value) -> Result<Self> {
+    //     let contents: &Vec<Value> = data.as_array().ok_or(Error::CreateError)?;
+
+    //     let mut top_result: Option<RawMusicCardShelfRenderer> = None;
+    //     let mut songs: Option<RawMusicShelfRenderer> = None;
+    //     let mut videos: Option<RawMusicShelfRenderer> = None;
+
+    //     for content in contents {
+    //         if top_result == None {
+    //             match serde_json::from_value::<RawMusicCardShelfRenderer>(
+    //                 content["musicCardShelfRenderer"].to_owned(),
+    //             ) {
+    //                 Ok(music_card_shelf_renderer) => {
+    //                     match music_card_shelf_renderer
+    //                         .header
+    //                         .music_card_shelf_header_basic_renderer
+    //                         .title
+    //                         .runs
+    //                         .get(0)
+    //                     {
+    //                         Some(run) => {
+    //                             if run.text == "Top result" {
+    //                                 top_result = Some(music_card_shelf_renderer);
+    //                                 continue;
+    //                             }
+    //                         }
+    //                         None => (),
+    //                     }
+    //                 }
+    //                 Err(e) => (),
+    //             }
+    //         }
+
+    //         if songs == None || videos == None {
+    //             match serde_json::from_value::<RawMusicShelfRenderer>(
+    //                 content["musicShelfRenderer"].to_owned(),
+    //             ) {
+    //                 Ok(music_shelf_renderer) => match music_shelf_renderer.title.runs.get(0) {
+    //                     Some(run) => {
+    //                         if songs == None && run.text == "Songs" {
+    //                             songs = Some(music_shelf_renderer);
+    //                             continue;
+    //                         } else if videos == None && run.text == "Videos" {
+    //                             videos = Some(music_shelf_renderer);
+    //                             continue;
+    //                         }
+    //                     }
+    //                     None => (),
+    //                 },
+    //                 Err(..) => (),
+    //             }
+    //         };
+    //     }
+
+    //     let top_result: RawMusicCardShelfRenderer = top_result.ok_or(Error::CreateError)?;
+
+    //     let top_result_type: &str = &top_result
+    //         .subtitle
+    //         .runs
+    //         .get(0)
+    //         .ok_or(Error::CreateError)?
+    //         .text;
+
+    //     let mut track_match_in_top_result: bool = false;
+
+    //     if top_result_type == "Song" {
+    //         track_match_in_top_result = true;
+    //     }
+
+    //     let id: &str;
+    //     let mut thumbnails: Vec<String> = Vec::new();
+
+    //     if track_match_in_top_result == true {
+    //         id = &top_result
+    //             .title
+    //             .runs
+    //             .get(0)
+    //             .ok_or(Error::CreateError)?
+    //             .navigation_endpoint
+    //             .as_ref()
+    //             .ok_or(Error::CreateError)?
+    //             .watch_endpoint
+    //             .as_ref()
+    //             .ok_or(Error::CreateError)?
+    //             .video_id;
+
+    //         for thumbnail in top_result
+    //             .thumbnail
+    //             .music_thumbnail_renderer
+    //             .thumbnail
+    //             .thumbnails
+    //         {
+    //             thumbnails.push(thumbnail.url.to_owned())
+    //         }
+
+    //         let artist_id: Option<String> = match &top_result
+    //             .subtitle
+    //             .runs
+    //             .get(2)
+    //             .ok_or(Error::CreateError)?
+    //             .navigation_endpoint
+    //         {
+    //             Some(nav) => Some(
+    //                 nav.browse_endpoint
+    //                     .as_ref()
+    //                     .ok_or(Error::CreateError)?
+    //                     .browse_id
+    //                     .to_owned(),
+    //             ),
+    //             None => None,
+    //         };
+
+    //         let album_id: Option<String> = match &top_result
+    //             .subtitle
+    //             .runs
+    //             .get(4)
+    //             .ok_or(Error::CreateError)?
+    //             .navigation_endpoint
+    //         {
+    //             Some(nav) => Some(
+    //                 nav.browse_endpoint
+    //                     .as_ref()
+    //                     .ok_or(Error::CreateError)?
+    //                     .browse_id
+    //                     .to_owned(),
+    //             ),
+    //             None => None,
+    //         };
+
+    //         let duration_raw: &str = &top_result
+    //             .subtitle
+    //             .runs
+    //             .get(6)
+    //             .ok_or(Error::CreateError)?
+    //             .text;
+
+    //         Ok(Self {
+    //             id: id.to_owned(),
+    //             url: format!("https://www.youtube.com/watch?v={}", id),
+    //             name: top_result
+    //                 .title
+    //                 .runs
+    //                 .get(0)
+    //                 .ok_or(Error::CreateError)?
+    //                 .text
+    //                 .to_owned(),
+    //             artists: match artist_id {
+    //                 Some(a_id) => vec![Artist {
+    //                     id: a_id.to_owned(),
+    //                     name: top_result
+    //                         .subtitle
+    //                         .runs
+    //                         .get(2)
+    //                         .ok_or(Error::CreateError)?
+    //                         .text
+    //                         .to_owned(),
+
+    //                     url: format!("https://music.youtube.com/browse/{}", a_id),
+    //                 }],
+    //                 None => vec![],
+    //             },
+    //             album: match album_id {
+    //                 Some(a_id) => Some(Album {
+    //                     id: a_id.to_owned(),
+    //                     name: top_result
+    //                         .subtitle
+    //                         .runs
+    //                         .get(4)
+    //                         .ok_or(Error::CreateError)?
+    //                         .text
+    //                         .to_owned(),
+    //                     url: format!("https://music.youtube.com/browse/{}", a_id),
+    //                     total_tracks: None,
+    //                     ean: None,
+    //                     upc: None,
+    //                 }),
+    //                 None => None,
+    //             },
+    //             duration_raw: duration_raw.to_owned(),
+    //             duration_ms: raw_duration_to_miliseconds(duration_raw)?,
+    //             music_video: None,
+    //             thumbnails,
+    //         })
+    //     } else {
+    //         let songs: RawMusicShelfRenderer = songs.ok_or(Error::CreateError)?;
+    //         let song = songs.contents.get(0).ok_or(Error::CreateError)?;
+
+    //         let first_flex_run: &Vec<RawRun> = &song
+    //             .music_responsive_list_item_renderer
+    //             .flex_columns
+    //             .get(0)
+    //             .ok_or(Error::CreateError)?
+    //             .music_responsive_list_item_flex_column_renderer
+    //             .text
+    //             .runs;
+
+    //         let second_flex_run: &Vec<RawRun> = &song
+    //             .music_responsive_list_item_renderer
+    //             .flex_columns
+    //             .get(1)
+    //             .ok_or(Error::CreateError)?
+    //             .music_responsive_list_item_flex_column_renderer
+    //             .text
+    //             .runs;
+
+    //         id = &first_flex_run
+    //             .get(0)
+    //             .ok_or(Error::CreateError)?
+    //             .navigation_endpoint
+    //             .as_ref()
+    //             .ok_or(Error::CreateError)?
+    //             .watch_endpoint
+    //             .as_ref()
+    //             .ok_or(Error::CreateError)?
+    //             .video_id;
+
+    //         for thumbnail in top_result
+    //             .thumbnail
+    //             .music_thumbnail_renderer
+    //             .thumbnail
+    //             .thumbnails
+    //         {
+    //             thumbnails.push(thumbnail.url.to_owned())
+    //         }
+
+    //         let artist_id: Option<String> = match &second_flex_run
+    //             .get(0)
+    //             .ok_or(Error::CreateError)?
+    //             .navigation_endpoint
+    //         {
+    //             Some(nav) => Some(
+    //                 nav.browse_endpoint
+    //                     .as_ref()
+    //                     .ok_or(Error::CreateError)?
+    //                     .browse_id
+    //                     .to_owned(),
+    //             ),
+    //             None => None,
+    //         };
+
+    //         let album_id: Option<String> = match &second_flex_run
+    //             .get(2)
+    //             .ok_or(Error::CreateError)?
+    //             .navigation_endpoint
+    //         {
+    //             Some(nav) => Some(
+    //                 nav.browse_endpoint
+    //                     .as_ref()
+    //                     .ok_or(Error::CreateError)?
+    //                     .browse_id
+    //                     .to_owned(),
+    //             ),
+    //             None => None,
+    //         };
+
+    //         let duration_raw: &str = &second_flex_run.get(4).ok_or(Error::CreateError)?.text;
+
+    //         Ok(Self {
+    //             id: id.to_owned(),
+    //             name: first_flex_run
+    //                 .get(0)
+    //                 .ok_or(Error::CreateError)?
+    //                 .text
+    //                 .to_owned(),
+    //             url: format!("https://www.youtube.com/watch?v={}", id),
+    //             artists: match artist_id {
+    //                 Some(a_id) => vec![Artist {
+    //                     id: a_id.to_owned(),
+    //                     url: format!("https://music.youtube.com/browse/{}", a_id),
+    //                     name: second_flex_run
+    //                         .get(0)
+    //                         .ok_or(Error::CreateError)?
+    //                         .text
+    //                         .to_owned(),
+    //                 }],
+    //                 None => vec![],
+    //             },
+    //             album: match album_id {
+    //                 Some(a_id) => Some(Album {
+    //                     id: a_id.to_owned(),
+    //                     name: second_flex_run
+    //                         .get(2)
+    //                         .ok_or(Error::CreateError)?
+    //                         .text
+    //                         .to_owned(),
+    //                     url: format!("https://music.youtube.com/browse/{}", a_id),
+    //                     total_tracks: None,
+    //                     ean: None,
+    //                     upc: None,
+    //                 }),
+    //                 None => None,
+    //             },
+    //             duration_raw: duration_raw.to_owned(),
+    //             duration_ms: raw_duration_to_miliseconds(duration_raw)?,
+    //             music_video: None,
+    //             thumbnails,
+    //         })
+    //     }
+
+    //     // need to add music video support
+    //     // let videos: RawMusicShelfRenderer = videos.ok_or(Error::CreateError)?;
+    // }
+
+    pub async fn download(
+        &self,
+        client: &Client,
+        downloaded_file_path: &str,
+        audio_only: bool,
+    ) -> Result<()> {
+        let data = Self::get_raw_track_from_id(client, &self.id).await?;
+        Ok(())
+    }
+}
+
+fn raw_duration_to_miliseconds(raw_duration: &str) -> Result<usize> {
+    let raw_parts = raw_duration.split(':');
+    let mut base: usize = 1;
+    let mut seconds: usize = 0;
+    for part in raw_parts.rev() {
+        let num: usize = match part.parse::<usize>() {
+            Ok(n) => n,
+            Err(..) => return Err(Error::CreateError),
+        };
+
+        seconds += num * base;
+        base *= 60;
+    }
+
+    Ok(seconds * 1000)
+}
+
+#[cfg(test)]
+mod tests {
+
+    use crate::{service::Services, track::Track};
+
+    #[tokio::test]
+    async fn get_match() {
+        let example_services: Services = Services {
+            spotify: None,
+            apple_music: None,
+            youtube: None,
+            bandcamp: None,
+        };
+
+        let mut example_track: Track = Track {
+            name: "Duchess for Nothing".to_owned(),
+            album: "Genius Fatigue".to_owned(),
+            disk_number: 1,
+            track_number: 1,
+            artists: vec!["Tunabunny".to_owned()],
+            release_year: 2013,
+            release_month: None,
+            release_day: None,
+            is_explicit: false,
+            duration_ms: 138026,
+            services: example_services,
+            isrc: Some("USZUD1215001".to_owned()),
+        };
+
+        let client: reqwest::Client = reqwest::Client::builder()
+                    .user_agent("Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15")
+                    .build()
+                    .unwrap();
+
+        example_track.add_youtube(&client).await.unwrap();
     }
 }
