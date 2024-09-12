@@ -1,5 +1,5 @@
 # Songvert
-## native Rust song conversion
+## native Rust async song conversion
 
 ### Platforms
 - Spotify
