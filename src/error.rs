@@ -12,6 +12,8 @@ pub enum Error {
     FindError,
     CreateError, //KeyError??
     SessionGrabError,
+    MalformedTrackError,
+    DownloadError,
     RegexError(regex::Error),
     ParseError(serde_json::Error),
     RetrievalError(reqwest::Error),
@@ -25,6 +27,8 @@ impl Display for Error {
             Error::FindError => write!(f, "unable to find track(s) from given parameter(s)"),
             Error::CreateError => write!(f, "unable to create track (probably key error)"),
             Error::SessionGrabError => write!(f, "unable to grab session info"),
+            Error::MalformedTrackError => write!(f, "track object is malformed"),
+            Error::DownloadError => write!(f, "unable to complete download"),
             Error::RegexError(e) => write!(f, "{}", e),
             Error::ParseError(e) => write!(f, "{}", e),
             Error::RetrievalError(e) => write!(f, "{}", e),
