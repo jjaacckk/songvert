@@ -1,6 +1,7 @@
 use crate::error::{Error, Result};
+use crate::playlist::Playlist;
 use crate::service::{Album, Artist, Services};
-use crate::track::{Playlist, Track};
+use crate::track::Track;
 use reqwest::{Client, RequestBuilder, Response};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;

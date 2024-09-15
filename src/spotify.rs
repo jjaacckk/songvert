@@ -1,6 +1,7 @@
 use crate::error::{Error, Result};
+use crate::playlist::Playlist;
 use crate::service::{Album, Artist, Services};
-use crate::track::{Playlist, Track};
+use crate::track::Track;
 use reqwest::{Client, RequestBuilder, Response};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
@@ -251,24 +252,18 @@ impl Spotify {
         auth: &str,
         playlist_id: &str,
     ) -> Result<Playlist> {
-        let playlist_data: RawPlaylist = serde_json::from_value(
+        let raw_playlist: RawPlaylist = serde_json::from_value(
             Self::get(client, auth, &format!("playlists/{}", playlist_id)).await?,
         )?;
 
-        let mut tracks_raw: Vec<RawTrack> = Vec::with_capacity(playlist_data.tracks.total);
-
-        if playlist_data.tracks.next == None {
-            for track in playlist_data.tracks.items {
-                tracks_raw.push(track.track)
-            }
-        } else {
+        if raw_playlist.tracks.next != None {
             eprintln!(
                 "There are more than 100 items in playlist, and I haven't implemented pagination"
             );
             return Err(Error::CreateError);
         }
 
-        Self::create_playlist_from_raw(&tracks_raw).await
+        Self::create_playlist_from_raw(&raw_playlist).await
     }
 
     pub async fn create_service_from_raw(raw_track: &RawTrack) -> Result<Self> {
@@ -352,17 +347,20 @@ impl Spotify {
         })
     }
 
-    pub async fn create_playlist_from_raw(raw_tracks: &Vec<RawTrack>) -> Result<Playlist> {
+    pub async fn create_playlist_from_raw(raw_playlist: &RawPlaylist) -> Result<Playlist> {
         let mut new_tracks_futures = Vec::new();
-        for raw_track in raw_tracks {
-            new_tracks_futures.push(Self::create_track_from_raw(&raw_track));
+        for raw_track in &raw_playlist.tracks.items {
+            new_tracks_futures.push(Self::create_track_from_raw(&raw_track.track));
         }
 
         let new_tracks_results = futures::future::join_all(new_tracks_futures).await;
 
-        let mut new_tracks: Playlist = Vec::new();
+        let mut new_tracks: Playlist = Playlist {
+            name: raw_playlist.name.to_owned(),
+            tracks: Vec::new(),
+        };
         for track_result in new_tracks_results {
-            new_tracks.push(track_result?);
+            new_tracks.tracks.push(track_result?);
         }
 
         Ok(new_tracks)

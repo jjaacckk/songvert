@@ -1,7 +1,9 @@
 mod apple_music;
 mod bandcamp;
 mod error;
+mod playlist;
 mod service;
 mod spotify;
 mod track;
 mod youtube;
+mod utils;

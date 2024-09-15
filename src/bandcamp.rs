@@ -135,7 +135,7 @@ impl Bandcamp {
     pub const API_BASE_URL: &'static str = "https://bandcamp.com/api";
     pub const IMAGE_API_BASE_URL: &'static str = "https://f4.bcbits.com/img";
 
-    pub async fn download(&self, client: &Client, filename: &str, path: &str) -> Result<()> {
+    pub async fn download(&self, client: &Client, path: &str, filename: &str) -> Result<()> {
         let request = match &self.streaming_url {
             Some(streaming_url) => client.get(streaming_url),
             None => {
@@ -146,7 +146,7 @@ impl Bandcamp {
 
         let response = request.send().await?;
 
-        let mut file = std::fs::File::create(format!("{}/{}.mp3", path, filename))?;
+        let mut file = std::fs::File::create(format!("{}{}.mp3", path, filename))?;
         file.write_all(&response.bytes().await?)?;
 
         Ok(())
@@ -306,7 +306,7 @@ impl Bandcamp {
                 Some(url) => Some(url.mp3_128.to_owned()),
                 None => None,
             },
-            duration_ms: (track.duration * 1000_f64).round() as usize,
+            duration_ms: (track.duration * 1000_f64) as usize,
         });
     }
 }
