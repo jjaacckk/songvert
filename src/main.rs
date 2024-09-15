@@ -211,10 +211,14 @@ async fn main() -> Result<()> {
 
     match track
         .services
-        .bandcamp
+        .youtube
         .as_ref()
         .ok_or(Error::DownloadError)?
-        .download(&client, &track.name, "./test_downloads")
+        .download(
+            &client,
+            &format!("{} - {}", &track.name, &track.artists.join(", ")),
+            "./test_downloads/",
+        )
         .await
     {
         Ok(..) => println!("done."),
