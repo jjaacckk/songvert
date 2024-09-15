@@ -4,7 +4,7 @@ use crate::track::Track;
 use reqwest::{Client, RequestBuilder, Response};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
-use std::io::Write;
+use std::process::{Command, Stdio};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct YouTube {
@@ -659,15 +659,31 @@ impl YouTube {
         Err(Error::CreateError)
     }
 
-    pub async fn download(&self, client: &Client, filename: &str, path: &str) -> Result<()> {
-        match youtube_dl::YoutubeDl::new(&self.url)
-            .socket_timeout("15")
-            .format("m4a")
-            .output_template(format!("{}.mp3", filename))
-            .download_to_async(path)
-            .await
+    pub async fn download(&self, client: &Client, path: &str, filename: &str) -> Result<()> {
+        match Command::new("yt-dlp")
+            .arg(&self.url)
+            .arg("-o")
+            .arg(format!("{}{}.mp3", path, filename))
+            .arg("-f")
+            .arg("m4a")
+            .stdout(Stdio::null())
+            .status()
         {
-            Ok(..) => Ok(()),
+            Ok(status) => {
+                if status.success() == false {
+                    return Err(Error::DownloadError);
+                }
+                // if self.thumbnails.len() > 0 {
+                //     let image = match client.get(self.thumbnails[0]).send().await {
+                //         Ok(response) => match response().await {
+                //             Ok(bytes) => ,
+                //             Err(..) =>
+                //         },
+                //         Err(..) => "".as_bytes()
+                //     }
+                // }
+                Ok(())
+            }
             Err(e) => {
                 eprintln!("{}", e);
                 Err(Error::DownloadError)
