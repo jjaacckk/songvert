@@ -1,7 +1,7 @@
 use crate::apple_music::AppleMusic;
 use crate::bandcamp::Bandcamp;
 use crate::error::{Error, Result};
-use crate::service::{Album, Artist, Services};
+use crate::service::Services;
 use crate::spotify::Spotify;
 use crate::utils::{add_metadata_to_m4a, add_metadata_to_mp3};
 use crate::youtube::YouTube;
@@ -27,25 +27,25 @@ pub struct Track {
 impl Track {
     pub async fn add_spotify(&mut self, client: &Client, auth: &str) -> Result<()> {
         Spotify::create_service_for_track(client, auth, self).await?;
-        // println!("sp done for {} by {}", self.name, self.artists[0]);
+
         Ok(())
     }
 
     pub async fn add_apple_music(&mut self, client: &Client, auth: &str) -> Result<()> {
         AppleMusic::create_service_for_track(client, auth, self).await?;
-        // println!("am done for {} by {}", self.name, self.artists[0]);
+
         Ok(())
     }
 
     pub async fn add_youtube(&mut self, client: &Client) -> Result<()> {
         YouTube::create_service_for_track(client, self).await?;
-        // println!("yt done for {} by {}", self.name, self.artists[0]);
+
         Ok(())
     }
 
     pub async fn add_bandcamp(&mut self, client: &Client) -> Result<()> {
         Bandcamp::create_service_for_track(client, self).await?;
-        // println!("bc done for {} by {}", self.name, self.artists[0]);
+
         Ok(())
     }
 
@@ -57,37 +57,20 @@ impl Track {
         compare_duration_ms: usize,
     ) -> u8 {
         let mut count = 0;
-
-        // println!(
-        //     "{} =?= {}",
-        //     compare_name.to_lowercase(),
-        //     self.name.to_lowercase()
-        // );
         if compare_name.to_lowercase() == self.name.to_lowercase() {
             count += 1;
         }
 
-        // println!(
-        //     "{} =?= {}",
-        //     compare_album.to_lowercase(),
-        //     self.album.to_lowercase()
-        // );
         if compare_album.to_lowercase() == self.album.to_lowercase() {
             count += 1;
         }
 
-        // println!(
-        //     "{} =?= {}",
-        //     compare_artist.to_lowercase(),
-        //     self.artists[0].to_lowercase()
-        // );
         if self.artists.len() > 0 {
             if compare_artist.to_lowercase() == self.artists[0].to_lowercase() {
                 count += 1;
             }
         }
 
-        // println!("{}", compare_duration_ms.abs_diff(self.duration_ms));
         if compare_duration_ms.abs_diff(self.duration_ms) <= 3000 {
             // no more than 3 second difference
             count += 1;
@@ -105,14 +88,22 @@ impl Track {
     ) -> Result<()> {
         if let Some(bandcamp) = &self.services.bandcamp {
             if let Ok(download_path) = bandcamp.download(client, path, filename).await {
-                if let Ok(..) = add_metadata_to_mp3(client, &download_path, &self, false).await {}
+                if add_metadata == true {
+                    if let Ok(..) = add_metadata_to_mp3(client, &download_path, &self, false).await
+                    {
+                    }
+                }
                 return Ok(());
             }
         }
 
         if let Some(youtube) = &self.services.youtube {
             if let Ok(download_path) = youtube.download(client, path, filename).await {
-                if let Ok(..) = add_metadata_to_m4a(client, &download_path, &self, false).await {}
+                if add_metadata == true {
+                    if let Ok(..) = add_metadata_to_m4a(client, &download_path, &self, false).await
+                    {
+                    }
+                }
                 return Ok(());
             }
         }

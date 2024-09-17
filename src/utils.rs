@@ -4,7 +4,6 @@ use crate::{
 };
 use id3::TagLike;
 use reqwest::Client;
-// use std::io::{Read, Write};
 
 pub async fn add_metadata_to_mp3(
     client: &Client,

@@ -1,10 +1,6 @@
-use crate::apple_music::AppleMusic;
-use crate::bandcamp::Bandcamp;
 use crate::error::{Error, Result};
-use crate::service::{Album, Artist, Services};
 use crate::spotify::Spotify;
 use crate::track::Track;
-use crate::youtube::YouTube;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use std::io::Write;
