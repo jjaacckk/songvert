@@ -1,5 +1,5 @@
 use crate::error::{Error, Result};
-use crate::playlist::Playlist;
+use crate::playlist::{Playlist, PlaylistType};
 use crate::service::{Album, Artist, Services};
 use crate::track::Track;
 use reqwest::{Client, RequestBuilder, Response};
@@ -358,6 +358,9 @@ impl Spotify {
         let mut new_tracks: Playlist = Playlist {
             name: raw_playlist.name.to_owned(),
             tracks: Vec::new(),
+            r#type: PlaylistType::Spotify,
+            id: raw_playlist.id.to_owned(),
+            description: raw_playlist.description.to_owned(),
         };
         for track_result in new_tracks_results {
             new_tracks.tracks.push(track_result?);

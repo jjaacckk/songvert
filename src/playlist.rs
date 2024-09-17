@@ -10,13 +10,27 @@ use serde::{Deserialize, Serialize};
 use std::io::Write;
 
 #[derive(Deserialize, Serialize, Debug, PartialEq)]
+pub enum PlaylistType {
+    Spotify,
+    AppleMusic,
+}
+
+#[derive(Deserialize, Serialize, Debug, PartialEq)]
 pub struct Playlist {
     pub name: String,
     pub tracks: Vec<Track>,
+    pub r#type: PlaylistType,
+    pub id: String,
+    pub description: Option<String>,
 }
 
 impl Playlist {
-    pub async fn download_tracks(&self, client: &Client, download_path: &str) -> Result<()> {
+    pub async fn download_tracks(
+        &self,
+        client: &Client,
+        download_path: &str,
+        add_metadata: bool,
+    ) -> Result<()> {
         println!(
             "Attempting to download {} tracks for playlist {} to {}",
             self.tracks.len(),
@@ -47,7 +61,12 @@ impl Playlist {
 
         count = 0;
         for track in &self.tracks {
-            download_futures.push(track.download(client, download_path, &track_names[count]));
+            download_futures.push(track.download(
+                client,
+                download_path,
+                &track_names[count],
+                add_metadata,
+            ));
             count += 1;
         }
 
