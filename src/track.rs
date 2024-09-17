@@ -3,6 +3,7 @@ use crate::bandcamp::Bandcamp;
 use crate::error::{Error, Result};
 use crate::service::{Album, Artist, Services};
 use crate::spotify::Spotify;
+use crate::utils::{add_metadata_to_m4a, add_metadata_to_mp3};
 use crate::youtube::YouTube;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
@@ -95,26 +96,26 @@ impl Track {
         count
     }
 
-    pub async fn download(&self, client: &Client, filename: &str, path: &str) -> Result<()> {
-        match &self.services.bandcamp {
-            Some(bandcamp) => match bandcamp.download(client, filename, path).await {
-                Ok(..) => return Ok(()),
-                // Err(e) => eprintln!("\t*bandcamp download failed for {}: {}", self.name, e),
-                Err(..) => ()
-            },
-            // None => eprintln!("\t*no bandcamp for {}", self.name),
-            None => ()
-        };
+    pub async fn download(
+        &self,
+        client: &Client,
+        path: &str,
+        filename: &str,
+        add_metadata: bool,
+    ) -> Result<()> {
+        if let Some(bandcamp) = &self.services.bandcamp {
+            if let Ok(download_path) = bandcamp.download(client, path, filename).await {
+                if let Ok(..) = add_metadata_to_mp3(client, &download_path, &self, false).await {}
+                return Ok(());
+            }
+        }
 
-        match &self.services.youtube {
-            Some(youtube) => match youtube.download(client, filename, path).await {
-                Ok(..) => return Ok(()),
-                // Err(e) => eprintln!("\t*youtube download failed for {}: {}", self.name, e),
-                Err(..) => ()
-            },
-            // None => eprintln!("\t*no youtube for {}", self.name),
-            None => ()
-        };
+        if let Some(youtube) = &self.services.youtube {
+            if let Ok(download_path) = youtube.download(client, path, filename).await {
+                if let Ok(..) = add_metadata_to_m4a(client, &download_path, &self, false).await {}
+                return Ok(());
+            }
+        }
 
         eprintln!(
             "\tSkipping downloading track {} - {}",

@@ -1,5 +1,5 @@
 /target
 .DS_Store
 .env
-/test.*
-/test_downloads/*
+test.*
+/example_show_playlists/downloads/*

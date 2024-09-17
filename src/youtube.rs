@@ -659,11 +659,12 @@ impl YouTube {
         Err(Error::CreateError)
     }
 
-    pub async fn download(&self, client: &Client, path: &str, filename: &str) -> Result<()> {
+    pub async fn download(&self, client: &Client, path: &str, filename: &str) -> Result<String> {
+        let full_path = format!("{}{}.m4a", path, filename);
         match Command::new("yt-dlp")
             .arg(&self.url)
             .arg("-o")
-            .arg(format!("{}{}.mp3", path, filename))
+            .arg(&full_path)
             .arg("-f")
             .arg("m4a")
             .stdout(Stdio::null())
@@ -673,16 +674,7 @@ impl YouTube {
                 if status.success() == false {
                     return Err(Error::DownloadError);
                 }
-                // if self.thumbnails.len() > 0 {
-                //     let image = match client.get(self.thumbnails[0]).send().await {
-                //         Ok(response) => match response().await {
-                //             Ok(bytes) => ,
-                //             Err(..) =>
-                //         },
-                //         Err(..) => "".as_bytes()
-                //     }
-                // }
-                Ok(())
+                Ok(full_path)
             }
             Err(e) => {
                 eprintln!("{}", e);

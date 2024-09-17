@@ -7,6 +7,8 @@ edition = "2021"
 
 [dependencies]
 futures = "0.3.30"
+id3 = { version = "1.14.0", features = [] }
+mp4ameta = "0.11.0"
 # clap = { version = "4.0", features = ["derive"] }
 # clap-verbosity-flag = "2.2.0"
 # dotenv = "0.15.0"
@@ -18,4 +20,4 @@ reqwest = "0.12.7"
 serde = { version = "1.0.210", features = ["derive"] }
 serde_json = "1.0.128"
 tokio = { version = "1.40.0", features = ["full"] }
-youtube_dl = { version = "0.10.0", features = ["tokio"] }
+# youtube_dl = { version = "0.10.0", features = ["tokio"] }

@@ -14,6 +14,7 @@ pub enum Error {
     SessionGrabError,
     MalformedTrackError,
     DownloadError,
+    TagError,
     RegexError(regex::Error),
     ParseError(serde_json::Error),
     RetrievalError(reqwest::Error),
@@ -33,6 +34,7 @@ impl Display for Error {
             Error::ParseError(e) => write!(f, "{}", e),
             Error::RetrievalError(e) => write!(f, "{}", e),
             Error::IoError(e) => write!(f, "{}", e),
+            Error::TagError => write!(f, "unable to read/write tag"),
         }
     }
 }
@@ -74,3 +76,9 @@ impl From<regex::Error> for Error {
         Error::RegexError(err)
     }
 }
+
+// impl From<id3::Error> for Error {
+//     fn from(err: id3::Error) -> Self {
+//         Error::TagError(err)
+//     }
+// }
