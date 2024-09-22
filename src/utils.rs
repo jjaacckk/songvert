@@ -15,21 +15,50 @@ pub async fn add_metadata_to_mp3(
         Ok(tag) => tag,
         Err(e) => match e.kind {
             id3::ErrorKind::NoTag => id3::Tag::new(),
-            _ => return Err(Error::TagError),
+            _ => return Err(Error::TagError(e.description)),
         },
     };
 
+    //let x: Vec<&id3::Frame> = tag.frames().collect();
+    //println!("{:?}", x);
+
     tag.set_title(track.name.to_owned());
     tag.set_album(track.album.to_owned());
-    tag.set_artist(track.artists.get(0).ok_or(Error::MalformedTrackError)?);
+    tag.set_artist(track.artists.get(0).ok_or(Error::TrackError(
+        "Track requires at least one artist".to_string(),
+    ))?);
+    //println!("year: {:?}", tag.year());
+    //println!("recorded_year: {:?}", tag.date_recorded());
+    //println!("release_year: {:?}", tag.date_released());
+    //println!("original release_year: {:?}", tag.original_date_released());
+    //tag.remove_year();
+    //println!("year: {:?}", tag.year());
     tag.set_year(track.release_year as i32);
+    //println!("year: {:?}", tag.year());
+    //tag.set_original_date_released(id3::Timestamp {
+    //    year: track.release_year as i32,
+    //   month: None,
+    // day: None,
+    // hour: None,
+    //minute: None,
+    //second: None,
+    //});
+
+    //tag.set_date_released(id3::Timestamp {
+    //  year: track.release_year as i32,
+    //month: None,
+    // day: None,
+    // hour: None,
+    // minute: None,
+    // second: None,
+    //});
 
     if overwrite_artwork == false {
         if let Some(_) = tag.pictures().next() {
             eprintln!("{} already has an image", mp3_file_path);
             match tag.write_to_path(mp3_file_path, tag.version()) {
                 Ok(..) => return Ok(()),
-                Err(..) => return Err(Error::TagError),
+                Err(e) => return Err(Error::TagError(e.description)),
             }
         }
     }
@@ -47,7 +76,7 @@ pub async fn add_metadata_to_mp3(
 
     match tag.write_to_path(mp3_file_path, tag.version()) {
         Ok(..) => Ok(()),
-        Err(..) => Err(Error::TagError),
+        Err(e) => Err(Error::TagError(e.description)),
     }
 }
 
@@ -59,12 +88,14 @@ pub async fn add_metadata_to_m4a(
 ) -> Result<()> {
     let mut tag = match mp4ameta::Tag::read_from_path(m4a_file_path) {
         Ok(tag) => tag,
-        Err(..) => return Err(Error::TagError),
+        Err(e) => return Err(Error::TagError(e.description)),
     };
 
     tag.set_title(track.name.to_owned());
     tag.set_album(track.album.to_owned());
-    tag.set_artist(track.artists.get(0).ok_or(Error::MalformedTrackError)?);
+    tag.set_artist(track.artists.get(0).ok_or(Error::TrackError(
+        "Track requires at least one artist".to_string(),
+    ))?);
     tag.set_year(track.release_year.to_string());
 
     if overwrite_artwork == false {
@@ -72,7 +103,7 @@ pub async fn add_metadata_to_m4a(
             eprintln!("{} already has an image", m4a_file_path);
             match tag.write_to_path(m4a_file_path) {
                 Ok(..) => return Ok(()),
-                Err(..) => return Err(Error::TagError),
+                Err(e) => return Err(Error::TagError(e.description)),
             }
         }
     }
@@ -83,7 +114,7 @@ pub async fn add_metadata_to_m4a(
 
     match tag.write_to_path(m4a_file_path) {
         Ok(..) => Ok(()),
-        Err(..) => Err(Error::TagError),
+        Err(e) => Err(Error::TagError(e.description)),
     }
 }
 
@@ -113,6 +144,8 @@ async fn download_best_artwork_bytes(client: &Client, track: &Track) -> Result<V
 
         Ok(response.bytes().await?.to_vec())
     } else {
-        Err(Error::TagError)
+        Err(Error::DownloadError(
+            "No image in Track to download".to_string(),
+        ))
     }
 }

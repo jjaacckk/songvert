@@ -56,6 +56,11 @@ impl Track {
         compare_album: &str,
         compare_duration_ms: usize,
     ) -> u8 {
+        println!(
+            "{}, {}, {}, {}",
+            compare_name, compare_artist, compare_album, compare_duration_ms
+        );
+
         let mut count = 0;
         if compare_name.to_lowercase() == self.name.to_lowercase() {
             count += 1;
@@ -98,7 +103,7 @@ impl Track {
         }
 
         if let Some(youtube) = &self.services.youtube {
-            if let Ok(download_path) = youtube.download(client, path, filename).await {
+            if let Ok(download_path) = youtube.download(path, filename).await {
                 if add_metadata == true {
                     if let Ok(..) = add_metadata_to_m4a(client, &download_path, &self, false).await
                     {
@@ -113,7 +118,7 @@ impl Track {
             self.name,
             self.artists.join(", ")
         );
-        Err(Error::DownloadError)
+        Err(Error::DownloadError("download failed".to_string()))
     }
 }
 

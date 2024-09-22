@@ -16,190 +16,191 @@ pub struct AppleMusic {
     pub album: Album,
     pub duration_ms: usize,
     pub image: Option<String>,
+    pub image_no_suffix: Option<String>,
     pub genres: Vec<String>,
     pub audio_preview: Option<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawPlaylist {
-    pub id: String,
-    pub r#type: String,
-    pub href: String,
-    pub attributes: Option<RawPlaylistAttributes>,
-    pub relationships: Option<RawPlaylistRelationships>,
-    pub views: Option<Value>,
+struct RawPlaylist {
+    id: String,
+    r#type: String,
+    href: String,
+    attributes: Option<RawPlaylistAttributes>,
+    relationships: Option<RawPlaylistRelationships>,
+    views: Option<Value>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawPlaylistAttributes {
-    pub artwork: RawArtwork,
-    pub curator_name: String,
-    pub description: Option<Value>,
-    pub is_chart: bool,
-    pub last_modified_date: Option<String>,
-    pub name: String,
-    pub playlist_type: String,
-    pub play_params: Option<Value>,
-    pub url: String,
+struct RawPlaylistAttributes {
+    artwork: RawArtwork,
+    curator_name: String,
+    description: Option<Value>,
+    is_chart: bool,
+    last_modified_date: Option<String>,
+    name: String,
+    playlist_type: String,
+    play_params: Option<Value>,
+    url: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawPlaylistRelationships {
-    pub curator: Option<Value>,
-    pub library: Option<Value>,
-    pub tracks: Option<RawTracks>,
+struct RawPlaylistRelationships {
+    curator: Option<Value>,
+    library: Option<Value>,
+    tracks: Option<RawTracks>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawTracks {
-    pub data: Vec<RawTracks>,
-    pub href: Option<String>,
-    pub next: Option<String>,
+struct RawTracks {
+    data: Vec<RawTracks>,
+    href: Option<String>,
+    next: Option<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawTrack {
-    pub id: String,
-    pub r#type: String,
-    pub href: String,
-    pub attributes: Option<RawTrackAttributes>,
-    pub relationships: Option<RawTrackRelationships>,
+struct RawTrack {
+    id: String,
+    r#type: String,
+    href: String,
+    attributes: Option<RawTrackAttributes>,
+    relationships: Option<RawTrackRelationships>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawTrackRelationships {
-    pub albums: Option<RawAlbums>,
-    pub artists: Option<RawArtists>,
+struct RawTrackRelationships {
+    albums: Option<RawAlbums>,
+    artists: Option<RawArtists>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawAlbums {
-    pub data: Vec<RawAlbum>,
-    pub href: Option<String>,
-    pub next: Option<String>,
+struct RawAlbums {
+    data: Vec<RawAlbum>,
+    href: Option<String>,
+    next: Option<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawAlbum {
-    pub id: String,
-    pub href: String,
-    pub r#type: String,
-    pub attributes: Option<RawAlbumAttributes>,
-    pub relationships: Option<Value>,
-    pub views: Option<Value>,
+struct RawAlbum {
+    id: String,
+    href: String,
+    r#type: String,
+    attributes: Option<RawAlbumAttributes>,
+    relationships: Option<Value>,
+    views: Option<Value>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawAlbumAttributes {
-    pub artist_name: String,
-    pub artwork: RawArtwork,
-    pub content_rating: Option<String>,
-    pub copyright: Option<String>,
-    pub editorial_notes: Option<Value>,
-    pub genre_names: Vec<String>,
-    pub is_compilation: bool,
-    pub is_complete: bool,
-    pub is_mastered_for_itunes: bool,
-    pub is_single: bool,
-    pub name: String,
-    pub play_params: Option<Value>,
-    pub record_label: Option<String>,
-    pub release_date: Option<String>,
-    pub track_count: usize,
-    pub upc: Option<String>,
-    pub url: String,
+struct RawAlbumAttributes {
+    artist_name: String,
+    artwork: RawArtwork,
+    content_rating: Option<String>,
+    copyright: Option<String>,
+    editorial_notes: Option<Value>,
+    genre_names: Vec<String>,
+    is_compilation: bool,
+    is_complete: bool,
+    is_mastered_for_itunes: bool,
+    is_single: bool,
+    name: String,
+    play_params: Option<Value>,
+    record_label: Option<String>,
+    release_date: Option<String>,
+    track_count: usize,
+    upc: Option<String>,
+    url: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawArtists {
-    pub data: Vec<RawArtist>,
-    pub href: Option<String>,
-    pub next: Option<String>,
+struct RawArtists {
+    data: Vec<RawArtist>,
+    href: Option<String>,
+    next: Option<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawArtist {
-    pub id: String,
-    pub href: String,
-    pub r#type: String,
-    pub attributes: Option<RawArtistAttributes>,
-    pub relationships: Option<RawArtistRelationships>,
-    pub views: Option<Value>,
+struct RawArtist {
+    id: String,
+    href: String,
+    r#type: String,
+    attributes: Option<RawArtistAttributes>,
+    relationships: Option<RawArtistRelationships>,
+    views: Option<Value>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawArtistAttributes {
-    pub artwork: Option<RawArtwork>,
-    pub editorial_notes: Option<Value>,
-    pub genre_names: Vec<String>,
-    pub name: String,
-    pub url: String,
+struct RawArtistAttributes {
+    artwork: Option<RawArtwork>,
+    editorial_notes: Option<Value>,
+    genre_names: Vec<String>,
+    name: String,
+    url: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawArtistRelationships {
-    pub albums: Option<RawAlbums>,
+struct RawArtistRelationships {
+    albums: Option<RawAlbums>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawTrackAttributes {
-    pub album_name: String,
-    pub artist_name: String,
-    pub artwork: RawArtwork,
-    pub attribution: Option<String>,
-    pub composer_name: Option<String>,
-    pub content_rating: Option<String>,
-    pub disc_number: Option<usize>,
-    pub duration_in_millis: usize,
-    pub genre_names: Vec<String>,
-    pub has_lyrics: bool,
-    pub is_apple_digital_master: bool,
-    pub isrc: Option<String>,
-    pub name: String,
-    pub play_params: Option<Value>,
-    pub previews: Vec<RawTrackAttributesPreview>,
-    pub release_date: Option<String>,
-    pub track_number: Option<usize>,
-    pub url: String,
-    pub work_name: Option<String>,
-    pub movement_count: Option<String>,
-    pub movement_name: Option<String>,
-    pub movement_number: Option<String>,
+struct RawTrackAttributes {
+    album_name: String,
+    artist_name: String,
+    artwork: RawArtwork,
+    attribution: Option<String>,
+    composer_name: Option<String>,
+    content_rating: Option<String>,
+    disc_number: Option<usize>,
+    duration_in_millis: usize,
+    genre_names: Vec<String>,
+    has_lyrics: bool,
+    is_apple_digital_master: bool,
+    isrc: Option<String>,
+    name: String,
+    play_params: Option<Value>,
+    previews: Vec<RawTrackAttributesPreview>,
+    release_date: Option<String>,
+    track_number: Option<usize>,
+    url: String,
+    work_name: Option<String>,
+    movement_count: Option<String>,
+    movement_name: Option<String>,
+    movement_number: Option<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawTrackAttributesPreview {
-    pub url: String,
-    pub artwork: Option<RawArtwork>,
-    pub hls_url: Option<String>,
+struct RawTrackAttributesPreview {
+    url: String,
+    artwork: Option<RawArtwork>,
+    hls_url: Option<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawArtwork {
-    pub bg_color: Option<String>,
-    pub height: usize,
-    pub width: usize,
-    pub text_color1: Option<String>,
-    pub text_color2: Option<String>,
-    pub text_color3: Option<String>,
-    pub text_color4: Option<String>,
-    pub url: String,
+struct RawArtwork {
+    bg_color: Option<String>,
+    height: usize,
+    width: usize,
+    text_color1: Option<String>,
+    text_color2: Option<String>,
+    text_color3: Option<String>,
+    text_color4: Option<String>,
+    url: String,
 }
 
 impl AppleMusic {
@@ -208,7 +209,7 @@ impl AppleMusic {
 
     pub const PUBLIC_BEARER_TOKEN: &'static str = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IldlYlBsYXlLaWQifQ.eyJpc3MiOiJBTVBXZWJQbGF5IiwiaWF0IjoxNzI0MDk1NzA5LCJleHAiOjE3MzEzNTMzMDksInJvb3RfaHR0cHNfb3JpZ2luIjpbImFwcGxlLmNvbSJdfQ.upq7QFkHN3etQVMycsuIlNYz8ElqqZeNCZ2OJUTHie2IbRiExsZJejLdQgv0JysNSu-w63IcOW6GCVbImMV3Zw";
 
-    pub async fn get(client: &Client, auth: &str, path: &str) -> Result<serde_json::Value> {
+    async fn get(client: &Client, auth: &str, path: &str) -> Result<Value> {
         let request: RequestBuilder = client
             .get(format!("{}/{}", Self::API_BASE_URL, path))
             .header("Authorization", format!("Bearer {}", auth))
@@ -221,7 +222,7 @@ impl AppleMusic {
         Ok(data)
     }
 
-    pub async fn get_raw_track_matches_from_tracks(
+    async fn get_raw_track_matches_from_tracks(
         client: &Client,
         auth: &str,
         tracks: &Vec<Track>,
@@ -230,7 +231,7 @@ impl AppleMusic {
         todo!()
     }
 
-    pub async fn get_raw_track_match_from_track(
+    async fn get_raw_track_match_from_track(
         client: &Client,
         auth: &str,
         track: &Track,
@@ -249,17 +250,10 @@ impl AppleMusic {
                 Ok(mut raw_data) => {
                     let mut raw_tracks: Vec<RawTrack> =
                         serde_json::from_value(raw_data["data"].take())?;
-                    if raw_tracks.len() > 1 {
-                        // check album name
-                        for i in 0..raw_tracks.len() {
-                            if raw_tracks[i]
-                                .attributes
-                                .as_ref()
-                                .ok_or(Error::MatchError)?
-                                .album_name
-                                .to_lowercase()
-                                == track.album.to_lowercase()
-                            {
+                    // check album name
+                    for i in 0..raw_tracks.len() {
+                        if let Some(attributes) = &raw_tracks[i].attributes {
+                            if attributes.album_name.to_lowercase() == track.album.to_lowercase() {
                                 return Ok(raw_tracks.remove(i));
                             }
                         }
@@ -283,7 +277,9 @@ impl AppleMusic {
             &format!(
                 "catalog/us/search?types=songs&term=song:{}%20artist:{}%20album:{}%20year:{}",
                 &track.name,
-                &track.artists.get(0).ok_or(Error::MalformedTrackError)?,
+                &track.artists.get(0).ok_or(Error::TrackError(
+                    "Track requires at least one artist".to_string()
+                ))?,
                 &track.album,
                 &track.release_year
             )
@@ -296,50 +292,36 @@ impl AppleMusic {
             serde_json::from_value(lackluster_search_result["results"]["songs"]["data"].take())?;
 
         for i in 0..lsr_raw_tracks.len() {
-            if track.compare_similarity(
-                &lsr_raw_tracks[i]
-                    .attributes
-                    .as_ref()
-                    .ok_or(Error::MatchError)?
-                    .name,
-                &lsr_raw_tracks[i]
-                    .attributes
-                    .as_ref()
-                    .ok_or(Error::MatchError)?
-                    .artist_name,
-                &lsr_raw_tracks[i]
-                    .attributes
-                    .as_ref()
-                    .ok_or(Error::MatchError)?
-                    .album_name,
-                lsr_raw_tracks[i]
-                    .attributes
-                    .as_ref()
-                    .ok_or(Error::MatchError)?
-                    .duration_in_millis,
-            ) >= 3
-            {
-                match Self::get(
-                    client,
-                    auth,
-                    &format!(
-                        "catalog/us/songs/{}?include=artists,albums",
-                        lsr_raw_tracks[i].id
-                    ),
-                )
-                .await
+            if let Some(attributes) = &lsr_raw_tracks[i].attributes {
+                if track.compare_similarity(
+                    &attributes.name,
+                    &attributes.artist_name,
+                    &attributes.album_name,
+                    attributes.duration_in_millis,
+                ) >= 3
                 {
-                    Ok(mut data) => {
-                        return Ok(serde_json::from_value(
-                            data["data"].get_mut(0).ok_or(Error::MatchError)?.take(),
-                        )?)
+                    match Self::get(
+                        client,
+                        auth,
+                        &format!(
+                            "catalog/us/songs/{}?include=artists,albums",
+                            lsr_raw_tracks[i].id
+                        ),
+                    )
+                    .await
+                    {
+                        Ok(mut data) => {
+                            if let Some(t) = data["data"].get_mut(0) {
+                                return Ok(serde_json::from_value(t.take())?);
+                            }
+                        }
+                        Err(e) => return Err(e),
                     }
-                    Err(e) => return Err(e),
-                };
+                }
             }
         }
 
-        Err(Error::MatchError)
+        Err(Error::TrackError("no match found".to_string()))
     }
 
     pub async fn create_service_for_track(
@@ -368,7 +350,10 @@ impl AppleMusic {
             Ok(mut track_data) => Ok(Self::create_track_from_raw(&serde_json::from_value(
                 track_data["data"]
                     .get_mut(0)
-                    .ok_or(Error::CreateError)?
+                    .ok_or(Error::TrackError(format!(
+                        "unable to create track from id: {}",
+                        track_id
+                    )))?
                     .take(),
             )?)
             .await?),
@@ -384,28 +369,38 @@ impl AppleMusic {
         todo!()
     }
 
-    pub async fn create_service_from_raw(raw_track: &RawTrack) -> Result<Self> {
-        let relationships: &RawTrackRelationships =
-            raw_track.relationships.as_ref().ok_or(Error::CreateError)?;
-        let albums: &RawAlbums = relationships.albums.as_ref().ok_or(Error::CreateError)?;
+    async fn create_service_from_raw(raw_track: &RawTrack) -> Result<Self> {
+        let relationships: &RawTrackRelationships = raw_track
+            .relationships
+            .as_ref()
+            .ok_or(Error::DatabaseError("no track relationships".to_string()))?;
+        let albums: &RawAlbums = relationships
+            .albums
+            .as_ref()
+            .ok_or(Error::DatabaseError("no albums".to_string()))?;
         let first_album_attributes: &RawAlbumAttributes = albums
             .data
             .get(0)
-            .ok_or(Error::CreateError)?
+            .ok_or(Error::DatabaseError("no album".to_string()))?
             .attributes
             .as_ref()
-            .ok_or(Error::CreateError)?;
-        let attributes: &RawTrackAttributes =
-            raw_track.attributes.as_ref().ok_or(Error::CreateError)?;
+            .ok_or(Error::DatabaseError("no album attributes".to_string()))?;
+        let attributes: &RawTrackAttributes = raw_track
+            .attributes
+            .as_ref()
+            .ok_or(Error::DatabaseError("no track attributes".to_string()))?;
 
         let mut artists: Vec<Artist> = Vec::new();
         for artist in &relationships
             .artists
             .as_ref()
-            .ok_or(Error::CreateError)?
+            .ok_or(Error::DatabaseError("no artist relationships".to_string()))?
             .data
         {
-            let artist_attributes = artist.attributes.as_ref().ok_or(Error::CreateError)?;
+            let artist_attributes = artist
+                .attributes
+                .as_ref()
+                .ok_or(Error::DatabaseError("no artist attributes".to_string()))?;
             artists.push(Artist {
                 id: artist.id.to_owned(),
                 name: artist_attributes.name.to_owned(),
@@ -419,7 +414,12 @@ impl AppleMusic {
             url: attributes.url.to_owned(),
             artists,
             album: Album {
-                id: albums.data.get(0).ok_or(Error::CreateError)?.id.to_owned(),
+                id: albums
+                    .data
+                    .get(0)
+                    .ok_or(Error::DatabaseError("no album".to_string()))?
+                    .id
+                    .to_owned(),
                 name: first_album_attributes.name.to_owned(),
                 url: first_album_attributes.url.to_owned(),
                 total_tracks: Some(first_album_attributes.track_count),
@@ -433,16 +433,10 @@ impl AppleMusic {
                     .url
                     .replace("{w}x{h}bb.jpg", "352x352bb.webp"),
             ),
+            image_no_suffix: Some(attributes.artwork.url.replace("{w}x{h}bb.jpg", "")),
             audio_preview: {
                 if attributes.previews.len() > 0 {
-                    Some(
-                        attributes
-                            .previews
-                            .get(0)
-                            .ok_or(Error::CreateError)?
-                            .url
-                            .to_owned(),
-                    )
+                    Some(attributes.previews[0].url.to_owned())
                 } else {
                     None
                 }
@@ -455,32 +449,28 @@ impl AppleMusic {
         })
     }
 
-    pub async fn create_track_from_raw(raw_track: &RawTrack) -> Result<Track> {
-        let relationships: &RawTrackRelationships =
-            raw_track.relationships.as_ref().ok_or(Error::CreateError)?;
-        let albums: &RawAlbums = relationships.albums.as_ref().ok_or(Error::CreateError)?;
-        let first_album_attributes: &RawAlbumAttributes = albums
-            .data
-            .get(0)
-            .ok_or(Error::CreateError)?
+    async fn create_track_from_raw(raw_track: &RawTrack) -> Result<Track> {
+        let relationships: &RawTrackRelationships = raw_track
+            .relationships
+            .as_ref()
+            .ok_or(Error::DatabaseError("no track relationships".to_string()))?;
+        let attributes: &RawTrackAttributes = raw_track
             .attributes
             .as_ref()
-            .ok_or(Error::CreateError)?;
-        let attributes: &RawTrackAttributes =
-            raw_track.attributes.as_ref().ok_or(Error::CreateError)?;
+            .ok_or(Error::DatabaseError("no track attributes".to_string()))?;
 
         let mut artists: Vec<String> = Vec::new();
         for artist in &relationships
             .artists
             .as_ref()
-            .ok_or(Error::CreateError)?
+            .ok_or(Error::DatabaseError("no artists".to_string()))?
             .data
         {
             artists.push(
                 artist
                     .attributes
                     .as_ref()
-                    .ok_or(Error::CreateError)?
+                    .ok_or(Error::DatabaseError("no artist attributes".to_string()))?
                     .name
                     .to_owned(),
             )
@@ -489,25 +479,29 @@ impl AppleMusic {
         let mut release_date: std::str::Split<&str> = attributes
             .release_date
             .as_ref()
-            .ok_or(Error::CreateError)?
+            .ok_or(Error::DatabaseError("no release date".to_string()))?
             .split("-");
 
         Ok(Track {
             name: attributes.name.to_owned(),
             album: attributes.album_name.to_owned(),
-            disk_number: attributes.disc_number.ok_or(Error::CreateError)?,
-            track_number: attributes.track_number.ok_or(Error::CreateError)?,
+            disk_number: attributes
+                .disc_number
+                .ok_or(Error::DatabaseError("no disc number".to_string()))?,
+            track_number: attributes
+                .track_number
+                .ok_or(Error::DatabaseError("no track number".to_string()))?,
             artists,
             release_year: match release_date.next() {
-                Some(year) => year.parse().or(Err(Error::CreateError))?,
-                None => return Err(Error::CreateError),
+                Some(year) => year.parse()?,
+                None => return Err(Error::DatabaseError("no release year".to_string())),
             },
             release_month: match release_date.next() {
-                Some(month) => Some(month.parse().or(Err(Error::CreateError))?),
+                Some(month) => Some(month.parse()?),
                 None => None,
             },
             release_day: match release_date.next() {
-                Some(day) => Some(day.parse().or(Err(Error::CreateError))?),
+                Some(day) => Some(day.parse()?),
                 None => None,
             },
             is_explicit: match &attributes.content_rating {
@@ -534,7 +528,7 @@ impl AppleMusic {
         })
     }
 
-    pub async fn create_playlist_from_raw(raw_tracks: &Vec<RawTrack>) -> Result<Playlist> {
+    async fn create_playlist_from_raw(raw_tracks: &Vec<RawTrack>) -> Result<Playlist> {
         todo!()
     }
 }
@@ -574,7 +568,7 @@ mod tests {
                     .unwrap();
 
         example_track
-            .add_apple_music(AppleMusic::PUBLIC_BEARER_TOKEN, &client)
+            .add_apple_music(&client, AppleMusic::PUBLIC_BEARER_TOKEN)
             .await
             .unwrap();
     }
@@ -609,7 +603,7 @@ mod tests {
                     .unwrap();
 
         example_track
-            .add_apple_music(AppleMusic::PUBLIC_BEARER_TOKEN, &client)
+            .add_apple_music(&client, AppleMusic::PUBLIC_BEARER_TOKEN)
             .await
             .unwrap();
     }

@@ -192,15 +192,8 @@ impl Playlist {
             }
         };
 
-        let mut playlist: Playlist =
+        let playlist: Playlist =
             Spotify::create_playlist_from_id(client, spotify_auth, spotify_playlist_id).await?;
-
-        let num_tracks = playlist.tracks.len();
-
-        println!(
-            "Attempting to match {} tracks for playlist {}",
-            num_tracks, playlist.name
-        );
 
         Ok(playlist)
     }

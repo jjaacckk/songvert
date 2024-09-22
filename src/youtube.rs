@@ -13,7 +13,6 @@ pub struct YouTube {
     pub url: String,
     pub artists: Vec<Artist>,
     pub album: Option<Album>,
-    pub duration_raw: String,
     pub duration_ms: usize,
     pub music_video: Option<String>,
     pub thumbnails: Vec<String>,
@@ -21,97 +20,97 @@ pub struct YouTube {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawStreamingData {
-    pub expires_in_seconds: String,
-    pub formats: Vec<RawFormat>,
-    pub adaptive_formats: Vec<RawAdaptiveFormat>,
-    pub server_abr_streaming_url: String,
+struct RawStreamingData {
+    expires_in_seconds: String,
+    formats: Vec<RawFormat>,
+    adaptive_formats: Vec<RawAdaptiveFormat>,
+    server_abr_streaming_url: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawFormat {
-    pub itag: usize,
-    pub mime_type: String,
-    pub bitrate: usize,
+struct RawFormat {
+    itag: usize,
+    mime_type: String,
+    bitrate: usize,
     // pub width: usize,
     // pub height: usize,
-    pub last_modified: String,
-    pub quality: String,
-    pub fps: Option<usize>,
-    pub quality_label: Option<String>,
-    pub projection_type: String,
-    pub audio_quality: String,
-    pub approx_duration_ms: String,
-    pub audio_sample_rate: String,
-    pub audio_channels: usize,
-    pub signature_cipher: String,
+    last_modified: String,
+    quality: String,
+    fps: Option<usize>,
+    quality_label: Option<String>,
+    projection_type: String,
+    audio_quality: String,
+    approx_duration_ms: String,
+    audio_sample_rate: String,
+    audio_channels: usize,
+    signature_cipher: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawAdaptiveFormat {
-    pub itag: usize,
-    pub mime_type: String,
-    pub bitrate: usize,
+struct RawAdaptiveFormat {
+    itag: usize,
+    mime_type: String,
+    bitrate: usize,
     // pub width: usize,
     // pub height: usize,
-    pub init_range: RawRange,
-    pub index_range: RawRange,
-    pub last_modified: String,
-    pub content_length: String,
-    pub quality: String,
-    pub fps: Option<usize>,
-    pub quality_label: Option<String>,
-    pub projection_type: String,
-    pub average_bitrate: usize,
-    pub approx_duration_ms: String,
-    pub signature_cipher: String,
+    init_range: RawRange,
+    index_range: RawRange,
+    last_modified: String,
+    content_length: String,
+    quality: String,
+    fps: Option<usize>,
+    quality_label: Option<String>,
+    projection_type: String,
+    average_bitrate: usize,
+    approx_duration_ms: String,
+    signature_cipher: String,
     // pub color_info: Option<Value>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawRange {
-    pub start: String,
-    pub end: String,
+struct RawRange {
+    start: String,
+    end: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawMusicShelfRenderer {
+struct RawMusicShelfRenderer {
     title: RawTextRuns,
     contents: Vec<RawMusicShelfRendererContent>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawMusicShelfRendererContent {
+struct RawMusicShelfRendererContent {
     music_responsive_list_item_renderer: RawMusicResponsiveListItemRenderer,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawMusicResponsiveListItemRenderer {
+struct RawMusicResponsiveListItemRenderer {
     thumbnail: RawOuterThumbnail,
     flex_columns: Vec<RawFlexColumn>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawFlexColumn {
+struct RawFlexColumn {
     music_responsive_list_item_flex_column_renderer: RawMusicResponsiveListItemFlexColumnRenderer,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawMusicResponsiveListItemFlexColumnRenderer {
+struct RawMusicResponsiveListItemFlexColumnRenderer {
     text: RawTextRuns,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawMusicCardShelfRenderer {
+struct RawMusicCardShelfRenderer {
     thumbnail: RawOuterThumbnail,
     title: RawTextRuns,
     subtitle: RawTextRuns,
@@ -120,25 +119,25 @@ pub struct RawMusicCardShelfRenderer {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawOuterThumbnail {
+struct RawOuterThumbnail {
     music_thumbnail_renderer: RawMusicThumbnailRenderer,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawMusicThumbnailRenderer {
+struct RawMusicThumbnailRenderer {
     thumbnail: RawInnerThumbnail,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawInnerThumbnail {
+struct RawInnerThumbnail {
     thumbnails: Vec<RawThumbnail>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawThumbnail {
+struct RawThumbnail {
     url: String,
     width: usize,
     height: usize,
@@ -146,74 +145,74 @@ pub struct RawThumbnail {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawHeader {
+struct RawHeader {
     music_card_shelf_header_basic_renderer: RawMusicCardShelfHeaderBasicRenderer,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawMusicCardShelfHeaderBasicRenderer {
+struct RawMusicCardShelfHeaderBasicRenderer {
     title: RawTextRuns,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawTextRuns {
+struct RawTextRuns {
     runs: Vec<RawRun>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawRun {
+struct RawRun {
     text: String,
     navigation_endpoint: Option<RawNavigationEndpoint>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawNavigationEndpoint {
+struct RawNavigationEndpoint {
     watch_endpoint: Option<RawWatchEndpoint>,
     browse_endpoint: Option<RawBrowseEndpoint>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawWatchEndpoint {
+struct RawWatchEndpoint {
     video_id: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase"))]
-pub struct RawBrowseEndpoint {
+struct RawBrowseEndpoint {
     browse_id: String,
 }
 
 #[derive(Serialize, Debug, PartialEq)]
 #[serde(rename_all(serialize = "camelCase"))]
 pub struct Payload<'a> {
-    context: PayloadContext<'a>,
-    video_id: Option<&'a str>,
-    query: Option<&'a str>,
+    pub context: PayloadContext<'a>,
+    pub video_id: Option<&'a str>,
+    pub query: Option<&'a str>,
 }
 
 #[derive(Serialize, Debug, PartialEq)]
 pub struct PayloadContext<'a> {
-    client: PayloadContextClient<'a>,
+    pub client: PayloadContextClient<'a>,
 }
 
 #[derive(Serialize, Debug, PartialEq)]
 #[serde(rename_all(serialize = "camelCase"))]
 pub struct PayloadContextClient<'a> {
-    hl: &'a str,
-    gl: &'a str,
-    client_name: &'a str,
-    client_version: &'a str,
+    pub hl: &'a str,
+    pub gl: &'a str,
+    pub client_name: &'a str,
+    pub client_version: &'a str,
 }
 
 impl YouTube {
-    const API_BASE_URL: &'static str = "https://www.youtube.com/youtubei/v1";
-    const SITE_BASE_URL: &'static str = "https://www.youtube.com";
-    const DEFAULT_MUSIC_PAYLOAD_CONTEXT: PayloadContext<'static> = PayloadContext {
+    pub const API_BASE_URL: &'static str = "https://www.youtube.com/youtubei/v1";
+    pub const SITE_BASE_URL: &'static str = "https://www.youtube.com";
+    pub const DEFAULT_MUSIC_PAYLOAD_CONTEXT: PayloadContext<'static> = PayloadContext {
         client: PayloadContextClient {
             hl: "en",
             gl: "US",
@@ -222,7 +221,7 @@ impl YouTube {
         },
     };
 
-    pub async fn post<'a>(client: &Client, path: &str, body: &Payload<'a>) -> Result<Value> {
+    async fn post<'a>(client: &Client, path: &str, body: &Payload<'a>) -> Result<Value> {
         let raw_payload: String = serde_json::to_string(&body)?;
 
         let request: RequestBuilder = client
@@ -237,8 +236,8 @@ impl YouTube {
         Ok(data)
     }
 
-    pub async fn get_raw_results_from_search(client: &Client, query: &str) -> Result<Value> {
-        // println!("{}", query);
+    async fn get_raw_results_from_search(client: &Client, query: &str) -> Result<Value> {
+        println!("{}", query);
 
         let payload: Payload = Payload {
             context: Self::DEFAULT_MUSIC_PAYLOAD_CONTEXT,
@@ -248,7 +247,7 @@ impl YouTube {
         Self::post(client, "search", &payload).await
     }
 
-    pub async fn get_raw_track_from_id(client: &Client, id: &str) -> Result<Value> {
+    async fn get_raw_track_from_id(client: &Client, id: &str) -> Result<Value> {
         let payload: Payload = Payload {
             context: Self::DEFAULT_MUSIC_PAYLOAD_CONTEXT,
             video_id: Some(id),
@@ -257,46 +256,48 @@ impl YouTube {
         Self::post(client, "next", &payload).await
     }
 
-    pub async fn get_raw_track_streaming_data_from_id(
-        client: &Client,
-        id: &str,
-    ) -> Result<RawStreamingData> {
-        let request: RequestBuilder = client.get(format!("{}/watch?v={}", Self::SITE_BASE_URL, id));
+    //async fn get_raw_track_streaming_data_from_id(
+    //    client: &Client,
+    //    id: &str,
+    //) -> Result<RawStreamingData> {
+    //    let request: RequestBuilder = client.get(format!("{}/watch?v={}", Self::SITE_BASE_URL, id));
+    //
+    //    let mut response: Response = request.send().await?;
+    //    response = response.error_for_status()?;
+    //
+    //    let raw_html: String = response.text().await?;
+    //
+    //    let re = regex::Regex::new(r#"var ytInitialPlayerResponse = (.*);</script>"#)?;
+    //
+    //    // println!("{}", &raw_html);
+    //
+    //    let raw_initial_data: &str = match re.captures(&raw_html) {
+    //        Some(captures) => match captures.get(1) {
+    //            Some(m) => m.as_str(),
+    //            None => return Err(Error::FindError),
+    //        },
+    //        None => return Err(Error::FindError),
+    //    };
+    //
+    //    // println!("{}", raw_initial_data);
+    //    // let mut file = std::fs::File::create("./test.js")?;
+    //    // file.write_all(&raw_initial_data.as_str().as_bytes())?;
+    //
+    //    let mut initial_data: Value = serde_json::from_str(raw_initial_data)?;
+    //
+    //    let streaming_data: RawStreamingData =
+    //        serde_json::from_value(initial_data["streamingData"].take())?;
+    //
+    //    Ok(streaming_data)
+    //}
 
-        let mut response: Response = request.send().await?;
-        response = response.error_for_status()?;
-
-        let raw_html: String = response.text().await?;
-
-        let re = regex::Regex::new(r#"var ytInitialPlayerResponse = (.*);</script>"#)?;
-
-        // println!("{}", &raw_html);
-
-        let raw_initial_data: &str = match re.captures(&raw_html) {
-            Some(captures) => match captures.get(1) {
-                Some(m) => m.as_str(),
-                None => return Err(Error::FindError),
-            },
-            None => return Err(Error::FindError),
-        };
-
-        // println!("{}", raw_initial_data);
-        // let mut file = std::fs::File::create("./test.js")?;
-        // file.write_all(&raw_initial_data.as_str().as_bytes())?;
-
-        let mut initial_data: Value = serde_json::from_str(raw_initial_data)?;
-
-        let streaming_data: RawStreamingData =
-            serde_json::from_value(initial_data["streamingData"].take())?;
-
-        Ok(streaming_data)
-    }
-
-    pub async fn get_raw_track_match_from_track(client: &Client, track: &Track) -> Result<Value> {
+    async fn get_raw_track_match_from_track(client: &Client, track: &Track) -> Result<Value> {
         let query: String = format!(
             "{}, {}, {}, {}",
             track.name,
-            track.artists.get(0).ok_or(Error::MalformedTrackError)?,
+            track.artists.get(0).ok_or(Error::TrackError(
+                "Track requires at least one artist".to_string(),
+            ))?,
             track.release_year,
             track.album,
         );
@@ -305,8 +306,8 @@ impl YouTube {
             Self::get_raw_results_from_search(client, &query).await?["contents"]
                 ["tabbedSearchResultsRenderer"]["tabs"]
                 .get_mut(0)
-                .ok_or(Error::MatchError)?["tabRenderer"]["content"]["sectionListRenderer"]
-                ["contents"]
+                .ok_or(Error::TrackError("no match found".to_string()))?["tabRenderer"]["content"]
+                ["sectionListRenderer"]["contents"]
                 .take(),
         )
     }
@@ -318,8 +319,10 @@ impl YouTube {
         Ok(())
     }
 
-    pub async fn create_service_from_raw(data: &Value, track: &Track) -> Result<Self> {
-        let contents: &Vec<Value> = data.as_array().ok_or(Error::CreateError)?;
+    async fn create_service_from_raw(data: &Value, track: &Track) -> Result<Self> {
+        let contents: &Vec<Value> = data
+            .as_array()
+            .ok_or(Error::DatabaseError("no data array".to_string()))?;
 
         let mut top_result: Option<RawMusicCardShelfRenderer> = None;
         let mut songs: Option<RawMusicShelfRenderer> = None;
@@ -372,61 +375,56 @@ impl YouTube {
             };
         }
 
-        let top_result: RawMusicCardShelfRenderer = top_result.ok_or(Error::CreateError)?;
-
-        let top_result_type: &str = &top_result
-            .subtitle
-            .runs
-            .get(0)
-            .ok_or(Error::CreateError)?
-            .text;
+        let top_result: RawMusicCardShelfRenderer =
+            top_result.ok_or(Error::DatabaseError("no top result".to_string()))?;
 
         let mut track_match_in_top_result: bool = false;
 
-        if top_result_type == "Song" {
-            if track.compare_similarity(
-                &top_result.title.runs.get(0).ok_or(Error::CreateError)?.text,
-                &top_result
-                    .subtitle
-                    .runs
-                    .get(2)
-                    .ok_or(Error::CreateError)?
-                    .text,
-                &top_result
-                    .subtitle
-                    .runs
-                    .get(4)
-                    .ok_or(Error::CreateError)?
-                    .text,
-                raw_duration_to_miliseconds(
-                    &top_result
-                        .subtitle
-                        .runs
-                        .get(6)
-                        .ok_or(Error::CreateError)?
-                        .text,
-                )?,
-            ) >= 3
-            {
-                track_match_in_top_result = true;
-            }
+        let top_result_subtitle_runs = &top_result.subtitle.runs;
+
+        if top_result_subtitle_runs.len() < 7 {
+            return Err(Error::DatabaseError("not enough subtitle runs".to_string()));
         }
+
+        //let top_result_type: &str = &top_result_subtitle_runs[0].text;
+
+        let top_result_title = &top_result
+            .title
+            .runs
+            .get(0)
+            .ok_or(Error::DatabaseError("no top result title".to_string()))?;
+
+        let top_result_artist = &top_result_subtitle_runs[2];
+        let top_result_album = &top_result_subtitle_runs[4];
+        let top_result_duration = raw_duration_to_miliseconds(&top_result_subtitle_runs[6].text)?;
+
+        //if top_result_type == "Song" {
+        if track.compare_similarity(
+            &top_result_title.text,
+            &top_result_artist.text,
+            &top_result_album.text,
+            top_result_duration,
+        ) >= 3
+        {
+            track_match_in_top_result = true;
+        }
+        //}
 
         let id: &str;
         let mut thumbnails: Vec<String> = Vec::new();
 
         if track_match_in_top_result == true {
-            id = &top_result
-                .title
-                .runs
-                .get(0)
-                .ok_or(Error::CreateError)?
+            id = &top_result_title
                 .navigation_endpoint
                 .as_ref()
-                .ok_or(Error::CreateError)?
+                .ok_or(Error::DatabaseError(
+                    "no top result title navigation endpint".to_string(),
+                ))?
                 .watch_endpoint
                 .as_ref()
-                .ok_or(Error::CreateError)?
+                .ok_or(Error::DatabaseError(
+                    "no top result title watch endpint".to_string(),
+                ))?
                 .video_id;
 
             for thumbnail in top_result
@@ -438,67 +436,30 @@ impl YouTube {
                 thumbnails.push(thumbnail.url.to_owned())
             }
 
-            let artist_id: Option<String> = match &top_result
-                .subtitle
-                .runs
-                .get(2)
-                .ok_or(Error::CreateError)?
-                .navigation_endpoint
-            {
-                Some(nav) => Some(
-                    nav.browse_endpoint
-                        .as_ref()
-                        .ok_or(Error::CreateError)?
-                        .browse_id
-                        .to_owned(),
-                ),
+            let artist_id: Option<String> = match &top_result_artist.navigation_endpoint {
+                Some(nav_opt) => match &nav_opt.browse_endpoint {
+                    Some(nav) => Some(nav.browse_id.to_owned()),
+                    None => None,
+                },
                 None => None,
             };
 
-            let album_id: Option<String> = match &top_result
-                .subtitle
-                .runs
-                .get(4)
-                .ok_or(Error::CreateError)?
-                .navigation_endpoint
-            {
-                Some(nav) => Some(
-                    nav.browse_endpoint
-                        .as_ref()
-                        .ok_or(Error::CreateError)?
-                        .browse_id
-                        .to_owned(),
-                ),
+            let album_id: Option<String> = match &top_result_album.navigation_endpoint {
+                Some(nav_opt) => match &nav_opt.browse_endpoint {
+                    Some(nav) => Some(nav.browse_id.to_owned()),
+                    None => None,
+                },
                 None => None,
             };
-
-            let duration_raw: &str = &top_result
-                .subtitle
-                .runs
-                .get(6)
-                .ok_or(Error::CreateError)?
-                .text;
 
             return Ok(Self {
                 id: id.to_owned(),
                 url: format!("https://www.youtube.com/watch?v={}", id),
-                name: top_result
-                    .title
-                    .runs
-                    .get(0)
-                    .ok_or(Error::CreateError)?
-                    .text
-                    .to_owned(),
+                name: top_result_title.text.to_owned(),
                 artists: match artist_id {
                     Some(a_id) => vec![Artist {
                         id: a_id.to_owned(),
-                        name: top_result
-                            .subtitle
-                            .runs
-                            .get(2)
-                            .ok_or(Error::CreateError)?
-                            .text
-                            .to_owned(),
+                        name: top_result_artist.text.to_owned(),
 
                         url: format!("https://music.youtube.com/browse/{}", a_id),
                     }],
@@ -507,13 +468,7 @@ impl YouTube {
                 album: match album_id {
                     Some(a_id) => Some(Album {
                         id: a_id.to_owned(),
-                        name: top_result
-                            .subtitle
-                            .runs
-                            .get(4)
-                            .ok_or(Error::CreateError)?
-                            .text
-                            .to_owned(),
+                        name: top_result_album.text.to_owned(),
                         url: format!("https://music.youtube.com/browse/{}", a_id),
                         total_tracks: None,
                         ean: None,
@@ -521,19 +476,19 @@ impl YouTube {
                     }),
                     None => None,
                 },
-                duration_raw: duration_raw.to_owned(),
-                duration_ms: raw_duration_to_miliseconds(duration_raw)?,
+                duration_ms: top_result_duration,
                 music_video: None,
                 thumbnails,
             });
         } else {
-            let songs: RawMusicShelfRenderer = songs.ok_or(Error::CreateError)?;
+            let songs: RawMusicShelfRenderer =
+                songs.ok_or(Error::DatabaseError("no songs".to_string()))?;
             for song in songs.contents {
                 let first_flex_run: &Vec<RawRun> = &song
                     .music_responsive_list_item_renderer
                     .flex_columns
                     .get(0)
-                    .ok_or(Error::CreateError)?
+                    .ok_or(Error::DatabaseError("no first flex run".to_string()))?
                     .music_responsive_list_item_flex_column_renderer
                     .text
                     .runs;
@@ -542,29 +497,33 @@ impl YouTube {
                     .music_responsive_list_item_renderer
                     .flex_columns
                     .get(1)
-                    .ok_or(Error::CreateError)?
+                    .ok_or(Error::DatabaseError("no second flex run".to_string()))?
                     .music_responsive_list_item_flex_column_renderer
                     .text
                     .runs;
 
+                if first_flex_run.len() < 1 || second_flex_run.len() < 5 {
+                    return Err(Error::DatabaseError("too few flex runs".to_string()));
+                }
+
                 if track.compare_similarity(
-                    &first_flex_run.get(0).ok_or(Error::CreateError)?.text,
-                    &second_flex_run.get(0).ok_or(Error::CreateError)?.text,
-                    &second_flex_run.get(2).ok_or(Error::CreateError)?.text,
-                    raw_duration_to_miliseconds(
-                        &second_flex_run.get(4).ok_or(Error::CreateError)?.text,
-                    )?,
+                    &first_flex_run[0].text,
+                    &second_flex_run[0].text,
+                    &second_flex_run[2].text,
+                    raw_duration_to_miliseconds(&second_flex_run[4].text)?,
                 ) >= 3
                 {
-                    id = &first_flex_run
-                        .get(0)
-                        .ok_or(Error::CreateError)?
+                    id = &first_flex_run[0]
                         .navigation_endpoint
                         .as_ref()
-                        .ok_or(Error::CreateError)?
+                        .ok_or(Error::DatabaseError(
+                            "no first flex navigation endpoint".to_string(),
+                        ))?
                         .watch_endpoint
                         .as_ref()
-                        .ok_or(Error::CreateError)?
+                        .ok_or(Error::DatabaseError(
+                            "no first flex watch endpoint".to_string(),
+                        ))?
                         .video_id;
 
                     for thumbnail in top_result
@@ -576,67 +535,40 @@ impl YouTube {
                         thumbnails.push(thumbnail.url.to_owned())
                     }
 
-                    let artist_id: Option<String> = match &second_flex_run
-                        .get(0)
-                        .ok_or(Error::CreateError)?
-                        .navigation_endpoint
-                    {
-                        Some(nav) => Some(
-                            nav.browse_endpoint
-                                .as_ref()
-                                .ok_or(Error::CreateError)?
-                                .browse_id
-                                .to_owned(),
-                        ),
+                    let artist_id: Option<String> = match &second_flex_run[0].navigation_endpoint {
+                        Some(nav_opt) => match &nav_opt.browse_endpoint {
+                            Some(nav) => Some(nav.browse_id.to_owned()),
+                            None => None,
+                        },
                         None => None,
                     };
 
-                    let album_id: Option<String> = match &second_flex_run
-                        .get(2)
-                        .ok_or(Error::CreateError)?
-                        .navigation_endpoint
-                    {
-                        Some(nav) => Some(
-                            nav.browse_endpoint
-                                .as_ref()
-                                .ok_or(Error::CreateError)?
-                                .browse_id
-                                .to_owned(),
-                        ),
+                    let album_id: Option<String> = match &second_flex_run[2].navigation_endpoint {
+                        Some(nav_opt) => match &nav_opt.browse_endpoint {
+                            Some(nav) => Some(nav.browse_id.to_owned()),
+                            None => None,
+                        },
                         None => None,
                     };
 
-                    let duration_raw: &str =
-                        &second_flex_run.get(4).ok_or(Error::CreateError)?.text;
+                    let duration_raw: &str = &second_flex_run[4].text;
 
                     return Ok(Self {
                         id: id.to_owned(),
-                        name: first_flex_run
-                            .get(0)
-                            .ok_or(Error::CreateError)?
-                            .text
-                            .to_owned(),
+                        name: first_flex_run[0].text.to_owned(),
                         url: format!("https://www.youtube.com/watch?v={}", id),
                         artists: match artist_id {
                             Some(a_id) => vec![Artist {
                                 id: a_id.to_owned(),
                                 url: format!("https://music.youtube.com/browse/{}", a_id),
-                                name: second_flex_run
-                                    .get(0)
-                                    .ok_or(Error::CreateError)?
-                                    .text
-                                    .to_owned(),
+                                name: second_flex_run[0].text.to_owned(),
                             }],
                             None => vec![],
                         },
                         album: match album_id {
                             Some(a_id) => Some(Album {
                                 id: a_id.to_owned(),
-                                name: second_flex_run
-                                    .get(2)
-                                    .ok_or(Error::CreateError)?
-                                    .text
-                                    .to_owned(),
+                                name: second_flex_run[2].text.to_owned(),
                                 url: format!("https://music.youtube.com/browse/{}", a_id),
                                 total_tracks: None,
                                 ean: None,
@@ -644,7 +576,6 @@ impl YouTube {
                             }),
                             None => None,
                         },
-                        duration_raw: duration_raw.to_owned(),
                         duration_ms: raw_duration_to_miliseconds(duration_raw)?,
                         music_video: None,
                         thumbnails,
@@ -656,10 +587,10 @@ impl YouTube {
         // need to add music video support
         // let videos: RawMusicShelfRenderer = videos.ok_or(Error::CreateError)?;
 
-        Err(Error::CreateError)
+        Err(Error::TrackError("unable to create Track".to_string()))
     }
 
-    pub async fn download(&self, client: &Client, path: &str, filename: &str) -> Result<String> {
+    pub async fn download(&self, path: &str, filename: &str) -> Result<String> {
         let full_path = format!("{}{}.m4a", path, filename);
         match Command::new("yt-dlp")
             .arg(&self.url)
@@ -672,14 +603,12 @@ impl YouTube {
         {
             Ok(status) => {
                 if status.success() == false {
-                    return Err(Error::DownloadError);
+                    Err(Error::DownloadError("download failed".to_string()))
+                } else {
+                    Ok(full_path)
                 }
-                Ok(full_path)
             }
-            Err(e) => {
-                eprintln!("{}", e);
-                Err(Error::DownloadError)
-            }
+            Err(e) => Err(Error::DownloadError(format!("{}", e))),
         }
     }
 }
@@ -689,10 +618,7 @@ fn raw_duration_to_miliseconds(raw_duration: &str) -> Result<usize> {
     let mut base: usize = 1;
     let mut seconds: usize = 0;
     for part in raw_parts.rev() {
-        let num: usize = match part.parse::<usize>() {
-            Ok(n) => n,
-            Err(..) => return Err(Error::CreateError),
-        };
+        let num: usize = part.parse()?;
 
         seconds += num * base;
         base *= 60;

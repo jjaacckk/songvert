@@ -24,41 +24,41 @@ pub struct Bandcamp {
 // }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-pub struct RawTrackSearchResult {
-    pub r#type: String,
-    pub id: usize,
-    pub name: String,
-    pub band_id: usize,
-    pub band_name: String,
-    pub album_id: Option<usize>,
-    pub album_name: Option<String>,
-    pub art_id: Option<usize>,
-    pub img_id: Option<usize>,
-    pub img: Option<String>,
-    pub item_url_root: String,
-    pub item_url_path: String,
+struct RawTrackSearchResult {
+    r#type: String,
+    id: usize,
+    name: String,
+    band_id: usize,
+    band_name: String,
+    album_id: Option<usize>,
+    album_name: Option<String>,
+    art_id: Option<usize>,
+    img_id: Option<usize>,
+    img: Option<String>,
+    item_url_root: String,
+    item_url_path: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-pub struct RawAlbum {
-    pub id: usize,
-    pub r#type: String,
-    pub title: String,
-    pub bandcamp_url: String,
-    pub art_id: usize,
-    pub band: RawAlbumBand,
-    pub tralbum_artist: String,
-    pub package_art: Value,
-    pub tracks: Vec<RawAlbumTrack>,
-    pub credits: Option<String>,
-    pub album_id: Option<usize>,
-    pub album_title: Option<String>,
-    pub release_date: usize,
-    pub is_preorder: bool,
-    pub tags: Vec<Value>,
-    pub label: Option<String>,
-    pub label_id: Option<usize>,
-    pub num_downloadable_tracks: usize,
+struct RawAlbum {
+    id: usize,
+    r#type: String,
+    title: String,
+    bandcamp_url: String,
+    art_id: usize,
+    band: RawAlbumBand,
+    tralbum_artist: String,
+    package_art: Value,
+    tracks: Vec<RawAlbumTrack>,
+    credits: Option<String>,
+    album_id: Option<usize>,
+    album_title: Option<String>,
+    release_date: usize,
+    is_preorder: bool,
+    tags: Vec<Value>,
+    label: Option<String>,
+    label_id: Option<usize>,
+    num_downloadable_tracks: usize,
     // pub featured_track_id: usize,
     // pub about: String,
     // pub is_purchasable: bool,
@@ -74,32 +74,32 @@ pub struct RawAlbum {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-pub struct RawAlbumBand {
-    pub band_id: usize,
-    pub name: String,
-    pub image_id: Option<usize>,
-    pub bio: Option<String>,
-    pub location: Option<String>,
+struct RawAlbumBand {
+    band_id: usize,
+    name: String,
+    image_id: Option<usize>,
+    bio: Option<String>,
+    location: Option<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-pub struct RawAlbumTrack {
-    pub track_id: usize,
-    pub title: String,
-    pub track_num: Option<usize>,
-    pub streaming_url: Option<RawStreamingUrl>,
-    pub duration: f64,
-    pub encodings_id: usize,
-    pub album_title: Option<String>,
-    pub band_name: String,
-    pub art_id: Option<usize>,
-    pub album_id: Option<usize>,
-    pub is_streamable: bool,
-    pub has_lyrics: bool,
-    pub band_id: usize,
-    pub label: Option<String>,
-    pub label_id: Option<usize>,
-    pub track_license_id: Option<usize>,
+struct RawAlbumTrack {
+    track_id: usize,
+    title: String,
+    track_num: Option<usize>,
+    streaming_url: Option<RawStreamingUrl>,
+    duration: f64,
+    encodings_id: usize,
+    album_title: Option<String>,
+    band_name: String,
+    art_id: Option<usize>,
+    album_id: Option<usize>,
+    is_streamable: bool,
+    has_lyrics: bool,
+    band_id: usize,
+    label: Option<String>,
+    label_id: Option<usize>,
+    track_license_id: Option<usize>,
     // pub is_set_price: bool,
     // pub price: f64,
     // pub has_digital_download: bool,
@@ -111,24 +111,24 @@ pub struct RawAlbumTrack {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-pub struct RawStreamingUrl {
+struct RawStreamingUrl {
     #[serde(rename(deserialize = "mp3-128"))]
-    pub mp3_128: String,
+    mp3_128: String,
 }
 
 #[derive(Serialize, Debug, PartialEq)]
 pub struct SearchPayload<'a> {
-    search_text: &'a str,
-    search_filter: &'a str,
-    full_page: bool,
-    fan_id: Option<usize>,
+    pub search_text: &'a str,
+    pub search_filter: &'a str,
+    pub full_page: bool,
+    pub fan_id: Option<usize>,
 }
 
 #[derive(Serialize, Debug, PartialEq)]
 pub struct AlbumDetailsPayload<'a> {
-    tralbum_id: usize,
-    band_id: usize,
-    tralbum_type: &'a str,
+    pub tralbum_id: usize,
+    pub band_id: usize,
+    pub tralbum_type: &'a str,
 }
 
 impl Bandcamp {
@@ -138,10 +138,7 @@ impl Bandcamp {
     pub async fn download(&self, client: &Client, path: &str, filename: &str) -> Result<String> {
         let request = match &self.streaming_url {
             Some(streaming_url) => client.get(streaming_url),
-            None => {
-                eprintln!("no streaming url");
-                return Err(Error::DownloadError);
-            }
+            None => return Err(Error::DownloadError("no streaming url".to_string())),
         };
 
         let response = request.send().await?;
@@ -154,7 +151,7 @@ impl Bandcamp {
         Ok(full_path)
     }
 
-    pub async fn post(client: &Client, path: &str, body: &str) -> Result<Value> {
+    async fn post(client: &Client, path: &str, body: &str) -> Result<Value> {
         // let raw_payload: String = serde_json::to_string(&body)?;
 
         let request: RequestBuilder = client
@@ -169,7 +166,7 @@ impl Bandcamp {
         Ok(data)
     }
 
-    pub async fn get_raw_results_from_search(
+    async fn get_raw_results_from_search(
         client: &Client,
         query: &str,
     ) -> Result<Vec<RawTrackSearchResult>> {
@@ -193,7 +190,7 @@ impl Bandcamp {
         Ok(tracks)
     }
 
-    pub async fn get_raw_album_from_id(
+    async fn get_raw_album_from_id(
         client: &Client,
         track_id: usize,
         band_id: usize,
@@ -218,17 +215,16 @@ impl Bandcamp {
         Ok(album)
     }
 
-    pub async fn get_raw_track_match_from_track(
-        client: &Client,
-        track: &Track,
-    ) -> Result<RawAlbum> {
+    async fn get_raw_track_match_from_track(client: &Client, track: &Track) -> Result<RawAlbum> {
         let lackluster_search_result: Vec<RawTrackSearchResult> =
             Self::get_raw_results_from_search(
                 client,
                 &format!(
                     "{}, {}, {}",
                     track.name,
-                    track.artists.get(0).ok_or(Error::MalformedTrackError)?,
+                    track.artists.get(0).ok_or(Error::TrackError(
+                        "Track requires at least one artist".to_string()
+                    ))?,
                     track.album,
                 ),
             )
@@ -267,7 +263,7 @@ impl Bandcamp {
             }
         }
 
-        Err(Error::MatchError)
+        Err(Error::TrackError("no match found".to_string()))
     }
 
     pub async fn create_service_for_track(client: &Client, track: &mut Track) -> Result<()> {
@@ -277,15 +273,14 @@ impl Bandcamp {
         Ok(())
     }
 
-    pub async fn create_service_from_raw(raw_album: &RawAlbum) -> Result<Self> {
-        let track: &RawAlbumTrack = raw_album.tracks.get(0).ok_or(Error::CreateError)?;
+    async fn create_service_from_raw(raw_album: &RawAlbum) -> Result<Self> {
+        let track: &RawAlbumTrack = raw_album.tracks.get(0).ok_or(Error::DatabaseError(
+            "no track in Bandcamp response".to_string(),
+        ))?;
         let track_url_split = raw_album.bandcamp_url.split("/");
         let artist_url: String = track_url_split.collect::<Vec<&str>>()[0..3].join("/");
-        let album_url: String = match raw_album.album_id {
-            Some(album_id) => format!("https://bandcamp.com/EmbeddedPlayer/album={}", album_id),
-            None => "".to_owned(),
-        };
-
+        let album_url: String =
+            format!("https://bandcamp.com/EmbeddedPlayer/album={}", raw_album.id);
         return Ok(Bandcamp {
             id: track.track_id.to_string(),
             name: track.title.to_owned(),

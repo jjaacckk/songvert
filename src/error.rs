@@ -8,15 +8,13 @@ pub type Result<T> = std::result::Result<T, Error>;
 
 #[derive(Debug)]
 pub enum Error {
-    MatchError,
-    FindError,
-    CreateError, //KeyError??
-    SessionGrabError,
-    MalformedTrackError,
-    DownloadError,
-    TagError,
+    DatabaseError(String),
+    TrackError(String),
+    DownloadError(String),
+    TagError(String),
     RegexError(regex::Error),
-    ParseError(serde_json::Error),
+    JsonError(serde_json::Error),
+    ParseIntError(std::num::ParseIntError),
     RetrievalError(reqwest::Error),
     IoError(std::io::Error),
 }
@@ -24,17 +22,15 @@ pub enum Error {
 impl Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Error::MatchError => write!(f, "unable to find match"),
-            Error::FindError => write!(f, "unable to find track(s) from given parameter(s)"),
-            Error::CreateError => write!(f, "unable to create track (probably key error)"),
-            Error::SessionGrabError => write!(f, "unable to grab session info"),
-            Error::MalformedTrackError => write!(f, "track object is malformed"),
-            Error::DownloadError => write!(f, "unable to complete download"),
-            Error::RegexError(e) => write!(f, "{}", e),
-            Error::ParseError(e) => write!(f, "{}", e),
-            Error::RetrievalError(e) => write!(f, "{}", e),
-            Error::IoError(e) => write!(f, "{}", e),
-            Error::TagError => write!(f, "unable to read/write tag"),
+            Error::DatabaseError(s) => write!(f, "Database Error: {}", s),
+            Error::TrackError(s) => write!(f, "Track Error: {}", s),
+            Error::DownloadError(s) => write!(f, "Download Error: {}", s),
+            Error::TagError(s) => write!(f, "Tag Error: {}", s),
+            Error::JsonError(e) => write!(f, "JSON Parsing Error: {}", e),
+            Error::RegexError(e) => write!(f, "Regex Error: {}", e),
+            Error::ParseIntError(e) => write!(f, "Integer Parsing Error: {}", e),
+            Error::RetrievalError(e) => write!(f, "Rerieval Error: {}", e),
+            Error::IoError(e) => write!(f, "IO Error: {}", e),
         }
     }
 }
@@ -55,7 +51,7 @@ impl std::error::Error for Error {
 
 impl From<serde_json::Error> for Error {
     fn from(err: serde_json::Error) -> Self {
-        Error::ParseError(err)
+        Error::JsonError(err)
     }
 }
 
@@ -77,6 +73,11 @@ impl From<regex::Error> for Error {
     }
 }
 
+impl From<std::num::ParseIntError> for Error {
+    fn from(err: std::num::ParseIntError) -> Self {
+        Error::ParseIntError(err)
+    }
+}
 // impl From<id3::Error> for Error {
 //     fn from(err: id3::Error) -> Self {
 //         Error::TagError(err)
