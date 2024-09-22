@@ -1,9 +1,9 @@
-mod apple_music;
-mod bandcamp;
-mod error;
-mod playlist;
-mod service;
-mod spotify;
-mod track;
-mod youtube;
-mod utils;
+pub mod apple_music;
+pub mod bandcamp;
+pub mod error;
+pub mod playlist;
+pub mod service;
+pub mod spotify;
+pub mod track;
+pub mod utils;
+pub mod youtube;
