@@ -61,6 +61,7 @@
           },
           "duration_ms": 267959,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/8a/13/38/8a133891-1b3a-2f3c-c54b-80fd895eb2b9/191400004665.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/8a/13/38/8a133891-1b3a-2f3c-c54b-80fd895eb2b9/191400004665.png/",
           "genres": [
             "Alternative",
             "Music"
@@ -157,6 +158,7 @@
           },
           "duration_ms": 124162,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/d8/63/eb/d863eb4a-2d94-b54d-1d01-a032d2f22cee/artwork.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/d8/63/eb/d863eb4a-2d94-b54d-1d01-a032d2f22cee/artwork.jpg/",
           "genres": [
             "Punk",
             "Music",
@@ -277,6 +279,7 @@
           },
           "duration_ms": 173852,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/e1/76/8f/e1768fee-d008-97f4-04e6-bd7b5b170757/cover.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/e1/76/8f/e1768fee-d008-97f4-04e6-bd7b5b170757/cover.jpg/",
           "genres": [
             "Rock",
             "Music"
@@ -373,6 +376,7 @@
           },
           "duration_ms": 208920,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/a1/39/d7/a139d777-1ede-b97b-33af-e5138dc72f34/773871018602.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/a1/39/d7/a139d777-1ede-b97b-33af-e5138dc72f34/773871018602.jpg/",
           "genres": [
             "Alternative",
             "Music",
@@ -492,6 +496,7 @@
           },
           "duration_ms": 103031,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music1/v4/ee/e9/f2/eee9f234-8ae4-547f-5853-1a2b3a2aebb6/642610484452.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music1/v4/ee/e9/f2/eee9f234-8ae4-547f-5853-1a2b3a2aebb6/642610484452.jpg/",
           "genres": [
             "Alternative",
             "Music",
@@ -611,6 +616,7 @@
           },
           "duration_ms": 97107,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/a3/75/e3/a375e3db-7682-5485-07da-9eac930327f0/cover.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/a3/75/e3/a375e3db-7682-5485-07da-9eac930327f0/cover.jpg/",
           "genres": [
             "Alternative",
             "Music"
@@ -729,6 +735,7 @@
           },
           "duration_ms": 210067,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/df/8a/58/df8a58f8-5b77-d052-6d75-d6c629288878/2836.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/df/8a/58/df8a58f8-5b77-d052-6d75-d6c629288878/2836.jpg/",
           "genres": [
             "Indie Rock",
             "Music",
@@ -784,7 +791,7 @@
           },
           "image": "https://f4.bcbits.com/img/a1105176986_0.jpg",
           "duration_ms": 210067,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3343983693&ts=1726516070&t=e1f7c094799503c0e20d2fddd943b55be6e67dd5"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3343983693&ts=1726627191&t=f17a4ca5507b993d3326d9fa3015464e2f4c697b"
         }
       }
     },
@@ -848,6 +855,7 @@
           },
           "duration_ms": 149160,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/c0/a4/03/c0a40379-d8c2-03e2-d1b5-f94debaf303c/098787305661.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/c0/a4/03/c0a40379-d8c2-03e2-d1b5-f94debaf303c/098787305661.png/",
           "genres": [
             "Alternative",
             "Music",
@@ -948,6 +956,7 @@
           },
           "duration_ms": 64722,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music60/v4/23/57/1e/23571e70-f88d-29f7-f8d3-6c26c79fdd68/577_Sneaks_Gymnastics_2500px.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music60/v4/23/57/1e/23571e70-f88d-29f7-f8d3-6c26c79fdd68/577_Sneaks_Gymnastics_2500px.jpg/",
           "genres": [
             "Alternative",
             "Music",
@@ -1002,7 +1011,7 @@
           },
           "image": "https://f4.bcbits.com/img/a1450411868_0.jpg",
           "duration_ms": 64722,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3061216179&ts=1726516070&t=68373f2de37e3ee93ed4225d96f0f4d3639e0831"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3061216179&ts=1726627191&t=2b5c0001aeb17a9c3e2419188d001f6bfb9274cc"
         }
       }
     },
@@ -1066,6 +1075,7 @@
           },
           "duration_ms": 167896,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/89/94/88/8994880c-ba26-eb7d-5b18-a83747ac34dc/5055834170981_cover.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/89/94/88/8994880c-ba26-eb7d-5b18-a83747ac34dc/5055834170981_cover.jpg/",
           "genres": [
             "Alternative",
             "Music",
@@ -1075,9 +1085,9 @@
           "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview118/v4/e5/d0/34/e5d03472-b7f7-bc68-44a6-a3f1a5fc6747/mzaf_2144893155606898606.plus.aac.p.m4a"
         },
         "youtube": {
-          "id": "dhTFmZbYcfc",
+          "id": "4itjttNUuPQ",
           "name": "Hanover Cure",
-          "url": "https://www.youtube.com/watch?v=dhTFmZbYcfc",
+          "url": "https://www.youtube.com/watch?v=4itjttNUuPQ",
           "artists": [
             {
               "id": "UCR498ltEN7x372KuSYLWEgw",
@@ -1086,19 +1096,19 @@
             }
           ],
           "album": {
-            "id": "MPREb_CGKJlrzKC71",
+            "id": "MPREb_bX011vZYgQt",
             "name": "Consumer Complaints",
-            "url": "https://music.youtube.com/browse/MPREb_CGKJlrzKC71",
+            "url": "https://music.youtube.com/browse/MPREb_bX011vZYgQt",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
-          "duration_raw": "2:48",
-          "duration_ms": 168000,
+          "duration_raw": "2:49",
+          "duration_ms": 169000,
           "music_video": null,
           "thumbnails": [
-            "https://lh3.googleusercontent.com/b8xQ4jprf3Z6uJ_Kn_zMM7utVSBlo0GCmk5eY4tNUWXZi5MZdbnz-StdV7iaS9WFXUgF_6f9Ax_K6s8=w60-h60-l90-rj",
-            "https://lh3.googleusercontent.com/b8xQ4jprf3Z6uJ_Kn_zMM7utVSBlo0GCmk5eY4tNUWXZi5MZdbnz-StdV7iaS9WFXUgF_6f9Ax_K6s8=w120-h120-l90-rj"
+            "https://lh3.googleusercontent.com/2ZRt3dxWZ9Ap70SC2XESJF4xSGaFTpW_oq1vgT_ehAJp9_IBXu_kx4XD_-RPLeMnDS2MxW_xuczP4N-doQ=w60-h60-l90-rj",
+            "https://lh3.googleusercontent.com/2ZRt3dxWZ9Ap70SC2XESJF4xSGaFTpW_oq1vgT_ehAJp9_IBXu_kx4XD_-RPLeMnDS2MxW_xuczP4N-doQ=w120-h120-l90-rj"
           ]
         },
         "bandcamp": {
@@ -1186,6 +1196,7 @@
           },
           "duration_ms": 159150,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/aa/cd/5e/aacd5e0f-feaa-0a0a-be08-b1687853f211/artwork.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/aa/cd/5e/aacd5e0f-feaa-0a0a-be08-b1687853f211/artwork.jpg/",
           "genres": [
             "Punk",
             "Music",
@@ -1284,6 +1295,7 @@
           },
           "duration_ms": 298467,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/12/a5/94/12a59465-139b-b46f-db44-ca08a4506e86/644918014225.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/12/a5/94/12a59465-139b-b46f-db44-ca08a4506e86/644918014225.png/",
           "genres": [
             "Rock",
             "Music"
@@ -1380,6 +1392,7 @@
           },
           "duration_ms": 132573,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music/3a/c7/bc/mzi.hfnqoldi.tif/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music/3a/c7/bc/mzi.hfnqoldi.tif/",
           "genres": [
             "Rock",
             "Music",
@@ -1437,7 +1450,7 @@
           },
           "image": "https://f4.bcbits.com/img/a2816755076_0.jpg",
           "duration_ms": 132573,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3162844333&ts=1726516069&t=664959d2b0c3a269ae4620238113f6ba828b2478"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3162844333&ts=1726557328&t=d9ac0c39043693297d01b58ae6b90eda48ee8211"
         }
       }
     },
@@ -1501,6 +1514,7 @@
           },
           "duration_ms": 226527,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music69/v4/e6/0c/ce/e60cce2e-8ff7-f674-acd3-fbb0242459d4/887828028962.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music69/v4/e6/0c/ce/e60cce2e-8ff7-f674-acd3-fbb0242459d4/887828028962.png/",
           "genres": [
             "Alternative",
             "Music",
@@ -1556,7 +1570,7 @@
           },
           "image": "https://f4.bcbits.com/img/a633564550_0.jpg",
           "duration_ms": 226527,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3120224973&ts=1726516070&t=0aaa543d38fb8518f47d23a6c5d5facfe6a3e6cf"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3120224973&ts=1726627191&t=61dc9a44759b4e8e6c69a111496dac2e7e65366f"
         }
       }
     },
@@ -1620,6 +1634,7 @@
           },
           "duration_ms": 209173,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/57/20/11/5720112e-4295-cae1-2145-2766a7eb82f1/40014.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/57/20/11/5720112e-4295-cae1-2145-2766a7eb82f1/40014.jpg/",
           "genres": [
             "Alternative",
             "Music"
@@ -1738,6 +1753,7 @@
           },
           "duration_ms": 165000,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/df/6d/e6/df6de6e0-56dc-a6c4-13f0-bb56666f9831/196922593963_Cover.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/df/6d/e6/df6de6e0-56dc-a6c4-13f0-bb56666f9831/196922593963_Cover.jpg/",
           "genres": [
             "Indie Rock",
             "Music",
@@ -1793,7 +1809,7 @@
           },
           "image": "https://f4.bcbits.com/img/a1009339723_0.jpg",
           "duration_ms": 165000,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3873930681&ts=1726516070&t=ca417cf37393d54ceaa60bf71cc6b94aeac5bede"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3873930681&ts=1726627191&t=ced0ba512162ed5e3710f8757a1b8a5e69250c27"
         }
       }
     },
@@ -1857,6 +1873,7 @@
           },
           "duration_ms": 89123,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/94/e9/37/94e9378b-2fc5-eacc-776c-bb09f1c4d125/016027947853.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/94/e9/37/94e9378b-2fc5-eacc-776c-bb09f1c4d125/016027947853.png/",
           "genres": [
             "Punk",
             "Music",
@@ -1976,6 +1993,7 @@
           },
           "duration_ms": 139148,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/89/c0/32/89c03231-f118-5a77-b40b-cfb31066439e/634457917224.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/89/c0/32/89c03231-f118-5a77-b40b-cfb31066439e/634457917224.jpg/",
           "genres": [
             "Indie Rock",
             "Music",
@@ -2031,7 +2049,7 @@
           },
           "image": "https://f4.bcbits.com/img/a617899837_0.jpg",
           "duration_ms": 139148,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3134278443&ts=1726516070&t=e18af871c9418c5d533874aac1054eecab3885d0"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3134278443&ts=1726557328&t=368bfbd54b69bdbdeb585b6cfd5fd1c5f73623d2"
         }
       }
     },
@@ -2095,6 +2113,7 @@
           },
           "duration_ms": 161093,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/7f/d3/34/7fd3343c-a2b3-9e57-4171-b7bff912e64f/616822106228.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/7f/d3/34/7fd3343c-a2b3-9e57-4171-b7bff912e64f/616822106228.jpg/",
           "genres": [
             "Alternative",
             "Music",
@@ -2151,7 +2170,7 @@
           },
           "image": "https://f4.bcbits.com/img/a2981433383_0.jpg",
           "duration_ms": 161094,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=2738871631&ts=1726516070&t=4d2bbbca1db1fd5190a221150d26c7b234a96aad"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=2738871631&ts=1726627191&t=2366c1b4a1e5a6d22caf959fb5488bb2a8f834c9"
         }
       }
     },
@@ -2215,6 +2234,7 @@
           },
           "duration_ms": 167993,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music127/v4/f9/0b/05/f90b0577-b450-ddc1-b9a1-4509cba6af9d/859721639538_cover.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music127/v4/f9/0b/05/f90b0577-b450-ddc1-b9a1-4509cba6af9d/859721639538_cover.jpg/",
           "genres": [
             "Alternative",
             "Music",
@@ -2334,6 +2354,7 @@
           },
           "duration_ms": 239854,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music3/v4/83/08/fd/8308fd48-054f-75f3-db11-7ba646821310/artwork.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music3/v4/83/08/fd/8308fd48-054f-75f3-db11-7ba646821310/artwork.jpg/",
           "genres": [
             "Punk",
             "Music",
@@ -2390,7 +2411,7 @@
           },
           "image": "https://f4.bcbits.com/img/a2094016541_0.jpg",
           "duration_ms": 239897,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3316046216&ts=1726516070&t=5aa051cd95d5b8420cd48af13959c623155ac481"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3316046216&ts=1726557328&t=4cfe4c2d33e92b48f10ee13c7eafaf6e32ad8d33"
         }
       }
     },
@@ -2454,6 +2475,7 @@
           },
           "duration_ms": 120032,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/fb/48/e5/fb48e5aa-dcbe-21a1-7816-44ca923b6c00/193428376267.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/fb/48/e5/fb48e5aa-dcbe-21a1-7816-44ca923b6c00/193428376267.jpg/",
           "genres": [
             "Rock",
             "Music",
@@ -2573,6 +2595,7 @@
           },
           "duration_ms": 199836,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f8/64/2e/f8642ed9-7a19-7e05-f685-b4d8c0814ddd/0016027947655.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f8/64/2e/f8642ed9-7a19-7e05-f685-b4d8c0814ddd/0016027947655.png/",
           "genres": [
             "Indie Rock",
             "Music",
@@ -2692,6 +2715,7 @@
           },
           "duration_ms": 126987,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music/50/99/66/mzi.tvqlcdqo.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music/50/99/66/mzi.tvqlcdqo.jpg/",
           "genres": [
             "Alternative",
             "Music",
@@ -2789,6 +2813,7 @@
           },
           "duration_ms": 156722,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/53/35/ad/5335ad0e-4bb0-2f4e-d656-3ba8ba6f1a8c/99151.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/53/35/ad/5335ad0e-4bb0-2f4e-d656-3ba8ba6f1a8c/99151.jpg/",
           "genres": [
             "Alternative",
             "Music"
@@ -2817,7 +2842,7 @@
           },
           "image": "https://f4.bcbits.com/img/a371430810_0.jpg",
           "duration_ms": 156722,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=514765446&ts=1726516070&t=a81939e5a767b7b9de1e4e84c289b36adc4cb1bc"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=514765446&ts=1726627191&t=78db979006043b6b2f48869480565f0f7ae0174f"
         }
       }
     },
@@ -2881,6 +2906,7 @@
           },
           "duration_ms": 136427,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/01/58/9c/01589c25-2f46-0d14-bf9e-690d6daf11e9/644110910196.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/01/58/9c/01589c25-2f46-0d14-bf9e-690d6daf11e9/644110910196.png/",
           "genres": [
             "Alternative",
             "Music",
@@ -2986,6 +3012,7 @@
           },
           "duration_ms": 225836,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/1b/f1/59/1bf15911-7b9b-2be6-de81-9a4cf2323621/5056340105450.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/1b/f1/59/1bf15911-7b9b-2be6-de81-9a4cf2323621/5056340105450.png/",
           "genres": [
             "Pop",
             "Music",
@@ -3034,7 +3061,7 @@
           },
           "image": "https://f4.bcbits.com/img/a420768412_0.jpg",
           "duration_ms": 225836,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3004838366&ts=1726516070&t=ba54e2ca9e2d97b0e4b585900089e205e6aee245"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3004838366&ts=1726627191&t=5bcb268a7625f877532bce9040c076d015edea87"
         }
       }
     },
@@ -3098,6 +3125,7 @@
           },
           "duration_ms": 195467,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/74/35/db/7435db8b-597a-2e7b-54cb-9f19f30e3e37/cover.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/74/35/db/7435db8b-597a-2e7b-54cb-9f19f30e3e37/cover.jpg/",
           "genres": [
             "Indie Pop",
             "Music",
@@ -3152,7 +3180,7 @@
           },
           "image": "https://f4.bcbits.com/img/a3307088386_0.jpg",
           "duration_ms": 195467,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3350341671&ts=1726516070&t=ba9adb8d57863825654fa233af0cfd877d806083"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3350341671&ts=1726627191&t=5354113afb4e75cd6cc2e0d83b0947bee1e6bda2"
         }
       }
     },
@@ -3216,6 +3244,7 @@
           },
           "duration_ms": 206721,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/1c/20/6f/1c206fe8-e57a-927a-730a-1a6e12f2f0fc/859737303799_cover.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/1c/20/6f/1c206fe8-e57a-927a-730a-1a6e12f2f0fc/859737303799_cover.jpg/",
           "genres": [
             "Alternative",
             "Music",
@@ -3313,6 +3342,7 @@
           },
           "duration_ms": 194775,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/2f/5c/0e/2f5c0e0e-aff8-6896-cfc8-2918ee9f3ee3/098787904796.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/2f/5c/0e/2f5c0e0e-aff8-6896-cfc8-2918ee9f3ee3/098787904796.png/",
           "genres": [
             "Alternative",
             "Music",
@@ -3367,7 +3397,7 @@
           },
           "image": "https://f4.bcbits.com/img/a402187440_0.jpg",
           "duration_ms": 194775,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=2357367969&ts=1726516070&t=6073df49004bf348f2e272e3770179958715f180"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=2357367969&ts=1726627191&t=4374908949cfcaf398e0651b8e91c62ae06b0967"
         }
       }
     },
@@ -3431,6 +3461,7 @@
           },
           "duration_ms": 194731,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/92/b1/f2/92b1f2c1-014b-27ca-3f1b-e675208edb89/artwork.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/92/b1/f2/92b1f2c1-014b-27ca-3f1b-e675208edb89/artwork.jpg/",
           "genres": [
             "Rock",
             "Music",
@@ -3486,7 +3517,7 @@
           },
           "image": "https://f4.bcbits.com/img/a2857575445_0.jpg",
           "duration_ms": 194731,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=619065183&ts=1726516070&t=7cd2d91bd4c934ae3a13da0039200e0bee05fa0b"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=619065183&ts=1726557328&t=8d7e3db73a62b2fdda5c2b64bb3ff09b9f9e00d1"
         }
       }
     },
@@ -3550,6 +3581,7 @@
           },
           "duration_ms": 172940,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/95/56/5e/95565ee4-e899-b76e-30a3-be00044b1375/190374216661.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/95/56/5e/95565ee4-e899-b76e-30a3-be00044b1375/190374216661.jpg/",
           "genres": [
             "Alternative",
             "Music",
@@ -3646,6 +3678,7 @@
           },
           "duration_ms": 191681,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/4e/26/55/4e26552d-5418-487c-4d5a-79f89afe8e5b/39716.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/4e/26/55/4e26552d-5418-487c-4d5a-79f89afe8e5b/39716.jpg/",
           "genres": [
             "Indie Pop",
             "Music",
@@ -3701,7 +3734,7 @@
           },
           "image": "https://f4.bcbits.com/img/a1916790960_0.jpg",
           "duration_ms": 191681,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=583143574&ts=1726516070&t=9ff58ef55aae090a2423ad69878fd2e21b1603eb"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=583143574&ts=1726557328&t=4f84ec6995a8d0fd9dd58d2662f1d7151eeb52c1"
         }
       }
     }

@@ -1,0 +1,1892 @@
+{
+  "name": "september 22, 2024",
+  "tracks": [
+    {
+      "name": "Intro",
+      "album": "Pastel Southwestern",
+      "disk_number": 1,
+      "track_number": 1,
+      "artists": [
+        "Desert Mambas"
+      ],
+      "release_year": 2024,
+      "release_month": 8,
+      "release_day": 2,
+      "is_explicit": false,
+      "duration_ms": 29054,
+      "isrc": "USKRS2402201",
+      "services": {
+        "spotify": {
+          "id": "6xn4zCedcI9bxmjdnJ7yfF",
+          "name": "Intro",
+          "url": "https://open.spotify.com/track/6xn4zCedcI9bxmjdnJ7yfF",
+          "artists": [
+            {
+              "id": "2Xcu6O14xGAF8WS2xJT2oX",
+              "name": "Desert Mambas",
+              "url": "spotify:artist:2Xcu6O14xGAF8WS2xJT2oX"
+            }
+          ],
+          "album": {
+            "id": "4wtUcQQ1NRlEeljiagYsy7",
+            "name": "Pastel Southwestern",
+            "url": "spotify:album:4wtUcQQ1NRlEeljiagYsy7",
+            "total_tracks": 6,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 29054,
+          "image": "https://i.scdn.co/image/ab67616d0000b2734490096310372722cf8581b2",
+          "audio_preview": "https://p.scdn.co/mp3-preview/2c45f2cfe951e327295b0689bc96e591c1ee10c9?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+        },
+        "apple_music": {
+          "id": "1754622876",
+          "name": "Intro",
+          "url": "https://music.apple.com/us/album/intro/1754622867?i=1754622876",
+          "artists": [
+            {
+              "id": "1583276023",
+              "name": "Desert Mambas",
+              "url": "https://music.apple.com/us/artist/desert-mambas/1583276023"
+            }
+          ],
+          "composer": "Bailey Moses & Eddie Ponce",
+          "album": {
+            "id": "1754622867",
+            "name": "Pastel Southwestern - EP",
+            "url": "https://music.apple.com/us/album/pastel-southwestern-ep/1754622867",
+            "total_tracks": 6,
+            "ean": null,
+            "upc": "759656002288"
+          },
+          "duration_ms": 29054,
+          "image": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a8/b1/94/a8b1947c-dbae-6a35-580d-279dca849899/4399.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a8/b1/94/a8b1947c-dbae-6a35-580d-279dca849899/4399.jpg/",
+          "genres": [
+            "Country",
+            "Music",
+            "Alternative",
+            "Indie Rock"
+          ],
+          "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d5/4c/48/d54c48b8-f1d6-8b2c-88eb-2af1f1125f98/mzaf_5717254090625221512.plus.aac.p.m4a"
+        },
+        "youtube": {
+          "id": "pEH-FLNWPaY",
+          "name": "Intro",
+          "url": "https://www.youtube.com/watch?v=pEH-FLNWPaY",
+          "artists": [
+            {
+              "id": "UCwW1zmK33lVsDrJwgsWXbgw",
+              "name": "Desert Mambas",
+              "url": "https://music.youtube.com/browse/UCwW1zmK33lVsDrJwgsWXbgw"
+            }
+          ],
+          "album": {
+            "id": "MPREb_2ttiUu6ffag",
+            "name": "Pastel Southwestern",
+            "url": "https://music.youtube.com/browse/MPREb_2ttiUu6ffag",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 30000,
+          "music_video": null,
+          "thumbnails": [
+            "https://lh3.googleusercontent.com/UFIB3KJ4bae-dPbh7QndxSFgPKSIUqmKWabu6XCLEjbhSDf1lchFAXA6WrPKu7vxxiB2N3bEEhutcw32=w60-h60-l90-rj",
+            "https://lh3.googleusercontent.com/UFIB3KJ4bae-dPbh7QndxSFgPKSIUqmKWabu6XCLEjbhSDf1lchFAXA6WrPKu7vxxiB2N3bEEhutcw32=w120-h120-l90-rj"
+          ]
+        },
+        "bandcamp": {
+          "id": "3108083111",
+          "name": "Intro",
+          "url": "https://desertmambas.bandcamp.com/track/intro",
+          "artists": [
+            {
+              "id": "3517283208",
+              "name": "Desert Mambas",
+              "url": "https://desertmambas.bandcamp.com"
+            }
+          ],
+          "album": {
+            "id": "3108083111",
+            "name": "Intro",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=3108083111",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "image": "https://f4.bcbits.com/img/a1720962034_0.jpg",
+          "duration_ms": 29054,
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3108083111&ts=1727025355&t=8cd1e7e367a382277acc20f2a334c4608fdfe9ce"
+        }
+      }
+    },
+    {
+      "name": "So Blue",
+      "album": "Pastel Southwestern",
+      "disk_number": 1,
+      "track_number": 2,
+      "artists": [
+        "Desert Mambas"
+      ],
+      "release_year": 2024,
+      "release_month": 8,
+      "release_day": 2,
+      "is_explicit": false,
+      "duration_ms": 143754,
+      "isrc": "USKRS2402202",
+      "services": {
+        "spotify": {
+          "id": "0dP3HkqvhyiYmI1Nlt11kK",
+          "name": "So Blue",
+          "url": "https://open.spotify.com/track/0dP3HkqvhyiYmI1Nlt11kK",
+          "artists": [
+            {
+              "id": "2Xcu6O14xGAF8WS2xJT2oX",
+              "name": "Desert Mambas",
+              "url": "spotify:artist:2Xcu6O14xGAF8WS2xJT2oX"
+            }
+          ],
+          "album": {
+            "id": "4wtUcQQ1NRlEeljiagYsy7",
+            "name": "Pastel Southwestern",
+            "url": "spotify:album:4wtUcQQ1NRlEeljiagYsy7",
+            "total_tracks": 6,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 143754,
+          "image": "https://i.scdn.co/image/ab67616d0000b2734490096310372722cf8581b2",
+          "audio_preview": "https://p.scdn.co/mp3-preview/a6b0dd2ece64dc12e901c9c18e0ff2e094e30e83?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+        },
+        "apple_music": {
+          "id": "1754622883",
+          "name": "So Blue",
+          "url": "https://music.apple.com/us/album/so-blue/1754622867?i=1754622883",
+          "artists": [
+            {
+              "id": "1583276023",
+              "name": "Desert Mambas",
+              "url": "https://music.apple.com/us/artist/desert-mambas/1583276023"
+            }
+          ],
+          "composer": "Bailey Moses & Eddie Ponce",
+          "album": {
+            "id": "1754622867",
+            "name": "Pastel Southwestern - EP",
+            "url": "https://music.apple.com/us/album/pastel-southwestern-ep/1754622867",
+            "total_tracks": 6,
+            "ean": null,
+            "upc": "759656002288"
+          },
+          "duration_ms": 143754,
+          "image": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a8/b1/94/a8b1947c-dbae-6a35-580d-279dca849899/4399.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a8/b1/94/a8b1947c-dbae-6a35-580d-279dca849899/4399.jpg/",
+          "genres": [
+            "Country",
+            "Music",
+            "Alternative",
+            "Indie Rock"
+          ],
+          "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/4c/f0/79/4cf0790c-1b2d-b9ae-95af-ea0b16309432/mzaf_5431821692291681672.plus.aac.p.m4a"
+        },
+        "youtube": {
+          "id": "eCrD9FFPr6E",
+          "name": "So Blue",
+          "url": "https://www.youtube.com/watch?v=eCrD9FFPr6E",
+          "artists": [
+            {
+              "id": "UCwW1zmK33lVsDrJwgsWXbgw",
+              "name": "Desert Mambas",
+              "url": "https://music.youtube.com/browse/UCwW1zmK33lVsDrJwgsWXbgw"
+            }
+          ],
+          "album": {
+            "id": "MPREb_2ttiUu6ffag",
+            "name": "Pastel Southwestern",
+            "url": "https://music.youtube.com/browse/MPREb_2ttiUu6ffag",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 144000,
+          "music_video": null,
+          "thumbnails": [
+            "https://lh3.googleusercontent.com/UFIB3KJ4bae-dPbh7QndxSFgPKSIUqmKWabu6XCLEjbhSDf1lchFAXA6WrPKu7vxxiB2N3bEEhutcw32=w60-h60-l90-rj",
+            "https://lh3.googleusercontent.com/UFIB3KJ4bae-dPbh7QndxSFgPKSIUqmKWabu6XCLEjbhSDf1lchFAXA6WrPKu7vxxiB2N3bEEhutcw32=w120-h120-l90-rj"
+          ]
+        },
+        "bandcamp": {
+          "id": "98200605",
+          "name": "So Blue",
+          "url": "https://desertmambas.bandcamp.com/track/so-blue",
+          "artists": [
+            {
+              "id": "3517283208",
+              "name": "Desert Mambas",
+              "url": "https://desertmambas.bandcamp.com"
+            }
+          ],
+          "album": {
+            "id": "98200605",
+            "name": "So Blue",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=98200605",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "image": "https://f4.bcbits.com/img/a1720962034_0.jpg",
+          "duration_ms": 143754,
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=98200605&ts=1727025355&t=a492f1d33b2e110aa32686f3e92bd81026cbd5bc"
+        }
+      }
+    },
+    {
+      "name": "Alopecia Plant Killer",
+      "album": "Pastel Southwestern",
+      "disk_number": 1,
+      "track_number": 3,
+      "artists": [
+        "Desert Mambas"
+      ],
+      "release_year": 2024,
+      "release_month": 8,
+      "release_day": 2,
+      "is_explicit": false,
+      "duration_ms": 164569,
+      "isrc": "USKRS2402203",
+      "services": {
+        "spotify": {
+          "id": "2CSla9On9ruC3vGXUtUx2y",
+          "name": "Alopecia Plant Killer",
+          "url": "https://open.spotify.com/track/2CSla9On9ruC3vGXUtUx2y",
+          "artists": [
+            {
+              "id": "2Xcu6O14xGAF8WS2xJT2oX",
+              "name": "Desert Mambas",
+              "url": "spotify:artist:2Xcu6O14xGAF8WS2xJT2oX"
+            }
+          ],
+          "album": {
+            "id": "4wtUcQQ1NRlEeljiagYsy7",
+            "name": "Pastel Southwestern",
+            "url": "spotify:album:4wtUcQQ1NRlEeljiagYsy7",
+            "total_tracks": 6,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 164569,
+          "image": "https://i.scdn.co/image/ab67616d0000b2734490096310372722cf8581b2",
+          "audio_preview": "https://p.scdn.co/mp3-preview/af46351805589587687b5ee0863f32a433476b91?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+        },
+        "apple_music": {
+          "id": "1754623074",
+          "name": "Alopecia Plant Killer",
+          "url": "https://music.apple.com/us/album/alopecia-plant-killer/1754622867?i=1754623074",
+          "artists": [
+            {
+              "id": "1583276023",
+              "name": "Desert Mambas",
+              "url": "https://music.apple.com/us/artist/desert-mambas/1583276023"
+            }
+          ],
+          "composer": "Bailey Moses & Eddie Ponce",
+          "album": {
+            "id": "1754622867",
+            "name": "Pastel Southwestern - EP",
+            "url": "https://music.apple.com/us/album/pastel-southwestern-ep/1754622867",
+            "total_tracks": 6,
+            "ean": null,
+            "upc": "759656002288"
+          },
+          "duration_ms": 164569,
+          "image": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a8/b1/94/a8b1947c-dbae-6a35-580d-279dca849899/4399.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a8/b1/94/a8b1947c-dbae-6a35-580d-279dca849899/4399.jpg/",
+          "genres": [
+            "Country",
+            "Music",
+            "Alternative",
+            "Indie Rock"
+          ],
+          "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/23/40/d9/2340d948-28ef-3de1-2bc9-cb670383e151/mzaf_12516886923990456540.plus.aac.p.m4a"
+        },
+        "youtube": {
+          "id": "oGDz_aSzn3Q",
+          "name": "Alopecia Plant Killer",
+          "url": "https://www.youtube.com/watch?v=oGDz_aSzn3Q",
+          "artists": [
+            {
+              "id": "UCwW1zmK33lVsDrJwgsWXbgw",
+              "name": "Desert Mambas",
+              "url": "https://music.youtube.com/browse/UCwW1zmK33lVsDrJwgsWXbgw"
+            }
+          ],
+          "album": {
+            "id": "MPREb_2ttiUu6ffag",
+            "name": "Pastel Southwestern",
+            "url": "https://music.youtube.com/browse/MPREb_2ttiUu6ffag",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 165000,
+          "music_video": null,
+          "thumbnails": [
+            "https://lh3.googleusercontent.com/UFIB3KJ4bae-dPbh7QndxSFgPKSIUqmKWabu6XCLEjbhSDf1lchFAXA6WrPKu7vxxiB2N3bEEhutcw32=w60-h60-l90-rj",
+            "https://lh3.googleusercontent.com/UFIB3KJ4bae-dPbh7QndxSFgPKSIUqmKWabu6XCLEjbhSDf1lchFAXA6WrPKu7vxxiB2N3bEEhutcw32=w120-h120-l90-rj"
+          ]
+        },
+        "bandcamp": {
+          "id": "4096928491",
+          "name": "Alopecia Plant Killer",
+          "url": "https://desertmambas.bandcamp.com/track/alopecia-plant-killer",
+          "artists": [
+            {
+              "id": "3517283208",
+              "name": "Desert Mambas",
+              "url": "https://desertmambas.bandcamp.com"
+            }
+          ],
+          "album": {
+            "id": "4096928491",
+            "name": "Alopecia Plant Killer",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=4096928491",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "image": "https://f4.bcbits.com/img/a1720962034_0.jpg",
+          "duration_ms": 164569,
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=4096928491&ts=1727025355&t=07c38374c7574505749bfdef6cd87af1e17350cc"
+        }
+      }
+    },
+    {
+      "name": "Hot George Costanza",
+      "album": "Pastel Southwestern",
+      "disk_number": 1,
+      "track_number": 4,
+      "artists": [
+        "Desert Mambas"
+      ],
+      "release_year": 2024,
+      "release_month": 8,
+      "release_day": 2,
+      "is_explicit": false,
+      "duration_ms": 119896,
+      "isrc": "USKRS2402204",
+      "services": {
+        "spotify": {
+          "id": "5k9fBUTCL3XcwuO6lfDjeh",
+          "name": "Hot George Costanza",
+          "url": "https://open.spotify.com/track/5k9fBUTCL3XcwuO6lfDjeh",
+          "artists": [
+            {
+              "id": "2Xcu6O14xGAF8WS2xJT2oX",
+              "name": "Desert Mambas",
+              "url": "spotify:artist:2Xcu6O14xGAF8WS2xJT2oX"
+            }
+          ],
+          "album": {
+            "id": "4wtUcQQ1NRlEeljiagYsy7",
+            "name": "Pastel Southwestern",
+            "url": "spotify:album:4wtUcQQ1NRlEeljiagYsy7",
+            "total_tracks": 6,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 119896,
+          "image": "https://i.scdn.co/image/ab67616d0000b2734490096310372722cf8581b2",
+          "audio_preview": "https://p.scdn.co/mp3-preview/1dda40b84f6e71e4c11217787b15c1709e284db1?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+        },
+        "apple_music": {
+          "id": "1754623077",
+          "name": "Hot George Costanza",
+          "url": "https://music.apple.com/us/album/hot-george-costanza/1754622867?i=1754623077",
+          "artists": [
+            {
+              "id": "1583276023",
+              "name": "Desert Mambas",
+              "url": "https://music.apple.com/us/artist/desert-mambas/1583276023"
+            }
+          ],
+          "composer": "Bailey Moses & Eddie Ponce",
+          "album": {
+            "id": "1754622867",
+            "name": "Pastel Southwestern - EP",
+            "url": "https://music.apple.com/us/album/pastel-southwestern-ep/1754622867",
+            "total_tracks": 6,
+            "ean": null,
+            "upc": "759656002288"
+          },
+          "duration_ms": 119896,
+          "image": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a8/b1/94/a8b1947c-dbae-6a35-580d-279dca849899/4399.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a8/b1/94/a8b1947c-dbae-6a35-580d-279dca849899/4399.jpg/",
+          "genres": [
+            "Country",
+            "Music",
+            "Alternative",
+            "Indie Rock"
+          ],
+          "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d6/d0/58/d6d0589b-af90-7390-c4a5-3a97007c2e12/mzaf_12123023215303845237.plus.aac.p.m4a"
+        },
+        "youtube": {
+          "id": "FERaKv9OnSk",
+          "name": "Hot George Costanza",
+          "url": "https://www.youtube.com/watch?v=FERaKv9OnSk",
+          "artists": [
+            {
+              "id": "UCwW1zmK33lVsDrJwgsWXbgw",
+              "name": "Desert Mambas",
+              "url": "https://music.youtube.com/browse/UCwW1zmK33lVsDrJwgsWXbgw"
+            }
+          ],
+          "album": {
+            "id": "MPREb_2ttiUu6ffag",
+            "name": "Pastel Southwestern",
+            "url": "https://music.youtube.com/browse/MPREb_2ttiUu6ffag",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 120000,
+          "music_video": null,
+          "thumbnails": [
+            "https://i.ytimg.com/vi/7xwsXYXnvYE/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nPnA2HGidjti-uDLMsZjsnjtZwgw"
+          ]
+        },
+        "bandcamp": {
+          "id": "3090605952",
+          "name": "Hot George Costanza",
+          "url": "https://desertmambas.bandcamp.com/track/hot-george-costanza",
+          "artists": [
+            {
+              "id": "3517283208",
+              "name": "Desert Mambas",
+              "url": "https://desertmambas.bandcamp.com"
+            }
+          ],
+          "album": {
+            "id": "3090605952",
+            "name": "Hot George Costanza",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=3090605952",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "image": "https://f4.bcbits.com/img/a1720962034_0.jpg",
+          "duration_ms": 119896,
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3090605952&ts=1727025355&t=9372764314bd80a3d70b9664424b953e83390c3c"
+        }
+      }
+    },
+    {
+      "name": "Ladies Shoes",
+      "album": "Pastel Southwestern",
+      "disk_number": 1,
+      "track_number": 5,
+      "artists": [
+        "Desert Mambas"
+      ],
+      "release_year": 2024,
+      "release_month": 8,
+      "release_day": 2,
+      "is_explicit": false,
+      "duration_ms": 104649,
+      "isrc": "USKRS2402205",
+      "services": {
+        "spotify": {
+          "id": "0yy7ANatuPObVave1sSdLd",
+          "name": "Ladies Shoes",
+          "url": "https://open.spotify.com/track/0yy7ANatuPObVave1sSdLd",
+          "artists": [
+            {
+              "id": "2Xcu6O14xGAF8WS2xJT2oX",
+              "name": "Desert Mambas",
+              "url": "spotify:artist:2Xcu6O14xGAF8WS2xJT2oX"
+            }
+          ],
+          "album": {
+            "id": "4wtUcQQ1NRlEeljiagYsy7",
+            "name": "Pastel Southwestern",
+            "url": "spotify:album:4wtUcQQ1NRlEeljiagYsy7",
+            "total_tracks": 6,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 104649,
+          "image": "https://i.scdn.co/image/ab67616d0000b2734490096310372722cf8581b2",
+          "audio_preview": "https://p.scdn.co/mp3-preview/82244e7f6a1188e313db76ae1d7ffc4ddba87cf8?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+        },
+        "apple_music": {
+          "id": "1754623079",
+          "name": "Ladies Shoes",
+          "url": "https://music.apple.com/us/album/ladies-shoes/1754622867?i=1754623079",
+          "artists": [
+            {
+              "id": "1583276023",
+              "name": "Desert Mambas",
+              "url": "https://music.apple.com/us/artist/desert-mambas/1583276023"
+            }
+          ],
+          "composer": "Bailey Moses & Eddie Ponce",
+          "album": {
+            "id": "1754622867",
+            "name": "Pastel Southwestern - EP",
+            "url": "https://music.apple.com/us/album/pastel-southwestern-ep/1754622867",
+            "total_tracks": 6,
+            "ean": null,
+            "upc": "759656002288"
+          },
+          "duration_ms": 104649,
+          "image": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a8/b1/94/a8b1947c-dbae-6a35-580d-279dca849899/4399.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a8/b1/94/a8b1947c-dbae-6a35-580d-279dca849899/4399.jpg/",
+          "genres": [
+            "Country",
+            "Music",
+            "Alternative",
+            "Indie Rock"
+          ],
+          "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3d/9d/fc/3d9dfc6a-e66c-0036-bd8f-326bc4afaa64/mzaf_5398312859177790612.plus.aac.p.m4a"
+        },
+        "youtube": {
+          "id": "N75CEGh2YCE",
+          "name": "Ladies Shoes",
+          "url": "https://www.youtube.com/watch?v=N75CEGh2YCE",
+          "artists": [
+            {
+              "id": "UCwW1zmK33lVsDrJwgsWXbgw",
+              "name": "Desert Mambas",
+              "url": "https://music.youtube.com/browse/UCwW1zmK33lVsDrJwgsWXbgw"
+            }
+          ],
+          "album": {
+            "id": "MPREb_2ttiUu6ffag",
+            "name": "Pastel Southwestern",
+            "url": "https://music.youtube.com/browse/MPREb_2ttiUu6ffag",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 105000,
+          "music_video": null,
+          "thumbnails": [
+            "https://lh3.googleusercontent.com/UFIB3KJ4bae-dPbh7QndxSFgPKSIUqmKWabu6XCLEjbhSDf1lchFAXA6WrPKu7vxxiB2N3bEEhutcw32=w60-h60-l90-rj",
+            "https://lh3.googleusercontent.com/UFIB3KJ4bae-dPbh7QndxSFgPKSIUqmKWabu6XCLEjbhSDf1lchFAXA6WrPKu7vxxiB2N3bEEhutcw32=w120-h120-l90-rj"
+          ]
+        },
+        "bandcamp": {
+          "id": "3333167613",
+          "name": "Ladies Shoes",
+          "url": "https://desertmambas.bandcamp.com/track/ladies-shoes",
+          "artists": [
+            {
+              "id": "3517283208",
+              "name": "Desert Mambas",
+              "url": "https://desertmambas.bandcamp.com"
+            }
+          ],
+          "album": {
+            "id": "3333167613",
+            "name": "Ladies Shoes",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=3333167613",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "image": "https://f4.bcbits.com/img/a1720962034_0.jpg",
+          "duration_ms": 104649,
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3333167613&ts=1727025355&t=b935b4fb9c483147f23d6b6c9047a7fc9a7baadb"
+        }
+      }
+    },
+    {
+      "name": "Average",
+      "album": "Pastel Southwestern",
+      "disk_number": 1,
+      "track_number": 6,
+      "artists": [
+        "Desert Mambas"
+      ],
+      "release_year": 2024,
+      "release_month": 8,
+      "release_day": 2,
+      "is_explicit": false,
+      "duration_ms": 123322,
+      "isrc": "USKRS2402206",
+      "services": {
+        "spotify": {
+          "id": "6slup5nJfjdqMQAiHGOUML",
+          "name": "Average",
+          "url": "https://open.spotify.com/track/6slup5nJfjdqMQAiHGOUML",
+          "artists": [
+            {
+              "id": "2Xcu6O14xGAF8WS2xJT2oX",
+              "name": "Desert Mambas",
+              "url": "spotify:artist:2Xcu6O14xGAF8WS2xJT2oX"
+            }
+          ],
+          "album": {
+            "id": "4wtUcQQ1NRlEeljiagYsy7",
+            "name": "Pastel Southwestern",
+            "url": "spotify:album:4wtUcQQ1NRlEeljiagYsy7",
+            "total_tracks": 6,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 123322,
+          "image": "https://i.scdn.co/image/ab67616d0000b2734490096310372722cf8581b2",
+          "audio_preview": "https://p.scdn.co/mp3-preview/c954eb896b68cb81d636e8969e904cabc5aa8e32?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+        },
+        "apple_music": {
+          "id": "1754623082",
+          "name": "Average",
+          "url": "https://music.apple.com/us/album/average/1754622867?i=1754623082",
+          "artists": [
+            {
+              "id": "1583276023",
+              "name": "Desert Mambas",
+              "url": "https://music.apple.com/us/artist/desert-mambas/1583276023"
+            }
+          ],
+          "composer": "Bailey Moses & Eddie Ponce",
+          "album": {
+            "id": "1754622867",
+            "name": "Pastel Southwestern - EP",
+            "url": "https://music.apple.com/us/album/pastel-southwestern-ep/1754622867",
+            "total_tracks": 6,
+            "ean": null,
+            "upc": "759656002288"
+          },
+          "duration_ms": 123323,
+          "image": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a8/b1/94/a8b1947c-dbae-6a35-580d-279dca849899/4399.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a8/b1/94/a8b1947c-dbae-6a35-580d-279dca849899/4399.jpg/",
+          "genres": [
+            "Country",
+            "Music",
+            "Alternative",
+            "Indie Rock"
+          ],
+          "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d4/3c/0a/d43c0a41-3808-c879-f7c9-ad7fdc438990/mzaf_16174319064018388553.plus.aac.p.m4a"
+        },
+        "youtube": {
+          "id": "9_OIvS7cE1g",
+          "name": "Average",
+          "url": "https://www.youtube.com/watch?v=9_OIvS7cE1g",
+          "artists": [
+            {
+              "id": "UCwW1zmK33lVsDrJwgsWXbgw",
+              "name": "Desert Mambas",
+              "url": "https://music.youtube.com/browse/UCwW1zmK33lVsDrJwgsWXbgw"
+            }
+          ],
+          "album": {
+            "id": "MPREb_2ttiUu6ffag",
+            "name": "Pastel Southwestern",
+            "url": "https://music.youtube.com/browse/MPREb_2ttiUu6ffag",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 124000,
+          "music_video": null,
+          "thumbnails": [
+            "https://lh3.googleusercontent.com/UFIB3KJ4bae-dPbh7QndxSFgPKSIUqmKWabu6XCLEjbhSDf1lchFAXA6WrPKu7vxxiB2N3bEEhutcw32=w60-h60-l90-rj",
+            "https://lh3.googleusercontent.com/UFIB3KJ4bae-dPbh7QndxSFgPKSIUqmKWabu6XCLEjbhSDf1lchFAXA6WrPKu7vxxiB2N3bEEhutcw32=w120-h120-l90-rj"
+          ]
+        },
+        "bandcamp": {
+          "id": "1060269280",
+          "name": "Average",
+          "url": "https://desertmambas.bandcamp.com/track/average",
+          "artists": [
+            {
+              "id": "3517283208",
+              "name": "Desert Mambas",
+              "url": "https://desertmambas.bandcamp.com"
+            }
+          ],
+          "album": {
+            "id": "1060269280",
+            "name": "Average",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=1060269280",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "image": "https://f4.bcbits.com/img/a1720962034_0.jpg",
+          "duration_ms": 123323,
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=1060269280&ts=1727025355&t=258bfd3b6c99a26a48d5c795a7cb6b6f6eec79f6"
+        }
+      }
+    },
+    {
+      "name": "Rearrange Your Head",
+      "album": "Blue Sheila",
+      "disk_number": 1,
+      "track_number": 1,
+      "artists": [
+        "Sledgehammer"
+      ],
+      "release_year": 2019,
+      "release_month": 7,
+      "release_day": 7,
+      "is_explicit": false,
+      "duration_ms": 202066,
+      "isrc": "QZFZ21917830",
+      "services": {
+        "spotify": {
+          "id": "6yEUnAJOhkJsEln3ZKRvts",
+          "name": "Rearrange Your Head",
+          "url": "https://open.spotify.com/track/6yEUnAJOhkJsEln3ZKRvts",
+          "artists": [
+            {
+              "id": "6kM6KrzsCQxUt5IVlCIumm",
+              "name": "Sledgehammer",
+              "url": "spotify:artist:6kM6KrzsCQxUt5IVlCIumm"
+            }
+          ],
+          "album": {
+            "id": "79NRiDbFoMwOjftTDtFNke",
+            "name": "Blue Sheila",
+            "url": "spotify:album:79NRiDbFoMwOjftTDtFNke",
+            "total_tracks": 6,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 202066,
+          "image": "https://i.scdn.co/image/ab67616d0000b27363417ea9f0acf3278ea970b7",
+          "audio_preview": "https://p.scdn.co/mp3-preview/544741063858012c447bf17b0bd3e8875d9dca0f?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+        },
+        "apple_music": {
+          "id": "1471863050",
+          "name": "Rearrange Your Head",
+          "url": "https://music.apple.com/us/album/rearrange-your-head/1471863047?i=1471863050",
+          "artists": [
+            {
+              "id": "5081766",
+              "name": "Sledgehammer",
+              "url": "https://music.apple.com/us/artist/sledgehammer/5081766"
+            }
+          ],
+          "composer": "sophia lubczenko",
+          "album": {
+            "id": "1471863047",
+            "name": "Blue Sheila - EP",
+            "url": "https://music.apple.com/us/album/blue-sheila-ep/1471863047",
+            "total_tracks": 6,
+            "ean": null,
+            "upc": "194525769617"
+          },
+          "duration_ms": 202067,
+          "image": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/31/90/ed/3190edf2-dab0-9913-cd68-68a1a8e559bf/artwork.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/31/90/ed/3190edf2-dab0-9913-cd68-68a1a8e559bf/artwork.jpg/",
+          "genres": [
+            "Rock",
+            "Music",
+            "Alternative"
+          ],
+          "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview123/v4/b6/36/25/b6362532-7de9-c440-51ca-47b56d749aa2/mzaf_16643402204663775381.plus.aac.p.m4a"
+        },
+        "youtube": {
+          "id": "HRItBMdKqzY",
+          "name": "Rearrange Your Head",
+          "url": "https://www.youtube.com/watch?v=HRItBMdKqzY",
+          "artists": [
+            {
+              "id": "UCucYhcTxfBpMgIUiN7nEYYw",
+              "name": "Sledgehammer",
+              "url": "https://music.youtube.com/browse/UCucYhcTxfBpMgIUiN7nEYYw"
+            }
+          ],
+          "album": {
+            "id": "MPREb_Cjnaz0fU0jF",
+            "name": "Blue Sheila",
+            "url": "https://music.youtube.com/browse/MPREb_Cjnaz0fU0jF",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 203000,
+          "music_video": null,
+          "thumbnails": [
+            "https://lh3.googleusercontent.com/Nqu9UqtANT2gff8Pr-irqegOiwdsQ7Dzd2xeJyDatlKSIWkUf99Zc5nH-MMhkGJKXTQrkDGcYbhUmaqd=w60-h60-l90-rj",
+            "https://lh3.googleusercontent.com/Nqu9UqtANT2gff8Pr-irqegOiwdsQ7Dzd2xeJyDatlKSIWkUf99Zc5nH-MMhkGJKXTQrkDGcYbhUmaqd=w120-h120-l90-rj"
+          ]
+        },
+        "bandcamp": {
+          "id": "2785731749",
+          "name": "Rearrange Your Head",
+          "url": "https://sledgehammeraus.bandcamp.com/track/rearrange-your-head",
+          "artists": [
+            {
+              "id": "4244183588",
+              "name": "Sledgehammer",
+              "url": "https://sledgehammeraus.bandcamp.com"
+            }
+          ],
+          "album": {
+            "id": "2785731749",
+            "name": "Rearrange Your Head",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=2785731749",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "image": "https://f4.bcbits.com/img/a2189709353_0.jpg",
+          "duration_ms": 202067,
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=2785731749&ts=1727025355&t=9409c745b6df40ec1206e8abecbb13c5f35874d7"
+        }
+      }
+    },
+    {
+      "name": "Milk Bar",
+      "album": "Milk Bar",
+      "disk_number": 1,
+      "track_number": 1,
+      "artists": [
+        "Hearts and Rockets"
+      ],
+      "release_year": 2020,
+      "release_month": 6,
+      "release_day": 25,
+      "is_explicit": false,
+      "duration_ms": 101500,
+      "isrc": "AUAGK2000006",
+      "services": {
+        "spotify": {
+          "id": "0PB6wS8xfzD2Ulv5KUuAbn",
+          "name": "Milk Bar",
+          "url": "https://open.spotify.com/track/0PB6wS8xfzD2Ulv5KUuAbn",
+          "artists": [
+            {
+              "id": "5wPyyPDBkCDn554i6klScd",
+              "name": "Hearts and Rockets",
+              "url": "spotify:artist:5wPyyPDBkCDn554i6klScd"
+            }
+          ],
+          "album": {
+            "id": "3FOU2RZLVl0lC2GjRxmnXx",
+            "name": "Milk Bar",
+            "url": "spotify:album:3FOU2RZLVl0lC2GjRxmnXx",
+            "total_tracks": 1,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 101500,
+          "image": "https://i.scdn.co/image/ab67616d0000b273cfa94ca02435b8f4cbc19773",
+          "audio_preview": "https://p.scdn.co/mp3-preview/4b6419d3adb762edbc4ef86e5bdb090e68ba66ca?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+        },
+        "apple_music": {
+          "id": "1518604555",
+          "name": "Milk Bar",
+          "url": "https://music.apple.com/us/album/milk-bar/1518604554?i=1518604555",
+          "artists": [
+            {
+              "id": "1360424098",
+              "name": "Hearts and Rockets",
+              "url": "https://music.apple.com/us/artist/hearts-and-rockets/1360424098"
+            }
+          ],
+          "composer": "Kalindy Anne Williams & Kurt Eckardt",
+          "album": {
+            "id": "1518604554",
+            "name": "Milk Bar - Single",
+            "url": "https://music.apple.com/us/album/milk-bar-single/1518604554",
+            "total_tracks": 1,
+            "ean": null,
+            "upc": "195396871409"
+          },
+          "duration_ms": 101500,
+          "image": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/33/d8/66/33d86641-8c33-a160-555d-b51b9f0b6e6e/artwork.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/33/d8/66/33d86641-8c33-a160-555d-b51b9f0b6e6e/artwork.jpg/",
+          "genres": [
+            "Punk",
+            "Music",
+            "Alternative"
+          ],
+          "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e9/b7/15/e9b715b7-ac6e-7fc1-d2d8-4f161c75eae3/mzaf_14949631516281615915.plus.aac.p.m4a"
+        },
+        "youtube": {
+          "id": "qGC8QyC83_Q",
+          "name": "Milk Bar",
+          "url": "https://www.youtube.com/watch?v=qGC8QyC83_Q",
+          "artists": [
+            {
+              "id": "UCvcgAX4x4iD1rN6d4OavykA",
+              "name": "Hearts and Rockets",
+              "url": "https://music.youtube.com/browse/UCvcgAX4x4iD1rN6d4OavykA"
+            }
+          ],
+          "album": {
+            "id": "MPREb_JCpRBnTCLaM",
+            "name": "Milk Bar",
+            "url": "https://music.youtube.com/browse/MPREb_JCpRBnTCLaM",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 102000,
+          "music_video": null,
+          "thumbnails": [
+            "https://i.ytimg.com/vi/l85nhafUgQ4/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3nKnvdYAvLgeE8nFawoJRp_ce2t0w"
+          ]
+        },
+        "bandcamp": {
+          "id": "1382743577",
+          "name": "Milk Bar",
+          "url": "https://heartsandrockets.bandcamp.com/track/milk-bar",
+          "artists": [
+            {
+              "id": "3888751101",
+              "name": "Hearts and Rockets",
+              "url": "https://heartsandrockets.bandcamp.com"
+            }
+          ],
+          "album": {
+            "id": "1382743577",
+            "name": "Milk Bar",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=1382743577",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "image": "https://f4.bcbits.com/img/a689690340_0.jpg",
+          "duration_ms": 101500,
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=1382743577&ts=1727025355&t=2903236b22d2cee2683dbb39d840d2babc1cc2d1"
+        }
+      }
+    },
+    {
+      "name": "Summer of Our Discontent",
+      "album": "666",
+      "disk_number": 1,
+      "track_number": 10,
+      "artists": [
+        "Sugar Candy Mountain"
+      ],
+      "release_year": 2016,
+      "release_month": 7,
+      "release_day": 8,
+      "is_explicit": false,
+      "duration_ms": 216801,
+      "isrc": "USJZA1619810",
+      "services": {
+        "spotify": {
+          "id": "6rLuePKKEYl1lqAAa3Czqd",
+          "name": "Summer of Our Discontent",
+          "url": "https://open.spotify.com/track/6rLuePKKEYl1lqAAa3Czqd",
+          "artists": [
+            {
+              "id": "3y6SKYXXP4lrliD6CzVXH3",
+              "name": "Sugar Candy Mountain",
+              "url": "spotify:artist:3y6SKYXXP4lrliD6CzVXH3"
+            }
+          ],
+          "album": {
+            "id": "0Y9pFvtCR52aFUxJfKjTMB",
+            "name": "666",
+            "url": "spotify:album:0Y9pFvtCR52aFUxJfKjTMB",
+            "total_tracks": 10,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 216801,
+          "image": "https://i.scdn.co/image/ab67616d0000b273cafc923380efc2897760dfc9",
+          "audio_preview": "https://p.scdn.co/mp3-preview/68204d6cb066887be8ea3ac86bb754b2fa746aab?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+        },
+        "apple_music": {
+          "id": "1124966752",
+          "name": "Summer of Our Discontent",
+          "url": "https://music.apple.com/us/album/summer-of-our-discontent/1124966682?i=1124966752",
+          "artists": [
+            {
+              "id": "423385812",
+              "name": "Sugar Candy Mountain",
+              "url": "https://music.apple.com/us/artist/sugar-candy-mountain/423385812"
+            }
+          ],
+          "composer": null,
+          "album": {
+            "id": "1124966682",
+            "name": "666",
+            "url": "https://music.apple.com/us/album/666/1124966682",
+            "total_tracks": 10,
+            "ean": null,
+            "upc": "714270690389"
+          },
+          "duration_ms": 216801,
+          "image": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/ec/85/4c/ec854c2a-5c27-fee6-ebf1-d3c72b2ea008/714270690389.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/ec/85/4c/ec854c2a-5c27-fee6-ebf1-d3c72b2ea008/714270690389.jpg/",
+          "genres": [
+            "Indie Rock",
+            "Music",
+            "Alternative",
+            "Rock",
+            "Psychedelic"
+          ],
+          "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/24/92/7b/24927ba1-0ae9-5b6e-8ce9-261968a01d11/mzaf_13846232150461291016.plus.aac.p.m4a"
+        },
+        "youtube": {
+          "id": "T10O82T6aP0",
+          "name": "Summer of Our Discontent",
+          "url": "https://www.youtube.com/watch?v=T10O82T6aP0",
+          "artists": [
+            {
+              "id": "UCBN7Cy3rDmbw541_F4N6cwQ",
+              "name": "Sugar Candy Mountain",
+              "url": "https://music.youtube.com/browse/UCBN7Cy3rDmbw541_F4N6cwQ"
+            }
+          ],
+          "album": {
+            "id": "MPREb_2gYmawIXyqX",
+            "name": "666",
+            "url": "https://music.youtube.com/browse/MPREb_2gYmawIXyqX",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 217000,
+          "music_video": null,
+          "thumbnails": [
+            "https://lh3.googleusercontent.com/NeUXhXU4Q2RBocOuypRDy0csyQAPK2S0p8U5jQSZG69UoGkFu7GoyyJGUbJYNvfzjS-AUPa3rfPM4EA=w60-h60-l90-rj",
+            "https://lh3.googleusercontent.com/NeUXhXU4Q2RBocOuypRDy0csyQAPK2S0p8U5jQSZG69UoGkFu7GoyyJGUbJYNvfzjS-AUPa3rfPM4EA=w120-h120-l90-rj"
+          ]
+        },
+        "bandcamp": {
+          "id": "966978357",
+          "name": "Summer Of Our Discontent",
+          "url": "https://sugarcandymountain.bandcamp.com/track/summer-of-our-discontent",
+          "artists": [
+            {
+              "id": "2444052028",
+              "name": "Sugar Candy Mountain",
+              "url": "https://sugarcandymountain.bandcamp.com"
+            }
+          ],
+          "album": {
+            "id": "966978357",
+            "name": "Summer Of Our Discontent",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=966978357",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "image": "https://f4.bcbits.com/img/a3064380455_0.jpg",
+          "duration_ms": 216801,
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=966978357&ts=1727025355&t=73a523186ae43df2fe2221661d46a2cc9327043e"
+        }
+      }
+    },
+    {
+      "name": "Honey",
+      "album": "Favours",
+      "disk_number": 1,
+      "track_number": 5,
+      "artists": [
+        "Slag Queens"
+      ],
+      "release_year": 2022,
+      "release_month": 10,
+      "release_day": 4,
+      "is_explicit": false,
+      "duration_ms": 217320,
+      "isrc": "AUZEM1801156",
+      "services": {
+        "spotify": {
+          "id": "4NZDObrbBp8KUK1frWvVDy",
+          "name": "Honey",
+          "url": "https://open.spotify.com/track/4NZDObrbBp8KUK1frWvVDy",
+          "artists": [
+            {
+              "id": "7pPGDv3oS7T6wRaLVApHU1",
+              "name": "Slag Queens",
+              "url": "spotify:artist:7pPGDv3oS7T6wRaLVApHU1"
+            }
+          ],
+          "album": {
+            "id": "4gIbt2ANE1hL5VbzD6AYow",
+            "name": "Favours",
+            "url": "spotify:album:4gIbt2ANE1hL5VbzD6AYow",
+            "total_tracks": 10,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 217320,
+          "image": "https://i.scdn.co/image/ab67616d0000b273e607388a51fa0d1ba5da23a9",
+          "audio_preview": "https://p.scdn.co/mp3-preview/9d4353f296d1b81b33314bdda1fad7631cf47df1?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+        },
+        "apple_music": {
+          "id": "1633187286",
+          "name": "Honey",
+          "url": "https://music.apple.com/us/album/honey/1633187281?i=1633187286",
+          "artists": [
+            {
+              "id": "1357511692",
+              "name": "Slag Queens",
+              "url": "https://music.apple.com/us/artist/slag-queens/1357511692"
+            }
+          ],
+          "composer": "Claire Johnston, Wesley Miles, Amber Perez-Wright & Lucinda Shannon",
+          "album": {
+            "id": "1633187281",
+            "name": "Favours",
+            "url": "https://music.apple.com/us/album/favours/1633187281",
+            "total_tracks": 10,
+            "ean": null,
+            "upc": "7316470777513"
+          },
+          "duration_ms": 217320,
+          "image": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f4/01/5a/f4015a32-b750-8719-60a2-1d3c6808e161/3319c3bb-5225-4812-94d9-5006a4e3ef6e.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f4/01/5a/f4015a32-b750-8719-60a2-1d3c6808e161/3319c3bb-5225-4812-94d9-5006a4e3ef6e.jpg/",
+          "genres": [
+            "Rock",
+            "Music",
+            "Pop"
+          ],
+          "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/79/8f/f0/798ff0d8-71dc-4735-5998-d111d024dab9/mzaf_8602892228726405656.plus.aac.p.m4a"
+        },
+        "youtube": {
+          "id": "_1x3MnN6BX0",
+          "name": "Honey",
+          "url": "https://www.youtube.com/watch?v=_1x3MnN6BX0",
+          "artists": [
+            {
+              "id": "UCYp5zZ2cQH4LQFciQ0-XU1A",
+              "name": "Slag Queens",
+              "url": "https://music.youtube.com/browse/UCYp5zZ2cQH4LQFciQ0-XU1A"
+            }
+          ],
+          "album": {
+            "id": "MPREb_kIK6LaPrlXj",
+            "name": "Honey",
+            "url": "https://music.youtube.com/browse/MPREb_kIK6LaPrlXj",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 218000,
+          "music_video": null,
+          "thumbnails": [
+            "https://lh3.googleusercontent.com/hp3kIiX_luob1NmvcrB76tjp9_yUZviM2sLpc0SNMD7LI1bnhTaUV-cqSi2VtcIzSPMGjuFImfOdvNVZCA=w60-h60-l90-rj",
+            "https://lh3.googleusercontent.com/hp3kIiX_luob1NmvcrB76tjp9_yUZviM2sLpc0SNMD7LI1bnhTaUV-cqSi2VtcIzSPMGjuFImfOdvNVZCA=w120-h120-l90-rj"
+          ]
+        },
+        "bandcamp": {
+          "id": "3841300322",
+          "name": "Honey",
+          "url": "https://slagqueens.bandcamp.com/track/honey",
+          "artists": [
+            {
+              "id": "3955633766",
+              "name": "Slag Queens",
+              "url": "https://slagqueens.bandcamp.com"
+            }
+          ],
+          "album": {
+            "id": "3841300322",
+            "name": "Honey",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=3841300322",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "image": "https://f4.bcbits.com/img/a352297526_0.jpg",
+          "duration_ms": 217320,
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3841300322&ts=1727025355&t=b2a0728fc62a0a42c35167c6b20cb2b1aa94a92a"
+        }
+      }
+    },
+    {
+      "name": "Outsider",
+      "album": "Purple, Green, and Yellow",
+      "disk_number": 1,
+      "track_number": 3,
+      "artists": [
+        "Anamon"
+      ],
+      "release_year": 2018,
+      "release_month": 10,
+      "release_day": 5,
+      "is_explicit": false,
+      "duration_ms": 192292,
+      "isrc": "SEYOK1854229",
+      "services": {
+        "spotify": {
+          "id": "3GkJria6DSMkj14Np75EVT",
+          "name": "Outsider",
+          "url": "https://open.spotify.com/track/3GkJria6DSMkj14Np75EVT",
+          "artists": [
+            {
+              "id": "4CxesgXIMLN0Ucq83TQXLB",
+              "name": "Anamon",
+              "url": "spotify:artist:4CxesgXIMLN0Ucq83TQXLB"
+            }
+          ],
+          "album": {
+            "id": "5pNEk2gCNJ97XpytAZ5yaH",
+            "name": "Purple, Green, and Yellow",
+            "url": "spotify:album:5pNEk2gCNJ97XpytAZ5yaH",
+            "total_tracks": 10,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 192292,
+          "image": "https://i.scdn.co/image/ab67616d0000b27349afc632360f0e3d7199d705",
+          "audio_preview": "https://p.scdn.co/mp3-preview/0c5960e996d4507fb3fc94644c6de6a0ae10dec1?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+        },
+        "apple_music": {
+          "id": "1438087615",
+          "name": "Outsider",
+          "url": "https://music.apple.com/us/album/outsider/1438087612?i=1438087615",
+          "artists": [
+            {
+              "id": "934918947",
+              "name": "Anamon",
+              "url": "https://music.apple.com/us/artist/anamon/934918947"
+            }
+          ],
+          "composer": null,
+          "album": {
+            "id": "1438087612",
+            "name": "Purple, Green, And Yellow",
+            "url": "https://music.apple.com/us/album/purple-green-and-yellow/1438087612",
+            "total_tracks": 10,
+            "ean": null,
+            "upc": "0885014001676"
+          },
+          "duration_ms": 192292,
+          "image": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/d1/28/78/d1287894-db73-67f8-4054-aec7fb4342e8/0885014001676.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/d1/28/78/d1287894-db73-67f8-4054-aec7fb4342e8/0885014001676.png/",
+          "genres": [
+            "Rock",
+            "Music"
+          ],
+          "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview118/v4/40/95/05/40950554-0dd9-c110-f6d2-2861f633a70a/mzaf_5131356976163602657.plus.aac.p.m4a"
+        },
+        "youtube": null,
+        "bandcamp": {
+          "id": "1268837910",
+          "name": "Outsider",
+          "url": "https://anamon.bandcamp.com/track/outsider",
+          "artists": [
+            {
+              "id": "40120835",
+              "name": "Anamon",
+              "url": "https://anamon.bandcamp.com"
+            }
+          ],
+          "album": {
+            "id": "1268837910",
+            "name": "Outsider",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=1268837910",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "image": "https://f4.bcbits.com/img/a4237645176_0.jpg",
+          "duration_ms": 192292,
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=1268837910&ts=1727025355&t=57e5e5afecab0fc8328e8962134a8ac92c2aaa42"
+        }
+      }
+    },
+    {
+      "name": "Contest",
+      "album": "Out Of Character",
+      "disk_number": 1,
+      "track_number": 1,
+      "artists": [
+        "Bad Bangs"
+      ],
+      "release_year": 2024,
+      "release_month": 5,
+      "release_day": 17,
+      "is_explicit": false,
+      "duration_ms": 180674,
+      "isrc": "FR10S2464303",
+      "services": {
+        "spotify": {
+          "id": "4HQ9Y4Co4Kl5Q9qfauqjtQ",
+          "name": "Contest",
+          "url": "https://open.spotify.com/track/4HQ9Y4Co4Kl5Q9qfauqjtQ",
+          "artists": [
+            {
+              "id": "4whVE2IHUREg7qw5sYBhHZ",
+              "name": "Bad Bangs",
+              "url": "spotify:artist:4whVE2IHUREg7qw5sYBhHZ"
+            }
+          ],
+          "album": {
+            "id": "28x9WO4MQW9mwuhYGO7mx1",
+            "name": "Out Of Character",
+            "url": "spotify:album:28x9WO4MQW9mwuhYGO7mx1",
+            "total_tracks": 10,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 180674,
+          "image": "https://i.scdn.co/image/ab67616d0000b273978e0c30ebeda09991ef5d11",
+          "audio_preview": "https://p.scdn.co/mp3-preview/b18c48ce77fc42d5f510bc2b59e589b3805dd07b?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+        },
+        "apple_music": {
+          "id": "1733134600",
+          "name": "Contest",
+          "url": "https://music.apple.com/us/album/contest/1733134594?i=1733134600",
+          "artists": [
+            {
+              "id": "1300397662",
+              "name": "Bad Bangs",
+              "url": "https://music.apple.com/us/artist/bad-bangs/1300397662"
+            }
+          ],
+          "composer": "Shelby De Fazio, sophia lubczenko, Tim Ryles & Ben Leahy",
+          "album": {
+            "id": "1733134594",
+            "name": "Out Of Character",
+            "url": "https://music.apple.com/us/album/out-of-character/1733134594",
+            "total_tracks": 10,
+            "ean": null,
+            "upc": "3617384804437"
+          },
+          "duration_ms": 180674,
+          "image": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/88/ed/1f/88ed1f42-8fbf-bf4e-b7cb-106c34134bbe/cover.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/88/ed/1f/88ed1f42-8fbf-bf4e-b7cb-106c34134bbe/cover.jpg/",
+          "genres": [
+            "Indie Rock",
+            "Music",
+            "Alternative"
+          ],
+          "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/88/7f/78/887f7817-1f2c-b77c-7d53-a3e0a4a0acf9/mzaf_9808039568390381852.plus.aac.p.m4a"
+        },
+        "youtube": {
+          "id": "Xnkt8qHb6aA",
+          "name": "Contest",
+          "url": "https://www.youtube.com/watch?v=Xnkt8qHb6aA",
+          "artists": [
+            {
+              "id": "UCwhCpUjd1XZ6pleT36Fzudw",
+              "name": "Bad Bangs",
+              "url": "https://music.youtube.com/browse/UCwhCpUjd1XZ6pleT36Fzudw"
+            }
+          ],
+          "album": {
+            "id": "MPREb_WQmWY1ouaWq",
+            "name": "Contest",
+            "url": "https://music.youtube.com/browse/MPREb_WQmWY1ouaWq",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 181000,
+          "music_video": null,
+          "thumbnails": [
+            "https://lh3.googleusercontent.com/lnIIBEqNqTP8p-0_uwETV9xGefhXoOAHjnClAgcvWom8YzhiS-go3JiiqlgMcB8guAOYbg2QoTXWmD22=w60-h60-l90-rj",
+            "https://lh3.googleusercontent.com/lnIIBEqNqTP8p-0_uwETV9xGefhXoOAHjnClAgcvWom8YzhiS-go3JiiqlgMcB8guAOYbg2QoTXWmD22=w120-h120-l90-rj"
+          ]
+        },
+        "bandcamp": {
+          "id": "3380217629",
+          "name": "Contest",
+          "url": "https://badbangs.bandcamp.com/track/contest-2",
+          "artists": [
+            {
+              "id": "1269655497",
+              "name": "Bad Bangs",
+              "url": "https://badbangs.bandcamp.com"
+            }
+          ],
+          "album": {
+            "id": "3380217629",
+            "name": "Contest",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=3380217629",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "image": "https://f4.bcbits.com/img/a3540012460_0.jpg",
+          "duration_ms": 180674,
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3380217629&ts=1727025355&t=965f16bc88d2f88ae52fb646c31c172f7ad7c72e"
+        }
+      }
+    },
+    {
+      "name": "Hyperactive",
+      "album": "Get Skintight",
+      "disk_number": 1,
+      "track_number": 2,
+      "artists": [
+        "The Donnas"
+      ],
+      "release_year": 2019,
+      "release_month": 12,
+      "release_day": 30,
+      "is_explicit": false,
+      "duration_ms": 135666,
+      "isrc": "uscgh2009052",
+      "services": {
+        "spotify": {
+          "id": "3jfPi9SLCzHFbXpnkGHvHj",
+          "name": "Hyperactive",
+          "url": "https://open.spotify.com/track/3jfPi9SLCzHFbXpnkGHvHj",
+          "artists": [
+            {
+              "id": "2c0qomdZabcCyqTZ5M9msd",
+              "name": "The Donnas",
+              "url": "spotify:artist:2c0qomdZabcCyqTZ5M9msd"
+            }
+          ],
+          "album": {
+            "id": "6UJsIJ65pVWYAJxQYa38yX",
+            "name": "Get Skintight",
+            "url": "spotify:album:6UJsIJ65pVWYAJxQYa38yX",
+            "total_tracks": 14,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 135666,
+          "image": "https://i.scdn.co/image/ab67616d0000b2730963ca5ae19e8efc96ee4272",
+          "audio_preview": "https://p.scdn.co/mp3-preview/7f8f48b0bb823135080e1497890d74b376cbea05?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+        },
+        "apple_music": {
+          "id": "1493838581",
+          "name": "Hyperactive",
+          "url": "https://music.apple.com/us/album/hyperactive/1493838579?i=1493838581",
+          "artists": [
+            {
+              "id": "154906",
+              "name": "The Donnas",
+              "url": "https://music.apple.com/us/artist/the-donnas/154906"
+            }
+          ],
+          "composer": "Brett E Anderson, Torrance Heather Castellano, Maya Anne Ford & Allison Robertson",
+          "album": {
+            "id": "1493838579",
+            "name": "Get Skintight",
+            "url": "https://music.apple.com/us/album/get-skintight/1493838579",
+            "total_tracks": 14,
+            "ean": null,
+            "upc": "194660509994"
+          },
+          "duration_ms": 135667,
+          "image": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/9e/9b/3b/9e9b3b60-af4c-5a22-da7d-1a372da17951/194660509994.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/9e/9b/3b/9e9b3b60-af4c-5a22-da7d-1a372da17951/194660509994.jpg/",
+          "genres": [
+            "Rock",
+            "Music"
+          ],
+          "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/db/d0/9b/dbd09b71-da3b-3c08-ae94-d3e037736b21/mzaf_990550569803698855.plus.aac.p.m4a"
+        },
+        "youtube": {
+          "id": "ghXJ-40BnuM",
+          "name": "Hyperactive",
+          "url": "https://www.youtube.com/watch?v=ghXJ-40BnuM",
+          "artists": [
+            {
+              "id": "UCwupE7Q2bNVYpOK247P6IgA",
+              "name": "The Donnas",
+              "url": "https://music.youtube.com/browse/UCwupE7Q2bNVYpOK247P6IgA"
+            }
+          ],
+          "album": {
+            "id": "MPREb_jGNKBtyuK08",
+            "name": "Get Skintight",
+            "url": "https://music.youtube.com/browse/MPREb_jGNKBtyuK08",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 136000,
+          "music_video": null,
+          "thumbnails": [
+            "https://lh3.googleusercontent.com/Qd_TrmKkPhmiRXti4FubBpyL0AgKRk77I9cBNxSRNHIgw5kyGNyfvVBcLY1Q524LNgQ_GeT676IKt99X=w60-h60-l90-rj",
+            "https://lh3.googleusercontent.com/Qd_TrmKkPhmiRXti4FubBpyL0AgKRk77I9cBNxSRNHIgw5kyGNyfvVBcLY1Q524LNgQ_GeT676IKt99X=w120-h120-l90-rj"
+          ]
+        },
+        "bandcamp": null
+      }
+    },
+    {
+      "name": "Just Like Me - Remastered",
+      "album": "Smell the Magic",
+      "disk_number": 1,
+      "track_number": 8,
+      "artists": [
+        "L7"
+      ],
+      "release_year": 1990,
+      "release_month": null,
+      "release_day": null,
+      "is_explicit": false,
+      "duration_ms": 212053,
+      "isrc": "USSUB1937908",
+      "services": {
+        "spotify": {
+          "id": "14l6janUJ4igBeYhgciEEZ",
+          "name": "Just Like Me - Remastered",
+          "url": "https://open.spotify.com/track/14l6janUJ4igBeYhgciEEZ",
+          "artists": [
+            {
+              "id": "2zMQOJ4Cyl4BYbw6WqaO3h",
+              "name": "L7",
+              "url": "spotify:artist:2zMQOJ4Cyl4BYbw6WqaO3h"
+            }
+          ],
+          "album": {
+            "id": "0VgXvWzdF93KHuNdzzSgaB",
+            "name": "Smell the Magic",
+            "url": "spotify:album:0VgXvWzdF93KHuNdzzSgaB",
+            "total_tracks": 9,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 212053,
+          "image": "https://i.scdn.co/image/ab67616d0000b273740978fffc7e9e4f7114bee4",
+          "audio_preview": "https://p.scdn.co/mp3-preview/1340a4c36273b579fcd918de6408d2cc3c8d5960?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+        },
+        "apple_music": {
+          "id": "1523535486",
+          "name": "Just Like Me (Remastered)",
+          "url": "https://music.apple.com/us/album/just-like-me-remastered/1523535237?i=1523535486",
+          "artists": [
+            {
+              "id": "192131",
+              "name": "L7",
+              "url": "https://music.apple.com/us/artist/l7/192131"
+            }
+          ],
+          "composer": "Gardner, Sparks, Jennifer Finch, Plakas & Dusty",
+          "album": {
+            "id": "1523535237",
+            "name": "Smell the Magic (Remastered)",
+            "url": "https://music.apple.com/us/album/smell-the-magic-remastered/1523535237",
+            "total_tracks": 9,
+            "ean": null,
+            "upc": "098787137965"
+          },
+          "duration_ms": 212053,
+          "image": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4c/9e/76/4c9e7634-874e-e2ce-18ad-16a484c58660/L7_SmelltheMagic_4000.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4c/9e/76/4c9e7634-874e-e2ce-18ad-16a484c58660/L7_SmelltheMagic_4000.jpg/",
+          "genres": [
+            "Alternative",
+            "Music",
+            "Rock"
+          ],
+          "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/1b/4c/ee/1b4cee25-a267-f6cf-3ef7-20db4aa76a63/mzaf_1356882883307836100.plus.aac.p.m4a"
+        },
+        "youtube": {
+          "id": "MKwnbu_2tew",
+          "name": "Just Like Me",
+          "url": "https://www.youtube.com/watch?v=MKwnbu_2tew",
+          "artists": [
+            {
+              "id": "UCMGBcmclydM47aNd_y1h9XQ",
+              "name": "L7",
+              "url": "https://music.youtube.com/browse/UCMGBcmclydM47aNd_y1h9XQ"
+            }
+          ],
+          "album": {
+            "id": "MPREb_VzUKmtMY5WQ",
+            "name": "Smell the Magic",
+            "url": "https://music.youtube.com/browse/MPREb_VzUKmtMY5WQ",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 213000,
+          "music_video": null,
+          "thumbnails": [
+            "https://lh3.googleusercontent.com/xaCwZocuiK02pP93Mv9-BbWf2BR_03kEsXGYMXV0LM0RpeIe16XIVcLZMphzYWafByZCd7OJkqM4jW5_Og=w60-h60-l90-rj",
+            "https://lh3.googleusercontent.com/xaCwZocuiK02pP93Mv9-BbWf2BR_03kEsXGYMXV0LM0RpeIe16XIVcLZMphzYWafByZCd7OJkqM4jW5_Og=w120-h120-l90-rj"
+          ]
+        },
+        "bandcamp": null
+      }
+    },
+    {
+      "name": "Pop Tart",
+      "album": "Piranha Rama",
+      "disk_number": 1,
+      "track_number": 1,
+      "artists": [
+        "Piranha Rama"
+      ],
+      "release_year": 2018,
+      "release_month": 7,
+      "release_day": 20,
+      "is_explicit": false,
+      "duration_ms": 209240,
+      "isrc": "QZDA61857923",
+      "services": {
+        "spotify": {
+          "id": "5sgHtRuO2CtjlEjzQGbpr6",
+          "name": "Pop Tart",
+          "url": "https://open.spotify.com/track/5sgHtRuO2CtjlEjzQGbpr6",
+          "artists": [
+            {
+              "id": "33hEkXwIBrRP2NFT8joZoB",
+              "name": "Piranha Rama",
+              "url": "spotify:artist:33hEkXwIBrRP2NFT8joZoB"
+            }
+          ],
+          "album": {
+            "id": "7zrc1njtY0D3SlgZDVfK9i",
+            "name": "Piranha Rama",
+            "url": "spotify:album:7zrc1njtY0D3SlgZDVfK9i",
+            "total_tracks": 12,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 209240,
+          "image": "https://i.scdn.co/image/ab67616d0000b273604e93cf5fbfd4853d033a6b",
+          "audio_preview": "https://p.scdn.co/mp3-preview/66460addffcf2e1d004c27fcbf7953abfa0eb303?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+        },
+        "apple_music": {
+          "id": "1412438644",
+          "name": "Pop Tart",
+          "url": "https://music.apple.com/us/album/pop-tart/1412438642?i=1412438644",
+          "artists": [
+            {
+              "id": "1412302978",
+              "name": "Piranha Rama",
+              "url": "https://music.apple.com/us/artist/piranha-rama/1412302978"
+            }
+          ],
+          "composer": "Piranha Rama",
+          "album": {
+            "id": "1412438642",
+            "name": "Piranha Rama",
+            "url": "https://music.apple.com/us/album/piranha-rama/1412438642",
+            "total_tracks": 12,
+            "ean": null,
+            "upc": "840091356491"
+          },
+          "duration_ms": 209240,
+          "image": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/99/37/4d/99374d2f-e948-c3ba-f2e0-03ed7581d951/artwork.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/99/37/4d/99374d2f-e948-c3ba-f2e0-03ed7581d951/artwork.jpg/",
+          "genres": [
+            "Rock",
+            "Music",
+            "R&B/Soul"
+          ],
+          "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview128/v4/84/3e/e1/843ee1fc-8956-6e07-ae04-93a44b24abdd/mzaf_6092092932381486657.plus.aac.p.m4a"
+        },
+        "youtube": {
+          "id": "oKUrPX0B_Fg",
+          "name": "Pop Tart",
+          "url": "https://www.youtube.com/watch?v=oKUrPX0B_Fg",
+          "artists": [
+            {
+              "id": "UCBJkNgQ3NMuG91RvUdS7SQA",
+              "name": "Piranha Rama",
+              "url": "https://music.youtube.com/browse/UCBJkNgQ3NMuG91RvUdS7SQA"
+            }
+          ],
+          "album": {
+            "id": "MPREb_vVirms5WxTm",
+            "name": "Piranha Rama",
+            "url": "https://music.youtube.com/browse/MPREb_vVirms5WxTm",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 210000,
+          "music_video": null,
+          "thumbnails": [
+            "https://lh3.googleusercontent.com/WoqshxgkrrtTG-PupOb53wqViuOjnLdPk-Ez0lrIMVdq2rGtcI4WUEa5PlyMBi8_AiCDtR2ffsDTJTZg=w60-h60-l90-rj",
+            "https://lh3.googleusercontent.com/WoqshxgkrrtTG-PupOb53wqViuOjnLdPk-Ez0lrIMVdq2rGtcI4WUEa5PlyMBi8_AiCDtR2ffsDTJTZg=w120-h120-l90-rj"
+          ]
+        },
+        "bandcamp": null
+      }
+    },
+    {
+      "name": "Compassion to the Nth Degree",
+      "album": "Welcome To Whatever",
+      "disk_number": 1,
+      "track_number": 1,
+      "artists": [
+        "Rainbow Girls"
+      ],
+      "release_year": 2023,
+      "release_month": 12,
+      "release_day": 4,
+      "is_explicit": false,
+      "duration_ms": 208173,
+      "isrc": "USDY42290252",
+      "services": {
+        "spotify": {
+          "id": "0kORpMmVXF713WGNp8OvFg",
+          "name": "Compassion to the Nth Degree",
+          "url": "https://open.spotify.com/track/0kORpMmVXF713WGNp8OvFg",
+          "artists": [
+            {
+              "id": "5qV8qZrppecEsKTWwCCtA7",
+              "name": "Rainbow Girls",
+              "url": "spotify:artist:5qV8qZrppecEsKTWwCCtA7"
+            }
+          ],
+          "album": {
+            "id": "46JViHQnvWfs9yRoy9kY1Z",
+            "name": "Welcome To Whatever",
+            "url": "spotify:album:46JViHQnvWfs9yRoy9kY1Z",
+            "total_tracks": 9,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 208173,
+          "image": "https://i.scdn.co/image/ab67616d0000b273504054dbe5dc9990d4ea49a2",
+          "audio_preview": "https://p.scdn.co/mp3-preview/717c7eb598eb37831434404460996bdee717660b?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+        },
+        "apple_music": {
+          "id": "1700598879",
+          "name": "Compassion to the Nth Degree",
+          "url": "https://music.apple.com/us/album/compassion-to-the-nth-degree/1700598877?i=1700598879",
+          "artists": [
+            {
+              "id": "944525452",
+              "name": "Rainbow Girls",
+              "url": "https://music.apple.com/us/artist/rainbow-girls/944525452"
+            }
+          ],
+          "composer": "Erin M Chapin, Caitlin Gowdey & Vanessa M Wilbourn",
+          "album": {
+            "id": "1700598877",
+            "name": "Welcome To Whatever",
+            "url": "https://music.apple.com/us/album/welcome-to-whatever/1700598877",
+            "total_tracks": 9,
+            "ean": null,
+            "upc": "198025778315"
+          },
+          "duration_ms": 208173,
+          "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/82/f2/d5/82f2d570-858d-fc3a-0757-a0ecbf877ec7/198025778315.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/82/f2/d5/82f2d570-858d-fc3a-0757-a0ecbf877ec7/198025778315.jpg/",
+          "genres": [
+            "Alternative Folk",
+            "Music",
+            "Singer/Songwriter"
+          ],
+          "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/64/1f/9e/641f9ebc-fd45-93e8-c5e8-6d1f20a830e0/mzaf_10042770616671485538.plus.aac.p.m4a"
+        },
+        "youtube": {
+          "id": "1V-el-cOZVE",
+          "name": "Compassion to the Nth Degree",
+          "url": "https://www.youtube.com/watch?v=1V-el-cOZVE",
+          "artists": [
+            {
+              "id": "UCrz8e3aJ5RxHEhm8pctvwDQ",
+              "name": "Rainbow Girls",
+              "url": "https://music.youtube.com/browse/UCrz8e3aJ5RxHEhm8pctvwDQ"
+            }
+          ],
+          "album": null,
+          "duration_ms": 209000,
+          "music_video": null,
+          "thumbnails": [
+            "https://i.ytimg.com/vi/1V-el-cOZVE/sddefault.jpg?sqp=-oaymwEWCJADEOEBIAQqCghqEJQEGHgg6AJIWg&rs=AMzJL3mnQfww9INLlsF7OL3gQRkwW1dFXQ"
+          ]
+        },
+        "bandcamp": null
+      }
+    },
+    {
+      "name": "My Golden One",
+      "album": "Floating Features",
+      "disk_number": 1,
+      "track_number": 7,
+      "artists": [
+        "La Luz"
+      ],
+      "release_year": 2018,
+      "release_month": 5,
+      "release_day": 11,
+      "is_explicit": false,
+      "duration_ms": 254142,
+      "isrc": "USHF31810507",
+      "services": {
+        "spotify": {
+          "id": "6ZAoxqz6i1LFNsrnumpzCC",
+          "name": "My Golden One",
+          "url": "https://open.spotify.com/track/6ZAoxqz6i1LFNsrnumpzCC",
+          "artists": [
+            {
+              "id": "6QRlkjrHz5A62mqeNZz7t3",
+              "name": "La Luz",
+              "url": "spotify:artist:6QRlkjrHz5A62mqeNZz7t3"
+            }
+          ],
+          "album": {
+            "id": "0hMh7RDyxuRD5AoTdh72DN",
+            "name": "Floating Features",
+            "url": "spotify:album:0hMh7RDyxuRD5AoTdh72DN",
+            "total_tracks": 11,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 254142,
+          "image": "https://i.scdn.co/image/ab67616d0000b2736489389497ef6b54bec100e7",
+          "audio_preview": "https://p.scdn.co/mp3-preview/49c38d9d4f627ba436a220ed0835cc7d63ac1bc7?cid=d8a5ed958d274c2e8ee717e6a4b0971d"
+        },
+        "apple_music": {
+          "id": "1337897648",
+          "name": "My Golden One",
+          "url": "https://music.apple.com/us/album/my-golden-one/1337897207?i=1337897648",
+          "artists": [
+            {
+              "id": "377163300",
+              "name": "La Luz",
+              "url": "https://music.apple.com/us/artist/la-luz/377163300"
+            }
+          ],
+          "composer": "Alice Sandahl, Lena Simon, Marian Li-Pino & Shana Cleveland",
+          "album": {
+            "id": "1337897207",
+            "name": "Floating Features",
+            "url": "https://music.apple.com/us/album/floating-features/1337897207",
+            "total_tracks": 11,
+            "ean": null,
+            "upc": "098787310566"
+          },
+          "duration_ms": 254142,
+          "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/0e/a3/56/0ea356f6-ccb3-76e4-e7aa-e6e800ca85b2/098787310566.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/0e/a3/56/0ea356f6-ccb3-76e4-e7aa-e6e800ca85b2/098787310566.png/",
+          "genres": [
+            "Alternative",
+            "Music",
+            "Rock"
+          ],
+          "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/ef/a0/e7/efa0e735-d32b-5696-a55c-032938a765a4/mzaf_18039299482360661885.plus.aac.p.m4a"
+        },
+        "youtube": {
+          "id": "F7nsFMTA2A0",
+          "name": "My Golden One",
+          "url": "https://www.youtube.com/watch?v=F7nsFMTA2A0",
+          "artists": [
+            {
+              "id": "UCEYnbttMVGHNeBVtjpkTlAg",
+              "name": "La Luz",
+              "url": "https://music.youtube.com/browse/UCEYnbttMVGHNeBVtjpkTlAg"
+            }
+          ],
+          "album": {
+            "id": "MPREb_3lfhxnjHhBh",
+            "name": "Floating Features",
+            "url": "https://music.youtube.com/browse/MPREb_3lfhxnjHhBh",
+            "total_tracks": null,
+            "ean": null,
+            "upc": null
+          },
+          "duration_ms": 255000,
+          "music_video": null,
+          "thumbnails": [
+            "https://lh3.googleusercontent.com/utBtherQVVOEIscy8_y-Pk945YYEvsEhqd_Zm4C2IQ5e9tbvQp8A8LiXZlCXqAb_omPvNSvSkYLNJhqn=w60-h60-l90-rj",
+            "https://lh3.googleusercontent.com/utBtherQVVOEIscy8_y-Pk945YYEvsEhqd_Zm4C2IQ5e9tbvQp8A8LiXZlCXqAb_omPvNSvSkYLNJhqn=w120-h120-l90-rj"
+          ]
+        },
+        "bandcamp": null
+      }
+    }
+  ],
+  "type": "Spotify",
+  "id": "4v4JZarNXGgy2JbKqOnIws",
+  "description": ""
+}

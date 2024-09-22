@@ -61,6 +61,7 @@
           },
           "duration_ms": 267959,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/8a/13/38/8a133891-1b3a-2f3c-c54b-80fd895eb2b9/191400004665.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/8a/13/38/8a133891-1b3a-2f3c-c54b-80fd895eb2b9/191400004665.png/",
           "genres": [
             "Alternative",
             "Music"
@@ -86,7 +87,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "4:28",
           "duration_ms": 268000,
           "music_video": null,
           "thumbnails": [
@@ -157,6 +157,7 @@
           },
           "duration_ms": 124162,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/d8/63/eb/d863eb4a-2d94-b54d-1d01-a032d2f22cee/artwork.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/d8/63/eb/d863eb4a-2d94-b54d-1d01-a032d2f22cee/artwork.jpg/",
           "genres": [
             "Punk",
             "Music",
@@ -184,7 +185,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "2:05",
           "duration_ms": 125000,
           "music_video": null,
           "thumbnails": [
@@ -206,14 +206,14 @@
           "album": {
             "id": "3268559900",
             "name": "Step Away",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=1659961478",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=3268559900",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a2140233619_0.jpg",
           "duration_ms": 124162,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3268559900&ts=1726516070&t=6d9c80689eebfbf34ec517aba35f7d0d654dac62"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3268559900&ts=1726991879&t=b49d6981cede165eb4aae0a89705e41c3d35765a"
         }
       }
     },
@@ -277,6 +277,7 @@
           },
           "duration_ms": 173852,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/e1/76/8f/e1768fee-d008-97f4-04e6-bd7b5b170757/cover.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/e1/76/8f/e1768fee-d008-97f4-04e6-bd7b5b170757/cover.jpg/",
           "genres": [
             "Rock",
             "Music"
@@ -302,7 +303,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "2:54",
           "duration_ms": 174000,
           "music_video": null,
           "thumbnails": [
@@ -373,6 +373,7 @@
           },
           "duration_ms": 208920,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/a1/39/d7/a139d777-1ede-b97b-33af-e5138dc72f34/773871018602.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/a1/39/d7/a139d777-1ede-b97b-33af-e5138dc72f34/773871018602.jpg/",
           "genres": [
             "Alternative",
             "Music",
@@ -399,7 +400,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "3:29",
           "duration_ms": 209000,
           "music_video": null,
           "thumbnails": [
@@ -421,14 +421,14 @@
           "album": {
             "id": "719578781",
             "name": "Rover",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=930353027",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=719578781",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a3469210706_0.jpg",
           "duration_ms": 208920,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=719578781&ts=1726516070&t=874abb9e72c3476e5c1786557bb44b434365c8c4"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=719578781&ts=1726991879&t=97e0bcd889a5edd6473975bfd234ac3ce91089fb"
         }
       }
     },
@@ -492,6 +492,7 @@
           },
           "duration_ms": 103031,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music1/v4/ee/e9/f2/eee9f234-8ae4-547f-5853-1a2b3a2aebb6/642610484452.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music1/v4/ee/e9/f2/eee9f234-8ae4-547f-5853-1a2b3a2aebb6/642610484452.jpg/",
           "genres": [
             "Alternative",
             "Music",
@@ -518,7 +519,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "1:44",
           "duration_ms": 104000,
           "music_video": null,
           "thumbnails": [
@@ -540,14 +540,14 @@
           "album": {
             "id": "1752241852",
             "name": "Shelf Life",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=4114193955",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=1752241852",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a57310827_0.jpg",
           "duration_ms": 103031,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=1752241852&ts=1726516070&t=d2cedaef30048fb60547561b3dad32232eedd6b9"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=1752241852&ts=1726991879&t=d9944e5a4c91f98f310c3a19e88270ef102edd95"
         }
       }
     },
@@ -611,6 +611,7 @@
           },
           "duration_ms": 97107,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/a3/75/e3/a375e3db-7682-5485-07da-9eac930327f0/cover.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/a3/75/e3/a375e3db-7682-5485-07da-9eac930327f0/cover.jpg/",
           "genres": [
             "Alternative",
             "Music"
@@ -636,7 +637,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "1:38",
           "duration_ms": 98000,
           "music_video": null,
           "thumbnails": [
@@ -658,14 +658,14 @@
           "album": {
             "id": "3957223205",
             "name": "Gimme Everything You Got Girl",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=4083820156",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=3957223205",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a3082080218_0.jpg",
           "duration_ms": 97106,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3957223205&ts=1726516070&t=0257940d2dd8fad2973da8ef9c9fe5618d0243ff"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3957223205&ts=1726991879&t=e8a360fe81c553f4e966337a24ff7353d4fac0e7"
         }
       }
     },
@@ -729,6 +729,7 @@
           },
           "duration_ms": 210067,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/df/8a/58/df8a58f8-5b77-d052-6d75-d6c629288878/2836.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/df/8a/58/df8a58f8-5b77-d052-6d75-d6c629288878/2836.jpg/",
           "genres": [
             "Indie Rock",
             "Music",
@@ -755,7 +756,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "3:31",
           "duration_ms": 211000,
           "music_video": null,
           "thumbnails": [
@@ -777,14 +777,14 @@
           "album": {
             "id": "3343983693",
             "name": "Changeless Kingdom",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=3643028464",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=3343983693",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a1105176986_0.jpg",
           "duration_ms": 210067,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3343983693&ts=1726557328&t=692ee1d9f184de2e865453d9e1ab86086d6ae1ce"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3343983693&ts=1726991879&t=5c42ba3ad7f28e9dfd6bc897c86bf814a8653455"
         }
       }
     },
@@ -848,6 +848,7 @@
           },
           "duration_ms": 149160,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/c0/a4/03/c0a40379-d8c2-03e2-d1b5-f94debaf303c/098787305661.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/c0/a4/03/c0a40379-d8c2-03e2-d1b5-f94debaf303c/098787305661.png/",
           "genres": [
             "Alternative",
             "Music",
@@ -877,7 +878,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "2:30",
           "duration_ms": 150000,
           "music_video": null,
           "thumbnails": [
@@ -948,6 +948,7 @@
           },
           "duration_ms": 64722,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music60/v4/23/57/1e/23571e70-f88d-29f7-f8d3-6c26c79fdd68/577_Sneaks_Gymnastics_2500px.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music60/v4/23/57/1e/23571e70-f88d-29f7-f8d3-6c26c79fdd68/577_Sneaks_Gymnastics_2500px.jpg/",
           "genres": [
             "Alternative",
             "Music",
@@ -974,7 +975,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "1:05",
           "duration_ms": 65000,
           "music_video": null,
           "thumbnails": [
@@ -995,14 +995,14 @@
           "album": {
             "id": "3061216179",
             "name": "Red",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=1458704019",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=3061216179",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a1450411868_0.jpg",
           "duration_ms": 64722,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3061216179&ts=1726557328&t=d66e78982e93dfc87b28d2047403e3af7162d8f4"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3061216179&ts=1726991879&t=12bffd5cd195ff8e9a566271269b6e785e7583b4"
         }
       }
     },
@@ -1066,6 +1066,7 @@
           },
           "duration_ms": 167896,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/89/94/88/8994880c-ba26-eb7d-5b18-a83747ac34dc/5055834170981_cover.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/89/94/88/8994880c-ba26-eb7d-5b18-a83747ac34dc/5055834170981_cover.jpg/",
           "genres": [
             "Alternative",
             "Music",
@@ -1075,9 +1076,9 @@
           "audio_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview118/v4/e5/d0/34/e5d03472-b7f7-bc68-44a6-a3f1a5fc6747/mzaf_2144893155606898606.plus.aac.p.m4a"
         },
         "youtube": {
-          "id": "dhTFmZbYcfc",
+          "id": "4itjttNUuPQ",
           "name": "Hanover Cure",
-          "url": "https://www.youtube.com/watch?v=dhTFmZbYcfc",
+          "url": "https://www.youtube.com/watch?v=4itjttNUuPQ",
           "artists": [
             {
               "id": "UCR498ltEN7x372KuSYLWEgw",
@@ -1086,19 +1087,18 @@
             }
           ],
           "album": {
-            "id": "MPREb_CGKJlrzKC71",
+            "id": "MPREb_bX011vZYgQt",
             "name": "Consumer Complaints",
-            "url": "https://music.youtube.com/browse/MPREb_CGKJlrzKC71",
+            "url": "https://music.youtube.com/browse/MPREb_bX011vZYgQt",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
-          "duration_raw": "2:48",
-          "duration_ms": 168000,
+          "duration_ms": 169000,
           "music_video": null,
           "thumbnails": [
-            "https://lh3.googleusercontent.com/b8xQ4jprf3Z6uJ_Kn_zMM7utVSBlo0GCmk5eY4tNUWXZi5MZdbnz-StdV7iaS9WFXUgF_6f9Ax_K6s8=w60-h60-l90-rj",
-            "https://lh3.googleusercontent.com/b8xQ4jprf3Z6uJ_Kn_zMM7utVSBlo0GCmk5eY4tNUWXZi5MZdbnz-StdV7iaS9WFXUgF_6f9Ax_K6s8=w120-h120-l90-rj"
+            "https://lh3.googleusercontent.com/2ZRt3dxWZ9Ap70SC2XESJF4xSGaFTpW_oq1vgT_ehAJp9_IBXu_kx4XD_-RPLeMnDS2MxW_xuczP4N-doQ=w60-h60-l90-rj",
+            "https://lh3.googleusercontent.com/2ZRt3dxWZ9Ap70SC2XESJF4xSGaFTpW_oq1vgT_ehAJp9_IBXu_kx4XD_-RPLeMnDS2MxW_xuczP4N-doQ=w120-h120-l90-rj"
           ]
         },
         "bandcamp": {
@@ -1115,14 +1115,14 @@
           "album": {
             "id": "1493883384",
             "name": "Hanover Cure",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=3709959111",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=1493883384",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a2723309238_0.jpg",
           "duration_ms": 167946,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=1493883384&ts=1726516070&t=38f23489ef8fba2a88b9699d3251fa4470f8fef0"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=1493883384&ts=1726991879&t=7dc8a13b64cc0f7c0e64f2db383b06cf617bbedd"
         }
       }
     },
@@ -1186,6 +1186,7 @@
           },
           "duration_ms": 159150,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/aa/cd/5e/aacd5e0f-feaa-0a0a-be08-b1687853f211/artwork.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/aa/cd/5e/aacd5e0f-feaa-0a0a-be08-b1687853f211/artwork.jpg/",
           "genres": [
             "Punk",
             "Music",
@@ -1213,7 +1214,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "2:40",
           "duration_ms": 160000,
           "music_video": null,
           "thumbnails": [
@@ -1284,6 +1284,7 @@
           },
           "duration_ms": 298467,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/12/a5/94/12a59465-139b-b46f-db44-ca08a4506e86/644918014225.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/12/a5/94/12a59465-139b-b46f-db44-ca08a4506e86/644918014225.png/",
           "genres": [
             "Rock",
             "Music"
@@ -1309,7 +1310,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "4:59",
           "duration_ms": 299000,
           "music_video": null,
           "thumbnails": [
@@ -1380,6 +1380,7 @@
           },
           "duration_ms": 132573,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music/3a/c7/bc/mzi.hfnqoldi.tif/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music/3a/c7/bc/mzi.hfnqoldi.tif/",
           "genres": [
             "Rock",
             "Music",
@@ -1408,7 +1409,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "2:13",
           "duration_ms": 133000,
           "music_video": null,
           "thumbnails": [
@@ -1430,14 +1430,14 @@
           "album": {
             "id": "3162844333",
             "name": "Turnstile",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=2353337741",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=3162844333",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a2816755076_0.jpg",
           "duration_ms": 132573,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3162844333&ts=1726557328&t=d9ac0c39043693297d01b58ae6b90eda48ee8211"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3162844333&ts=1726991879&t=949a8bc8ccf40fbadef6536f9b4327894b12140f"
         }
       }
     },
@@ -1501,6 +1501,7 @@
           },
           "duration_ms": 226527,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music69/v4/e6/0c/ce/e60cce2e-8ff7-f674-acd3-fbb0242459d4/887828028962.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music69/v4/e6/0c/ce/e60cce2e-8ff7-f674-acd3-fbb0242459d4/887828028962.png/",
           "genres": [
             "Alternative",
             "Music",
@@ -1528,7 +1529,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "3:47",
           "duration_ms": 227000,
           "music_video": null,
           "thumbnails": [
@@ -1549,14 +1549,14 @@
           "album": {
             "id": "3120224973",
             "name": "Heart Of A Dog",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=868489304",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=3120224973",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a633564550_0.jpg",
           "duration_ms": 226527,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3120224973&ts=1726516070&t=0aaa543d38fb8518f47d23a6c5d5facfe6a3e6cf"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3120224973&ts=1726991879&t=01b28568bbbdc02fcaac25f7e0ccb4244b6e6a95"
         }
       }
     },
@@ -1620,6 +1620,7 @@
           },
           "duration_ms": 209173,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/57/20/11/5720112e-4295-cae1-2145-2766a7eb82f1/40014.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/57/20/11/5720112e-4295-cae1-2145-2766a7eb82f1/40014.jpg/",
           "genres": [
             "Alternative",
             "Music"
@@ -1645,7 +1646,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "3:30",
           "duration_ms": 210000,
           "music_video": null,
           "thumbnails": [
@@ -1667,14 +1667,14 @@
           "album": {
             "id": "2494673567",
             "name": "Soft Like a Flower",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=2258999971",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=2494673567",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a3690366808_0.jpg",
           "duration_ms": 196273,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=2494673567&ts=1726516070&t=8a8a8907764c10cf0832b28007ad5adac3867568"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=2494673567&ts=1726991879&t=a04eef1d3fa9e2eeefd3b352988d89c9b3f9edd8"
         }
       }
     },
@@ -1738,6 +1738,7 @@
           },
           "duration_ms": 165000,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/df/6d/e6/df6de6e0-56dc-a6c4-13f0-bb56666f9831/196922593963_Cover.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/df/6d/e6/df6de6e0-56dc-a6c4-13f0-bb56666f9831/196922593963_Cover.jpg/",
           "genres": [
             "Indie Rock",
             "Music",
@@ -1764,7 +1765,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "2:45",
           "duration_ms": 165000,
           "music_video": null,
           "thumbnails": [
@@ -1786,14 +1786,14 @@
           "album": {
             "id": "3873930681",
             "name": "Hold My Kite",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=3466476927",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=3873930681",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a1009339723_0.jpg",
           "duration_ms": 165000,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3873930681&ts=1726557328&t=380f5e85646422c28f99c2b26414c004c6e3881f"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3873930681&ts=1726991879&t=67e4a7ab554453ba5fa7766060c45e30c10bd218"
         }
       }
     },
@@ -1857,6 +1857,7 @@
           },
           "duration_ms": 89123,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/94/e9/37/94e9378b-2fc5-eacc-776c-bb09f1c4d125/016027947853.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/94/e9/37/94e9378b-2fc5-eacc-776c-bb09f1c4d125/016027947853.png/",
           "genres": [
             "Punk",
             "Music",
@@ -1883,7 +1884,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "1:30",
           "duration_ms": 90000,
           "music_video": null,
           "thumbnails": [
@@ -1905,14 +1905,14 @@
           "album": {
             "id": "2615312570",
             "name": "Cutting Edge",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=258320878",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=2615312570",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a926645400_0.jpg",
           "duration_ms": 89123,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=2615312570&ts=1726516070&t=f687f51f48c212db74845d1d189dd301a5bcc9eb"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=2615312570&ts=1726991879&t=5108548fd953c793ad34f39a4caf67c3d1c471e1"
         }
       }
     },
@@ -1976,6 +1976,7 @@
           },
           "duration_ms": 139148,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/89/c0/32/89c03231-f118-5a77-b40b-cfb31066439e/634457917224.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/89/c0/32/89c03231-f118-5a77-b40b-cfb31066439e/634457917224.jpg/",
           "genres": [
             "Indie Rock",
             "Music",
@@ -2003,7 +2004,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "2:20",
           "duration_ms": 140000,
           "music_video": null,
           "thumbnails": [
@@ -2024,14 +2024,14 @@
           "album": {
             "id": "3134278443",
             "name": "Vile Bodies",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=3067963923",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=3134278443",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a617899837_0.jpg",
           "duration_ms": 139148,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3134278443&ts=1726557328&t=368bfbd54b69bdbdeb585b6cfd5fd1c5f73623d2"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3134278443&ts=1726991879&t=0b36457526e5708cd2fa490c15225760e58af472"
         }
       }
     },
@@ -2095,6 +2095,7 @@
           },
           "duration_ms": 161093,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/7f/d3/34/7fd3343c-a2b3-9e57-4171-b7bff912e64f/616822106228.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/7f/d3/34/7fd3343c-a2b3-9e57-4171-b7bff912e64f/616822106228.jpg/",
           "genres": [
             "Alternative",
             "Music",
@@ -2122,7 +2123,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "2:42",
           "duration_ms": 162000,
           "music_video": null,
           "thumbnails": [
@@ -2144,14 +2144,14 @@
           "album": {
             "id": "2738871631",
             "name": "Something Ugly",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=3417351896",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=2738871631",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a2981433383_0.jpg",
           "duration_ms": 161094,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=2738871631&ts=1726557328&t=0996138dff2d1d879b8d830ef4d2503cf4cfd0e6"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=2738871631&ts=1726991879&t=20a0ecd1b56c7ce288b0a4e97bc759618ca7a8d0"
         }
       }
     },
@@ -2215,6 +2215,7 @@
           },
           "duration_ms": 167993,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music127/v4/f9/0b/05/f90b0577-b450-ddc1-b9a1-4509cba6af9d/859721639538_cover.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music127/v4/f9/0b/05/f90b0577-b450-ddc1-b9a1-4509cba6af9d/859721639538_cover.jpg/",
           "genres": [
             "Alternative",
             "Music",
@@ -2241,7 +2242,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "2:48",
           "duration_ms": 168000,
           "music_video": null,
           "thumbnails": [
@@ -2263,14 +2263,14 @@
           "album": {
             "id": "1547403071",
             "name": "Xue",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=352867515",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=1547403071",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a1778260656_0.jpg",
           "duration_ms": 167993,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=1547403071&ts=1726516070&t=9dd2b1af36f1c2502a839c6e93d244e43de430d2"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=1547403071&ts=1726991879&t=5c90f390ad1b97a6c6ff8d12d2e53511a8d5950a"
         }
       }
     },
@@ -2334,6 +2334,7 @@
           },
           "duration_ms": 239854,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music3/v4/83/08/fd/8308fd48-054f-75f3-db11-7ba646821310/artwork.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music3/v4/83/08/fd/8308fd48-054f-75f3-db11-7ba646821310/artwork.jpg/",
           "genres": [
             "Punk",
             "Music",
@@ -2361,7 +2362,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "4:00",
           "duration_ms": 240000,
           "music_video": null,
           "thumbnails": [
@@ -2383,14 +2383,14 @@
           "album": {
             "id": "3316046216",
             "name": "Peach",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=1524791178",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=3316046216",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a2094016541_0.jpg",
           "duration_ms": 239897,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3316046216&ts=1726557328&t=4cfe4c2d33e92b48f10ee13c7eafaf6e32ad8d33"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3316046216&ts=1726991879&t=822e83fd21691064f0c021e3f6e0c1234efbb02e"
         }
       }
     },
@@ -2454,6 +2454,7 @@
           },
           "duration_ms": 120032,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/fb/48/e5/fb48e5aa-dcbe-21a1-7816-44ca923b6c00/193428376267.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/fb/48/e5/fb48e5aa-dcbe-21a1-7816-44ca923b6c00/193428376267.jpg/",
           "genres": [
             "Rock",
             "Music",
@@ -2480,7 +2481,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "2:01",
           "duration_ms": 121000,
           "music_video": null,
           "thumbnails": [
@@ -2502,14 +2502,14 @@
           "album": {
             "id": "2224814756",
             "name": "Keep Door Open",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=1042682354",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=2224814756",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a2909378023_0.jpg",
           "duration_ms": 120032,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=2224814756&ts=1726516070&t=cd36093958c38efef4e1045026b30d6bc62fbfab"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=2224814756&ts=1726991879&t=d26462a176d1a1d3a8ab9fbb0c745770de5a50b5"
         }
       }
     },
@@ -2573,6 +2573,7 @@
           },
           "duration_ms": 199836,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f8/64/2e/f8642ed9-7a19-7e05-f685-b4d8c0814ddd/0016027947655.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f8/64/2e/f8642ed9-7a19-7e05-f685-b4d8c0814ddd/0016027947655.png/",
           "genres": [
             "Indie Rock",
             "Music",
@@ -2600,7 +2601,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "3:20",
           "duration_ms": 200000,
           "music_video": null,
           "thumbnails": [
@@ -2621,14 +2621,14 @@
           "album": {
             "id": "2170040713",
             "name": "Good People",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=3926523564",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=2170040713",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a1567969558_0.jpg",
           "duration_ms": 199836,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=2170040713&ts=1726516070&t=a5a1e672ee5bda03e9dee1f0f40acad7f2cc13b5"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=2170040713&ts=1726991879&t=c040fec64ce70254d985db2a5f41a57e85e099db"
         }
       }
     },
@@ -2692,6 +2692,7 @@
           },
           "duration_ms": 126987,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music/50/99/66/mzi.tvqlcdqo.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music/50/99/66/mzi.tvqlcdqo.jpg/",
           "genres": [
             "Alternative",
             "Music",
@@ -2718,7 +2719,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "2:07",
           "duration_ms": 127000,
           "music_video": null,
           "thumbnails": [
@@ -2789,6 +2789,7 @@
           },
           "duration_ms": 156722,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/53/35/ad/5335ad0e-4bb0-2f4e-d656-3ba8ba6f1a8c/99151.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/53/35/ad/5335ad0e-4bb0-2f4e-d656-3ba8ba6f1a8c/99151.jpg/",
           "genres": [
             "Alternative",
             "Music"
@@ -2810,14 +2811,14 @@
           "album": {
             "id": "514765446",
             "name": "Honey",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=2601744696",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=514765446",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a371430810_0.jpg",
           "duration_ms": 156722,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=514765446&ts=1726557328&t=bbc26c3f2482d05f5f45ead77766ce4790b29768"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=514765446&ts=1726991878&t=f976920d5320251eb86c876de2a9f952198095b5"
         }
       }
     },
@@ -2881,6 +2882,7 @@
           },
           "duration_ms": 136427,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/01/58/9c/01589c25-2f46-0d14-bf9e-690d6daf11e9/644110910196.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/01/58/9c/01589c25-2f46-0d14-bf9e-690d6daf11e9/644110910196.png/",
           "genres": [
             "Alternative",
             "Music",
@@ -2909,7 +2911,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "2:17",
           "duration_ms": 137000,
           "music_video": null,
           "thumbnails": [
@@ -2986,6 +2987,7 @@
           },
           "duration_ms": 225836,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/1b/f1/59/1bf15911-7b9b-2be6-de81-9a4cf2323621/5056340105450.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/1b/f1/59/1bf15911-7b9b-2be6-de81-9a4cf2323621/5056340105450.png/",
           "genres": [
             "Pop",
             "Music",
@@ -3006,7 +3008,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "3:46",
           "duration_ms": 226000,
           "music_video": null,
           "thumbnails": [
@@ -3027,14 +3028,14 @@
           "album": {
             "id": "3004838366",
             "name": "Look Away, Look Away",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=59713777",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=3004838366",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a420768412_0.jpg",
           "duration_ms": 225836,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3004838366&ts=1726557328&t=96285fe6c1d73d0da10be8db2387df1017d19b44"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3004838366&ts=1726991879&t=b3fd527cc5ccaf9662d42d0784c7d4447a755ae5"
         }
       }
     },
@@ -3098,6 +3099,7 @@
           },
           "duration_ms": 195467,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/74/35/db/7435db8b-597a-2e7b-54cb-9f19f30e3e37/cover.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/74/35/db/7435db8b-597a-2e7b-54cb-9f19f30e3e37/cover.jpg/",
           "genres": [
             "Indie Pop",
             "Music",
@@ -3124,7 +3126,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "3:16",
           "duration_ms": 196000,
           "music_video": null,
           "thumbnails": [
@@ -3145,14 +3146,14 @@
           "album": {
             "id": "3350341671",
             "name": "History Of Love",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=3828369351",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=3350341671",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a3307088386_0.jpg",
           "duration_ms": 195467,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3350341671&ts=1726516070&t=ba9adb8d57863825654fa233af0cfd877d806083"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=3350341671&ts=1726991879&t=cf573a36b82232a42dde800dc4307ea891c3dc2d"
         }
       }
     },
@@ -3216,6 +3217,7 @@
           },
           "duration_ms": 206721,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/1c/20/6f/1c206fe8-e57a-927a-730a-1a6e12f2f0fc/859737303799_cover.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/1c/20/6f/1c206fe8-e57a-927a-730a-1a6e12f2f0fc/859737303799_cover.jpg/",
           "genres": [
             "Alternative",
             "Music",
@@ -3242,7 +3244,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "3:27",
           "duration_ms": 207000,
           "music_video": null,
           "thumbnails": [
@@ -3313,6 +3314,7 @@
           },
           "duration_ms": 194775,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/2f/5c/0e/2f5c0e0e-aff8-6896-cfc8-2918ee9f3ee3/098787904796.png/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/2f/5c/0e/2f5c0e0e-aff8-6896-cfc8-2918ee9f3ee3/098787904796.png/",
           "genres": [
             "Alternative",
             "Music",
@@ -3339,7 +3341,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "3:15",
           "duration_ms": 195000,
           "music_video": null,
           "thumbnails": [
@@ -3360,14 +3361,14 @@
           "album": {
             "id": "2357367969",
             "name": "San Fernando Shadow Blues",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=3636214391",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=2357367969",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a402187440_0.jpg",
           "duration_ms": 194775,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=2357367969&ts=1726516070&t=6073df49004bf348f2e272e3770179958715f180"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=2357367969&ts=1726991879&t=a59e1dc7fc0217f2e3976c21fa2a37a7ae967b2e"
         }
       }
     },
@@ -3431,6 +3432,7 @@
           },
           "duration_ms": 194731,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/92/b1/f2/92b1f2c1-014b-27ca-3f1b-e675208edb89/artwork.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/92/b1/f2/92b1f2c1-014b-27ca-3f1b-e675208edb89/artwork.jpg/",
           "genres": [
             "Rock",
             "Music",
@@ -3457,7 +3459,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "3:15",
           "duration_ms": 195000,
           "music_video": null,
           "thumbnails": [
@@ -3479,14 +3480,14 @@
           "album": {
             "id": "619065183",
             "name": "Something More",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=2549412899",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=619065183",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a2857575445_0.jpg",
           "duration_ms": 194731,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=619065183&ts=1726557328&t=8d7e3db73a62b2fdda5c2b64bb3ff09b9f9e00d1"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=619065183&ts=1726991879&t=544621f7d56f11ca7adfb7734c61b4bf229d7b89"
         }
       }
     },
@@ -3550,6 +3551,7 @@
           },
           "duration_ms": 172940,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/95/56/5e/95565ee4-e899-b76e-30a3-be00044b1375/190374216661.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/95/56/5e/95565ee4-e899-b76e-30a3-be00044b1375/190374216661.jpg/",
           "genres": [
             "Alternative",
             "Music",
@@ -3576,7 +3578,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "2:53",
           "duration_ms": 173000,
           "music_video": null,
           "thumbnails": [
@@ -3646,6 +3647,7 @@
           },
           "duration_ms": 191681,
           "image": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/4e/26/55/4e26552d-5418-487c-4d5a-79f89afe8e5b/39716.jpg/352x352bb.webp",
+          "image_no_suffix": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/4e/26/55/4e26552d-5418-487c-4d5a-79f89afe8e5b/39716.jpg/",
           "genres": [
             "Indie Pop",
             "Music",
@@ -3672,7 +3674,6 @@
             "ean": null,
             "upc": null
           },
-          "duration_raw": "3:12",
           "duration_ms": 192000,
           "music_video": null,
           "thumbnails": [
@@ -3694,14 +3695,14 @@
           "album": {
             "id": "583143574",
             "name": "On My Line",
-            "url": "https://bandcamp.com/EmbeddedPlayer/album=2018175052",
+            "url": "https://bandcamp.com/EmbeddedPlayer/album=583143574",
             "total_tracks": null,
             "ean": null,
             "upc": null
           },
           "image": "https://f4.bcbits.com/img/a1916790960_0.jpg",
           "duration_ms": 191681,
-          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=583143574&ts=1726557328&t=4f84ec6995a8d0fd9dd58d2662f1d7151eeb52c1"
+          "streaming_url": "https://bandcamp.com/stream_redirect?enc=mp3-128&track_id=583143574&ts=1726991879&t=72f2332140d8112cb5280696b95d43d1f3ddf6d8"
         }
       }
     }
