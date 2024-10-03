@@ -1,3 +1,7 @@
+//mod cli;
+
+//use crate::cli::Cli;
+//use clap::Parser;
 use reqwest::Client;
 use songvert::{
     apple_music::AppleMusic,
@@ -5,10 +9,7 @@ use songvert::{
     playlist::Playlist,
     spotify::{SessionInfo, Spotify},
 };
-
-mod cli;
-use crate::cli::Cli;
-use clap::Parser;
+use std::path::PathBuf;
 
 fn spotify_playlist_conversion_sanity_check(playlist: &Playlist) -> Result<()> {
     let mut youtube_miss_count = 0;
@@ -65,40 +66,42 @@ async fn show_downloader(
     let start = std::time::Instant::now();
 
     let session_info: SessionInfo = Spotify::get_public_session_info(&client).await?;
+    let playlist_file_path = PathBuf::from("./example_show_playlists/");
+    let playlist_download_path = PathBuf::from("./example_show_playlists/downloads/");
 
-    let playlist_file_path = "./example_show_playlists/";
-    let playlist_download_path = "./example_show_playlists/downloads/";
+    let mut playlist_full_path_for_check = playlist_file_path.clone();
+    playlist_full_path_for_check.push(filename);
+    playlist_full_path_for_check.set_extension("json");
 
-    let playlist: Playlist =
-        match Playlist::from_file(&format!("{}{}.json", playlist_file_path, filename)) {
-            Ok(p) => {
-                println!(
-                    "Playlist already exists. Loading {}",
-                    &format!("{}{}.json", playlist_file_path, filename)
-                );
-                p
-            }
-            Err(..) => {
-                let mut playlist = Playlist::from_spotify_id(
-                    &client,
-                    &session_info.access_token,
-                    spotify_id,
-                    &filename.to_string(),
-                    playlist_file_path,
-                )
+    let playlist: Playlist = match Playlist::from_file(&playlist_full_path_for_check) {
+        Ok(p) => {
+            println!(
+                "Playlist already exists. Loading {}",
+                playlist_full_path_for_check.to_string_lossy()
+            );
+            p
+        }
+        Err(..) => {
+            let mut playlist = Playlist::from_spotify_id(
+                &client,
+                &session_info.access_token,
+                spotify_id,
+                &playlist_file_path,
+                &filename.to_string(),
+            )
+            .await?;
+            println!("Attempting to match {} tracks:", playlist.tracks.len());
+            playlist
+                .add_apple_music(&client, AppleMusic::PUBLIC_BEARER_TOKEN)
                 .await?;
-                println!("Attempting to match {} tracks:", playlist.tracks.len());
-                playlist
-                    .add_apple_music(&client, AppleMusic::PUBLIC_BEARER_TOKEN)
-                    .await?;
-                playlist.add_bandcamp(&client).await?;
-                playlist.add_youtube_(&client).await?;
+            playlist.add_bandcamp(&client).await?;
+            playlist.add_youtube(&client).await?;
 
-                playlist.save_to_file(playlist_file_path, &filename.to_string())?;
+            playlist.save_to_file(&playlist_file_path, filename)?;
 
-                playlist
-            }
-        };
+            playlist
+        }
+    };
 
     let middle = std::time::Instant::now();
 
@@ -112,13 +115,11 @@ async fn show_downloader(
     spotify_playlist_conversion_sanity_check(&playlist)?;
 
     if download_tracks == true {
+        let mut download_path = playlist_download_path;
+        download_path.push(filename);
         println!("");
         playlist
-            .download_tracks(
-                &client,
-                &format!("{}{}/", playlist_download_path, filename),
-                true,
-            )
+            .download_tracks(&client, &download_path, true)
             .await?;
     }
 
@@ -148,15 +149,35 @@ async fn main() -> Result<()> {
     std::env::set_var("RUST_BACKTRACE", "full");
 
     //let cli = Cli::parse();
+    //cli.run().await?;
+
+    //println!(
+    //    "{}",
+    //    strsim::jaro_winkler(
+    //        "It’s Good to Be Back",
+    //        "It's good to be back - Metronomy x Panic Shack",
+    //    )
+    //);
+    //
+    //println!(
+    //    "{}",
+    //    strsim::jaro_winkler(
+    //        "It's good to be back - Metronomy x Panic Shack",
+    //        "It’s Good to Be Back",
+    //    )
+    //);
 
     let client: Client = reqwest::Client::builder()
             .user_agent("Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15")
             .build()?;
 
-    let playlist_id = "4v4JZarNXGgy2JbKqOnIws";
-    let filename = "show_71_sep_22_2024";
+    let playlist_id = "03AOV5ofnW9RTP3KSQZSV1";
+    let filename = "show_73_oct_6_2024";
 
     let mut playlist = show_downloader(&client, playlist_id, filename, false).await?;
+
+    //playlist.tracks[0].add_youtube(&client).await?;
+    //playlist.tracks[7].add_youtube(&client).await?;
 
     //playlist.tracks[15]
     //    .download(&client, "./", "cheeser", true)

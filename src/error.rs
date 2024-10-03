@@ -17,6 +17,7 @@ pub enum Error {
     ParseIntError(std::num::ParseIntError),
     RetrievalError(reqwest::Error),
     IoError(std::io::Error),
+    //PathError(std::path::Pa)
 }
 
 impl Display for Error {
