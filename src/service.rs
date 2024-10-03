@@ -15,6 +15,12 @@ pub struct Services {
     pub bandcamp: Option<Bandcamp>,
 }
 
+#[derive(Deserialize, Serialize, Debug, PartialEq)]
+pub enum Source {
+    Spotify,
+    AppleMusic,
+}
+
 // pub trait Service<'a> {
 //     const API_BASE_URL: &'static str;
 //     const SITE_BASE_URL: &'static str;
