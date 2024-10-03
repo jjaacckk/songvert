@@ -1,45 +1,36 @@
-use crate::error::{Error, Result};
+use crate::error::Result;
+use crate::service::Source;
 use crate::spotify::Spotify;
 use crate::track::Track;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use std::io::Write;
-
-#[derive(Deserialize, Serialize, Debug, PartialEq)]
-pub enum PlaylistType {
-    Spotify,
-    AppleMusic,
-}
+use std::path::{Path, PathBuf};
 
 #[derive(Deserialize, Serialize, Debug, PartialEq)]
 pub struct Playlist {
     pub name: String,
     pub tracks: Vec<Track>,
-    pub r#type: PlaylistType,
     pub id: String,
     pub description: Option<String>,
+    pub source_service: Source,
 }
 
 impl Playlist {
     pub async fn download_tracks(
         &self,
         client: &Client,
-        download_path: &str,
+        download_path: &Path,
         add_metadata: bool,
     ) -> Result<()> {
         println!(
             "Attempting to download {} tracks for playlist {} to {}",
             self.tracks.len(),
             self.name,
-            download_path
+            download_path.to_string_lossy()
         );
 
-        match std::fs::create_dir_all(download_path) {
-            Ok(..) => (),
-            Err(e) => {
-                return Err(Error::IoError(e));
-            }
-        };
+        std::fs::create_dir_all(&download_path)?;
 
         let mut count = 1;
         let mut track_names: Vec<String> = Vec::with_capacity(self.tracks.len());
@@ -70,13 +61,16 @@ impl Playlist {
         Ok(())
     }
 
-    pub fn save_to_file(&self, playlist_file_path: &str, playlist_filename: &str) -> Result<()> {
+    pub fn save_to_file(&self, playlist_file_path: &Path, playlist_filename: &str) -> Result<()> {
+        let mut full_path: PathBuf = playlist_file_path.to_owned();
+        full_path.push(playlist_filename);
+        full_path.set_extension("json");
+
         println!(
-            "Attempting to save playlist data to {}{}.json",
-            playlist_file_path, playlist_filename
+            "Attempting to save playlist data to {}",
+            full_path.to_string_lossy()
         );
-        let mut playlist_file =
-            std::fs::File::create(format!("{}{}.json", playlist_file_path, playlist_filename))?;
+        let mut playlist_file = std::fs::File::create(full_path)?;
         playlist_file.write_all(serde_json::to_string_pretty(&self)?.as_bytes())?;
 
         Ok(())
@@ -124,7 +118,7 @@ impl Playlist {
         Ok(())
     }
 
-    pub async fn add_youtube_(&mut self, client: &Client) -> Result<()> {
+    pub async fn add_youtube(&mut self, client: &Client) -> Result<()> {
         let mut youtube_service_futures = Vec::with_capacity(self.tracks.len());
         for track in &mut self.tracks {
             youtube_service_futures.push(track.add_youtube(client));
@@ -163,7 +157,7 @@ impl Playlist {
         Ok(())
     }
 
-    pub fn from_file(file_path: &str) -> Result<Self> {
+    pub fn from_file(file_path: &Path) -> Result<Self> {
         Ok(serde_json::from_str(&std::fs::read_to_string(file_path)?)?)
     }
 
@@ -171,32 +165,32 @@ impl Playlist {
         client: &Client,
         spotify_auth: &str,
         spotify_playlist_id: &str,
+        playlist_file_path: &Path,
         playlist_filename: &str,
-        playlist_file_path: &str,
     ) -> Result<Playlist> {
-        match std::fs::read_to_string(format!("{}{}.json", playlist_file_path, playlist_filename)) {
+        let mut full_path: PathBuf = playlist_file_path.to_owned();
+        full_path.push(playlist_filename);
+        full_path.set_extension("json");
+
+        match std::fs::read_to_string(&full_path) {
             Ok(playlist_string) => {
                 println!(
-                    "Playlist already downloaded\nImporting {}{}.json",
-                    playlist_file_path, playlist_filename
+                    "Playlist already downloaded\nImporting {}",
+                    full_path.to_string_lossy()
                 );
                 return Ok(serde_json::from_str(&playlist_string)?);
             }
             Err(..) => (),
         };
 
-        match std::fs::create_dir_all(playlist_file_path) {
-            Ok(..) => (),
-            Err(e) => {
-                return Err(Error::IoError(e));
-            }
-        };
+        std::fs::create_dir_all(playlist_file_path)?;
 
         let playlist: Playlist =
             Spotify::create_playlist_from_id(client, spotify_auth, spotify_playlist_id).await?;
 
         Ok(playlist)
     }
+
     pub async fn from_apple_music_id() -> Result<Self> {
         todo!()
     }

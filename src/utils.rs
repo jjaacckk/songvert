@@ -4,10 +4,11 @@ use crate::{
 };
 use id3::TagLike;
 use reqwest::Client;
+use std::path::Path;
 
 pub async fn add_metadata_to_mp3(
     client: &Client,
-    mp3_file_path: &str,
+    mp3_file_path: &Path,
     track: &Track,
     overwrite_artwork: bool,
 ) -> Result<()> {
@@ -55,7 +56,7 @@ pub async fn add_metadata_to_mp3(
 
     if overwrite_artwork == false {
         if let Some(_) = tag.pictures().next() {
-            eprintln!("{} already has an image", mp3_file_path);
+            eprintln!("{} already has an image", mp3_file_path.to_string_lossy());
             match tag.write_to_path(mp3_file_path, tag.version()) {
                 Ok(..) => return Ok(()),
                 Err(e) => return Err(Error::TagError(e.description)),
@@ -82,7 +83,7 @@ pub async fn add_metadata_to_mp3(
 
 pub async fn add_metadata_to_m4a(
     client: &Client,
-    m4a_file_path: &str,
+    m4a_file_path: &Path,
     track: &Track,
     overwrite_artwork: bool,
 ) -> Result<()> {
@@ -100,7 +101,7 @@ pub async fn add_metadata_to_m4a(
 
     if overwrite_artwork == false {
         if let Some(_) = tag.images().next() {
-            eprintln!("{} already has an image", m4a_file_path);
+            eprintln!("{} already has an image", m4a_file_path.to_string_lossy());
             match tag.write_to_path(m4a_file_path) {
                 Ok(..) => return Ok(()),
                 Err(e) => return Err(Error::TagError(e.description)),

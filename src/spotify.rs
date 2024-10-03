@@ -1,6 +1,6 @@
 use crate::error::{Error, Result};
-use crate::playlist::{Playlist, PlaylistType};
-use crate::service::{Album, Artist, Services};
+use crate::playlist::Playlist;
+use crate::service::{Album, Artist, Services, Source};
 use crate::track::Track;
 use reqwest::{Client, RequestBuilder, Response};
 use serde::{Deserialize, Serialize};
@@ -340,6 +340,7 @@ impl Spotify {
                 bandcamp: None,
             },
             isrc: raw_track.external_ids.isrc.to_owned(),
+            source_service: Source::Spotify,
         })
     }
 
@@ -354,9 +355,9 @@ impl Spotify {
         let mut new_tracks: Playlist = Playlist {
             name: raw_playlist.name.to_owned(),
             tracks: Vec::new(),
-            r#type: PlaylistType::Spotify,
             id: raw_playlist.id.to_owned(),
             description: raw_playlist.description.to_owned(),
+            source_service: Source::Spotify,
         };
         for track_result in new_tracks_results {
             new_tracks.tracks.push(track_result?);
@@ -370,7 +371,7 @@ impl Spotify {
 mod tests {
 
     use crate::{
-        service::Services,
+        service::{Services, Source},
         spotify::{SessionInfo, Spotify},
         track::Track,
     };
@@ -397,6 +398,7 @@ mod tests {
             duration_ms: 138026,
             services: example_services,
             isrc: Some("USZUD1215001".to_owned()),
+            source_service: Source::Spotify,
         };
 
         let client: reqwest::Client = reqwest::Client::builder()
@@ -433,6 +435,7 @@ mod tests {
             duration_ms: 138026,
             services: example_services,
             isrc: None,
+            source_service: Source::Spotify,
         };
 
         let client: reqwest::Client = reqwest::Client::builder()
