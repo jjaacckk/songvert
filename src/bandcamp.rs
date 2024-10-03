@@ -5,6 +5,7 @@ use reqwest::{Client, RequestBuilder, Response};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::io::Write;
+use std::path::{Path, PathBuf};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct Bandcamp {
@@ -135,7 +136,7 @@ impl Bandcamp {
     pub const API_BASE_URL: &'static str = "https://bandcamp.com/api";
     pub const IMAGE_API_BASE_URL: &'static str = "https://f4.bcbits.com/img";
 
-    pub async fn download(&self, client: &Client, path: &str, filename: &str) -> Result<String> {
+    pub async fn download(&self, client: &Client, path: &Path, filename: &str) -> Result<PathBuf> {
         let request = match &self.streaming_url {
             Some(streaming_url) => client.get(streaming_url),
             None => return Err(Error::DownloadError("no streaming url".to_string())),
@@ -143,9 +144,11 @@ impl Bandcamp {
 
         let response = request.send().await?;
 
-        let full_path = format!("{}{}.mp3", path, filename);
+        let mut full_path: PathBuf = path.to_owned();
+        full_path.push(filename);
+        full_path.set_extension("mp3");
 
-        let mut file = std::fs::File::create(&full_path)?;
+        let mut file = std::fs::File::create(path)?;
         file.write_all(&response.bytes().await?)?;
 
         Ok(full_path)
@@ -245,12 +248,12 @@ impl Bandcamp {
                 }
             };
 
-            if track.compare_similarity(
+            if track.compare_similarity_fuzzy(
                 &raw_track_search_result.name,
                 &raw_track_search_result.band_name,
                 album_name,
                 0,
-            ) >= 2
+            ) >= 2.0
             {
                 let raw_album: RawAlbum = Self::get_raw_album_from_id(
                     client,
@@ -311,7 +314,10 @@ impl Bandcamp {
 #[cfg(test)]
 mod tests {
 
-    use crate::{service::Services, track::Track};
+    use crate::{
+        service::{Services, Source},
+        track::Track,
+    };
 
     #[tokio::test]
     async fn get_match() {
@@ -335,6 +341,7 @@ mod tests {
             duration_ms: 138026,
             services: example_services,
             isrc: Some("USZUD1215001".to_owned()),
+            source_service: Source::AppleMusic,
         };
 
         let client: reqwest::Client = reqwest::Client::builder()

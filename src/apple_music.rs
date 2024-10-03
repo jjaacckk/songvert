@@ -1,6 +1,6 @@
 use crate::error::{Error, Result};
 use crate::playlist::Playlist;
-use crate::service::{Album, Artist, Services};
+use crate::service::{Album, Artist, Services, Source};
 use crate::track::Track;
 use reqwest::{Client, RequestBuilder, Response};
 use serde::{Deserialize, Serialize};
@@ -293,12 +293,12 @@ impl AppleMusic {
 
         for i in 0..lsr_raw_tracks.len() {
             if let Some(attributes) = &lsr_raw_tracks[i].attributes {
-                if track.compare_similarity(
+                if track.compare_similarity_fuzzy(
                     &attributes.name,
                     &attributes.artist_name,
                     &attributes.album_name,
                     attributes.duration_in_millis,
-                ) >= 3
+                ) >= 3.0
                 {
                     match Self::get(
                         client,
@@ -525,6 +525,7 @@ impl AppleMusic {
                 Some(isrc) => Some(isrc.to_owned()),
                 None => None,
             },
+            source_service: Source::AppleMusic,
         })
     }
 
@@ -536,7 +537,11 @@ impl AppleMusic {
 #[cfg(test)]
 mod tests {
 
-    use crate::{apple_music::AppleMusic, service::Services, track::Track};
+    use crate::{
+        apple_music::AppleMusic,
+        service::{Services, Source},
+        track::Track,
+    };
 
     #[tokio::test]
     async fn get_match_with_isrc() {
@@ -560,6 +565,7 @@ mod tests {
             duration_ms: 138026,
             services: example_services,
             isrc: Some("USZUD1215001".to_owned()),
+            source_service: Source::AppleMusic,
         };
 
         let client: reqwest::Client = reqwest::Client::builder()
@@ -595,6 +601,7 @@ mod tests {
             duration_ms: 138026,
             services: example_services,
             isrc: None,
+            source_service: Source::AppleMusic,
         };
 
         let client: reqwest::Client = reqwest::Client::builder()

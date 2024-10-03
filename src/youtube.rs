@@ -4,6 +4,7 @@ use crate::track::Track;
 use reqwest::{Client, RequestBuilder, Response};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
+use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
@@ -237,8 +238,6 @@ impl YouTube {
     }
 
     async fn get_raw_results_from_search(client: &Client, query: &str) -> Result<Value> {
-        println!("{}", query);
-
         let payload: Payload = Payload {
             context: Self::DEFAULT_MUSIC_PAYLOAD_CONTEXT,
             video_id: None,
@@ -395,16 +394,32 @@ impl YouTube {
             .ok_or(Error::DatabaseError("no top result title".to_string()))?;
 
         let top_result_artist = &top_result_subtitle_runs[2];
-        let top_result_album = &top_result_subtitle_runs[4];
-        let top_result_duration = raw_duration_to_miliseconds(&top_result_subtitle_runs[6].text)?;
+        let top_result_album = {
+            if &top_result_subtitle_runs[5].text == "•" {
+                &top_result_subtitle_runs[4]
+            } else {
+                &top_result_subtitle_runs[6]
+            }
+        };
+        let top_result_duration = {
+            if let Some(d) = &top_result_subtitle_runs.last() {
+                raw_duration_to_miliseconds(&d.text)?
+            //if top_result_type == "Song" {
+            //    raw_duration_to_miliseconds(&top_result_subtitle_runs[6].text)?
+            //} else if top_result_type == "Video" && top_result_subtitle_runs.len() >= 9 {
+            //    raw_duration_to_miliseconds(&top_result_subtitle_runs[8].text)?
+            } else {
+                return Err(Error::DatabaseError("unable to get duration".to_string()));
+            }
+        };
 
         //if top_result_type == "Song" {
-        if track.compare_similarity(
+        if track.compare_similarity_fuzzy(
             &top_result_title.text,
             &top_result_artist.text,
             &top_result_album.text,
             top_result_duration,
-        ) >= 3
+        ) >= 3.0
         {
             track_match_in_top_result = true;
         }
@@ -506,12 +521,12 @@ impl YouTube {
                     return Err(Error::DatabaseError("too few flex runs".to_string()));
                 }
 
-                if track.compare_similarity(
+                if track.compare_similarity_fuzzy(
                     &first_flex_run[0].text,
                     &second_flex_run[0].text,
                     &second_flex_run[2].text,
                     raw_duration_to_miliseconds(&second_flex_run[4].text)?,
-                ) >= 3
+                ) >= 3.0
                 {
                     id = &first_flex_run[0]
                         .navigation_endpoint
@@ -590,8 +605,11 @@ impl YouTube {
         Err(Error::TrackError("unable to create Track".to_string()))
     }
 
-    pub async fn download(&self, path: &str, filename: &str) -> Result<String> {
-        let full_path = format!("{}{}.m4a", path, filename);
+    pub async fn download(&self, path: &Path, filename: &str) -> Result<PathBuf> {
+        let mut full_path: PathBuf = path.to_owned();
+        full_path.push(filename);
+        full_path.set_extension("m4a");
+
         match Command::new("yt-dlp")
             .arg(&self.url)
             .arg("-o")
@@ -614,11 +632,15 @@ impl YouTube {
 }
 
 fn raw_duration_to_miliseconds(raw_duration: &str) -> Result<usize> {
+    //println!("raw duration: {}", raw_duration);
     let raw_parts = raw_duration.split(':');
     let mut base: usize = 1;
     let mut seconds: usize = 0;
     for part in raw_parts.rev() {
-        let num: usize = part.parse()?;
+        let num: usize = match part.parse() {
+            Ok(n) => n,
+            Err(..) => 0,
+        };
 
         seconds += num * base;
         base *= 60;
@@ -630,7 +652,10 @@ fn raw_duration_to_miliseconds(raw_duration: &str) -> Result<usize> {
 #[cfg(test)]
 mod tests {
 
-    use crate::{service::Services, track::Track};
+    use crate::{
+        service::{Services, Source},
+        track::Track,
+    };
 
     #[tokio::test]
     async fn get_match() {
@@ -654,6 +679,7 @@ mod tests {
             duration_ms: 138026,
             services: example_services,
             isrc: Some("USZUD1215001".to_owned()),
+            source_service: Source::Spotify,
         };
 
         let client: reqwest::Client = reqwest::Client::builder()
