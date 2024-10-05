@@ -71,23 +71,33 @@ impl Cli {
             .user_agent("Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15")
             .build()?;
 
-        if let Some(_album) = &self.input.album {
-            return Err(Error::TrackError(
-                "Album functionality has not been implemented".to_string(),
-            ));
+        if let Some(_album_str) = &self.input.album {
+            todo!()
         } else if let Some(playlist_str) = &self.input.playlist {
             let mut playlist = {
                 if self.file {
                     let playlist_path = PathBuf::from(playlist_str);
                     Playlist::from_file(&playlist_path)?
                 } else {
-                    let source_info = get_source_info_from_url(&playlist_str)?;
+                    let source_info = get_source_info_from_playlist_url(&playlist_str)?;
                     match source_info.service {
                         Source::Spotify => {
                             let session_info = Spotify::get_public_session_info(&client).await?;
-                            Playlist::from_spotify_id().await?
+                            Playlist::from_spotify_id(
+                                &client,
+                                &session_info.access_token,
+                                &source_info.id,
+                            )
+                            .await?
                         }
-                        Source::AppleMusic => Playlist::from_apple_music_id().await?,
+                        Source::AppleMusic => {
+                            Playlist::from_apple_music_id(
+                                &client,
+                                AppleMusic::PUBLIC_BEARER_TOKEN,
+                                &source_info.id,
+                            )
+                            .await?
+                        }
                     }
                 }
             };
@@ -119,18 +129,51 @@ impl Cli {
             if let Some(dir) = &self.download_directory {
                 playlist.download_tracks(&client, dir, true).await?;
             }
-        } else if let Some(track) = &self.input.track {
+        } else if let Some(_track_str) = &self.input.track {
+            todo!()
         }
 
         Ok(())
     }
 }
 
-struct SourceInfo {
-    id: String,
+struct SourceInfo<'a> {
+    id: &'a str,
     service: Source,
 }
 
-fn get_source_info_from_url(url: &str) -> Result<SourceInfo> {
+fn get_source_info_from_playlist_url(url: &str) -> Result<SourceInfo> {
+    let apple_music_re =
+        regex::Regex::new(r#"(?:https://)?music\.apple\.com/\S\S/playlist/\S+/(pl\.\S{32})"#)?;
+
+    if let Some(captures) = apple_music_re.captures(url) {
+        if let Some(m) = captures.get(1) {
+            return Ok(SourceInfo {
+                id: m.as_str(),
+                service: Source::AppleMusic,
+            });
+        }
+    }
+
+    let spotify_re = regex::Regex::new(r#"(?:https://)?open\.spotify\.com/playlist/(\S{22})"#)?;
+
+    if let Some(captures) = spotify_re.captures(url) {
+        if let Some(m) = captures.get(1) {
+            return Ok(SourceInfo {
+                id: m.as_str(),
+                service: Source::Spotify,
+            });
+        }
+    }
+
+    Err(Error::TrackError(
+        "Not valid input playlist URL".to_string(),
+    ))
+}
+
+fn get_source_info_from_album_url(url: &str) -> Result<SourceInfo> {
+    todo!()
+}
+fn get_source_info_from_track_url(url: &str) -> Result<SourceInfo> {
     todo!()
 }

@@ -1,7 +1,7 @@
-//mod cli;
+mod cli;
 
-//use crate::cli::Cli;
-//use clap::Parser;
+use crate::cli::Cli;
+use clap::Parser;
 use reqwest::Client;
 use songvert::{
     apple_music::AppleMusic,
@@ -82,14 +82,8 @@ async fn show_downloader(
             p
         }
         Err(..) => {
-            let mut playlist = Playlist::from_spotify_id(
-                &client,
-                &session_info.access_token,
-                spotify_id,
-                &playlist_file_path,
-                &filename.to_string(),
-            )
-            .await?;
+            let mut playlist =
+                Playlist::from_spotify_id(&client, &session_info.access_token, spotify_id).await?;
             println!("Attempting to match {} tracks:", playlist.tracks.len());
             playlist
                 .add_apple_music(&client, AppleMusic::PUBLIC_BEARER_TOKEN)
@@ -148,8 +142,8 @@ async fn show_downloader(
 async fn main() -> Result<()> {
     std::env::set_var("RUST_BACKTRACE", "full");
 
-    //let cli = Cli::parse();
-    //cli.run().await?;
+    let cli = Cli::parse();
+    cli.run().await?;
 
     //println!(
     //    "{}",
@@ -167,14 +161,14 @@ async fn main() -> Result<()> {
     //    )
     //);
 
-    let client: Client = reqwest::Client::builder()
-            .user_agent("Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15")
-            .build()?;
-
-    let playlist_id = "03AOV5ofnW9RTP3KSQZSV1";
-    let filename = "show_73_oct_6_2024";
-
-    let mut playlist = show_downloader(&client, playlist_id, filename, false).await?;
+    //let client: Client = reqwest::Client::builder()
+    //        .user_agent("Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15")
+    //        .build()?;
+    //
+    //let playlist_id = "03AOV5ofnW9RTP3KSQZSV1";
+    //let filename = "tester_show_73_oct_6_2024";
+    //
+    //let mut playlist = show_downloader(&client, playlist_id, filename, false).await?;
 
     //playlist.tracks[0].add_youtube(&client).await?;
     //playlist.tracks[7].add_youtube(&client).await?;
