@@ -1,3 +1,4 @@
+use crate::apple_music::AppleMusic;
 use crate::error::Result;
 use crate::service::Source;
 use crate::spotify::Spotify;
@@ -70,6 +71,7 @@ impl Playlist {
             "Attempting to save playlist data to {}",
             full_path.to_string_lossy()
         );
+        std::fs::create_dir_all(playlist_file_path)?;
         let mut playlist_file = std::fs::File::create(full_path)?;
         playlist_file.write_all(serde_json::to_string_pretty(&self)?.as_bytes())?;
 
@@ -165,25 +167,25 @@ impl Playlist {
         client: &Client,
         spotify_auth: &str,
         spotify_playlist_id: &str,
-        playlist_file_path: &Path,
-        playlist_filename: &str,
+        //playlist_file_path: &Path,
+        //playlist_filename: &str,
     ) -> Result<Playlist> {
-        let mut full_path: PathBuf = playlist_file_path.to_owned();
-        full_path.push(playlist_filename);
-        full_path.set_extension("json");
+        //let mut full_path: PathBuf = playlist_file_path.to_owned();
+        //full_path.push(playlist_filename);
+        //full_path.set_extension("json");
+        //
+        //match std::fs::read_to_string(&full_path) {
+        //    Ok(playlist_string) => {
+        //        println!(
+        //            "Playlist already downloaded\nImporting {}",
+        //            full_path.to_string_lossy()
+        //        );
+        //        return Ok(serde_json::from_str(&playlist_string)?);
+        //    }
+        //    Err(..) => (),
+        //};
 
-        match std::fs::read_to_string(&full_path) {
-            Ok(playlist_string) => {
-                println!(
-                    "Playlist already downloaded\nImporting {}",
-                    full_path.to_string_lossy()
-                );
-                return Ok(serde_json::from_str(&playlist_string)?);
-            }
-            Err(..) => (),
-        };
-
-        std::fs::create_dir_all(playlist_file_path)?;
+        //std::fs::create_dir_all(playlist_file_path)?;
 
         let playlist: Playlist =
             Spotify::create_playlist_from_id(client, spotify_auth, spotify_playlist_id).await?;
@@ -191,7 +193,15 @@ impl Playlist {
         Ok(playlist)
     }
 
-    pub async fn from_apple_music_id() -> Result<Self> {
-        todo!()
+    pub async fn from_apple_music_id(
+        client: &Client,
+        apple_music_auth: &str,
+        apple_music_playlist_id: &str,
+    ) -> Result<Self> {
+        let playlist: Playlist =
+            AppleMusic::create_playlist_from_id(client, apple_music_auth, apple_music_playlist_id)
+                .await?;
+
+        Ok(playlist)
     }
 }
