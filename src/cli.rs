@@ -129,8 +129,75 @@ impl Cli {
             if let Some(dir) = &self.download_directory {
                 playlist.download_tracks(&client, dir, true).await?;
             }
-        } else if let Some(_track_str) = &self.input.track {
-            todo!()
+        } else if let Some(track_str) = &self.input.track {
+            let mut track = {
+                if self.file {
+                    let track_path = PathBuf::from(track_str);
+                    Track::from_file(&track_path)?
+                } else {
+                    let source_info = get_source_info_from_track_url(&track_str)?;
+                    match source_info.service {
+                        Source::Spotify => {
+                            let session_info = Spotify::get_public_session_info(&client).await?;
+                            Track::from_spotify_id(
+                                &client,
+                                &session_info.access_token,
+                                &source_info.id,
+                            )
+                            .await?
+                        }
+                        Source::AppleMusic => {
+                            Track::from_apple_music_id(
+                                &client,
+                                AppleMusic::PUBLIC_BEARER_TOKEN,
+                                &source_info.id,
+                            )
+                            .await?
+                        }
+                    }
+                }
+            };
+
+            if self.conversion_outputs.spotify && track.source_service != Source::Spotify {
+                let session_info = Spotify::get_public_session_info(&client).await?;
+                match track.add_spotify(&client, &session_info.access_token).await {
+                    Ok(..) => (),
+                    Err(e) => println!("unable to add Spotify: {}", e),
+                };
+            }
+
+            if self.conversion_outputs.apple_music && track.source_service != Source::AppleMusic {
+                match track
+                    .add_apple_music(&client, AppleMusic::PUBLIC_BEARER_TOKEN)
+                    .await
+                {
+                    Ok(..) => (),
+                    Err(e) => println!("unable to add Apple Music: {}", e),
+                };
+            }
+            if self.conversion_outputs.bandcamp {
+                match track.add_bandcamp(&client).await {
+                    Ok(..) => (),
+                    Err(e) => println!("unable to add Bandcamp: {}", e),
+                };
+            }
+            if self.conversion_outputs.youtube {
+                match track.add_youtube(&client).await {
+                    Ok(..) => (),
+                    Err(e) => println!("unable to add YouTube: {}", e),
+                };
+            }
+
+            if let Some(output_path) = &self.output_file {
+                track.save_to_file(
+                    output_path,
+                    &format!("{} - {}", track.name, track.artists[0]),
+                )?;
+            }
+
+            if let Some(dir) = &self.download_directory {
+                track.download(&client, dir, &track.name, true).await?;
+            }
         }
 
         Ok(())
@@ -172,8 +239,54 @@ fn get_source_info_from_playlist_url(url: &str) -> Result<SourceInfo> {
 }
 
 fn get_source_info_from_album_url(url: &str) -> Result<SourceInfo> {
-    todo!()
+    let apple_music_re =
+        regex::Regex::new(r#"(?:https://)?music\.apple\.com/\S\S/album/\S+/(\d{10})"#)?;
+
+    if let Some(captures) = apple_music_re.captures(url) {
+        if let Some(m) = captures.get(1) {
+            return Ok(SourceInfo {
+                id: m.as_str(),
+                service: Source::AppleMusic,
+            });
+        }
+    }
+
+    let spotify_re = regex::Regex::new(r#"(?:https://)?open\.spotify\.com/album/(\S{22})"#)?;
+
+    if let Some(captures) = spotify_re.captures(url) {
+        if let Some(m) = captures.get(1) {
+            return Ok(SourceInfo {
+                id: m.as_str(),
+                service: Source::Spotify,
+            });
+        }
+    }
+
+    Err(Error::TrackError("Not valid input album URL".to_string()))
 }
 fn get_source_info_from_track_url(url: &str) -> Result<SourceInfo> {
-    todo!()
+    let apple_music_re =
+        regex::Regex::new(r#"(?:https://)?music\.apple\.com/\S\S/album/\S+/\d{10}\?i=(\d{10})"#)?;
+
+    if let Some(captures) = apple_music_re.captures(url) {
+        if let Some(m) = captures.get(1) {
+            return Ok(SourceInfo {
+                id: m.as_str(),
+                service: Source::AppleMusic,
+            });
+        }
+    }
+
+    let spotify_re = regex::Regex::new(r#"(?:https://)?open\.spotify\.com/track/(\S{22})"#)?;
+
+    if let Some(captures) = spotify_re.captures(url) {
+        if let Some(m) = captures.get(1) {
+            return Ok(SourceInfo {
+                id: m.as_str(),
+                service: Source::Spotify,
+            });
+        }
+    }
+
+    Err(Error::TrackError("Not valid input track URL".to_string()))
 }

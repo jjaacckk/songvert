@@ -7,7 +7,9 @@ use crate::utils::{add_metadata_to_m4a, add_metadata_to_mp3};
 use crate::youtube::YouTube;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
+use std::io::Write;
 use std::path::Path;
+use std::path::PathBuf;
 
 #[derive(Deserialize, Serialize, Debug, PartialEq)]
 pub struct Track {
@@ -83,7 +85,7 @@ impl Track {
             // no more than 3 second difference
             count += 1.0;
         }
-
+        //println!("{}", count);
         count
     }
 
@@ -148,6 +150,49 @@ impl Track {
             self.artists.join(", ")
         );
         Err(Error::DownloadError("download failed".to_string()))
+    }
+
+    pub async fn from_spotify_id(
+        client: &Client,
+        spotify_auth: &str,
+        spotify_track_id: &str,
+    ) -> Result<Self> {
+        let track: Self =
+            Spotify::create_track_from_id(client, spotify_auth, spotify_track_id).await?;
+
+        Ok(track)
+    }
+
+    pub async fn from_apple_music_id(
+        client: &Client,
+        apple_music_auth: &str,
+        apple_music_track_id: &str,
+    ) -> Result<Self> {
+        let track: Self =
+            AppleMusic::create_track_from_id(client, apple_music_auth, apple_music_track_id)
+                .await?;
+
+        Ok(track)
+    }
+
+    pub fn from_file(file_path: &Path) -> Result<Self> {
+        Ok(serde_json::from_str(&std::fs::read_to_string(file_path)?)?)
+    }
+
+    pub fn save_to_file(&self, track_file_path: &Path, track_filename: &str) -> Result<()> {
+        let mut full_path: PathBuf = track_file_path.to_owned();
+        full_path.push(track_filename);
+        full_path.set_extension("json");
+
+        println!(
+            "Attempting to save track data to {}",
+            full_path.to_string_lossy()
+        );
+        std::fs::create_dir_all(track_file_path)?;
+        let mut track_file = std::fs::File::create(full_path)?;
+        track_file.write_all(serde_json::to_string_pretty(&self)?.as_bytes())?;
+
+        Ok(())
     }
 }
 
