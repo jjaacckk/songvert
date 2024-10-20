@@ -107,7 +107,7 @@ struct RawTrackAlbum {
 
 #[derive(Deserialize, Serialize, Debug, PartialEq)]
 struct RawTrackArtist {
-    external_urls: Value,
+    external_urls: RawExternalUrls,
     href: String,
     id: String,
     name: String,
@@ -276,7 +276,7 @@ impl Spotify {
             artists.push(Artist {
                 id: artist.id.to_owned(),
                 name: artist.name.to_owned(),
-                url: artist.uri.to_owned(),
+                url: artist.external_urls.spotify.to_owned(),
             })
         }
 
@@ -288,7 +288,7 @@ impl Spotify {
             album: Album {
                 id: raw_track.album.id.to_owned(),
                 name: raw_track.album.name.to_owned(),
-                url: raw_track.album.uri.to_owned(),
+                url: raw_track.album.external_urls.spotify.to_owned(),
                 total_tracks: Some(raw_track.album.total_tracks),
                 ean: None,
                 upc: None,
