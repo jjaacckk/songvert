@@ -319,6 +319,9 @@ impl YouTube {
     }
 
     async fn create_service_from_raw(data: &Value, track: &Track) -> Result<Self> {
+        const TRACK_TO_TRACK_COMPARE_THRESHOLD: f64 = 2.9;
+        const TRACK_TO_VIDEO_COMPARE_THRESHOLD: f64 = 2.4;
+
         let contents: &Vec<Value> = data
             .as_array()
             .ok_or(Error::DatabaseError("no data array".to_string()))?;
@@ -385,7 +388,7 @@ impl YouTube {
             return Err(Error::DatabaseError("not enough subtitle runs".to_string()));
         }
 
-        //let top_result_type: &str = &top_result_subtitle_runs[0].text;
+        let top_result_type: &str = &top_result_subtitle_runs[0].text;
 
         let top_result_title = &top_result
             .title
@@ -413,17 +416,20 @@ impl YouTube {
             }
         };
 
-        //if top_result_type == "Song" {
         if track.compare_similarity_fuzzy(
             &top_result_title.text,
             &top_result_artist.text,
             &top_result_album.text,
             top_result_duration,
-        ) >= 3.0
-        {
+        ) >= {
+            if top_result_type == "Song" {
+                TRACK_TO_TRACK_COMPARE_THRESHOLD
+            } else {
+                TRACK_TO_VIDEO_COMPARE_THRESHOLD
+            }
+        } {
             track_match_in_top_result = true;
         }
-        //}
 
         let id: &str;
         let mut thumbnails: Vec<String> = Vec::new();
@@ -526,7 +532,7 @@ impl YouTube {
                     &second_flex_run[0].text,
                     &second_flex_run[2].text,
                     raw_duration_to_miliseconds(&second_flex_run[4].text)?,
-                ) >= 3.0
+                ) >= TRACK_TO_TRACK_COMPARE_THRESHOLD
                 {
                     id = &first_flex_run[0]
                         .navigation_endpoint
