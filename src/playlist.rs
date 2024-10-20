@@ -167,27 +167,8 @@ impl Playlist {
         client: &Client,
         spotify_auth: &str,
         spotify_playlist_id: &str,
-        //playlist_file_path: &Path,
-        //playlist_filename: &str,
-    ) -> Result<Playlist> {
-        //let mut full_path: PathBuf = playlist_file_path.to_owned();
-        //full_path.push(playlist_filename);
-        //full_path.set_extension("json");
-        //
-        //match std::fs::read_to_string(&full_path) {
-        //    Ok(playlist_string) => {
-        //        println!(
-        //            "Playlist already downloaded\nImporting {}",
-        //            full_path.to_string_lossy()
-        //        );
-        //        return Ok(serde_json::from_str(&playlist_string)?);
-        //    }
-        //    Err(..) => (),
-        //};
-
-        //std::fs::create_dir_all(playlist_file_path)?;
-
-        let playlist: Playlist =
+    ) -> Result<Self> {
+        let playlist: Self =
             Spotify::create_playlist_from_id(client, spotify_auth, spotify_playlist_id).await?;
 
         Ok(playlist)
