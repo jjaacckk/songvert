@@ -1,3 +1,4 @@
+pub mod album;
 pub mod apple_music;
 pub mod bandcamp;
 pub mod error;
