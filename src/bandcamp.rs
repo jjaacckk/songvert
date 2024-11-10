@@ -148,7 +148,7 @@ impl Bandcamp {
         full_path.push(filename);
         full_path.set_extension("mp3");
 
-        let mut file = std::fs::File::create(path)?;
+        let mut file = std::fs::File::create(&full_path)?;
         file.write_all(&response.bytes().await?)?;
 
         Ok(full_path)
