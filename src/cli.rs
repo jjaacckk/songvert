@@ -124,6 +124,8 @@ impl Cli {
 
             if let Some(output_path) = &self.output_file {
                 playlist.save_to_file(output_path, &playlist.name)?;
+            } else {
+                println!("{}", serde_json::to_string_pretty(&playlist)?);
             }
 
             if let Some(dir) = &self.download_directory {
@@ -193,6 +195,8 @@ impl Cli {
                     output_path,
                     &format!("{} - {}", track.name, track.artists[0]),
                 )?;
+            } else {
+                println!("{}", serde_json::to_string_pretty(&track)?);
             }
 
             if let Some(dir) = &self.download_directory {
