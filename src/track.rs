@@ -60,32 +60,35 @@ impl Track {
         compare_album: &str,
         compare_duration_ms: usize,
     ) -> f64 {
-        //println!(
-        //    "{} <=> {}\n{} <=> {}\n{} <=> {}\n{} <=> {}",
-        //    self.name,
-        //    compare_name,
-        //    self.artists[0],
-        //    compare_artist,
-        //    self.album,
-        //    compare_album,
-        //    self.duration_ms,
-        //    compare_duration_ms
-        //);
+        println!(
+            "{} <=> {}\n{} <=> {}\n{} <=> {}\n{} <=> {}",
+            self.name,
+            compare_name,
+            self.artists[0],
+            compare_artist,
+            self.album,
+            compare_album,
+            self.duration_ms,
+            compare_duration_ms
+        );
 
         let mut count: f64 = 0.0;
 
-        count += strsim::jaro_winkler(&self.name, compare_name);
-        count += strsim::jaro_winkler(&self.album, compare_album);
+        count += strsim::jaro_winkler(&self.name.to_lowercase(), &compare_name.to_lowercase());
+        count += strsim::jaro_winkler(&self.album.to_lowercase(), &compare_album.to_lowercase());
 
         if self.artists.len() > 0 {
-            count += strsim::jaro_winkler(&self.artists[0], compare_artist);
+            count += strsim::jaro_winkler(
+                &self.artists[0].to_lowercase(),
+                &compare_artist.to_lowercase(),
+            );
         }
 
         if compare_duration_ms.abs_diff(self.duration_ms) <= 3000 {
             // no more than 3 second difference
             count += 1.0;
         }
-        //println!("{}", count);
+        println!("score: {}", count);
         count
     }
 
