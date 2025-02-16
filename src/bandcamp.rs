@@ -173,6 +173,7 @@ impl Bandcamp {
         client: &Client,
         query: &str,
     ) -> Result<Vec<RawTrackSearchResult>> {
+        //println!("{}", query);
         let payload = SearchPayload {
             search_text: query,
             search_filter: "t",
