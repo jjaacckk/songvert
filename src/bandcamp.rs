@@ -242,10 +242,13 @@ impl Bandcamp {
                     // might have an album attached to it.
                     // if there are multiple tracks all with no albums, then
                     // nothing gets chosen...
-                    if lackluster_search_result.len() > 1 {
-                        continue;
-                    }
-                    ""
+                    //if lackluster_search_result.len() > 1 {
+                    //    continue;
+                    //}
+                    //""
+
+                    // if no album name, assume it is a single and use song name in place"
+                    &raw_track_search_result.name
                 }
             };
 
@@ -254,7 +257,7 @@ impl Bandcamp {
                 &raw_track_search_result.band_name,
                 album_name,
                 0,
-            ) >= 2.0
+            ) >= 3.0
             {
                 let raw_album: RawAlbum = Self::get_raw_album_from_id(
                     client,
