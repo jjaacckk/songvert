@@ -60,17 +60,17 @@ impl Track {
         compare_album: &str,
         compare_duration_ms: usize,
     ) -> f64 {
-        println!(
-            "{} <=> {}\n{} <=> {}\n{} <=> {}\n{} <=> {}",
-            self.name,
-            compare_name,
-            self.artists[0],
-            compare_artist,
-            self.album,
-            compare_album,
-            self.duration_ms,
-            compare_duration_ms
-        );
+        //println!(
+        //    "{} <=> {}\n{} <=> {}\n{} <=> {}\n{} <=> {}",
+        //    self.name,
+        //    compare_name,
+        //    self.artists[0],
+        //    compare_artist,
+        //    self.album,
+        //    compare_album,
+        //    self.duration_ms,
+        //    compare_duration_ms
+        //);
 
         let mut count: f64 = 0.0;
 
@@ -88,7 +88,7 @@ impl Track {
             // no more than 3 second difference
             count += 1.0;
         }
-        println!("score: {}", count);
+        //println!("score: {}", count);
         count
     }
 

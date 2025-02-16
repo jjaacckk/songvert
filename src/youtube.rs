@@ -243,7 +243,8 @@ impl YouTube {
             context: Self::DEFAULT_MUSIC_PAYLOAD_CONTEXT,
             video_id: None,
             query: Some(query),
-            params: Some("EgWKAQIIAWoGEAMQChAQ"),
+            //params: Some("EgWKAQIIAWoGEAMQChAQ"), // old
+            params: Some("EgWKAQIIAUICCAFqBBADEAk"), // this should (among other things) keep API from autocorrecting
         };
         Self::post(client, "search", &payload).await
     }
