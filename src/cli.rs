@@ -27,6 +27,10 @@ pub struct Cli {
     /// Save all JSON metadata to file
     #[arg(short, long, value_name = "FILE")]
     output_file: Option<PathBuf>,
+
+    /// Verbose printouts
+    #[arg(short, long)]
+    verbose: bool,
 }
 
 #[derive(Args, Debug)]
