@@ -83,13 +83,8 @@ impl Cli {
             .user_agent("Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15")
             .build()?;
 
-        let spotify_session_info: Option<SessionInfo> = match &self.spotify_access_token {
-            Some(token) => Some(SessionInfo {
-                access_token: token.to_string_lossy().into_owned(),
-                access_token_expiration_timestamp_ms: 0,
-                is_anonymous: true,
-                client_id: String::new(),
-            }),
+        let spotify_access_token: Option<String> = match &self.spotify_access_token {
+            Some(token) => Some(token.to_string_lossy().into_owned()),
             None => None,
         };
 
@@ -108,14 +103,9 @@ impl Cli {
                 } else {
                     let source_info = get_source_info_from_playlist_url(&playlist_str)?;
                     match source_info.service {
-                        Source::Spotify => match &spotify_session_info {
-                            Some(session_info) => {
-                                Playlist::from_spotify_id(
-                                    &client,
-                                    &session_info.access_token,
-                                    &source_info.id,
-                                )
-                                .await?
+                        Source::Spotify => match &spotify_access_token {
+                            Some(token) => {
+                                Playlist::from_spotify_id(&client, &token, &source_info.id).await?
                             }
                             None => {
                                 return Err(Error::DatabaseError(
@@ -136,10 +126,16 @@ impl Cli {
             };
 
             if self.conversion_outputs.spotify && playlist.source_service != Source::Spotify {
-                let spotify_session_info = Spotify::get_public_session_info(&client).await?;
-                playlist
-                    .add_spotify(&client, &spotify_session_info.access_token)
-                    .await?;
+                match &spotify_access_token {
+                    Some(token) => {
+                        playlist.add_spotify(&client, &token).await?;
+                    }
+                    None => {
+                        return Err(Error::DatabaseError(
+                            "No Spotify Access Token (--ST) Provided".to_string(),
+                        ))
+                    }
+                }
             }
 
             if self.conversion_outputs.apple_music && playlist.source_service != Source::AppleMusic
@@ -172,14 +168,9 @@ impl Cli {
                 } else {
                     let source_info = get_source_info_from_track_url(&track_str)?;
                     match source_info.service {
-                        Source::Spotify => match &spotify_session_info {
-                            Some(session_info) => {
-                                Track::from_spotify_id(
-                                    &client,
-                                    &session_info.access_token,
-                                    &source_info.id,
-                                )
-                                .await?
+                        Source::Spotify => match &spotify_access_token {
+                            Some(token) => {
+                                Track::from_spotify_id(&client, &token, &source_info.id).await?
                             }
                             None => {
                                 return Err(Error::DatabaseError(
@@ -200,14 +191,19 @@ impl Cli {
             };
 
             if self.conversion_outputs.spotify && track.source_service != Source::Spotify {
-                let spotify_session_info = Spotify::get_public_session_info(&client).await?;
-                match track
-                    .add_spotify(&client, &spotify_session_info.access_token)
-                    .await
-                {
-                    Ok(..) => (),
-                    Err(e) => println!("unable to add Spotify: {}", e),
-                };
+                match &spotify_access_token {
+                    Some(token) => {
+                        match track.add_spotify(&client, &token).await {
+                            Ok(..) => (),
+                            Err(e) => println!("unable to add Spotify: {}", e),
+                        };
+                    }
+                    None => {
+                        return Err(Error::DatabaseError(
+                            "No Spotify Access Token (--ST) Provided".to_string(),
+                        ))
+                    }
+                }
             }
 
             if self.conversion_outputs.apple_music && track.source_service != Source::AppleMusic {
