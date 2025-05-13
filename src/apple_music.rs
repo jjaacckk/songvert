@@ -207,7 +207,7 @@ impl AppleMusic {
     pub const API_BASE_URL: &'static str = "https://api.music.apple.com/v1";
     pub const SITE_BASE_URL: &'static str = "https://music.apple.com";
 
-    pub const PUBLIC_BEARER_TOKEN: &'static str = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IldlYlBsYXlLaWQifQ.eyJpc3MiOiJBTVBXZWJQbGF5IiwiaWF0IjoxNzM3NDgwNzIxLCJleHAiOjE3NDQ3MzgzMjEsInJvb3RfaHR0cHNfb3JpZ2luIjpbImFwcGxlLmNvbSJdfQ.n_2fV0lbEYcLIKyt590X3A0oH8VFugS53cmTFiGHYxy1ilDRd-rWp9K1Ka2r5aAf-cRdsMaHx7VZSJ4IwG9UnQ";
+    pub const PUBLIC_BEARER_TOKEN: &'static str = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IldlYlBsYXlLaWQifQ.eyJpc3MiOiJBTVBXZWJQbGF5IiwiaWF0IjoxNzQ0ODMwNzIxLCJleHAiOjE3NTIwODgzMjEsInJvb3RfaHR0cHNfb3JpZ2luIjpbImFwcGxlLmNvbSJdfQ.cIz-EyZfbwgOzioztmbdpgrDwsaYJpDQqYvLP4K4dOF_0zKhCCRQHS_s6VmLJXEa9fxu8-0ScHkOAqxddCvG7Q";
 
     async fn get(client: &Client, auth: &str, path: &str) -> Result<Value> {
         let request: RequestBuilder = client
