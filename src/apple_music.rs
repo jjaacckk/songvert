@@ -269,7 +269,10 @@ impl AppleMusic {
             None => (),
         }
         // no isrc or isrc search failed
-        eprintln!("isrc search failed for {}....fallback....", track.name);
+        log::info!(
+            "ISRC search failed for {}. Using fallback method.",
+            track.name
+        );
 
         let mut lackluster_search_result: serde_json::Value = Self::get(
             client,

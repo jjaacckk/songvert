@@ -261,8 +261,8 @@ impl Spotify {
         };
 
         if raw_playlist.tracks.next != None {
-            eprintln!(
-                "There are more than 100 items in the playlist pagination needs to be implemented"
+            log::error!(
+                "There are more than 100 items in the playlist. Pagination needs to be implemented ASAP!"
             );
             todo!();
         }

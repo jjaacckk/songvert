@@ -26,7 +26,7 @@ impl Album {
         download_path: &Path,
         add_metadata: bool,
     ) -> Result<()> {
-        println!(
+        log::debug!(
             "Attempting to download {} tracks for album {} to {}",
             self.tracks.len(),
             self.name,
@@ -69,7 +69,7 @@ impl Album {
         full_path.push(album_filename);
         full_path.set_extension("json");
 
-        println!(
+        log::debug!(
             "Attempting to save album data to {}",
             full_path.to_string_lossy()
         );
@@ -90,7 +90,7 @@ impl Album {
             match result {
                 Ok(..) => (),
                 Err(e) => {
-                    println!("\tSkipping adding Spotify to track {}: {}", count + 1, e)
+                    log::warn!("\tSkipping adding Spotify to track {}: {}", count + 1, e)
                 }
             };
             count += 1;

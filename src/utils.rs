@@ -56,7 +56,7 @@ pub async fn add_metadata_to_mp3(
 
     if overwrite_artwork == false {
         if let Some(_) = tag.pictures().next() {
-            eprintln!("{} already has an image", mp3_file_path.to_string_lossy());
+            log::info!("{} already has an image", mp3_file_path.to_string_lossy());
             match tag.write_to_path(mp3_file_path, tag.version()) {
                 Ok(..) => return Ok(()),
                 Err(e) => return Err(Error::TagError(e.description)),
@@ -101,7 +101,7 @@ pub async fn add_metadata_to_m4a(
 
     if overwrite_artwork == false {
         if let Some(_) = tag.images().next() {
-            eprintln!("{} already has an image", m4a_file_path.to_string_lossy());
+            log::info!("{} already has an image", m4a_file_path.to_string_lossy());
             match tag.write_to_path(m4a_file_path) {
                 Ok(..) => return Ok(()),
                 Err(e) => return Err(Error::TagError(e.description)),

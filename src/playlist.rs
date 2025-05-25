@@ -24,7 +24,7 @@ impl Playlist {
         download_path: &Path,
         add_metadata: bool,
     ) -> Result<()> {
-        println!(
+        log::debug!(
             "Attempting to download {} tracks for playlist {} to {}",
             self.tracks.len(),
             self.name,
@@ -67,7 +67,7 @@ impl Playlist {
         full_path.push(playlist_filename);
         full_path.set_extension("json");
 
-        println!(
+        log::debug!(
             "Attempting to save playlist data to {}",
             full_path.to_string_lossy()
         );
@@ -88,7 +88,7 @@ impl Playlist {
             match result {
                 Ok(..) => (),
                 Err(e) => {
-                    println!(
+                    log::warn!(
                         "\tSkipping adding Spotify to track ({}) {}: {}",
                         count,
                         self.tracks[count - 1].name,
@@ -112,7 +112,7 @@ impl Playlist {
             match result {
                 Ok(..) => (),
                 Err(e) => {
-                    println!(
+                    log::warn!(
                         "\tSkipping adding Apple Music to track ({}) {}: {}",
                         count,
                         self.tracks[count - 1].name,
@@ -137,7 +137,7 @@ impl Playlist {
             match result {
                 Ok(..) => (),
                 Err(e) => {
-                    println!(
+                    log::warn!(
                         "\tSkipping adding YouTube to track ({}) {}: {}",
                         count,
                         self.tracks[count - 1].name,
@@ -162,7 +162,7 @@ impl Playlist {
             match result {
                 Ok(..) => (),
                 Err(e) => {
-                    println!(
+                    log::warn!(
                         "\tSkipping adding Bandcamp to track ({}) {}: {}",
                         count,
                         self.tracks[count - 1].name,

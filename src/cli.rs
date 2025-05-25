@@ -4,7 +4,7 @@ use songvert::{
     apple_music::*, bandcamp::*, error::*, playlist::*, service::*, spotify::*, track::*,
     youtube::*,
 };
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 
 /// Easily convert URLs between Spotify, Apple Music, Bandcamp, and YouTube
 #[derive(Parser, Debug)]
@@ -79,6 +79,14 @@ struct ConversionServices {
 
 impl Cli {
     pub async fn run(&self) -> Result<()> {
+        let log_env = if self.verbose {
+            env_logger::Env::default().filter_or("MY_LOG_LEVEL", "trace")
+        } else {
+            env_logger::Env::default().filter_or("MY_LOG_LEVEL", "info")
+        };
+
+        env_logger::init_from_env(log_env);
+
         let client = Client::builder()
             .user_agent("Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15")
             .build()?;
@@ -195,7 +203,7 @@ impl Cli {
                     Some(token) => {
                         match track.add_spotify(&client, &token).await {
                             Ok(..) => (),
-                            Err(e) => println!("unable to add Spotify: {}", e),
+                            Err(e) => log::warn!("unable to add Spotify: {}", e),
                         };
                     }
                     None => {
@@ -212,19 +220,19 @@ impl Cli {
                     .await
                 {
                     Ok(..) => (),
-                    Err(e) => println!("unable to add Apple Music: {}", e),
+                    Err(e) => log::warn!("unable to add Apple Music: {}", e),
                 };
             }
             if self.conversion_outputs.bandcamp {
                 match track.add_bandcamp(&client).await {
                     Ok(..) => (),
-                    Err(e) => println!("unable to add Bandcamp: {}", e),
+                    Err(e) => log::warn!("unable to add Bandcamp: {}", e),
                 };
             }
             if self.conversion_outputs.youtube {
                 match track.add_youtube(&client).await {
                     Ok(..) => (),
-                    Err(e) => println!("unable to add YouTube: {}", e),
+                    Err(e) => log::warn!("unable to add YouTube: {}", e),
                 };
             }
 
