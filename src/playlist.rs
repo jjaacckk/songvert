@@ -88,7 +88,12 @@ impl Playlist {
             match result {
                 Ok(..) => (),
                 Err(e) => {
-                    println!("\tSkipping adding Spotify to track {}: {}", count, e)
+                    println!(
+                        "\tSkipping adding Spotify to track ({}) {}: {}",
+                        count,
+                        self.tracks[count - 1].name,
+                        e
+                    )
                 }
             };
             count += 1;
@@ -108,8 +113,9 @@ impl Playlist {
                 Ok(..) => (),
                 Err(e) => {
                     println!(
-                        "\tSkipping adding Apple Music to track {}: {}",
+                        "\tSkipping adding Apple Music to track ({}) {}: {}",
                         count,
+                        self.tracks[count - 1].name,
                         e
                     )
                 }
@@ -131,7 +137,12 @@ impl Playlist {
             match result {
                 Ok(..) => (),
                 Err(e) => {
-                    println!("\tSkipping adding YouTube to track {}: {}", count, e)
+                    println!(
+                        "\tSkipping adding YouTube to track ({}) {}: {}",
+                        count,
+                        self.tracks[count - 1].name,
+                        e
+                    )
                 }
             };
             count += 1;
@@ -151,7 +162,12 @@ impl Playlist {
             match result {
                 Ok(..) => (),
                 Err(e) => {
-                    println!("\tSkipping adding Bandcamp to track {}: {}", count, e)
+                    println!(
+                        "\tSkipping adding Bandcamp to track ({}) {}: {}",
+                        count,
+                        self.tracks[count - 1].name,
+                        e
+                    )
                 }
             };
             count += 1;
