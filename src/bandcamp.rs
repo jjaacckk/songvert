@@ -173,7 +173,6 @@ impl Bandcamp {
         client: &Client,
         query: &str,
     ) -> Result<Vec<RawTrackSearchResult>> {
-        //println!("{}", query);
         let payload = SearchPayload {
             search_text: query,
             search_filter: "t",
@@ -211,8 +210,6 @@ impl Bandcamp {
             &serde_json::to_string(&payload)?,
         )
         .await?;
-
-        // println!("{}", serde_json::to_string_pretty(&results)?);
 
         let album: RawAlbum = serde_json::from_value(results.take())?;
 
