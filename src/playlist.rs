@@ -88,7 +88,7 @@ impl Playlist {
             match result {
                 Ok(..) => (),
                 Err(e) => {
-                    println!("\tSkipping adding Spotify to track {}: {}", count + 1, e)
+                    println!("\tSkipping adding Spotify to track {}: {}", count, e)
                 }
             };
             count += 1;
@@ -109,7 +109,7 @@ impl Playlist {
                 Err(e) => {
                     println!(
                         "\tSkipping adding Apple Music to track {}: {}",
-                        count + 1,
+                        count,
                         e
                     )
                 }
